@@ -1,0 +1,6 @@
+[global_config]
+[keybindings]
+[profiles]
+  [[default]]
+    palette = "#00000e:#06003e:#0b0f5c:#16316a:#1e4b7a:#28688a:#34849b:#3e9eaa:#4cbab9:#69bccc:#87c3dd:#35ffcf:#43fea1:#5e7eb1:#6b9cba:#61ffe8"
+

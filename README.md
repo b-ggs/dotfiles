@@ -28,3 +28,19 @@ Install the plugins via Vundle.
 ```
 $ vim +PluginInstall
 ```
+
+## Setting up rbenv
+Clone `rbenv` into `~/.rbenv`.
+```
+$ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+```
+
+Clone `ruby-build` to gain access to `rbenv install`.
+```
+$ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+```
+
+View available rubies.
+```
+$ rbenv install -l
+```

@@ -7,11 +7,15 @@ plugins=(git)
 # PATH
 export PATH="$PATH:$HOME/.rbenv/bin"
 export PATH="$PATH:$HOME/go/bin"
+export PATH="$PATH:$HOME/.gem/ruby/2.2.0/bin"
 
 # Env variables
 export TERM="xterm-256color"
 export LANG="en_US.UTF-8"
 export GOPATH=~/go
+
+# precmd
+precmd () {print -Pn "\e]0;%n@%m: %~\a"}
 
 source $ZSH/oh-my-zsh.sh
 

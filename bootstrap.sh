@@ -3,7 +3,7 @@
 dir=$PWD
 
 installdir=~
-files=".zshrc .tmux.conf .dircolors"
+files=".vimrc .vim .zshrc .tmux.conf .dircolors"
 for file in $files; do
     rm -rf $installdir/$file
     echo "Linking $dir/$file to $installdir/$file."

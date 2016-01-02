@@ -1,18 +1,24 @@
+# oh-my-zsh
 export ZSH=~/.oh-my-zsh
-ZSH_THEME="gnzh"
+ZSH_THEME="eastwood"
 DISABLE_AUTO_TITLE="true"
 plugins=(git)
-
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
-export PATH="$PATH:$HOME/exec"
-export TERM="xterm-256color" # 256 colors in gnome-terminal
-
 source $ZSH/oh-my-zsh.sh
 
-d=~/.dircolors
-test -r $d && eval "$(dircolors $d)"
+# PATH
+export PATH="$PATH:$HOME/.rbenv/bin"
+export PATH="$PATH:$HOME/go/bin"
+
+# Env variables
+export TERM="xterm-256color"
+export LANG="en_US.UTF-8"
+export GOPATH=~/go
+
+# rbenv
+eval "$(rbenv init -)"
+
+# Directory colors
+test -r $d && eval "$(dircolors ~/.dircolors)"
 
 # System
 alias svol="amixer -D pulse sset Master "
@@ -40,20 +46,6 @@ alias tmuxd="tmux detach"
 alias home="cd ~"
 alias dotfiles="cd ~/dotfiles"
 alias dev="cd ~/dev"
-alias vimb="cd ~/.vim/bundle"
-
-# Displays
-alias extdis="xrandr --output HDMI1 --off --output DP1 --off"
-alias extspec="~/dotfiles/xrandr/x450ldv_spectrum_right.sh"
-alias extmirror="xrandr --output DP1 --same-as eDP1 --mode 1024x768"
-alias soff="xset dpms force off"
-
-# Startup
-alias sup="~/dotfiles/startup/home_vga.sh"
-
-# Programs
-alias matlab2015exec="/usr/local/MATLAB/R2015b/bin/matlab"
-alias matlab2009exec="~/MATHWORKS_R2009B/bin/matlab"
 
 # Clipboard
 alias pbcopy="xclip -selection clipboard"

@@ -3,7 +3,6 @@ export ZSH=~/.oh-my-zsh
 ZSH_THEME="eastwood"
 DISABLE_AUTO_TITLE="true"
 plugins=(git)
-source $ZSH/oh-my-zsh.sh
 
 # PATH
 export PATH="$PATH:$HOME/.rbenv/bin"
@@ -13,6 +12,8 @@ export PATH="$PATH:$HOME/go/bin"
 export TERM="xterm-256color"
 export LANG="en_US.UTF-8"
 export GOPATH=~/go
+
+source $ZSH/oh-my-zsh.sh
 
 # rbenv
 eval "$(rbenv init -)"

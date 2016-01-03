@@ -11,7 +11,7 @@ $ git clone https://github.com/b-ggs/dotfiles.git
 
 Create symlinks to `~` using the script provided.
 ```
-./bootstrap.sh
+$ ./bootstrap.sh
 ```
 
 ## Setting up vim

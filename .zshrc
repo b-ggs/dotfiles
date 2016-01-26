@@ -1,6 +1,6 @@
 # oh-my-zsh
 export ZSH=~/.oh-my-zsh
-ZSH_THEME="eastwood"
+ZSH_THEME="gnzh"
 DISABLE_AUTO_TITLE="true"
 plugins=(git)
 
@@ -13,9 +13,6 @@ export PATH="$PATH:$HOME/.gem/ruby/2.2.0/bin"
 export TERM="xterm-256color"
 export LANG="en_US.UTF-8"
 export GOPATH=~/go
-
-# precmd
-precmd () {print -Pn "\e]0;%n@%m: %~\a"}
 
 source $ZSH/oh-my-zsh.sh
 

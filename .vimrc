@@ -50,7 +50,6 @@ map <leader>h <Plug>(easymotion-linebackward)
 
 " Disable annoying bells.
 set noerrorbells
-set visualbell
 
 " Path relative to working directory
 set statusline+=%f

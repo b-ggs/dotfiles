@@ -19,6 +19,9 @@ source $ZSH/oh-my-zsh.sh
 # rbenv
 eval "$(rbenv init -)"
 
+# Disable xoff
+eval "stty -ixon"
+
 # Directory colors
 test -r $d && eval "$(dircolors ~/.dircolors)"
 

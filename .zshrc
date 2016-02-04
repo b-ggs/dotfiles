@@ -12,6 +12,7 @@ export PATH="$PATH:$HOME/.gem/ruby/2.2.0/bin"
 # Env variables
 export TERM="xterm-256color"
 export LANG="en_US.UTF-8"
+export EDITOR="vim"
 export GOPATH=~/go
 
 source $ZSH/oh-my-zsh.sh

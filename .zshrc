@@ -5,7 +5,7 @@ DISABLE_AUTO_TITLE="true"
 plugins=(git)
 
 # PATH
-export PATH="$PATH:$HOME/usr/local/rvm"
+export PATH="$PATH:$HOME/usr/local/rvm/bin"
 export PATH="$PATH:$HOME/.gem/ruby/2.3.0/bin"
 export PATH="$PATH:$HOME/go/bin"
 
@@ -16,9 +16,6 @@ export EDITOR="vim"
 export GOPATH=~/go
 
 source $ZSH/oh-my-zsh.sh
-
-# rbenv
-eval "$(rbenv init -)"
 
 # Disable xoff
 eval "stty -ixon"

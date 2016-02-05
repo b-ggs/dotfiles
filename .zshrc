@@ -5,9 +5,9 @@ DISABLE_AUTO_TITLE="true"
 plugins=(git)
 
 # PATH
-export PATH="$PATH:$HOME/.rbenv/bin"
+export PATH="$PATH:$HOME/usr/local/rvm"
+export PATH="$PATH:$HOME/.gem/ruby/2.3.0/bin"
 export PATH="$PATH:$HOME/go/bin"
-export PATH="$PATH:$HOME/.gem/ruby/2.2.0/bin"
 
 # Env variables
 export TERM="xterm-256color"

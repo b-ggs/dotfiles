@@ -49,6 +49,7 @@ alias tmuxd="tmux detach"
 alias home="cd ~"
 alias dotfiles="cd ~/dotfiles"
 alias dev="cd ~/dev"
+alias dump="cd ~/dump"
 
 # Clipboard
 alias pbcopy="xclip -selection clipboard"

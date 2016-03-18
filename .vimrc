@@ -34,6 +34,7 @@ set nocompatible
 set ruler
 set noswapfile
 set autoindent 
+set encoding=utf-8
 set backspace=indent,eol,start "src http://vi.stackexchange.com/questions/2162/why-doesnt-the-backspace-key-work-in-insert-mode
 
 " Map F1 to Esc

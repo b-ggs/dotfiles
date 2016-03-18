@@ -25,7 +25,6 @@ Plugin 'mattn/webapi-vim'
 Plugin 'godlygeek/tabular'
 Plugin 'eparreno/vim-l9'
 Plugin 'rstacruz/vim-closer'
-Plugin 'rstacruz/vim-hyperstyle'
 Plugin 'mhinz/vim-startify'
 
 " General settings

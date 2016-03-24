@@ -9,15 +9,16 @@ Clone the repository.
 $ git clone https://github.com/b-ggs/dotfiles.git
 ```
 
-Create symlinks to `~` using the script provided.
+Create symlinks using the script provided.
 ```
 $ ./bootstrap.sh
 ```
 
 ## Setting up vim
-\#vimmasterrace 
-
-I'm running under the assumption that you have a build of `vim` with `+clipboard`. If you're on a Linux OS, and installed `vim` via `apt-get` or `pacman`, follow [this guide]() `//TODO: ADD LINK TO GUIDE` on getting a build of `vim` with `+clipboard`. 
+Install [vim-gnome](https://aur.archlinux.org/packages/vim-gnome/) from AUR.
+```
+$ yaourt -S vim-gnome
+```
 
 Install [Vundle.vim](https://github.com/VundleVim/Vundle.vim).
 ```
@@ -29,18 +30,34 @@ Install the plugins via Vundle.
 $ vim +PluginInstall
 ```
 
-## Setting up rbenv
-Clone `rbenv` into `~/.rbenv`.
+## Setting up oh-my-zsh
+Install via curl.
 ```
-$ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-```
-
-Clone `ruby-build` to gain access to `rbenv install`.
-```
-$ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-View available rubies.
+## Setting up rvm
+Install rvm.
 ```
-$ rbenv install -l
+$ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+$ \curl -sSL https://get.rvm.io | bash -s stable
+```
+
+Install ruby and set as default.
+```
+$ rvm install 2.3.0
+$ rvm use 2.3.0 --default
+```
+
+## Setting up nvm
+Install [nvm](https://aur.archlinux.org/packages/nvm/) from AUR.
+```
+$ yaourt -S nvm
+```
+
+Install node and set as default.
+```
+$ nvm install 4.4.1
+$ nvm alias default 4.4.1
+$ nvm use default
 ```

@@ -1,22 +1,26 @@
 # oh-my-zsh
 export ZSH=~/.oh-my-zsh
+export NVM=/usr/share/nvm
 ZSH_THEME="gnzh"
 DISABLE_AUTO_TITLE="true"
-plugins=(git)
+plugins=(git nvm rvm)
 
 # PATH
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/usr/local/rvm/bin"
 export PATH="$PATH:$HOME/.gem/ruby/2.3.0/bin"
 export PATH="$PATH:$HOME/go/bin"
+export PATH="$PATH:$HOME/Android/Sdk/platform-tools"
 
 # Env variables
 export TERM="xterm-256color"
 export LANG="en_US.UTF-8"
 export EDITOR="vim"
 export GOPATH=~/go
+export ANDROID_HOME=~/Android/Sdk
 
 source $ZSH/oh-my-zsh.sh
+source $NVM/init-nvm.sh
 
 # Disable xoff
 eval "stty -ixon"

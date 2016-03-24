@@ -43,6 +43,7 @@ alias mux="tmuxinator"
 alias bgreset="~/dotfiles/scripts/background.sh"
 alias bgset="feh --bg-fill"
 alias intellijrescue="killall -9 ibus-x11"
+alias ping1="ping -i 0.2 google.com"
 
 # Tmux
 alias tmuxl="tmux ls"

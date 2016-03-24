@@ -1,1 +1,0 @@
-/home/indinero_intern_1/boggs-dotfiles/.vim

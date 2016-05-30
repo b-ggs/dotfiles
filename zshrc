@@ -19,6 +19,15 @@ export EDITOR="vim"
 export GOPATH=~/go
 export ANDROID_HOME=~/Android/Sdk
 
+# Proxy settings
+export proxy=""
+export HTTP_PROXY="$proxy"
+export HTTPS_PROXY="$proxy"
+export FTP_PROXY="$proxy"
+export http_proxy="$proxy"
+export https_proxy="$proxy"
+export ftp_proxy="$proxy"
+
 source $ZSH/oh-my-zsh.sh
 source $NVM/init-nvm.sh
 
@@ -64,3 +73,5 @@ alias pbpaste="xclip -selection clipboard -o"
 # New aliases
 alias vi="vim"
 
+# bundler
+alias dbundle="ruby -I /home/boggs/dev/bundler/lib /home/boggs/dev/bundler/exe/bundle"

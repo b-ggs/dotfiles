@@ -26,6 +26,10 @@ Plugin 'godlygeek/tabular'
 Plugin 'eparreno/vim-l9'
 Plugin 'rstacruz/vim-closer'
 Plugin 'mhinz/vim-startify'
+Plugin 'tpope/vim-markdown'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rails'
+" Plugin 'Valloric/YouCompleteMe'
 
 " General settings
 syntax enable
@@ -51,6 +55,7 @@ map <leader>k <Plug>(easymotion-k)
 map <leader>h <Plug>(easymotion-linebackward)
 " map  n <Plug>(easymotion-next)
 " map  N <Plug>(easymotion-prev)
+let g:EasyMotion_startofline = 0
 
 " Disable annoying bells.
 set noerrorbells
@@ -120,6 +125,9 @@ set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 " NERDTree
 map <leader>t :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen = 1
+
+" Disable S-k
+map <S-k> <Nop>
 
 " Lightline
 let g:lightline = {

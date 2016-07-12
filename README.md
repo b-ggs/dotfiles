@@ -17,7 +17,12 @@ $ ./bootstrap.sh
 ## Setting up vim
 Install [vim-gnome](https://aur.archlinux.org/packages/vim-gnome/) from AUR.
 ```
-$ yaourt -S vim-gnome
+$ yaourt -s vim-gnome
+```
+
+Install [vim]() from `brew`.
+```
+$ brew install vim
 ```
 
 Install [Vundle.vim](https://github.com/VundleVim/Vundle.vim).

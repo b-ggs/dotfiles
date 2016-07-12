@@ -6,7 +6,7 @@ files="vimrc ideavimrc vim zshrc tmux.conf dircolors"
 for file in $files; do
     rm -rf $installdir/$file
     echo "Linking $dir/$file to $installdir/$file."
-    ln -s $dir/$file $installdir/.$file -f
+    ln -sf $dir/$file $installdir/.$file
 done
 
 dir=$PWD/zsh
@@ -16,5 +16,5 @@ mkdir -p $installdir
 for file in $files; do
     rm -rf $installdir/$file
     echo "Linking $dir/$file to $installdir/$file."
-    ln -s $dir/$file $installdir/$file -f
+    ln -sf $dir/$file $installdir/$file
 done

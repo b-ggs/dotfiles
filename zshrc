@@ -18,6 +18,7 @@ export LANG="en_US.UTF-8"
 export EDITOR="vim"
 export GOPATH=~/go
 export ANDROID_HOME=~/Android/Sdk
+export NVM_DIR="$HOME/.nvm"
 
 # Proxy settings
 export proxy=""
@@ -29,13 +30,14 @@ export https_proxy="$proxy"
 export ftp_proxy="$proxy"
 
 source $ZSH/oh-my-zsh.sh
-source $NVM/init-nvm.sh
+# source $NVM/init-nvm.sh
+. "$(brew --prefix nvm)/nvm.sh"
 
 # Disable xoff
 eval "stty -ixon"
 
 # Directory colors
-test -r $d && eval "$(dircolors ~/.dircolors)"
+# test -r $d && eval "$(dircolors ~/.dircolors)"
 
 # System
 alias svol="amixer -D pulse sset Master "

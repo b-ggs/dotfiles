@@ -40,8 +40,8 @@ local current_dir="%B%F{blue}%~%f%b"
 # fi
 local git_branch='$(git_prompt_info)'
 
-PROMPT="╭─${user_host} ${current_dir} ${git_branch}
-╰─$PR_PROMPT "
+PROMPT="${user_host} ${current_dir} ${git_branch}
+$ "
 RPROMPT="${return_code}"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{yellow}‹"

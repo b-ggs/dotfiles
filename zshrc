@@ -76,4 +76,4 @@ alias pbpaste="xclip -selection clipboard -o"
 alias vi="vim"
 
 # bundler
-alias dbundle="ruby -I /home/boggs/dev/bundler/lib /home/boggs/dev/bundler/exe/bundle"
+alias dbundle="ruby -I /Users/boggs/dev/bundler/lib /Users/boggs/dev/bundler/exe/bundle"

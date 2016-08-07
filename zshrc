@@ -77,3 +77,6 @@ alias vi="vim"
 
 # bundler
 alias dbundle="ruby -I /Users/boggs/dev/bundler/lib /Users/boggs/dev/bundler/exe/bundle"
+
+# SSH
+alias sshfix="eval ssh-agent && ssh-add ~/.ssh/id_rsa"

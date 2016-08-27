@@ -6,9 +6,10 @@ DISABLE_AUTO_TITLE="true"
 plugins=(git nvm rvm)
 
 # PATH
+export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/usr/local/rvm/bin"
-export PATH="$PATH:$HOME/.gem/ruby/2.3.0/bin"
+export PATH="$PATH:$HOME/.gem/ruby/2.3.1/bin"
 export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$HOME/Android/Sdk/platform-tools"
 

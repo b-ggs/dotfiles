@@ -26,7 +26,8 @@ else
 fi
 
 
-local return_code="%(?..%F{red}%? ↵%f)"
+# local return_code="%(?..%F{red}%? ↵%f)"
+local return_code="%(?..%F{red}‹%?›%f)"
 
 local user_host="${PR_USER}%F{cyan}@${PR_HOST}"
 local current_dir="%B%F{blue}%~%f%b"
@@ -40,9 +41,9 @@ local current_dir="%B%F{blue}%~%f%b"
 # fi
 local git_branch='$(git_prompt_info)'
 
-PROMPT="${user_host} ${current_dir} ${git_branch}
+PROMPT="${user_host} ${current_dir} ${git_branch}${return_code}
 $ "
-RPROMPT="${return_code}"
+# RPROMPT="${return_code}"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{yellow}‹"
 ZSH_THEME_GIT_PROMPT_SUFFIX="› %f"

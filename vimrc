@@ -73,7 +73,7 @@ set autoread
 set breakindent
 
 " system clipboard
-set clipboard=unnamedplus,unnamed
+set clipboard=unnamed
 
 " move via display line
 map j gj

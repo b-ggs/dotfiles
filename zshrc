@@ -82,3 +82,6 @@ alias dbundler="ruby -I /Users/boggs/dev/bundler/lib /Users/boggs/dev/bundler/ex
 
 # SSH
 alias sshfix="eval ssh-agent && ssh-add ~/.ssh/id_rsa"
+
+# Bundle alias
+alias be="bundle exec"

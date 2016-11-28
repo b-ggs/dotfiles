@@ -18,7 +18,7 @@ export TERM="xterm-256color"
 export LANG="en_US.UTF-8"
 export EDITOR="vim"
 export GOPATH=~/go
-export ANDROID_HOME=~/Android/Sdk
+export ANDROID_HOME=/usr/local/opt/android-sdk
 export NVM_DIR="$HOME/.nvm"
 
 # Proxy settings
@@ -41,21 +41,21 @@ eval "stty -ixon"
 # test -r $d && eval "$(dircolors ~/.dircolors)"
 
 # System
-alias svol="amixer -D pulse sset Master "
-alias svolm="pactl set-sink-volume 1 "
-alias mntall="udisks --mount /dev/sda4 && udisks --mount /dev/sda6"
-alias synconfig="~/dotfiles/scripts/synconfig.sh"
+# alias svol="amixer -D pulse sset Master "
+# alias svolm="pactl set-sink-volume 1 "
+# alias mntall="udisks --mount /dev/sda4 && udisks --mount /dev/sda6"
+# alias synconfig="~/dotfiles/scripts/synconfig.sh"
 
 # Commands
 alias findgrep="find . | grep"
 alias hisgrep="history | grep"
 alias findag="find . | ag"
-alias chrome="google-chrome"
-alias mux="tmuxinator"
-alias bgreset="~/dotfiles/scripts/background.sh"
-alias bgset="feh --bg-fill"
-alias intellijrescue="killall -9 ibus-x11"
-alias ping1="ping -i 0.2 google.com"
+# alias chrome="google-chrome"
+# alias mux="tmuxinator"
+# alias bgreset="~/dotfiles/scripts/background.sh"
+# alias bgset="feh --bg-fill"
+# alias intellijrescue="killall -9 ibus-x11"
+# alias ping1="ping -i 0.2 google.com"
 
 # Tmux
 alias tmuxl="tmux ls"
@@ -65,13 +65,13 @@ alias tmuxd="tmux detach"
 
 # Directories
 alias home="cd ~"
-alias dotfiles="cd ~/dotfiles"
+alias dotfiles="cd ~/dev/dotfiles"
 alias dev="cd ~/dev"
 alias dump="cd ~/dump"
 
 # Clipboard
-alias pbcopyx="xclip -selection clipboard"
-alias pbpastex="xclip -selection clipboard -o"
+# alias pbcopyx="xclip -selection clipboard"
+# alias pbpastex="xclip -selection clipboard -o"
 
 # New aliases
 alias vi="vim"
@@ -85,3 +85,6 @@ alias sshfix="eval ssh-agent && ssh-add ~/.ssh/id_rsa"
 
 # Bundle alias
 alias be="bundle exec"
+
+# Docker
+alias docker-init="docker-machine env default"

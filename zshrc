@@ -87,4 +87,7 @@ alias sshfix="eval ssh-agent && ssh-add ~/.ssh/id_rsa"
 alias be="bundle exec"
 
 # Docker
-alias docker-init="docker-machine env default"
+alias docker-init='eval $(docker-machine env default)'
+ 
+# Nativescript docker
+alias tns='docker run -it --rm --privileged -v /dev/bus/usb:/dev/bus/usb -v \$PWD:/home/nativescript m1burn/nativescript tns'

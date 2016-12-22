@@ -179,3 +179,6 @@ highlight VertSplit ctermbg=236 ctermfg=236
 
 " Persistent clipboard
 autocmd VimLeave * call system("xsel -ib", getreg('+'))
+
+" Map noh to ESC
+nnoremap <silent> <esc> :noh<return><esc>

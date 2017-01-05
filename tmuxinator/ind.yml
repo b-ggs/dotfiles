@@ -5,11 +5,11 @@ windows:
   - vim:
       - vim
   - server: 
-      layout: main-vertical
+      layout: even-vertical
       panes:
         - sleep 20 && be rails s
         - sleep 20 && be rails c
   - services: 
-      root: ~/dev/indinero_vagrant_box
       panes:
-        - vagrant up && vagrant ssh
+        - cd ~/dev/indinero_vagrant_box && vagrant up && vagrant ssh
+        - be rake sunspot:solr:start

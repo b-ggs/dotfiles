@@ -31,7 +31,7 @@ export https_proxy="$proxy"
 export ftp_proxy="$proxy"
 
 source $ZSH/oh-my-zsh.sh
-source ~/.bin/tmuxinator.zsh
+# source ~/.bin/tmuxinator.zsh
 # source $NVM/init-nvm.sh
 # . "$(brew --prefix nvm)/nvm.sh"
 

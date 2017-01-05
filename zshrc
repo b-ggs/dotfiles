@@ -31,8 +31,9 @@ export https_proxy="$proxy"
 export ftp_proxy="$proxy"
 
 source $ZSH/oh-my-zsh.sh
+source ~/.bin/tmuxinator.zsh
 # source $NVM/init-nvm.sh
-. "$(brew --prefix nvm)/nvm.sh"
+# . "$(brew --prefix nvm)/nvm.sh"
 
 # Disable xoff
 eval "stty -ixon"
@@ -74,7 +75,8 @@ alias dump="cd ~/dump"
 # alias pbpastex="xclip -selection clipboard -o"
 
 # New aliases
-alias vi="vim"
+alias vi='vim'
+alias mux='tmuxinator'
 
 # bundler
 alias dbundle="ruby -I /Users/boggs/dev/bundler/lib /Users/boggs/dev/bundler/exe/bundle"
@@ -91,3 +93,6 @@ alias docker-init='eval $(docker-machine env default)'
  
 # Nativescript docker
 alias tns='docker run -it --rm --privileged -v /dev/bus/usb:/dev/bus/usb -v \$PWD:/home/nativescript m1burn/nativescript tns'
+
+# inD
+alias ind='cd ~/dev/indinero'

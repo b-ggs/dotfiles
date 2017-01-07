@@ -6,8 +6,29 @@
 	<real>705</real>
 	<key>preferences</key>
 	<dict>
-		<key>Battery_MenubarMode</key>
+		<key>Battery_MebubarModeCharged</key>
 		<string>2,0</string>
+		<key>Battery_MenubarCustomizeStates</key>
+		<integer>1</integer>
+		<key>Battery_MenubarMode</key>
+		<string>2,0,1</string>
+		<key>Battery_MenubarModeCharging</key>
+		<string>2,0,1</string>
+		<key>Battery_MenubarModeDraining</key>
+		<string>2,0,1</string>
+		<key>Battery_Notifications</key>
+		<array>
+			<dict>
+				<key>level</key>
+				<integer>20</integer>
+				<key>style</key>
+				<integer>0</integer>
+				<key>type</key>
+				<integer>0</integer>
+				<key>uuid</key>
+				<string>D0E0C6D2-8887-4B2E-88B2-C75625C03F65</string>
+			</dict>
+		</array>
 		<key>CPU_MenubarGraphCustomColors</key>
 		<integer>1</integer>
 		<key>CPU_MenubarGraphOverall</key>
@@ -24,17 +45,25 @@
 		<integer>0</integer>
 		<key>Memory_MenubarMode</key>
 		<string>3</string>
+		<key>MenubarSkinColor</key>
+		<integer>0</integer>
+		<key>MenubarSkinColor-Dark</key>
+		<integer>0</integer>
+		<key>MenubarSkinColor-Light</key>
+		<integer>0</integer>
+		<key>MenubarTheme</key>
+		<integer>1</integer>
 		<key>Network_MenubarMode</key>
 		<string>100,0</string>
 		<key>Sensors-Limits-Updated</key>
 		<true/>
 		<key>StatusItems-Order</key>
 		<array>
+			<integer>1</integer>
 			<integer>7</integer>
 			<integer>6</integer>
 			<integer>4</integer>
 			<integer>2</integer>
-			<integer>1</integer>
 		</array>
 		<key>Theme-SeperateStyles</key>
 		<integer>0</integer>

@@ -155,6 +155,7 @@ let g:startify_custom_header = [
   		\ ]
 let g:startify_change_to_dir = 0
 let g:startify_change_to_vcs_root = 1
+set viminfo='100,n$HOME/.vim/files/info/viminfo
 
 " Ctrlp
 let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden

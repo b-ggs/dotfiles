@@ -66,7 +66,7 @@ alias tmuxd="tmux detach"
 
 # Directories
 alias home="cd ~"
-alias dotfiles="cd ~/dev/dotfiles"
+alias dotfiles="cd ~/dev/b-ggs/dotfiles"
 alias dev="cd ~/dev"
 alias dump="cd ~/dump"
 
@@ -95,4 +95,4 @@ alias docker-init='eval $(docker-machine env default)'
 alias tns='docker run -it --rm --privileged -v /dev/bus/usb:/dev/bus/usb -v \$PWD:/home/nativescript m1burn/nativescript tns'
 
 # inD
-alias ind='cd ~/dev/indinero'
+alias ind='cd ~/dev/jessicamah/indinero'

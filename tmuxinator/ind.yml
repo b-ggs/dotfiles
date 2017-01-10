@@ -1,5 +1,5 @@
 name: ind
-root: ~/dev/indinero
+root: ~/dev/jessicamah/indinero
 
 windows:
   - vim:
@@ -11,5 +11,5 @@ windows:
         - sleep 20 && be rails c
   - services: 
       panes:
-        - cd ~/dev/indinero_vagrant_box && vagrant up && vagrant ssh
+        - cd ~/dev/jessicamah/indinero_vagrant_box && vagrant up && vagrant ssh
         - be rake sunspot:solr:start

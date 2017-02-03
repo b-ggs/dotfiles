@@ -2,10 +2,10 @@ name: ind
 root: ~/dev/jessicamah/indinero
 
 windows:
-  - vim:
+  - editor:
       - vim
   - server: 
-      layout: even-vertical
+      layout: even-horizontal
       panes:
         - sleep 20 && be rails s
         - sleep 20 && be rails c

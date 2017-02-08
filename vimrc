@@ -17,8 +17,7 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'tpope/vim-fugitive'
-Plugin 'pangloss/vim-javascript'
-Plugin 'briancollins/vim-jst'
+Plugin 'nikvdp/ejs-syntax'
 Plugin 'tpope/vim-pathogen'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'mattn/webapi-vim'
@@ -29,7 +28,6 @@ Plugin 'mhinz/vim-startify'
 Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
-" Plugin 'Valloric/YouCompleteMe'
 
 " General settings
 syntax enable

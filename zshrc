@@ -11,6 +11,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/usr/local/rvm/bin"
 export PATH="$PATH:$HOME/.gem/ruby/2.3.1/bin"
 export PATH="$PATH:$HOME/Android/Sdk/platform-tools"
+export PATH="$PATH:/usr/local/opt/node@6/bin"
 
 # Env variables
 export TERM="xterm-256color"

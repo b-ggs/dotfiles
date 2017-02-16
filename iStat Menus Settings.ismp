@@ -44,7 +44,7 @@
 		<key>Diagnostics_Enabled</key>
 		<integer>0</integer>
 		<key>Disks_MenubarMode</key>
-		<string>5</string>
+		<string>9</string>
 		<key>Memory_MenubarMode</key>
 		<string>3</string>
 		<key>MenubarSkinColor</key>

@@ -1,15 +1,27 @@
 name: ind
 root: ~/dev/jessicamah/indinero
-
+pre_window: rvm use 2.1.5
 windows:
   - editor:
       - vim
   - server: 
       layout: even-horizontal
+      pre:
+        - sleep 20
       panes:
-        - sleep 20 && be rails s
-        - sleep 20 && be rails c
+        - be rails s
+        - be rails c
   - services: 
+      layout: tiled
+      pre:
+        - mkdir -p ~/dev/jessicamah/.dump && cd ~/dev/jessicamah/.dump
       panes:
-        - cd ~/dev/jessicamah/indinero_vagrant_box && vagrant up && vagrant ssh
-        - be rake sunspot:solr:start
+        - vagrant:
+          - cd ~/dev/jessicamah/mysql_box
+          - vagrant up
+          - vagrant ssh
+        - solr:
+          - cd ~/dev/jessicamah/indinero
+          - be rake sunspot:solr:start
+        - mongod --dbpath .
+        - redis-server

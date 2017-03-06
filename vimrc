@@ -10,7 +10,7 @@ Plugin 'rking/ag.vim'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/gist-vim'
-Plugin 'itchyny/lightline.vim'
+Plugin 'b-ggs/vim-airline'
 Plugin 'yegappan/mru'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tomtom/tcomment_vim'
@@ -35,7 +35,7 @@ filetype plugin indent on
 set nocompatible
 set ruler
 set noswapfile
-set autoindent 
+set autoindent
 set encoding=utf-8
 set backspace=indent,eol,start "src http://vi.stackexchange.com/questions/2162/why-doesnt-the-backspace-key-work-in-insert-mode
 
@@ -46,7 +46,7 @@ imap <F1> <Esc>
 " Remap leader
 let mapleader = "\<Space>"
 
-" Easymotion 
+" Easymotion
 map <leader>l <Plug>(easymotion-lineforward)
 map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
@@ -81,7 +81,7 @@ map k gk
 map <leader>f :CtrlP<CR>
 
 " ag.vim
-nnoremap <leader>a :Ag! 
+nnoremap <leader>a :Ag!
 
 " BufExplorer
 map <leader>b :BufExplorer<CR>
@@ -127,21 +127,20 @@ let NERDTreeQuitOnOpen = 1
 " Disable S-k
 map <S-k> <Nop>
 
-" Lightline
-let g:lightline = {
-  \ 'colorscheme': 'jellybeans',
-  \ 'component_function': {
-  \   'filename': 'LightLineFilename'
-  \ }
-\ }
-  " \ 'separator': { 'left': '', 'right': '' },
-  " \ 'subseparator': { 'left': '', 'right': '' }
+let g:airline_theme='outrun'
+if exists("+autochdir") && &autochdir == 1
+  let g:airline_section_b = airline#section#create(['path'])
+else
+  let g:airline_section_b = airline#section#create(['file'])
+endif
+let g:airline_section_c = ''
+let g:airline_section_x = ''
+let g:airline_section_y = airline#section#create_right(['tagbar', 'filetype'])
+let g:airline_section_error = ''
+let g:airline_section_warning = ''
+let g:airline_left_sep = ' '
+let g:airline_right_sep = ' '
 
-" Show path on Lightline
-function! LightLineFilename()
-  return expand('%')
-endfunction     
-  
 set noshowmode
 
 " Startify
@@ -149,8 +148,8 @@ let g:startify_custom_header = [
       \'   ┌─┐┌┐     ┌─┐┌─┐┌─┐ ',
       \'   │└┘├┴┐    │ ┬│ ┬└─┐ ',
       \'   └──└─┘────└─┘└─┘└─┘ ',
-  		\'',
-  		\ ]
+      \'',
+      \ ]
 let g:startify_change_to_dir = 0
 let g:startify_change_to_vcs_root = 1
 set viminfo='100,n$HOME/.vim/files/info/viminfo
@@ -172,12 +171,9 @@ let g:ag_working_path_mode="r"
 " Color override
 set background=light
 highlight LineNr ctermfg=1
-highlight Visual cterm=NONE ctermbg=3 ctermfg=Black guibg=Gray
-highlight Search cterm=NONE ctermbg=3 ctermfg=Black guibg=Gray
-highlight VertSplit ctermbg=236 ctermfg=236
+highlight Visual cterm=NONE ctermbg=3 ctermfg=0
+highlight Search cterm=NONE ctermbg=3 ctermfg=0
+highlight VertSplit ctermbg=14  ctermfg=16
 
 " Persistent clipboard
 autocmd VimLeave * call system("xsel -ib", getreg('+'))
-
-" Map noh to ESC
-" nnoremap <silent> <esc> :noh<return><esc>

@@ -1,7 +1,7 @@
 # oh-my-zsh
 export ZSH=~/.oh-my-zsh
 export NVM=/usr/share/nvm
-ZSH_THEME="gnzh"
+ZSH_THEME="outrun"
 DISABLE_AUTO_TITLE="true"
 plugins=(git nvm rvm)
 

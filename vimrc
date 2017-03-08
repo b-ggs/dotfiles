@@ -10,7 +10,6 @@ Plugin 'rking/ag.vim'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/gist-vim'
-Plugin 'b-ggs/vim-airline'
 Plugin 'yegappan/mru'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tomtom/tcomment_vim'
@@ -28,6 +27,8 @@ Plugin 'mhinz/vim-startify'
 Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-obsession'
+Plugin 'b-ggs/vim-airline'
 
 " General settings
 syntax enable
@@ -81,7 +82,7 @@ map k gk
 map <leader>f :CtrlP<CR>
 
 " ag.vim
-nnoremap <leader>a :Ag!
+nnoremap <leader>a :Ag! 
 
 " BufExplorer
 map <leader>b :BufExplorer<CR>
@@ -128,18 +129,27 @@ let NERDTreeQuitOnOpen = 1
 map <S-k> <Nop>
 
 let g:airline_theme='outrun'
-if exists("+autochdir") && &autochdir == 1
-  let g:airline_section_b = airline#section#create(['path'])
-else
-  let g:airline_section_b = airline#section#create(['file'])
-endif
-let g:airline_section_c = ''
-let g:airline_section_x = ''
-let g:airline_section_y = airline#section#create_right(['tagbar', 'filetype'])
-let g:airline_section_error = ''
-let g:airline_section_warning = ''
-let g:airline_left_sep = ' '
-let g:airline_right_sep = ' '
+
+function! AirlineInit()
+  let spc = g:airline_symbols.space
+  let g:airline_section_a = airline#section#create_left(['mode'])
+  let g:airline_section_b = ''
+  " let g:airline_section_b = airline#section#create_left(['branch'])
+  if exists("+autochdir") && &autochdir == 1
+    let g:airline_section_c = airline#section#create_left(['path'])
+  else
+    let g:airline_section_c = airline#section#create_left(['file'])
+  endif
+  let g:airline_section_x = ''
+  let g:airline_section_y = airline#section#create_left(['filetype'])
+  let g:airline_section_z = airline#section#create_left(['%3p%%'.spc, 'linenr',  ':%3v'])
+  let g:airline_section_error = ''
+  let g:airline_section_warning = ''
+  let g:airline_left_sep = ' '
+  let g:airline_right_sep = ' '
+endfunction
+autocmd User AirlineAfterInit call AirlineInit()
+autocmd VimEnter * call AirlineInit()
 
 set noshowmode
 
@@ -173,7 +183,7 @@ set background=light
 highlight LineNr ctermfg=1
 highlight Visual cterm=NONE ctermbg=3 ctermfg=0
 highlight Search cterm=NONE ctermbg=3 ctermfg=0
-highlight VertSplit ctermbg=14  ctermfg=16
+highlight VertSplit ctermbg=4 ctermfg=16
 
 " Persistent clipboard
 autocmd VimLeave * call system("xsel -ib", getreg('+'))

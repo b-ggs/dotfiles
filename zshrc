@@ -70,3 +70,5 @@ alias docker-init='eval $(docker-machine env default)'
 
 # inD
 alias ind='cd ~/dev/jessicamah/indinero'
+
+eval "$(thefuck --alias)"

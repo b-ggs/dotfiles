@@ -19,6 +19,7 @@ export LANG="en_US.UTF-8"
 export EDITOR="vim"
 export ANDROID_HOME=/usr/local/opt/android-sdk
 export GOPATH=$HOME/Go
+export FZF_COMPLETION_TRIGGER=',,'
 
 # Proxy settings
 export proxy=""
@@ -72,3 +73,5 @@ alias docker-init='eval $(docker-machine env default)'
 alias ind='cd ~/dev/jessicamah/indinero'
 
 eval "$(thefuck --alias)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

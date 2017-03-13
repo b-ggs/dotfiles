@@ -6,9 +6,8 @@ call vundle#rc()
 " Vundle packages
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-scripts/YankRing.vim'
-Plugin 'rking/ag.vim'
-Plugin 'jlanzarotta/bufexplorer'
-Plugin 'kien/ctrlp.vim'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
 Plugin 'mattn/gist-vim'
 Plugin 'yegappan/mru'
 Plugin 'scrooloose/nerdtree'
@@ -76,14 +75,16 @@ set clipboard=unnamed
 map j gj
 map k gk
 
-" ctrlp
-map <leader>f :CtrlP<CR>
+" fzf
+map <leader>f :FZF<CR>
+map <leader>a :Ag<CR>
+map <leader>b :Buffer<CR>
 
 " ag.vim
-nnoremap <leader>a :Ag! 
+" nnoremap <leader>a :Ag! 
 
 " BufExplorer
-map <leader>b :BufExplorer<CR>
+" map <leader>b :BufExplorer<CR>
 
 " line numbers
 set number
@@ -161,20 +162,6 @@ let g:startify_custom_header = [
 let g:startify_change_to_dir = 0
 let g:startify_change_to_vcs_root = 1
 set viminfo='100,n$HOME/.vim/files/info/viminfo
-
-" Ctrlp
-let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-      \ --ignore .git
-      \ --ignore .svn
-      \ --ignore .hg
-      \ --ignore .DS_Store
-      \ --ignore "**/*.pyc"
-      \ -g ""'"
-let g:ctrlp_reuse_window  = 'startify'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-
-" Ag path
-let g:ag_working_path_mode="r"
 
 " Color override
 set background=light

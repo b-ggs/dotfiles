@@ -8,6 +8,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-scripts/YankRing.vim'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
+Plugin 'vim-scripts/ag.vim'
 Plugin 'mattn/gist-vim'
 Plugin 'yegappan/mru'
 Plugin 'scrooloose/nerdtree'
@@ -75,16 +76,14 @@ set clipboard=unnamed
 map j gj
 map k gk
 
-" fzf
-map <leader>f :FZF<CR>
-map <leader>a :Ag<CR>
-map <leader>b :Buffer<CR>
+" fzf.vim
+let g:fzf_command_prefix = 'Fzf'
+map <leader>f :FzfFiles<CR>
+map <leader>a :FzfAg<CR>
+map <leader>b :FzfBuffer<CR>
 
 " ag.vim
-" nnoremap <leader>a :Ag! 
-
-" BufExplorer
-" map <leader>b :BufExplorer<CR>
+nnoremap <leader><leader>a :Ag! 
 
 " line numbers
 set number

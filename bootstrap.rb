@@ -1,15 +1,16 @@
 require 'yaml'
 
 @dotfiles = YAML.load_file('dotfiles.yml')
+@pwd = `pwd`.chomp
 
 def symlink(original, target)
-  %[rm -rf original]
+  %x[rm -rf #{target}]
   puts "Linking #{original} to #{target}."
-  %[ln -sfh #{original} #{target}]
+  %x[ln -sf #{@pwd}/#{original} #{target}]
 end
 
 def init_install_path(path)
-  %[mkdir -p #{path}]
+  %x[mkdir -p #{path}]
 end
 
 def link_dotfile(dotfile)

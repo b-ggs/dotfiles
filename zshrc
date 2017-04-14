@@ -57,8 +57,8 @@ alias vi='vim'
 alias mux='tmuxinator'
 
 # bundler
-alias dbundle="ruby -I /Users/boggs/dev/bundler/lib /Users/boggs/dev/bundler/exe/bundle"
-alias dbundler="ruby -I /Users/boggs/dev/bundler/lib /Users/boggs/dev/bundler/exe/bundler"
+alias dbundle="ruby -I /Users/boggs/dev/b-ggs/bundler/lib /Users/boggs/dev/b-ggs/bundler/exe/bundle"
+alias dbundler="ruby -I /Users/boggs/dev/b-ggs/bundler/lib /Users/boggs/dev/b-ggs/bundler/exe/bundler"
 
 # SSH
 alias sshfix="eval ssh-agent && ssh-add ~/.ssh/id_rsa"

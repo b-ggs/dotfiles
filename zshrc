@@ -30,6 +30,7 @@ export http_proxy="$proxy"
 export https_proxy="$proxy"
 export ftp_proxy="$proxy"
 
+# oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 # Disable xoff
@@ -72,6 +73,5 @@ alias docker-init='eval $(docker-machine env default)'
 # inD
 alias ind='cd ~/dev/jessicamah/indinero'
 
-eval "$(thefuck --alias)"
-
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

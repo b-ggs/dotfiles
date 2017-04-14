@@ -26,6 +26,8 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-obsession'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'tpope/vim-endwise'
+Plugin 'haya14busa/incsearch.vim'
+Plugin 'dyng/ctrlsf.vim'
 Plugin 'b-ggs/vim-airline'
 
 " General settings
@@ -79,8 +81,8 @@ map k gk
 " fzf.vim
 let g:fzf_command_prefix = 'Fzf'
 map <leader>f :FzfFiles<CR>
-map <leader>a :FzfAg<CR>
 map <leader>b :FzfBuffer<CR>
+map // :FzfLines<CR>
 
 " ag.vim
 nnoremap <leader><leader>a :Ag! 
@@ -126,8 +128,38 @@ let NERDTreeQuitOnOpen = 1
 " Disable S-k
 map <S-k> <Nop>
 
-let g:airline_theme='outrun'
+set noshowmode
 
+" Startify
+let g:startify_custom_header = [
+      \'   ┌─┐┌┐     ┌─┐┌─┐┌─┐ ',
+      \'   │└┘├┴┐    │ ┬│ ┬└─┐ ',
+      \'   └──└─┘────└─┘└─┘└─┘ ',
+      \'',
+      \ ]
+let g:startify_change_to_dir = 0
+let g:startify_change_to_vcs_root = 1
+set viminfo='100,n$HOME/.vim/files/info/viminfo
+
+" incsearch.vim
+let g:incsearch#auto_nohlsearch = 1
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+
+" ctrlsf.vim
+let g:ctrlsf_winsize = '50%'
+nmap <leader>a <Plug>CtrlSFPrompt
+nmap <leader>* <Plug>CtrlSFCCwordPath<CR>
+
+" airline
+let g:airline_theme='outrun'
 function! AirlineInit()
   let spc = g:airline_symbols.space
   let g:airline_section_a = airline#section#create_left(['mode'])
@@ -149,24 +181,12 @@ endfunction
 autocmd User AirlineAfterInit call AirlineInit()
 autocmd VimEnter * call AirlineInit()
 
-set noshowmode
-
-" Startify
-let g:startify_custom_header = [
-      \'   ┌─┐┌┐     ┌─┐┌─┐┌─┐ ',
-      \'   │└┘├┴┐    │ ┬│ ┬└─┐ ',
-      \'   └──└─┘────└─┘└─┘└─┘ ',
-      \'',
-      \ ]
-let g:startify_change_to_dir = 0
-let g:startify_change_to_vcs_root = 1
-set viminfo='100,n$HOME/.vim/files/info/viminfo
-
 " Color override
 set background=light
 highlight LineNr ctermfg=1
-highlight Visual cterm=NONE ctermbg=3 ctermfg=0
-highlight Search cterm=NONE ctermbg=3 ctermfg=0
+highlight Visual cterm=NONE ctermbg=3 ctermfg=16
+highlight Search cterm=NONE ctermbg=3 ctermfg=16
+highlight def link ctrlsfMatch Search
 highlight VertSplit ctermbg=4 ctermfg=16
 
 " Persistent clipboard

@@ -1,0 +1,52 @@
+- name: vim
+  platforms:
+    - darwin
+    - linux
+  install_path: '~'
+  paths:
+    - original: vimrc
+      target: .vimrc
+    - original: vim
+      target: .vim
+- name: tmux
+  platforms:
+    - darwin
+    - linux
+  install_path: '~'
+  paths:
+    - original: tmux.conf
+      target: .tmux.conf
+- name: tmuxinator
+  platforms:
+    - darwin
+    - linux
+  install_path: '~'
+  paths:
+    - original: tmuxinator
+      target: .tmuxinator
+- name: zsh
+  platforms:
+    - darwin
+    - linux
+  install_path: '~'
+  paths:
+    - original: zshrc
+      target: .zshrc
+- name: dircolors
+  platforms:
+    - darwin
+    - linux
+  install_path: '~'
+  paths:
+    - original: dircolors
+      target: .dircolors
+- name: oh-my-zsh themes
+  platforms:
+    - darwin
+    - linux
+  install_path: '~/.oh-my-zsh/custom/themes'
+  paths:
+    - original: gnzh.zsh-theme
+      target: gnzh.zsh-theme
+    - original: outrun.zsh-theme
+      target: outrun.zsh-theme

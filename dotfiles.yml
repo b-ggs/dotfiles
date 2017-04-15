@@ -64,3 +64,10 @@
   paths:
     - original: i3
       target: i3
+- name: polybar
+  platforms:
+    - linux
+  install_path: '~/.config'
+  paths:
+    - original: polybar
+      target: polybar

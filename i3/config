@@ -8,6 +8,10 @@ set $down j
 set $left k
 set $right l
 
+hide_edge_borders vertical
+focus_follows_mouse no
+for_window [class="^.*"] border pixel 5
+
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 

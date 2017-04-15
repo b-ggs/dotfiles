@@ -147,17 +147,17 @@ client.unfocused        #02ccb0 #02ccb0 #3b3b3b
 client.focused_inactive #02ccb0 #02ccb0 #3b3b3b
 client.urgent           #02ccb0 #02ccb0 #cc6666
 
-bar {
-  i3bar_command i3bar -t
-  separator_symbol " "
-  colors {
-    #name              #border #bg     #text
-    focused_workspace  #d064f6 #d064f6 #000000
-    active_workspace   #02ccb0 #02ccb0 #000000
-    inactive_workspace #02ccb0 #02ccb0 #000000
-    urgent_workspace   #02ccb0 #02ccb0 #000000
-  }
-  status_command i3status
-}
+# bar {
+#   i3bar_command i3bar -t
+#   separator_symbol " "
+#   colors {
+#     #name              #border #bg     #text
+#     focused_workspace  #d064f6 #d064f6 #000000
+#     active_workspace   #02ccb0 #02ccb0 #000000
+#     inactive_workspace #02ccb0 #02ccb0 #000000
+#     urgent_workspace   #02ccb0 #02ccb0 #000000
+#   }
+#   status_command i3status
+# }
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh

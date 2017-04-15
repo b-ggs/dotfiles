@@ -57,3 +57,10 @@
       target: gnzh.zsh-theme
     - original: zsh/outrun.zsh-theme
       target: outrun.zsh-theme
+- name: i3
+  platforms:
+    - linux
+  install_path: '~/.config'
+  paths:
+    - original: i3
+      target: i3

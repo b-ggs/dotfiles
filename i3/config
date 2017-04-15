@@ -3,14 +3,17 @@ font pango:Envy Code R Regular 10
 # Key variables
 set $mod Mod1
 set $sup Mod4
-set $up h
+set $left h
 set $down j
-set $left k
+set $up k
 set $right l
 
 hide_edge_borders vertical
 focus_follows_mouse no
 for_window [class="^.*"] border pixel 5
+smart_borders on
+smart_gaps on
+gaps inner 10
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -138,8 +141,21 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+#name                   #top    #border #text
+client.focused          #02ccb0 #d064f6 #c5c8c6
+client.unfocused        #02ccb0 #02ccb0 #3b3b3b
+client.focused_inactive #02ccb0 #02ccb0 #3b3b3b
+client.urgent           #02ccb0 #02ccb0 #cc6666
+
 bar {
-        status_command i3status
+  i3bar_command i3bar -t
+  separator_symbol " "
+  colors {
+    #name              #border #bg     #text
+    focused_workspace  #d064f6 #d064f6 #000000
+    active_workspace   #02ccb0 #02ccb0 #000000
+    inactive_workspace #02ccb0 #02ccb0 #000000
+    urgent_workspace   #02ccb0 #02ccb0 #000000
+  }
+  status_command i3status
 }

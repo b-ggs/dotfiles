@@ -17,17 +17,19 @@ $ git clone https://github.com/b-ggs/dotfiles.git
 Create symlinks using the script provided.
 
 ```
-$ ./bootstrap.sh
+$ ruby bootstrap.sh
 ```
 
 I recommend setting up `oh-my-zsh` before running the script, since the `oh-my-zsh` install script will complain when it finds that the `~/.oh-my-zsh` directory exists because we symlinked my custom zsh theme.
 
 ## Setting up vim
 
-Install [vim]() from `brew`.
+Install [vim]() from `brew` or [vim-gnome]() from AUR.
 
 ```
 $ brew install vim
+or
+$ yaourt -S vim-gnome
 ```
 
 Install [Vundle.vim](https://github.com/VundleVim/Vundle.vim).

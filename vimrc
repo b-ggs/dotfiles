@@ -40,6 +40,11 @@ set autoindent
 set encoding=utf-8
 set backspace=indent,eol,start "src http://vi.stackexchange.com/questions/2162/why-doesnt-the-backspace-key-work-in-insert-mode
 
+" Aliases
+command W w
+command Wq wq
+command Sudow w !sudo tee %
+
 " Map F1 to Esc
 map <F1> <Esc>
 imap <F1> <Esc>

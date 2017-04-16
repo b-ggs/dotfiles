@@ -223,7 +223,7 @@ interval = 2
 ; format-prefix = " "
 ; format-prefix-foreground = ${colors.foreground-alt}
 ; format-underline = #f90000
-label = " CPU: %percentage%% "
+label = " CPU: %percentage:2%% "
 label-foreground = ${colors.black}
 label-background = ${colors.highlightblue}
 
@@ -246,7 +246,7 @@ format-connected = <label-connected>
 ; format-connected-underline = #9f78e1
 format-connected-foreground = ${colors.black}
 format-connected-background = ${colors.highlightblue}
-label-connected = " WLAN: %signal%% %essid% "
+label-connected = " WLAN: %signal:3%% %essid% "
 
 format-disconnected = " WLAN: NO "
 format-disconnected-foreground = ${colors.black}
@@ -283,16 +283,16 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date =
-date-alt = "%Y-%m-%d "
+date = "%Y-%m-%d"
+; date-alt = "%Y-%m-%d "
 
 time = %I:%M %p
-time-alt = %H:%M:%S
+; time-alt = %H:%M:%S
 
 format = <label>
 format-background = ${colors.highlightpink}
 label-foreground = ${colors.black}
-label = " %date%%time% "
+label = " DT: %date% %time% "
 
 ; format-prefix = 
 ; format-prefix-foreground = ${colors.foreground-alt}
@@ -335,13 +335,13 @@ full-at = 98
 format-charging = <label-charging>
 format-charging-foreground = ${colors.black}
 format-charging-background = ${colors.highlightblue}
-label-charging = " BAT: CHG %percentage% %time% "
+label-charging = " BAT: CHG %percentage:3%% %time% "
 ; format-charging-underline = #ffb52a
 
 format-discharging = <label-discharging>
 format-discharging-foreground = ${colors.black}
 format-discharging-background = ${colors.highlightblue}
-label-discharging = " BAT: DIS %percentage%% %time% "
+label-discharging = " BAT: DIS %percentage:3%% %time% "
 ; format-discharging-underline = ${self.format-charging-underline}
 
 format-full-prefix = "FULL"

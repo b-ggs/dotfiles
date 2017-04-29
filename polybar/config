@@ -31,10 +31,10 @@ highlightpink = ${colors.color15}
 highlightblue = ${colors.color14}
 black = #000
 
-;background = ${xrdb:color0:#222}
+; background = ${xrdb:color0:#222}
 background = ${colors.colorbg}
 background-alt = #444
-;foreground = ${xrdb:color7:#222}
+; foreground = ${xrdb:color7:#222}
 foreground = ${colors.black}
 foreground-alt = #555
 primary = #ffb52a
@@ -43,10 +43,10 @@ alert = #bd2c40
 
 
 [bar/example]
-;monitor = ${env:MONITOR:HDMI-1}
+; monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 17
-;offset-x = 1%
+; offset-x = 1%
 ; offset-y = 10%
 ; radius = 6.0
 fixed-center = true
@@ -79,39 +79,39 @@ modules-right = xbacklight volume memory cpu wlan eth battery date
 
 tray-position = right
 tray-padding = 0
-;tray-transparent = true
-;tray-background = #0063ff
+; tray-transparent = true
+; tray-background = #0063ff
+;
+; wm-restack = bspwm
+; wm-restack = i3
+;
+; override-redirect = true
+;
+; scroll-up = bspwm-desknext
+; scroll-down = bspwm-deskprev
+;
+; scroll-up = i3wm-wsnext
+; scroll-down = i3wm-wsprev
 
-;wm-restack = bspwm
-;wm-restack = i3
+; [module/xwindow]
+; type = internal/xwindow
+; label = %title:0:30:...%
 
-;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
-
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:30:...%
-
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
-
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-; format-prefix-underline = ${colors.secondary}
-
-label-layout = %layout%
-; label-layout-underline = ${colors.secondary}
-
-label-indicator-padding = 2
-label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
-; label-indicator-underline = ${colors.secondary}
+; [module/xkeyboard]
+; type = internal/xkeyboard
+; blacklist-0 = num lock
+;
+; format-prefix = " "
+; format-prefix-foreground = ${colors.foreground-alt}
+; ; format-prefix-underline = ${colors.secondary}
+;
+; label-layout = %layout%
+; ; label-layout-underline = ${colors.secondary}
+;
+; label-indicator-padding = 2
+; label-indicator-margin = 1
+; label-indicator-background = ${colors.secondary}
+; ; label-indicator-underline = ${colors.secondary}
 
 [module/filesystem]
 type = internal/fs
@@ -180,18 +180,18 @@ label-urgent = %index%
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
-
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-
-label-song-maxlen = 25
-label-song-ellipsis = true
+; [module/mpd]
+; type = internal/mpd
+; format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+;
+; icon-prev = 
+; icon-stop = 
+; icon-play = 
+; icon-pause = 
+; icon-next = 
+;
+; label-song-maxlen = 25
+; label-song-ellipsis = true
 
 [module/xbacklight]
 type = internal/xbacklight
@@ -251,10 +251,10 @@ label-connected = " WLAN: %signal:3%% %essid% "
 format-disconnected = " WLAN: NO "
 format-disconnected-foreground = ${colors.black}
 format-disconnected-background = ${colors.highlightblue}
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
+; format-disconnected = <label-disconnected>
+; format-disconnected-underline = ${self.format-connected-underline}
+; label-disconnected = %ifname% disconnected
+; label-disconnected-foreground = ${colors.foreground-alt}
 
 ; ramp-signal-0 = 
 ; ramp-signal-1 = 
@@ -274,10 +274,10 @@ format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
 format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
+; format-disconnected = <label-disconnected>
+; format-disconnected-underline = ${self.format-connected-underline}
+; label-disconnected = %ifname% disconnected
+; label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/date]
 type = internal/date
@@ -411,10 +411,10 @@ menu-2-1-exec = menu-open-0
 
 [settings]
 screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
+; compositing-background = xor
+; compositing-background = screen
+; compositing-foreground = source
+; compositing-border = over
 
 [global/wm]
 ; margin-top = 5

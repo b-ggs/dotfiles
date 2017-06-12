@@ -17,7 +17,7 @@ windows:
         - mkdir -p ~/dev/jessicamah/.dump && cd ~/dev/jessicamah/.dump
       panes:
         - vagrant:
-          - cd ~/dev/jessicamah/mysql_box
+          - cd ~/dev/b-ggs/indinero-mysql-vagrant
           - vagrant up
           - vagrant ssh
         - solr:

@@ -22,6 +22,7 @@ windows:
           - vagrant ssh
         - solr:
           - cd ~/dev/jessicamah/indinero
+          - sleep 20
           - be rake sunspot:solr:start
         - mongod --dbpath .
         - redis-server

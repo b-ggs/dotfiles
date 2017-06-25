@@ -50,7 +50,7 @@ alias tmuxd="tmux detach"
 alias home="cd ~"
 alias dotfiles="cd ~/dev/b-ggs/dotfiles"
 alias dev="cd ~/dev"
-alias dump="cd ~/dump"
+alias dump="cd ~/dev/b-ggs/dump"
 
 # New aliases
 alias vi='vim'

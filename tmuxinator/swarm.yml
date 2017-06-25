@@ -1,0 +1,11 @@
+name: swarm
+root: ~/dev/dlsucomet/swarm-simulation
+pre_window: rvm use 2.3.1
+windows:
+  - editor:
+      - vim
+  - server: 
+      layout: even-horizontal
+      panes:
+        - be rails s
+        - be rails c

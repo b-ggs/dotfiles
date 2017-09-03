@@ -29,6 +29,9 @@ export http_proxy="$proxy"
 export https_proxy="$proxy"
 export ftp_proxy="$proxy"
 
+# fzf
+export FZF_DEFAULT_OPTS="--color 16"
+
 # oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 

@@ -15,7 +15,6 @@ windows:
         - mkdir -p ~/dev/jessicamah/.dump && cd ~/dev/jessicamah/.dump
       panes:
         - mysqld
-        - mysql -u root -ppassword
         - solr:
           - cd ~/dev/jessicamah/indinero
           - bundle exec rake sunspot:solr:start

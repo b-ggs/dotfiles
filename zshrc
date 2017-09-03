@@ -74,3 +74,6 @@ alias ind='cd ~/dev/jessicamah/indinero'
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# b-ggs/papa
+alias dpapa="ruby -I /Users/boggs/dev/b-ggs/papa/lib /Users/boggs/dev/b-ggs/papa/exe/papa"

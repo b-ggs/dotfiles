@@ -62,12 +62,12 @@
     - linux
   install_path: '~/.config'
   paths:
-    - original: i3
+    - original: linux/i3
       target: i3
 - name: polybar
   platforms:
     - linux
   install_path: '~/.config'
   paths:
-    - original: polybar
+    - original: linux/polybar
       target: polybar

@@ -193,6 +193,7 @@ highlight Visual cterm=NONE ctermbg=3 ctermfg=16
 highlight Search cterm=NONE ctermbg=3 ctermfg=16
 highlight def link ctrlsfMatch Search
 highlight VertSplit ctermbg=4 ctermfg=16
+highlight Statement cterm=NONE ctermfg=1
 
 " Persistent clipboard
 autocmd VimLeave * call system("xsel -ib", getreg('+'))

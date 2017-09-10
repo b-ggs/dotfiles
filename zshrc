@@ -17,6 +17,7 @@ export PATH="$PATH:/usr/local/opt/node@6/bin"
 export TERM="xterm-256color"
 export LANG="en_US.UTF-8"
 export EDITOR="vim"
+export SHELL="/usr/bin/zsh"
 export ANDROID_HOME=/usr/local/opt/android-sdk
 export GOPATH=$HOME/Go
 

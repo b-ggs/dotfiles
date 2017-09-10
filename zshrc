@@ -50,19 +50,21 @@ alias tmuxa="tmux attach-session -t"
 alias tmuxk="tmux kill-session -t"
 alias tmuxd="tmux detach"
 
+# New aliases
+alias vi='vim'
+alias mux='tmuxinator'
+
 # Directories
 alias home="cd ~"
 alias dotfiles="cd ~/dev/b-ggs/dotfiles"
 alias dev="cd ~/dev"
 alias dump="cd ~/dev/b-ggs/dump"
+alias ind='cd ~/dev/jessicamah/indinero'
 
-# New aliases
-alias vi='vim'
-alias mux='tmuxinator'
-
-# bundler
-alias dbundle="ruby -I /Users/boggs/dev/b-ggs/bundler/lib /Users/boggs/dev/b-ggs/bundler/exe/bundle"
-alias dbundler="ruby -I /Users/boggs/dev/b-ggs/bundler/lib /Users/boggs/dev/b-ggs/bundler/exe/bundler"
+# Windows Subsystem for Linux directories
+alias whome="cd /mnt/c/Users/$USER"
+alias wdev="cd /mnt/c/Users/$USER/dev"
+alias wind="cd /mnt/c/Users/$USER/dev/jessicamah/indinero"
 
 # SSH
 alias sshfix="eval ssh-agent && ssh-add ~/.ssh/id_rsa"
@@ -73,11 +75,12 @@ alias be="bundle exec"
 # Docker
 alias docker-init='eval $(docker-machine env default)'
 
-# inD
-alias ind='cd ~/dev/jessicamah/indinero'
-
-# fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# bundler
+alias dbundle="ruby -I /Users/boggs/dev/b-ggs/bundler/lib /Users/boggs/dev/b-ggs/bundler/exe/bundle"
+alias dbundler="ruby -I /Users/boggs/dev/b-ggs/bundler/lib /Users/boggs/dev/b-ggs/bundler/exe/bundler"
 
 # b-ggs/papa
 alias dpapa="ruby -I /Users/boggs/dev/b-ggs/papa/lib /Users/boggs/dev/b-ggs/papa/exe/papa"
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

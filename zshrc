@@ -56,14 +56,16 @@ alias mux='tmuxinator'
 
 # Directories
 alias home="cd ~"
-alias dotfiles="cd ~/dev/b-ggs/dotfiles"
 alias dev="cd ~/dev"
+alias dotfiles="cd ~/dev/b-ggs/dotfiles"
 alias dump="cd ~/dev/b-ggs/dump"
-alias ind='cd ~/dev/jessicamah/indinero'
+alias ind="cd ~/dev/jessicamah/indinero"
 
 # Windows Subsystem for Linux directories
 alias whome="cd /mnt/c/Users/$USER"
 alias wdev="cd /mnt/c/Users/$USER/dev"
+alias wdotfiles="cd /mnt/c/Users/$USER/dev/b-ggs/dotfiles"
+alias wdump="cd /mnt/c/Users/$USER/dev/b-ggs/dump"
 alias wind="cd /mnt/c/Users/$USER/dev/jessicamah/indinero"
 
 # SSH

@@ -2,9 +2,17 @@
 
 Personal configurations for vim, zsh, tmux, etc.
 
+## Contents
+
+[Setting Up](#setting-up)
+
+[Installation](#installation)
+
+[Post-installation](#post-installation)
+
 ## Setting Up
 
-This setup guide is specifically for macOS. For Linux, refer to [this](linux_guide) readme.
+This setup guide is specifically for macOS. For Linux, refer to this (TODO!) readme.
 
 Make sure you have [Xcode](xcode_direct_download) or Xcode Command Line Tools before proceeding.
 
@@ -84,7 +92,6 @@ rvm install 2.3.1
 rvm use 2.3.1 --default
 ```
 
-[linux_guide]: #
 [xcode_direct_download]: https://stackoverflow.com/questions/10335747/how-to-download-xcode-dmg-or-xip-file
 [homebrew]: https://brew.sh/
 [oh-my-zsh]: https://github.com/robbyrussell/oh-my-zsh

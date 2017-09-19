@@ -85,4 +85,9 @@ alias dbundler="ruby -I /Users/boggs/dev/b-ggs/bundler/lib /Users/boggs/dev/b-gg
 alias dpapa="ruby -I /Users/boggs/dev/b-ggs/papa/lib /Users/boggs/dev/b-ggs/papa/exe/papa"
 
 # fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
+  export PATH="$PATH:/usr/local/opt/fzf/bin"
+fi
+[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
+source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+

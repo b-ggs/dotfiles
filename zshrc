@@ -1,9 +1,12 @@
 # oh-my-zsh
 export ZSH=~/.oh-my-zsh
 export NVM=/usr/share/nvm
-ZSH_THEME="outrun"
+ZSH_THEME='vapor'
 DISABLE_AUTO_TITLE="true"
 plugins=(git nvm rvm)
+
+# Themes
+export VIM_THEME='vapor'
 
 # PATH
 export PATH="$PATH:$HOME/.local/bin"

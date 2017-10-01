@@ -52,12 +52,10 @@
   platforms:
     - darwin
     - linux
-  install_path: '~/.oh-my-zsh/custom/themes'
+  install_path: '~/.oh-my-zsh/custom'
   paths:
-    - original: zsh/gnzh.zsh-theme
-      target: gnzh.zsh-theme
-    - original: zsh/outrun.zsh-theme
-      target: outrun.zsh-theme
+    - original: zsh-themes
+      target: themes
 - name: i3
   platforms:
     - linux

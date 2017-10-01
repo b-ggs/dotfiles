@@ -16,13 +16,14 @@
   paths:
     - original: tmux.conf
       target: .tmux.conf
-- name: tmux (macOS config)
+- name: tmux-themes
   platforms:
     - darwin
+    - linux
   install_path: '~'
   paths:
-    - original: tmux-macos.conf
-      target: .tmux-macos.conf
+    - original: tmux-themes
+      target: .tmux-themes
 - name: tmuxinator
   platforms:
     - darwin

@@ -29,6 +29,7 @@ Plugin 'tpope/vim-endwise'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'b-ggs/vim-airline'
+Plugin 'ntpeters/vim-better-whitespace'
 
 " General settings
 syntax enable
@@ -137,9 +138,9 @@ set noshowmode
 
 " Startify
 let g:startify_custom_header = [
-      \'   ┌─┐┌┐     ┌─┐┌─┐┌─┐ ',
-      \'   │└┘├┴┐    │ ┬│ ┬└─┐ ',
-      \'   └──└─┘────└─┘└─┘└─┘ ',
+      \'   ┌─┐┌┐     ┌─┐┌─┐┌─┐',
+      \'   │└┘├┴┐    │ ┬│ ┬└─┐',
+      \'   └──└─┘────└─┘└─┘└─┘',
       \'',
       \ ]
 let g:startify_change_to_dir = 0

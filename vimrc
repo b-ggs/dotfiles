@@ -30,6 +30,7 @@ Plugin 'haya14busa/incsearch.vim'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'b-ggs/vim-airline'
 Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'dylanaraps/wal.vim'
 
 " General settings
 syntax enable
@@ -188,13 +189,13 @@ autocmd User AirlineAfterInit call AirlineInit()
 autocmd VimEnter * call AirlineInit()
 
 " Color override
-set background=light
-highlight LineNr ctermfg=1
+set background=dark
+colorscheme wal
+highlight LineNr ctermfg=4
 highlight Visual cterm=NONE ctermbg=3 ctermfg=16
 highlight Search cterm=NONE ctermbg=3 ctermfg=16
 highlight def link ctrlsfMatch Search
-highlight VertSplit ctermbg=4 ctermfg=16
-highlight Statement cterm=NONE ctermfg=1
+highlight VertSplit ctermbg=4 ctermfg=0
 
 " Persistent clipboard
 autocmd VimLeave * call system("xsel -ib", getreg('+'))

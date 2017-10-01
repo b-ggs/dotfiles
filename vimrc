@@ -166,7 +166,7 @@ nmap <leader>a <Plug>CtrlSFPrompt
 nmap <leader>* <Plug>CtrlSFCCwordPath<CR>
 
 " airline
-let g:airline_theme='outrun'
+let g:airline_theme=$VIM_THEME
 function! AirlineInit()
   let spc = g:airline_symbols.space
   let g:airline_section_a = airline#section#create_left(['mode'])

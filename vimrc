@@ -135,17 +135,22 @@ let NERDTreeQuitOnOpen = 1
 " Disable S-k
 map <S-k> <Nop>
 
-set noshowmode
-
 " Startify
 let g:startify_custom_header = [
-      \'   ┌─┐┌┐     ┌─┐┌─┐┌─┐',
-      \'   │└┘├┴┐    │ ┬│ ┬└─┐',
-      \'   └──└─┘────└─┘└─┘└─┘',
-      \'',
-      \ ]
+  \'   ┌─┐┌┐     ┌─┐┌─┐┌─┐',
+  \'   │└┘├┴┐    │ ┬│ ┬└─┐',
+  \'   └──└─┘────└─┘└─┘└─┘',
+  \'',
+  \ ]
 let g:startify_change_to_dir = 0
 let g:startify_change_to_vcs_root = 1
+let g:startify_files_number = 5
+let g:startify_list_order = [
+  \ ['   MRU CWD'],
+  \ 'dir',
+  \ ['   MRU'],
+  \ 'files',
+  \ ]
 set viminfo='100,n$HOME/.vim/files/info/viminfo
 
 " incsearch.vim
@@ -187,6 +192,7 @@ function! AirlineInit()
 endfunction
 autocmd User AirlineAfterInit call AirlineInit()
 autocmd VimEnter * call AirlineInit()
+set noshowmode
 
 " Color override
 set background=dark
@@ -196,6 +202,3 @@ highlight Visual cterm=NONE ctermbg=3 ctermfg=16
 highlight Search cterm=NONE ctermbg=3 ctermfg=16
 highlight def link ctrlsfMatch Search
 highlight VertSplit ctermbg=4 ctermfg=0
-
-" Persistent clipboard
-autocmd VimLeave * call system("xsel -ib", getreg('+'))

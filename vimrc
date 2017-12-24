@@ -31,6 +31,7 @@ Plugin 'dyng/ctrlsf.vim'
 Plugin 'b-ggs/vim-airline'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'dylanaraps/wal.vim'
+Plugin 'metakirby5/codi.vim'
 
 " General settings
 syntax enable

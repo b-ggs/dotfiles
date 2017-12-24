@@ -204,3 +204,6 @@ highlight Visual cterm=NONE ctermbg=3 ctermfg=16
 highlight Search cterm=NONE ctermbg=3 ctermfg=16
 highlight def link ctrlsfMatch Search
 highlight VertSplit ctermbg=4 ctermfg=0
+
+" Macros
+let @p='gg0Orequire ''pry''orequire ''pry-byebug''0'

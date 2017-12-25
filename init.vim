@@ -6,26 +6,19 @@ endif
 
 " vim-plug
 call plug#begin('~/.vim/plugged')
-Plug 'VundleVim/Vundle.vim'
-Plug 'vim-scripts/YankRing.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-scripts/ag.vim'
+Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
 Plug 'yegappan/mru'
 Plug 'scrooloose/nerdtree'
 Plug 'tomtom/tcomment_vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-pathogen'
-Plug 'Shougo/vimproc.vim'
-Plug 'mattn/webapi-vim'
-Plug 'godlygeek/tabular'
-Plug 'eparreno/vim-l9'
 Plug 'rstacruz/vim-closer'
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-rails'
-Plug 'tpope/vim-obsession'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-endwise'
 Plug 'haya14busa/incsearch.vim'

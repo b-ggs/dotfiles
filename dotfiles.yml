@@ -1,3 +1,11 @@
+- name: nvim
+  platforms:
+    - darwin
+    - linux
+  install_path: '~/.config/nvim'
+  paths:
+    - original: init.vim
+      target: init.vim
 - name: vim
   platforms:
     - darwin

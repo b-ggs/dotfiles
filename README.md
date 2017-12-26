@@ -3,12 +3,9 @@
 Personal configurations for vim, zsh, tmux, etc.
 
 ## Contents
-
-[Setting Up](#setting-up)
-
-[Installation](#installation)
-
-[Post-installation](#post-installation)
+* [Setting Up](#setting-up)
+* [Installation](#installation)
+* [Post-installation](#post-installation)
 
 ## Setting Up
 
@@ -25,7 +22,7 @@ Set up [Homebrew](homebrew).
 Install the essentials from Homebrew.
 
 ```
-brew install git vim zsh tmux reattach-to-user-namespace aria2 gpg the_silver_searcher fzf
+brew install git nvim vim zsh tmux reattach-to-user-namespace aria2 gpg the_silver_searcher fzf
 ```
 
 Add zsh to your list of acceptable shells.
@@ -62,21 +59,15 @@ ruby bootstrap.rb
 
 ## Post-installation
 
-### Setting up vim
+### Neovim
 
-Install [Vundle.vim](vundle).
-
-```
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-```
-
-Install the plugins via Vundle.
+Neovim should install all plugins with vim-plug on first run.
 
 ```
-vim +PluginInstall
+nvim
 ```
 
-### Setting up rvm
+### RVM
 
 Install rvm.
 
@@ -88,8 +79,8 @@ command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
 Install ruby and set as default.
 
 ```
-rvm install 2.3.1
-rvm use 2.3.1 --default
+rvm install 2.5.0
+rvm use 2.5.0 --default
 ```
 
 [xcode_direct_download]: https://stackoverflow.com/questions/10335747/how-to-download-xcode-dmg-or-xip-file

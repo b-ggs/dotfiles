@@ -12,7 +12,7 @@
     - linux
   install_path: '~'
   paths:
-    - original: tmux.conf
+    - original: tmux/tmux.conf
       target: .tmux.conf
 - name: tmux-themes
   platforms:
@@ -20,7 +20,7 @@
     - linux
   install_path: '~'
   paths:
-    - original: tmux-themes
+    - original: tmux/themes
       target: .tmux-themes
 - name: tmuxinator
   platforms:
@@ -36,7 +36,7 @@
     - linux
   install_path: '~'
   paths:
-    - original: zshrc
+    - original: zsh/zshrc
       target: .zshrc
 - name: oh-my-zsh themes
   platforms:
@@ -44,7 +44,7 @@
     - linux
   install_path: '~/.oh-my-zsh/custom'
   paths:
-    - original: zsh-themes
+    - original: zsh/themes
       target: themes
 - name: i3
   platforms:

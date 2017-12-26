@@ -5,28 +5,26 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 " vim-plug
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-scripts/ag.vim'
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
-Plug 'yegappan/mru'
 Plug 'scrooloose/nerdtree'
 Plug 'tomtom/tcomment_vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-fugitive'
 Plug 'rstacruz/vim-closer'
 Plug 'mhinz/vim-startify'
-Plug 'tpope/vim-rails'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-endwise'
 Plug 'haya14busa/incsearch.vim'
-Plug 'dyng/ctrlsf.vim'
 Plug 'b-ggs/vim-airline'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'dylanaraps/wal.vim'
 Plug 'metakirby5/codi.vim'
+Plug 'brooth/far.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'noahfrederick/vim-noctu'
 call plug#end()
 
 " General settings
@@ -155,11 +153,6 @@ map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
-" ctrlsf.vim
-let g:ctrlsf_winsize = '50%'
-nmap <leader>a <Plug>CtrlSFPrompt
-nmap <leader>* <Plug>CtrlSFCCwordPath<CR>
-
 " airline
 let g:airline_theme=$VIM_THEME
 function! AirlineInit()
@@ -186,12 +179,14 @@ set noshowmode
 
 " Color override
 set background=dark
-colorscheme wal
+colorscheme noctu
 highlight LineNr ctermfg=4
-highlight Visual cterm=NONE ctermbg=3 ctermfg=16
-highlight Search cterm=NONE ctermbg=3 ctermfg=16
-highlight def link ctrlsfMatch Search
-highlight VertSplit ctermbg=4 ctermfg=0
+highlight Visual cterm=NONE ctermbg=3 ctermfg=0
+highlight Search cterm=NONE ctermbg=3 ctermfg=0
+highlight VertSplit ctermbg=0 ctermfg=4
 
 " Macros
 let @p='gg0Orequire ''pry''orequire ''pry-byebug''0'
+
+" far.vim
+let g:far#source='agnvim'

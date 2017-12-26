@@ -2,8 +2,8 @@ name: ind
 root: ~/dev/jessicamah/indinero
 pre_window: rvm use 2.1.5
 windows:
-  - vim:
-    - vim
+  - nvim:
+    - nvim
   - server: 
       layout: even-horizontal
       panes:

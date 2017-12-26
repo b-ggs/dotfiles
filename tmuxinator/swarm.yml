@@ -3,7 +3,7 @@ root: ~/dev/dlsucomet/swarm-simulation
 pre_window: rvm use 2.3.1
 windows:
   - editor:
-      - vim
+      - nvim
   - server: 
       layout: even-horizontal
       panes:

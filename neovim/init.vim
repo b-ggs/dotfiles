@@ -90,6 +90,8 @@ set expandtab
 set list listchars=trail:•
 " Hide mode in statusline
 set noshowmode
+" Use terminal cursor for all modes
+set guicursor=
 
 " KEY_REMAPS
 

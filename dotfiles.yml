@@ -4,7 +4,7 @@
     - linux
   install_path: '~/.config/nvim'
   paths:
-    - original: init.vim
+    - original: neovim/init.vim
       target: init.vim
 - name: tmux
   platforms:

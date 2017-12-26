@@ -88,6 +88,8 @@ set shiftwidth=2
 set expandtab
 " Display trailing whitespaces as •
 set list listchars=trail:•
+" Hide mode in statusline
+set noshowmode
 
 " KEY_REMAPS
 

@@ -6,16 +6,6 @@
   paths:
     - original: init.vim
       target: init.vim
-- name: vim
-  platforms:
-    - darwin
-    - linux
-  install_path: '~'
-  paths:
-    - original: vimrc
-      target: .vimrc
-    - original: vim
-      target: .vim
 - name: tmux
   platforms:
     - darwin

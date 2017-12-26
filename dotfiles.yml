@@ -38,14 +38,6 @@
   paths:
     - original: zshrc
       target: .zshrc
-- name: dircolors
-  platforms:
-    - darwin
-    - linux
-  install_path: '~'
-  paths:
-    - original: dircolors
-      target: .dircolors
 - name: oh-my-zsh themes
   platforms:
     - darwin

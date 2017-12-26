@@ -1,14 +1,12 @@
+" vim-plug
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-
-" vim-plug
 call plug#begin('~/.config/nvim/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'vim-scripts/ag.vim'
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
 Plug 'scrooloose/nerdtree'
@@ -29,7 +27,7 @@ call plug#end()
 
 " General settings
 set noswapfile
-set viminfo='100,n$HOME/.vim/files/info/nviminfo
+set viminfo='100,n$HOME/.config/nvim/nviminfo
 
 " Aliases
 command W w
@@ -80,9 +78,6 @@ map <leader>f :FzfFiles<CR>
 map <leader>b :FzfBuffer<CR>
 map // :FzfLines<CR>
 
-" ag.vim
-nnoremap <leader><leader>a :Ag! 
-
 " line numbers
 set number
 set numberwidth=3
@@ -110,9 +105,6 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 nnoremap <leader>- <c-w>s
 nnoremap <leader>\ <c-w>v
-
-" Remap mark
-nnoremap ; `
 
 " Buffer number next to filename
 set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P

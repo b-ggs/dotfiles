@@ -187,8 +187,8 @@ let g:startify_list_order = [
 
 " VIM_AIRLINE
 
-" Set Airline theme to theme specified in VIM_THEME
-let g:airline_theme=$VIM_THEME
+" Set Airline theme to theme specified in zshrc
+let g:airline_theme=$ZSH_THEME
 " Customized Airline content
 function! AirlineInit()
   let spc = g:airline_symbols.space

@@ -11,8 +11,9 @@
 # oh-my-zsh
 # #########
 
-export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="vapor"
+export ZSH="$HOME/.oh-my-zsh"
+export ZSH_THEME=$ZSH_THEME
 DISABLE_AUTO_TITLE="true"
 plugins=(git nvm rvm)
 source "$ZSH/oh-my-zsh.sh"

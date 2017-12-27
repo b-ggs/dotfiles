@@ -16,7 +16,7 @@ export VIM_THEME='vapor'
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/usr/local/rvm/bin"
-export PATH="$PATH:$HOME/.gem/ruby/2.3.1/bin"
+export PATH="$PATH:$HOME/.gem/ruby/2.5.0/bin"
 export PATH="$PATH:$HOME/Android/Sdk/platform-tools"
 export PATH="$PATH:/usr/local/opt/node@6/bin"
 
@@ -46,14 +46,6 @@ eval "stty -ixon"
 
 # Aliases
 
-alias findgrep="find . | grep"
-alias hisgrep="history | grep"
-alias findag="find . | ag"
-alias tmuxl="tmux ls"
-alias tmuxa="tmux attach-session -t"
-alias tmuxk="tmux kill-session -t"
-alias tmuxd="tmux detach"
-alias mux='tmuxinator'
 alias sshfix="eval ssh-agent && ssh-add ~/.ssh/id_rsa"
 alias docker-init='eval $(docker-machine env default)'
 
@@ -63,13 +55,6 @@ alias home="cd ~"
 alias dev="cd ~/dev"
 alias dotfiles="cd ~/dev/b-ggs/dotfiles"
 alias dump="cd ~/dev/b-ggs/dump"
-
-# Windows Subsystem for Linux directories
-
-alias whome="cd /mnt/c/Users/$USER"
-alias wdev="cd /mnt/c/Users/$USER/dev"
-alias wdotfiles="cd /mnt/c/Users/$USER/dev/b-ggs/dotfiles"
-alias wdump="cd /mnt/c/Users/$USER/dev/b-ggs/dump"
 
 # Bundle alias
 

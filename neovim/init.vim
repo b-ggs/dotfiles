@@ -1,22 +1,32 @@
+"  ██          ██   ██               ██
+" ░░          ░░   ░██              ░░
+"  ██ ███████  ██ ██████    ██    ██ ██ ██████████
+" ░██░░██░░░██░██░░░██░    ░██   ░██░██░░██░░██░░██
+" ░██ ░██  ░██░██  ░██     ░░██ ░██ ░██ ░██ ░██ ░██
+" ░██ ░██  ░██░██  ░██   ██ ░░████  ░██ ░██ ░██ ░██
+" ░██ ███  ░██░██  ░░██ ░██  ░░██   ░██ ███ ░██ ░██
+" ░░ ░░░   ░░ ░░    ░░  ░░    ░░    ░░ ░░░  ░░  ░░
+
+" ########
 " CONTENTS
+" ########
 
 " VIM_PLUG
 " GENERAL_SETTINGS
 " KEY_REMAPS
-" Plugin configurations
-" * FZF_VIM
-" * NERDTREE
-" * VIM_EASYMOTION
-" * INCSEARCH_VIM
-" * FAR_VIM
-" * VIM_STARTIFY
-" * VIM_AIRLINE
 " COLORS
 " MACROS
+" FZF_VIM
+" NERDTREE
+" VIM_EASYMOTION
+" INCSEARCH_VIM
+" FAR_VIM
+" VIM_STARTIFY
+" VIM_AIRLINE
 
-""""""
-
+" ########
 " VIM_PLUG
+" ########
 
 " Silently install vim-plug if it does not exist
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
@@ -60,7 +70,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'noahfrederick/vim-noctu'
 call plug#end()
 
+" ################
 " GENERAL_SETTINGS
+" ################
 
 " Disable swap file
 set noswapfile
@@ -93,7 +105,10 @@ set noshowmode
 " Use terminal cursor for all modes
 set guicursor=
 
+"
+" ##########
 " KEY_REMAPS
+" ##########
 
 " Set leader key to Space
 let mapleader = "\<Space>"
@@ -116,7 +131,29 @@ nnoremap <c-l> <c-w>l
 nnoremap <leader>- <c-w>s
 nnoremap <leader>\ <c-w>v
 
+" ######
+" COLORS
+" ######
+
+" Set background to dark
+set background=dark
+" Set colorscheme to 16-color colorscheme
+colorscheme noctu
+" Color overrides
+highlight LineNr ctermfg=4
+highlight Visual ctermbg=3 ctermfg=0
+highlight Search ctermbg=3 ctermfg=0
+highlight VertSplit ctermbg=0 ctermfg=4
+
+" ######
+" MACROS
+" ######
+
+let @p='gg0Orequire ''pry''orequire ''pry-byebug''0'
+
+" ######E
 " FZF_VIM
+" #######
 
 " Prepend all fzf commands with 'Fzf'
 let g:fzf_command_prefix = 'Fzf'
@@ -125,14 +162,18 @@ map <leader>f :FzfFiles<CR>
 map <leader>b :FzfBuffer<CR>
 map // :FzfLines<CR>
 
+" ########
 " NERDTREE
+" ########
 
 " Quit NERDTree when a file is opened
 let NERDTreeQuitOnOpen = 1
 " NERDTree keybindings
 map <leader>t :NERDTreeToggle<CR>
 
+" ##############
 " VIM_EASYMOTION
+" ##############
 
 " Keep cursor column in vertical motions
 let g:EasyMotion_startofline = 0
@@ -142,7 +183,9 @@ map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
 map <leader>h <Plug>(easymotion-linebackward)
 
-" INCSEARCH.VIM
+" #############
+" INCSEARCH_VIM
+" #############
 
 " Turn off highlights after cursor move
 let g:incsearch#auto_nohlsearch = 1
@@ -157,12 +200,16 @@ map # <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
+" #######
 " FAR_VIM
+" #######
 
 " Use async ag search
 let g:far#source='agnvim'
 
+" ############
 " VIM_STARTIFY
+" ############
 
 " Custom header
 let g:startify_custom_header = [
@@ -185,7 +232,9 @@ let g:startify_list_order = [
   \ 'files',
   \ ]
 
+" ########### 
 " VIM_AIRLINE
+" ###########
 
 " Set Airline theme to theme specified in zshrc
 let g:airline_theme=$ZSH_THEME
@@ -209,19 +258,3 @@ function! AirlineInit()
 endfunction
 autocmd User AirlineAfterInit call AirlineInit()
 autocmd VimEnter * call AirlineInit()
-
-" COLORS
-
-" Set background to dark
-set background=dark
-" Set colorscheme to 16-color colorscheme
-colorscheme noctu
-" Color overrides
-highlight LineNr ctermfg=4
-highlight Visual ctermbg=3 ctermfg=0
-highlight Search ctermbg=3 ctermfg=0
-highlight VertSplit ctermbg=0 ctermfg=4
-
-" MACROS
-
-let @p='gg0Orequire ''pry''orequire ''pry-byebug''0'

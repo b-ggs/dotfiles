@@ -60,6 +60,9 @@ Plug 'b-ggs/far.vim'
 " Direct upload to GitHub Gist
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
+" Run tests from inside nvim
+Plug 'tpope/vim-dispatch'
+Plug 'janko-m/vim-test'
 " Interactive scratchpad
 Plug 'metakirby5/codi.vim'
 " Start screen

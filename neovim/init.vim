@@ -11,22 +11,24 @@
 " CONTENTS
 " ########
 
-" VIM_PLUG
-" GENERAL_SETTINGS
-" KEY_REMAPS
-" COLORS
-" MACROS
-" FZF_VIM
-" NERDTREE
-" VIM_EASYMOTION
-" INCSEARCH_VIM
-" FAR_VIM
-" VIM_STARTIFY
-" VIM_AIRLINE
+" Neovim configurations
+" * PLUGINS
+" * GENERAL_SETTINGS
+" * KEY_REMAPS
+" * COLORS
+" * MACROS
+" Plugin-specific configurations
+" * FZF_VIM
+" * NERDTREE
+" * VIM_EASYMOTION
+" * INCSEARCH_VIM
+" * FAR_VIM
+" * VIM_STARTIFY
+" * VIM_AIRLINE
 
-" ########
-" VIM_PLUG
-" ########
+" #######
+" PLUGINS
+" #######
 
 " Silently install vim-plug if it does not exist
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))

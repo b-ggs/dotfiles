@@ -56,7 +56,7 @@ Plug 'tpope/vim-fugitive'
 " Better search
 Plug 'haya14busa/incsearch.vim'
 " Async find and replace in cwd
-Plug 'brooth/far.vim'
+Plug 'b-ggs/far.vim'
 " Direct upload to GitHub Gist
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
@@ -206,8 +206,14 @@ map g# <Plug>(incsearch-nohl-g#)
 " FAR_VIM
 " #######
 
+" Keybindings
+map <leader>a :F 
 " Use async ag search
 let g:far#source='agnvim'
+" Set far preview height to 15 (default: 10)
+let g:far#preview_window_height=15
+" Disable listchars in far_vim buffers
+autocmd Filetype far_vim set nolist
 
 " ############
 " VIM_STARTIFY

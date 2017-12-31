@@ -72,7 +72,7 @@ Plug 'b-ggs/vim-airline'
 " Displays diff in gutter
 Plug 'airblade/vim-gitgutter'
 " 16-color colorscheme
-Plug 'noahfrederick/vim-noctu'
+Plug 'joshdick/onedark.vim'
 call plug#end()
 
 " ################
@@ -143,12 +143,14 @@ nnoremap <leader>\ <c-w>v
 " Set background to dark
 set background=dark
 " Set colorscheme to 16-color colorscheme
-colorscheme noctu
+let g:onedark_termcolors=16
+colorscheme onedark
 " Color overrides
 highlight LineNr ctermfg=4
 highlight Visual ctermbg=3 ctermfg=0
 highlight Search ctermbg=3 ctermfg=0
 highlight VertSplit ctermbg=0 ctermfg=4
+highlight Comment ctermfg=8
 
 " ######
 " MACROS

@@ -7,25 +7,6 @@
 " ░██ ███  ░██░██  ░░██ ░██  ░░██   ░██ ███ ░██ ░██
 " ░░ ░░░   ░░ ░░    ░░  ░░    ░░    ░░ ░░░  ░░  ░░
 
-" ########
-" CONTENTS
-" ########
-
-" Neovim configurations
-" * PLUGINS
-" * GENERAL_SETTINGS
-" * KEY_REMAPS
-" * COLORS
-" * MACROS
-" Plugin-specific configurations
-" * FZF_VIM
-" * NERDTREE
-" * VIM_EASYMOTION
-" * INCSEARCH_VIM
-" * FAR_VIM
-" * VIM_STARTIFY
-" * VIM_AIRLINE
-
 " #######
 " PLUGINS
 " #######

@@ -118,22 +118,6 @@ nnoremap <leader>- <c-w>s
 nnoremap <leader>\ <c-w>v
 
 " ######
-" COLORS
-" ######
-
-" Set background to dark
-set background=dark
-" Set colorscheme to 16-color colorscheme
-let g:onedark_termcolors=16
-colorscheme onedark
-" Color overrides
-highlight LineNr ctermfg=4
-highlight Visual ctermbg=3 ctermfg=0
-highlight Search ctermbg=3 ctermfg=0
-highlight VertSplit ctermbg=0 ctermfg=4
-highlight Comment ctermfg=8
-
-" ######
 " MACROS
 " ######
 
@@ -226,7 +210,7 @@ let g:startify_list_order = [
   \ 'files',
   \ ]
 
-" ########### 
+" ###########
 " VIM_AIRLINE
 " ###########
 
@@ -252,3 +236,25 @@ function! AirlineInit()
 endfunction
 autocmd User AirlineAfterInit call AirlineInit()
 autocmd VimEnter * call AirlineInit()
+
+" ###########
+" ONEDARK_VIM
+" ###########
+
+" Set onedark to 16-color colorscheme
+let g:onedark_termcolors=16
+colorscheme onedark
+
+" ######
+" COLORS
+" ######
+
+" Set background to dark
+set background=dark
+" Color overrides
+highlight LineNr ctermfg=4
+highlight Visual ctermbg=3 ctermfg=0
+highlight Search ctermbg=3 ctermfg=0
+highlight VertSplit ctermbg=0 ctermfg=4
+highlight Comment ctermfg=8
+highlight! link StartifySpecial Normal

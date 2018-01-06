@@ -417,7 +417,7 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>803 429 445 77 0 0 1680 1050 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>810 231 796 473 0 0 1680 1050 </string>
+	<string>95 448 918 512 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 1680 1050 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
@@ -883,9 +883,9 @@
 				<key>0xf702-0x280000</key>
 				<dict>
 					<key>Action</key>
-					<integer>11</integer>
+					<integer>10</integer>
 					<key>Text</key>
-					<string>0x1b 0x1b 0x5b 0x44</string>
+					<string>B</string>
 				</dict>
 				<key>0xf703-0x220000</key>
 				<dict>
@@ -911,9 +911,9 @@
 				<key>0xf703-0x280000</key>
 				<dict>
 					<key>Action</key>
-					<integer>11</integer>
+					<integer>10</integer>
 					<key>Text</key>
-					<string>0x1b 0x1b 0x5b 0x43</string>
+					<string>F</string>
 				</dict>
 				<key>0xf704-0x20000</key>
 				<dict>
@@ -1137,6 +1137,10 @@
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>177D5FA6-496C-4608-B7C0-D548AC1687B2</string>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
@@ -1200,6 +1204,8 @@
 	<integer>1</integer>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>iTerm Version</key>
 	<string>3.1.5</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>

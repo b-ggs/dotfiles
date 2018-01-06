@@ -180,6 +180,8 @@ map g# <Plug>(incsearch-nohl-g#)
 map <leader>a :F 
 " Use async ag search
 let g:far#source='agnvim'
+" Use current buffer for far
+let g:far#window_layout='current'
 " Set far preview height to 15 (default: 10)
 let g:far#preview_window_height=15
 " Disable listchars in far_vim buffers

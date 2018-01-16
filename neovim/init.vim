@@ -36,8 +36,8 @@ Plug 'rstacruz/vim-closer'
 Plug 'tpope/vim-fugitive'
 " Better search
 Plug 'haya14busa/incsearch.vim'
-" Async find and replace in cwd
-Plug 'b-ggs/far.vim'
+" Find and replace in cwd
+Plug 'dyng/ctrlsf.vim'
 " Direct upload to GitHub Gist
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
@@ -172,20 +172,15 @@ map # <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
-" #######
-" FAR_VIM
-" #######
+" ##########
+" CTRLSF_VIM
+" ##########
 
 " Keybindings
-map <leader>a :F 
-" Use async ag search
-let g:far#source='agnvim'
-" Use current buffer for far
-let g:far#window_layout='current'
-" Set far preview height to 15 (default: 10)
-let g:far#preview_window_height=15
-" Disable listchars in far_vim buffers
-autocmd Filetype far_vim set nolist
+nmap <leader>a <Plug>CtrlSFPrompt
+nmap <leader>* <Plug>CtrlSFCCwordPath<CR>
+" Set window size to 50%
+let g:ctrlsf_winsize = '50%'
 
 " ############
 " VIM_STARTIFY

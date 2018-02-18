@@ -116,6 +116,15 @@ nnoremap <c-l> <c-w>l
 " Remap splits to SPC+[-,\]
 nnoremap <leader>- <c-w>s
 nnoremap <leader>\ <c-w>v
+" Disable arrow keys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
 
 " ######
 " MACROS

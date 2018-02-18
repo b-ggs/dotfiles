@@ -60,3 +60,10 @@
   paths:
     - original: linux/polybar
       target: polybar
+- name: slate
+  platforms:
+    - darwin
+  install_path: '~'
+  paths:
+    - original: slate/slate.js
+      target: .slate.js

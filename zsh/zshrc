@@ -77,6 +77,7 @@ eval "stty -ixon"
 # Fzf
 # ###
 
+export FZF_DEFAULT_COMMAND='ag --nocolor --ignore node_modules -g ""'
 export FZF_DEFAULT_OPTS="--color 16"
 if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
   export PATH="$PATH:/usr/local/opt/fzf/bin"

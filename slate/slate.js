@@ -1,6 +1,6 @@
-// =================
-// Edit configs here
-// =================
+// ===========
+// Keybindings
+// ===========
 
 var direction = {
   "left": "h",
@@ -44,7 +44,18 @@ var bindings = {
   }
 };
 
+// =======
+// Offsets
+// =======
+
 var gap = 10;
+var offsets = {
+  "top": "+ 50",
+  "topWindowShrink1": "- 25",
+  "topWindowShrink": "+ (3 * 50 / 2)",
+  "bottom": "+ 50",
+  "bottomWindowShrink": "- 50"
+};
 
 // =====================================
 // Don't touch anything below this line!

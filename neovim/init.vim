@@ -38,6 +38,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'haya14busa/incsearch.vim'
 " Find and replace in cwd
 Plug 'dyng/ctrlsf.vim'
+" Async linter
+Plug 'neomake/neomake'
 " Direct upload to GitHub Gist
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
@@ -191,6 +193,11 @@ nmap <leader>* <Plug>CtrlSFCCwordPath<CR>
 " Set window size to 50%
 let g:ctrlsf_winsize = '50%'
 
+" #######
+" NEOMAKE
+" #######
+call neomake#configure#automake('nw', 750)
+
 " ############
 " VIM_STARTIFY
 " ############
@@ -264,3 +271,4 @@ highlight Search ctermbg=3 ctermfg=0
 highlight VertSplit ctermbg=0 ctermfg=4
 highlight Comment ctermfg=8
 highlight! link StartifySpecial Normal
+

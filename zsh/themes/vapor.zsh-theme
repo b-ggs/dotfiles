@@ -1,51 +1,39 @@
-# ZSH Theme - Preview: http://dl.dropbox.com/u/4109351/pics/gnzh-zsh-theme.png
-# Based on bira theme
+PROMPT=''
 
-setopt prompt_subst
-
-() {
-
-local PR_USER PR_USER_OP PR_PROMPT PR_HOST
-
-# Check the UID
-if [[ $UID -ne 0 ]]; then # normal user
-  PR_USER='%F{0}%n%f'
-  PR_USER_OP='%F{0}%#%f'
-  PR_PROMPT='%f➤ %f'
-else # root
-  PR_USER='%F{0}%n%f'
-  PR_USER_OP='%F{0}%#%f'
-  PR_PROMPT='%F{0}➤ %f'
-fi
-
-# Check if we are on SSH or not
-if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
-  PR_HOST='%F{0}%M%f' # SSH
-else
-  PR_HOST='%F{0}%M%f' # no SSH
-fi
-
-
-# local return_code="%(?..%F{red}%? ↵%f)"
-local return_code="%(?..%K{9} %F{0}%?%f %k)"
-
+# User and host
+local PR_USER='%F{0}%n%f'
+local PR_HOST='%F{0}%M%f'
 local user_host="%K{9} ${PR_USER}%F{0}@${PR_HOST} %k"
-local current_dir="%K{12} %F{0}%~%f %k"
-local rvm_ruby=''
-if ${HOME}/.rvm/bin/rvm-prompt &> /dev/null; then # detect user-local rvm installation
-  rvm_ruby='%K{12} %F{0}$(${HOME}/.rvm/bin/rvm-prompt i v g s)%f %k'
-elif which rvm-prompt &> /dev/null; then # detect system-wide rvm installation
-  rvm_ruby='%F{red}‹$(rvm-prompt i v g s)›%f'
-elif which rbenv &> /dev/null; then # detect Simple Ruby Version Management
-  rvm_ruby='%F{red}‹$(rbenv version | sed -e "s/ (set.*$//")›%f'
+PROMPT="${PROMPT}${user_host}"
+
+# CWD
+local current_dir=" %K{12} %F{0}%~%f %k"
+PROMPT="${PROMPT}${current_dir}"
+
+# rvm or rbenv
+if which rvm-prompt &> /dev/null; then # detect user-local rvm installation
+  local rvm_ruby=' %K{12} %F{0}$(rvm-prompt i v g s)%f %k'
+  PROMPT="${PROMPT}${rvm_ruby}"
+elif which rbenv &> /dev/null; then
+  local rvm_ruby=' %F{red}‹$(rbenv version | sed -e "s/ (set.*$//")›%f'
+  PROMPT="${PROMPT}${rvm_ruby}"
 fi
-local git_branch='$(git_prompt_info)'
 
-PROMPT="${user_host} ${current_dir} ${rvm_ruby} ${git_branch} ${return_code}
-$ "
-# RPROMPT="${return_code}"
+# Node version
+if which node &> /dev/null; then
+  node_version=' %K{12} %F{0}node-$(node -v)%f %k'
+  PROMPT="${PROMPT}${node_version}"
+fi
 
+# Git
 ZSH_THEME_GIT_PROMPT_PREFIX="%K{12} %F{0}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%f %k"
+local git_branch=' $(git_prompt_info)'
+PROMPT="${PROMPT}${git_branch}"
 
-}
+# Return code
+local return_code=" %(?..%K{9} %F{0}%?%f %k)"
+PROMPT="${PROMPT}${return_code}"
+
+# End prompt
+PROMPT="${PROMPT}"$'\n'"$ "

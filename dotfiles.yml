@@ -46,20 +46,6 @@
   paths:
     - original: zsh/themes
       target: themes
-- name: i3
-  platforms:
-    - linux
-  install_path: '~/.config'
-  paths:
-    - original: linux/i3
-      target: i3
-- name: polybar
-  platforms:
-    - linux
-  install_path: '~/.config'
-  paths:
-    - original: linux/polybar
-      target: polybar
 - name: slate
   platforms:
     - darwin

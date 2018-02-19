@@ -93,13 +93,13 @@ function operationParams(operation, action, win) {
       },
       "down": {
         "x": "windowTopLeftX",
-        "y": "screenSizeY / 2 + " + (gap / 2),
+        "y": "screenOriginY + (screenSizeY / 2) + " + (gap / 2),
         "height": "screenSizeY / 2 - " + (3 * gap / 2),
         "width": "windowSizeX"
       },
       "up": {
         "x": "windowTopLeftX",
-        "y": gap,
+        "y": "screenOriginY + " + gap,
         "height": "screenSizeY / 2 -" + (3 * gap / 2),
         "width": "windowSizeX"
       },

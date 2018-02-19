@@ -1,6 +1,6 @@
 name: ind
 root: ~/dev/jessicamah/indinero
-pre_window: rvm use 2.1.5
+pre_window: rvm use 2.1.5@indinero
 windows:
   - nvim:
     - nvim

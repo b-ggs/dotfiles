@@ -50,11 +50,7 @@ var bindings = {
 
 var gap = 10;
 var offsets = {
-  "top": "+ 50",
-  "topWindowShrink1": "- 25",
-  "topWindowShrink": "+ (3 * 50 / 2)",
-  "bottom": "+ 50",
-  "bottomWindowShrink": "- 50"
+  "top": 0
 };
 
 // =====================================
@@ -80,9 +76,9 @@ function operationParams(operation, action, win) {
     "move": {
       "fullScreen": {
         "x": "screenOriginX + " + gap + iTermXOffset(win),
-        "y": "screenOriginY + " + gap,
+        "y": "screenOriginY + " + gap + " + " + offsets.top,
         "width": "screenSizeX - " + (gap * 2),
-        "height": "screenSizeY - " + (gap * 2)
+        "height": "screenSizeY - " + (gap * 2) + " - " + offsets.top
       },
       "fullScreenNoGap": {
         "x": "screenOriginX",
@@ -92,28 +88,28 @@ function operationParams(operation, action, win) {
       },
       "right": {
         "x": "screenOriginX + (screenSizeX / 2) + " + (gap / 2) + iTermXOffset(win),
-        "y": "screenOriginY + " + gap,
+        "y": "screenOriginY + " + gap + " + " + offsets.top,
         "width": "screenSizeX / 2 - " + (gap * 3 / 2),
-        "height": "screenSizeY - " + (gap * 2)
+        "height": "screenSizeY - " + (gap * 2) + " - " + offsets.top
       },
       "left": {
         "x": "screenOriginX + " + gap + iTermXOffset(win),
-        "y": "screenOriginY + " + gap,
+        "y": "screenOriginY + " + gap + " + " + offsets.top,
         "width": "screenSizeX / 2 - " + (gap * 3 / 2),
-        "height": "screenSizeY - " + (gap * 2)
-      },
-      "down": {
-        "x": "windowTopLeftX",
-        "y": "screenOriginY + (screenSizeY / 2) + " + (gap / 2),
-        "height": "screenSizeY / 2 - " + (3 * gap / 2),
-        "width": "windowSizeX"
+        "height": "screenSizeY - " + (gap * 2) + " - " + offsets.top
       },
       "up": {
         "x": "windowTopLeftX",
-        "y": "screenOriginY + " + gap,
-        "height": "screenSizeY / 2 -" + (3 * gap / 2),
+        "y": "screenOriginY + " + gap + " + " + offsets.top,
+        "height": "screenSizeY / 2 -" + (3 * gap / 2) + " - " + (offsets.top / 2),
         "width": "windowSizeX"
       },
+      "down": {
+        "x": "windowTopLeftX",
+        "y": "screenOriginY + (screenSizeY / 2) + " + (gap / 2) + " + " + (offsets.top / 2),
+        "height": "screenSizeY / 2 - " + (3 * gap / 2) + " - " + (offsets.top / 2),
+        "width": "windowSizeX"
+      }
     },
     "focus": {
       "right": {

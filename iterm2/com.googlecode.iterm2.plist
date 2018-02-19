@@ -385,7 +385,7 @@
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/dev/b-ggs/dotfiles/terminal-configs/iterm2</string>
+	<string>~/dev/b-ggs/dotfiles/iterm2</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -427,15 +427,15 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>515 421 445 103 0 0 1680 1050 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>261 523 1018 447 0 0 1680 1050 </string>
+	<string>389 397 1018 447 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>10 10 1660 995 0 0 1680 1050 </string>
+	<string>10 10 1660 1030 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>845 532 822 508 0 0 1680 1050 </string>
+	<string>845 530 825 510 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>845 12 822 508 0 0 1680 1050 </string>
+	<string>845 10 825 510 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>845 60 825 460 0 0 1680 1050 </string>
+	<string>845 10 825 510 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
 	<string>12 12 822 508 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
@@ -1153,6 +1153,10 @@
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>B401FDC9-96C6-4C06-8DBA-6D32F161B1A4</string>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
@@ -1195,7 +1199,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/boggs/dev/b-ggs/dotfiles/terminal-configs/iterm2</string>
+	<string>/Users/boggs/dev/b-ggs/dotfiles/iterm2</string>
 	<key>SUEnableAutomaticChecks</key>
 	<false/>
 	<key>SUFeedAlternateAppNameKey</key>
@@ -1218,6 +1222,10 @@
 	<false/>
 	<key>TabStyle</key>
 	<integer>1</integer>
+	<key>TerminalMargin</key>
+	<integer>10</integer>
+	<key>TerminalVMargin</key>
+	<integer>10</integer>
 	<key>UseBorder</key>
 	<false/>
 	<key>UseLionStyleFullscreen</key>

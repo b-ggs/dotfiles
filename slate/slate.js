@@ -68,82 +68,79 @@ function keystroke(operation, action) {
 // Gaps calculation forked and modified from
 // https://gist.github.com/leb2/5af57cd4b011937dc6e0/
 
-function operationParams(operation, action, win) {
-  var paramsHash = {
-    "move": {
-      "fullScreen": {
-        "x": "screenOriginX + " + gap,
-        "y": "screenOriginY + " + gap + " + " + offsets.top,
-        "width": "screenSizeX - " + (gap * 2),
-        "height": "screenSizeY - " + (gap * 2) + " - " + offsets.top + " - " + offsets.bottom
-      },
-      "fullScreenNoGap": {
-        "x": "screenOriginX",
-        "y": "screenOriginY",
-        "width": "screenSizeX",
-        "height": "screenSizeY"
-      },
-      "right": {
-        "x": "screenOriginX + (screenSizeX / 2) + " + (gap / 2),
-        "y": "screenOriginY + " + gap + " + " + offsets.top,
-        "width": "screenSizeX / 2 - " + (gap * 3 / 2),
-        "height": "screenSizeY - " + (gap * 2) + " - " + offsets.top + " - " + offsets.bottom
-      },
-      "left": {
-        "x": "screenOriginX + " + gap,
-        "y": "screenOriginY + " + gap + " + " + offsets.top,
-        "width": "screenSizeX / 2 - " + (gap * 3 / 2),
-        "height": "screenSizeY - " + (gap * 2) + " - " + offsets.top + " - " + offsets.bottom
-      },
-      "up": {
-        "x": "windowTopLeftX",
-        "y": "screenOriginY + " + gap + " + " + offsets.top,
-        "height": "screenSizeY / 2 - " + (3 * gap / 2) + " - " + (offsets.top / 2) + " - " + (offsets.bottom / 2),
-        "width": "windowSizeX"
-      },
-      "down": {
-        "x": "windowTopLeftX",
-        "y": "screenOriginY + (screenSizeY / 2) + " + (gap / 2) + " + " + (offsets.top / 2) + " - " + (offsets.bottom / 2),
-        "height": "screenSizeY / 2 - " + (3 * gap / 2) + " - " + (offsets.top / 2) + " - " + (offsets.bottom / 2),
-        "width": "windowSizeX"
-      }
+var operationParams = {
+  "move": {
+    "fullScreen": {
+      "x": "screenOriginX + " + gap,
+      "y": "screenOriginY + " + gap + " + " + offsets.top,
+      "width": "screenSizeX - " + (gap * 2),
+      "height": "screenSizeY - " + (gap * 2) + " - " + offsets.top + " - " + offsets.bottom
     },
-    "focus": {
-      "right": {
-        "direction": "right"
-      },
-      "left": {
-        "direction": "left"
-      },
-      "up": {
-        "direction": "up"
-      },
-      "down": {
-        "direction": "down"
-      }
+    "fullScreenNoGap": {
+      "x": "screenOriginX",
+      "y": "screenOriginY",
+      "width": "screenSizeX",
+      "height": "screenSizeY"
     },
-    "hint": {
-      "hint": {
-        "characters": "asdfghjkl"
-      }
+    "right": {
+      "x": "screenOriginX + (screenSizeX / 2) + " + (gap / 2),
+      "y": "screenOriginY + " + gap + " + " + offsets.top,
+      "width": "screenSizeX / 2 - " + (gap * 3 / 2),
+      "height": "screenSizeY - " + (gap * 2) + " - " + offsets.top + " - " + offsets.bottom
     },
-    "grid": {
-      "grid": {
-        "grids": {
-          "1680x1050": {
-            "width": 16,
-            "height": 9
-          }
-        },
-        "padding": 5
-      }
+    "left": {
+      "x": "screenOriginX + " + gap,
+      "y": "screenOriginY + " + gap + " + " + offsets.top,
+      "width": "screenSizeX / 2 - " + (gap * 3 / 2),
+      "height": "screenSizeY - " + (gap * 2) + " - " + offsets.top + " - " + offsets.bottom
+    },
+    "up": {
+      "x": "windowTopLeftX",
+      "y": "screenOriginY + " + gap + " + " + offsets.top,
+      "height": "screenSizeY / 2 - " + (3 * gap / 2) + " - " + (offsets.top / 2) + " - " + (offsets.bottom / 2),
+      "width": "windowSizeX"
+    },
+    "down": {
+      "x": "windowTopLeftX",
+      "y": "screenOriginY + (screenSizeY / 2) + " + (gap / 2) + " + " + (offsets.top / 2) + " - " + (offsets.bottom / 2),
+      "height": "screenSizeY / 2 - " + (3 * gap / 2) + " - " + (offsets.top / 2) + " - " + (offsets.bottom / 2),
+      "width": "windowSizeX"
     }
-  };
-  return paramsHash[operation][action];
-}
+  },
+  "focus": {
+    "right": {
+      "direction": "right"
+    },
+    "left": {
+      "direction": "left"
+    },
+    "up": {
+      "direction": "up"
+    },
+    "down": {
+      "direction": "down"
+    }
+  },
+  "hint": {
+    "hint": {
+      "characters": "asdfghjkl"
+    }
+  },
+  "grid": {
+    "grid": {
+      "grids": {
+        "1680x1050": {
+          "width": 16,
+          "height": 9
+        }
+      },
+      "padding": 5
+    }
+  }
+};
 
 function doOperation(win, operation, action) {
-  var windowOperation = S.op(operation, operationParams(operation, action, win));
+  var windowOperation = S.op(operation, operationParams[operation][action]);
   win.doOperation(windowOperation);
 }
 

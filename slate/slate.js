@@ -50,7 +50,8 @@ var bindings = {
 
 var gap = 10;
 var offsets = {
-  "top": 0
+  "top": 0,
+  "bottom": 0
 };
 
 // =====================================
@@ -78,7 +79,7 @@ function operationParams(operation, action, win) {
         "x": "screenOriginX + " + gap + iTermXOffset(win),
         "y": "screenOriginY + " + gap + " + " + offsets.top,
         "width": "screenSizeX - " + (gap * 2),
-        "height": "screenSizeY - " + (gap * 2) + " - " + offsets.top
+        "height": "screenSizeY - " + (gap * 2) + " - " + offsets.top + " - " + offsets.bottom
       },
       "fullScreenNoGap": {
         "x": "screenOriginX",
@@ -90,24 +91,24 @@ function operationParams(operation, action, win) {
         "x": "screenOriginX + (screenSizeX / 2) + " + (gap / 2) + iTermXOffset(win),
         "y": "screenOriginY + " + gap + " + " + offsets.top,
         "width": "screenSizeX / 2 - " + (gap * 3 / 2),
-        "height": "screenSizeY - " + (gap * 2) + " - " + offsets.top
+        "height": "screenSizeY - " + (gap * 2) + " - " + offsets.top + " - " + offsets.bottom
       },
       "left": {
         "x": "screenOriginX + " + gap + iTermXOffset(win),
         "y": "screenOriginY + " + gap + " + " + offsets.top,
         "width": "screenSizeX / 2 - " + (gap * 3 / 2),
-        "height": "screenSizeY - " + (gap * 2) + " - " + offsets.top
+        "height": "screenSizeY - " + (gap * 2) + " - " + offsets.top + " - " + offsets.bottom
       },
       "up": {
         "x": "windowTopLeftX",
         "y": "screenOriginY + " + gap + " + " + offsets.top,
-        "height": "screenSizeY / 2 -" + (3 * gap / 2) + " - " + (offsets.top / 2),
+        "height": "screenSizeY / 2 - " + (3 * gap / 2) + " - " + (offsets.top / 2) + " - " + (offsets.bottom / 2),
         "width": "windowSizeX"
       },
       "down": {
         "x": "windowTopLeftX",
-        "y": "screenOriginY + (screenSizeY / 2) + " + (gap / 2) + " + " + (offsets.top / 2),
-        "height": "screenSizeY / 2 - " + (3 * gap / 2) + " - " + (offsets.top / 2),
+        "y": "screenOriginY + (screenSizeY / 2) + " + (gap / 2) + " + " + (offsets.top / 2) + " - " + (offsets.bottom / 2),
+        "height": "screenSizeY / 2 - " + (3 * gap / 2) + " - " + (offsets.top / 2) + " - " + (offsets.bottom / 2),
         "width": "windowSizeX"
       }
     },

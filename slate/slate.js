@@ -73,7 +73,7 @@ function operationParams(operation, action, win) {
         "height": "screenSizeY"
       },
       "pushRight": {
-        "x": "screenSizeX / 2 + " + (gap / 2) + iTermXOffset(win),
+        "x": "screenOriginX + (screenSizeX / 2) + " + (gap / 2) + iTermXOffset(win),
         "y": "screenOriginY + " + gap,
         "width": "screenSizeX / 2 - " + (gap * 3 / 2),
         "height": "screenSizeY - " + (gap * 2)

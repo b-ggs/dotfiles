@@ -2,25 +2,32 @@
 // Edit configs here
 // =================
 
+var direction = {
+  "left": "h",
+  "right": "l",
+  "up": "k",
+  "down": "j"
+};
+
 var bindings = {
   "move": {
     "modifier": "cmd,alt",
     "keys": {
       "fullScreen": "f",
       "fullScreenNoGap": "g",
-      "pushRight": "l",
-      "pushLeft": "h",
-      "pushUp": "k",
-      "pushDown": "j"
+      "left": direction.left,
+      "right": direction.right,
+      "up": direction.up,
+      "down": direction.down
     }
   },
   "focus": {
     "modifier": "cmd,ctrl",
     "keys": {
-      "focusRight": "l",
-      "focusLeft": "h",
-      "focusUp": "k",
-      "focusDown": "j"
+      "left": direction.left,
+      "right": direction.right,
+      "up": direction.up,
+      "down": direction.down
     }
   },
   "hint": {
@@ -48,9 +55,9 @@ function iTermXOffset(win) {
 }
 
 function keystroke(operation, action) {
-  var operationHash = bindings[operation]
-  var modifier = operationHash["modifier"]
-  var key = operationHash["keys"][action]
+  var operationHash = bindings[operation];
+  var modifier = operationHash.modifier;
+  var key = operationHash.keys[action];
   return key + ":" + modifier;
 }
 
@@ -58,7 +65,7 @@ function keystroke(operation, action) {
 // https://gist.github.com/leb2/5af57cd4b011937dc6e0/
 
 function operationParams(operation, action, win) {
-  paramsHash = {
+  var paramsHash = {
     "move": {
       "fullScreen": {
         "x": "screenOriginX + " + gap + iTermXOffset(win),
@@ -72,25 +79,25 @@ function operationParams(operation, action, win) {
         "width": "screenSizeX",
         "height": "screenSizeY"
       },
-      "pushRight": {
+      "right": {
         "x": "screenOriginX + (screenSizeX / 2) + " + (gap / 2) + iTermXOffset(win),
         "y": "screenOriginY + " + gap,
         "width": "screenSizeX / 2 - " + (gap * 3 / 2),
         "height": "screenSizeY - " + (gap * 2)
       },
-      "pushLeft": {
+      "left": {
         "x": "screenOriginX + " + gap + iTermXOffset(win),
         "y": "screenOriginY + " + gap,
         "width": "screenSizeX / 2 - " + (gap * 3 / 2),
         "height": "screenSizeY - " + (gap * 2)
       },
-      "pushDown": {
+      "down": {
         "x": "windowTopLeftX",
         "y": "screenSizeY / 2 + " + (gap / 2),
-        "height": "screenSizeY / 2 -" + (3 * gap / 2),
+        "height": "screenSizeY / 2 - " + (3 * gap / 2),
         "width": "windowSizeX"
       },
-      "pushUp": {
+      "up": {
         "x": "windowTopLeftX",
         "y": gap,
         "height": "screenSizeY / 2 -" + (3 * gap / 2),
@@ -98,16 +105,16 @@ function operationParams(operation, action, win) {
       },
     },
     "focus": {
-      "focusRight": {
+      "right": {
         "direction": "right"
       },
-      "focusLeft": {
+      "left": {
         "direction": "left"
       },
-      "focusUp": {
+      "up": {
         "direction": "up"
       },
-      "focusDown": {
+      "down": {
         "direction": "down"
       }
     },
@@ -132,8 +139,8 @@ function operationParams(operation, action, win) {
 }
 
 function doOperation(win, operation, action) {
-  var operation = S.op(operation, operationParams(operation, action, win));
-  win.doOperation(operation);
+  var windowOperation = S.op(operation, operationParams(operation, action, win));
+  win.doOperation(windowOperation);
 }
 
 var operationActionHashes = [
@@ -142,19 +149,19 @@ var operationActionHashes = [
     "actions": [
       "fullScreen",
       "fullScreenNoGap",
-      "pushRight",
-      "pushLeft",
-      "pushUp",
-      "pushDown"
+      "left",
+      "right",
+      "up",
+      "down"
     ]
   },
   {
     "operation": "focus",
     "actions": [
-      "focusRight",
-      "focusLeft",
-      "focusUp",
-      "focusDown"
+      "left",
+      "right",
+      "up",
+      "down"
     ]
   },
   {
@@ -172,8 +179,8 @@ var operationActionHashes = [
 ];
 
 _.each(operationActionHashes, function(operationActionHash) {
-  var operation = operationActionHash["operation"];
-  _.each(operationActionHash["actions"], function(action) {
+  var operation = operationActionHash.operation;
+  _.each(operationActionHash.actions, function(action) {
     S.bind(keystroke(operation, action), function(win) {
       doOperation(win, operation, action);
     });

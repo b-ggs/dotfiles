@@ -366,6 +366,8 @@
 	<false/>
 	<key>DisableFullscreenTransparency</key>
 	<false/>
+	<key>DisableWindowSizeSnap</key>
+	<true/>
 	<key>EnableDivisionView</key>
 	<false/>
 	<key>EnableProxyIcon</key>
@@ -425,15 +427,15 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>515 421 445 103 0 0 1680 1050 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>736 616 770 429 0 0 1680 1050 </string>
+	<string>261 523 1018 447 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>12 532 822 508 0 0 1680 1050 </string>
+	<string>10 10 1660 995 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>12 10 1655 1030 0 0 1680 1050 </string>
+	<string>845 532 822 508 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>847 532 822 508 0 0 1680 1050 </string>
+	<string>845 12 822 508 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>847 12 822 508 0 0 1680 1050 </string>
+	<string>845 60 825 460 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
 	<string>12 12 822 508 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 5</key>

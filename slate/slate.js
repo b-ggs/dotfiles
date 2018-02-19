@@ -58,10 +58,6 @@ var offsets = {
 // Don't touch anything below this line!
 // =====================================
 
-function iTermXOffset(win) {
-  return win.app().name() == "iTerm2" ? "+ 2" : "";
-}
-
 function keystroke(operation, action) {
   var operationHash = bindings[operation];
   var modifier = operationHash.modifier;
@@ -76,7 +72,7 @@ function operationParams(operation, action, win) {
   var paramsHash = {
     "move": {
       "fullScreen": {
-        "x": "screenOriginX + " + gap + iTermXOffset(win),
+        "x": "screenOriginX + " + gap,
         "y": "screenOriginY + " + gap + " + " + offsets.top,
         "width": "screenSizeX - " + (gap * 2),
         "height": "screenSizeY - " + (gap * 2) + " - " + offsets.top + " - " + offsets.bottom
@@ -88,13 +84,13 @@ function operationParams(operation, action, win) {
         "height": "screenSizeY"
       },
       "right": {
-        "x": "screenOriginX + (screenSizeX / 2) + " + (gap / 2) + iTermXOffset(win),
+        "x": "screenOriginX + (screenSizeX / 2) + " + (gap / 2),
         "y": "screenOriginY + " + gap + " + " + offsets.top,
         "width": "screenSizeX / 2 - " + (gap * 3 / 2),
         "height": "screenSizeY - " + (gap * 2) + " - " + offsets.top + " - " + offsets.bottom
       },
       "left": {
-        "x": "screenOriginX + " + gap + iTermXOffset(win),
+        "x": "screenOriginX + " + gap,
         "y": "screenOriginY + " + gap + " + " + offsets.top,
         "width": "screenSizeX / 2 - " + (gap * 3 / 2),
         "height": "screenSizeY - " + (gap * 2) + " - " + offsets.top + " - " + offsets.bottom

@@ -2,21 +2,18 @@ command: 'sh ../scripts/spotify_macos.sh'
 
 refreshFrequency: 3000
 
-template: (output) ->
-  info = output.split('@')
-  title = info[0].trim()
-  artist = info[1].trim()
-  status =
-    if info.length >= 3
-      info[2].trim()
-    else
-      ''
-  keyDiv = "<div class='text key'>&nbsp;spotify&nbsp;</div>"
-  titleDiv = "<div class='text value'>&nbsp;#{title}&nbsp;</div>"
-  artistDiv = "<div class='text value'>&nbsp;#{artist}&nbsp;</div>"
-  statusDiv = 
-    if status != ''
-      "<div class='text value'>&nbsp;#{status}&nbsp;</div>"
+label: 'spotify'
+
+render: (output) ->
+  json = JSON.parse(output)
+  if json.state == 'not running'
+    return ''
+  keyDiv = "<div class='text label'>&nbsp;#{@label}&nbsp;</div>"
+  titleDiv = "<div class='text value'>&nbsp;#{json.title}&nbsp;</div>"
+  artistDiv = "<div class='text value'>&nbsp;#{json.artist}&nbsp;</div>"
+  statusDiv =
+    if json.state != 'playing'
+      "<div class='text value'>&nbsp;#{json.state}&nbsp;</div>"
     else
       ''
   """
@@ -27,9 +24,6 @@ template: (output) ->
     #{statusDiv}
   </div>
   """
-
-render: (output) ->
-  @template(output)
 
 style:
   """
@@ -49,7 +43,7 @@ style:
     font-size: 14px;
     color: #2b2b2b;
 
-  .key
+  .label
     align-self: center;
     margin: 5px 0px 5px 5px;
     background-color: #ffa3c1;
@@ -59,10 +53,3 @@ style:
     margin: 5px 0px 5px 5px;
     background-color: #d2e9dd;
   """
-
-update: (output, domEl) ->
-  if output.indexOf('not running') != -1
-    $(domEl).hide()
-  else
-    $(domEl).show()
-    $(domEl).html(@template(output))

@@ -4,18 +4,27 @@ refreshFrequency: 10000
 
 render: (output) ->
   info = output.split('@')
-  status = info[0]
-  percentage = info[1]
+  status = info[0].trim()
+  percentage = info[1].trim()
   remaining =
     if info[2].indexOf('no') == -1
-      info[2]
+      "#{info[2].trim()} remaining"
     else
       ''
-  info = [status, percentage, remaining].join(' ')
+  keyDiv = "<div class='text key'>&nbsp;battery&nbsp;</div>"
+  percentageDiv = "<div class='text value'>&nbsp;#{percentage}&nbsp;</div>"
+  statusDiv = "<div class='text value'>&nbsp;#{status}&nbsp;</div>"
+  remainingDiv =
+    if remaining != ''
+      "<div class='text value'>&nbsp;#{remaining}&nbsp;</div>"
+    else
+      ''
   """
   <div class="container">
-    <div class='text key'>&nbsp;battery&nbsp;</div>
-    <div class='text value'>&nbsp;#{info.trim()}&nbsp;</div>
+    #{keyDiv}
+    #{percentageDiv}
+    #{statusDiv}
+    #{remainingDiv}
   </div>
   """
 
@@ -25,11 +34,12 @@ style:
   justify-content: flex-end;
   width: 100%;
   top: 10px;
+  right: 10px;
 
   .container
-    margin: 0 10px 0 0;
     display: flex;
     height: 30px;
+    padding: 0 5px 0 0;
     background-color: #2b2b2b;
 
   .text
@@ -44,6 +54,6 @@ style:
 
   .value
     align-self: center;
-    margin: 5px 5px 5px 5px;
+    margin: 5px 0px 5px 5px;
     background-color: #d2e9dd;
   """

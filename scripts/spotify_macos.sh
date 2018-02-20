@@ -10,11 +10,11 @@ if [[ $spotify_check == "1" ]]; then
   echo "Spotify is not running"
   exit 1
 fi
+title=`osascript -e 'tell application "Spotify" to name of current track as string'`
+artist=`osascript -e 'tell application "Spotify" to artist of current track as string'`
+resp="${title}@${artist}"
 status=`osascript -e 'tell application "Spotify" to player state as string'`
-if [[ $status == 'playing' ]]; then
-  title=`osascript -e 'tell application "Spotify" to name of current track as string'`
-  artist=`osascript -e 'tell application "Spotify" to artist of current track as string'`
-  echo "${title} - ${artist}"
-else
-  echo "Spotify is ${status}"
+if [[ $status == "paused" ]]; then
+  resp="${resp}@paused"
 fi
+echo $resp

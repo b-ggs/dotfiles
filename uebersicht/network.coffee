@@ -3,13 +3,11 @@ command: 'sh ../scripts/network_macos.sh'
 refreshFrequency: 15000
 
 render: (output) ->
-  info = output.split('@')
-  iface = info[0].toLowerCase()
-  id = info[1]
+  json = JSON.parse(output)
   """
   <div class="container">
-    <div class='text key'>&nbsp;#{iface.trim()}&nbsp;</div>
-    <div class='text value'>&nbsp;#{id.trim()}&nbsp;</div>
+    <div class='text key'>&nbsp;#{json.interface}&nbsp;</div>
+    <div class='text value'>&nbsp;#{json.network_id}&nbsp;</div>
   </div>
   """
 

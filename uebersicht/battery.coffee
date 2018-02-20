@@ -2,23 +2,18 @@ command: 'sh ../scripts/battery_macos.sh'
 
 refreshFrequency: 10000
 
+label: 'battery'
+
 render: (output) ->
-  info = output.split('@')
-  status = info[0].trim()
-  percentage = info[1].trim()
-  remaining =
-    if info[2].indexOf('no') == -1
-      "#{info[2].trim()} remaining"
-    else
-      ''
-  keyDiv = "<div class='text key'>&nbsp;battery&nbsp;</div>"
-  percentageDiv = "<div class='text value'>&nbsp;#{percentage}&nbsp;</div>"
-  statusDiv = "<div class='text value'>&nbsp;#{status}&nbsp;</div>"
+  json = JSON.parse(output)
+  keyDiv = "<div class='text key'>&nbsp;#{@label}&nbsp;</div>"
+  percentageDiv = "<div class='text value'>&nbsp;#{json.percentage}&nbsp;</div>"
+  statusDiv = "<div class='text value'>&nbsp;#{json.status}&nbsp;</div>"
   remainingDiv =
-    if remaining != ''
-      "<div class='text value'>&nbsp;#{remaining}&nbsp;</div>"
-    else
+    if json.remaining == '' || json.status == 'charged'
       ''
+    else
+      "<div class='text value'>&nbsp;#{json.remaining} remaining&nbsp;</div>"
   """
   <div class="container">
     #{keyDiv}

@@ -3,11 +3,19 @@ command: 'sh ../scripts/battery_macos.sh'
 refreshFrequency: 10000
 
 render: (output) ->
-  info = output.split(' ')
+  info = output.split('@')
+  status = info[0]
+  percentage = info[1]
+  remaining =
+    if info[2].indexOf('no') == -1
+      info[2]
+    else
+      ''
+  info = [status, percentage, remaining].join(' ')
   """
   <div class="container">
     <div class='text key'>&nbsp;battery&nbsp;</div>
-    <div class='text value'>&nbsp;#{info.join(' ').trim()}&nbsp;</div>
+    <div class='text value'>&nbsp;#{info.trim()}&nbsp;</div>
   </div>
   """
 

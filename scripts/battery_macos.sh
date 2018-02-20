@@ -10,4 +10,4 @@ status=`echo "${status_line}" | awk '{print $4}' | sed 's/;//g'`
 percentage=`echo "${status_line}" |awk '{print $3}' | sed 's/;//g'`
 remaining=`echo "${status_line}" | awk '{print $5}' | sed 's/;//g'`
 
-echo "${status} ${percentage} ${remaining}"
+echo "${status}@${percentage}@${remaining}"

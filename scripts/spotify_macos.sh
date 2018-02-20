@@ -1,8 +1,8 @@
 #!/bin/bash
 
-spotify_check=`ps aux | grep /Applications/Spotify.app/Contents/MacOS/Spotify | wc -l | awk '{$1=$1};1'`
-if [[ $spotify_check == "1" ]]; then
-  echo '{"state": "not running"}'
+spotify_check=`ps aux | grep Spotify | grep -v grep | grep -v Helper | wc -l`
+if [[ $spotify_check -eq 0 ]]; then
+  echo '{ "state": "not running" }'
   exit 1
 fi
 

@@ -5,6 +5,10 @@ status=`echo "${status_line}" | awk '{print $4}' | sed 's/;//g'`
 percentage=`echo "${status_line}" | awk '{print $3}' | sed 's/;//g'`
 remaining=`echo "${status_line}" | awk '{print $5}' | sed 's/;//g'`
 
+if [[ $remaining == '(no' ]]; then
+  remaining=''
+fi
+
 resp='{ '
 resp="${resp}\"status\": \"${status}\", "
 resp="${resp}\"percentage\": \"${percentage}\", "

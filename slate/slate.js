@@ -71,10 +71,10 @@ function keystroke(operation, action) {
 var operationParams = {
   "move": {
     "fullScreen": {
-      "x": "screenOriginX + " + gap,
-      "y": "screenOriginY + " + gap + " + " + offsets.top,
-      "width": "screenSizeX - " + (gap * 2),
-      "height": "screenSizeY - " + (gap * 2) + " - " + offsets.top + " - " + offsets.bottom
+      "x": `screenOriginX + ${gap}`,
+      "y": `screenOriginY + ${gap} + ${offsets.top}`,
+      "width": `screenSizeX - ${gap * 2}`,
+      "height": `screenSizeY - ${gap * 2} - ${offsets.top} - ${offsets.bottom}`
     },
     "fullScreenNoGap": {
       "x": "screenOriginX",
@@ -83,27 +83,27 @@ var operationParams = {
       "height": "screenSizeY"
     },
     "right": {
-      "x": "screenOriginX + (screenSizeX / 2) + " + (gap / 2),
-      "y": "screenOriginY + " + gap + " + " + offsets.top,
-      "width": "screenSizeX / 2 - " + (gap * 3 / 2),
-      "height": "screenSizeY - " + (gap * 2) + " - " + offsets.top + " - " + offsets.bottom
+      "x": `screenOriginX + (screenSizeX / 2) + ${gap / 2}`,
+      "y": `screenOriginY + ${gap} + ${offsets.top}`,
+      "width": `(screenSizeX / 2) - ${gap * 3 / 2}`,
+      "height": `screenSizeY - ${gap * 2} - ${offsets.top} - ${offsets.bottom}`
     },
     "left": {
-      "x": "screenOriginX + " + gap,
-      "y": "screenOriginY + " + gap + " + " + offsets.top,
-      "width": "screenSizeX / 2 - " + (gap * 3 / 2),
-      "height": "screenSizeY - " + (gap * 2) + " - " + offsets.top + " - " + offsets.bottom
+      "x": `screenOriginX + ${gap}`,
+      "y": `screenOriginY + ${gap} + ${offsets.top}`,
+      "width": `(screenSizeX / 2) - ${gap * 3 / 2}`,
+      "height": `screenSizeY - ${gap * 2} - ${offsets.top} - ${offsets.bottom}`
     },
     "up": {
       "x": "windowTopLeftX",
-      "y": "screenOriginY + " + gap + " + " + offsets.top,
-      "height": "screenSizeY / 2 - " + (3 * gap / 2) + " - " + (offsets.top / 2) + " - " + (offsets.bottom / 2),
+      "y": `screenOriginY + ${gap} + ${offsets.top}`,
+      "height": `(screenSizeY / 2) - ${gap * 3 / 2} - ${offsets.top / 2} - ${offsets.bottom / 2}`,
       "width": "windowSizeX"
     },
     "down": {
       "x": "windowTopLeftX",
-      "y": "screenOriginY + (screenSizeY / 2) + " + (gap / 2) + " + " + (offsets.top / 2) + " - " + (offsets.bottom / 2),
-      "height": "screenSizeY / 2 - " + (3 * gap / 2) + " - " + (offsets.top / 2) + " - " + (offsets.bottom / 2),
+      "y": `screenOriginY + (screenSizeY / 2) + ${gap / 2} + ${offsets.top / 2} - ${offsets.bottom / 2}`,
+      "height": `(screenSizeY / 2) - ${gap * 3 / 2} - ${offsets.top / 2} - ${offsets.bottom / 2}`,
       "width": "windowSizeX"
     }
   },

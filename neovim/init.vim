@@ -39,7 +39,7 @@ Plug 'haya14busa/incsearch.vim'
 " Find and replace in cwd
 Plug 'dyng/ctrlsf.vim'
 " Async linter
-Plug 'neomake/neomake'
+Plug 'b-ggs/neomake'
 " Direct upload to GitHub Gist
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
@@ -196,7 +196,11 @@ let g:ctrlsf_winsize = '50%'
 " #######
 " NEOMAKE
 " #######
+
+" Automake on normal mode changes, after 750ms
 call neomake#configure#automake('nw', 750)
+" Directory for tempfiles
+let g:neomake_tempfile_dir = '/tmp%:p:h'
 
 " ############
 " VIM_STARTIFY

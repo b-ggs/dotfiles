@@ -18,6 +18,13 @@ DISABLE_AUTO_TITLE="true"
 plugins=(git nvm rvm bundler osx web-search)
 source "$ZSH/oh-my-zsh.sh"
 
+# ###########
+# Keybindings
+# ###########
+
+bindkey "^P" up-line-or-search
+bindkey "^N" down-line-or-search
+
 # ####
 # PATH
 # ####

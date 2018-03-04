@@ -52,6 +52,8 @@ export GOPATH="$HOME/Go"
 
 alias sshfix="eval ssh-agent && ssh-add ~/.ssh/id_rsa"
 alias docker-init='eval $(docker-machine env default)'
+alias hidedesktop='defaults write com.apple.finder CreateDesktop false && killall Finder'
+alias showdesktop='defaults write com.apple.finder CreateDesktop true && killall Finder'
 
 # #################
 # Directory aliases

@@ -29,6 +29,7 @@ bindkey "^N" down-line-or-search
 # PATH
 # ####
 
+export PATH="$PATH:/usr/local/sbin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/usr/local/rvm/bin"

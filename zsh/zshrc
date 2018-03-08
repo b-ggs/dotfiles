@@ -61,8 +61,8 @@ alias showdesktop='defaults write com.apple.finder CreateDesktop true && killall
 
 alias home="cd ~"
 alias dev="cd ~/dev"
-alias dotfiles="cd ~/dev/b-ggs/dotfiles"
-alias dump="cd ~/dev/b-ggs/dump"
+alias dotfiles="cd ~/.dotfiles"
+alias dump="mkdir -p ~/.dump && cd ~/.dump"
 
 # ###############
 # Project aliases

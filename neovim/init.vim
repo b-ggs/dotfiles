@@ -7,9 +7,9 @@
 " ░██ ███  ░██░██  ░░██ ░██  ░░██   ░██ ███ ░██ ░██
 " ░░ ░░░   ░░ ░░    ░░  ░░    ░░    ░░ ░░░  ░░  ░░
 
-" #######
-" PLUGINS
-" #######
+" ##############
+" INITIAL CONFIG
+" ##############
 
 " Silently install vim-plug if it does not exist
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
@@ -17,6 +17,16 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+
+" Create nviminfo file if it does not exist
+if empty(glob('~/.config/nvim/nviminfo'))
+  silent !touch ~/.config/nvim/nviminfo
+endif
+
+" #######
+" PLUGINS
+" #######
+
 call plug#begin('~/.config/nvim/plugged')
 " Fuzzy searching
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }

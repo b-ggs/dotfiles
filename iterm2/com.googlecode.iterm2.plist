@@ -385,7 +385,7 @@
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/dev/b-ggs/dotfiles/iterm2</string>
+	<string>~/.dotfiles/iterm2</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -427,15 +427,15 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>515 421 445 103 0 0 1680 1050 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>380 474 1018 447 0 0 1680 1050 </string>
+	<string>380 542 796 473 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>10 10 1660 990 0 0 1680 1050 </string>
+	<string>845 18 822 982 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>845 510 825 490 0 0 1680 1050 </string>
+	<string>845 540 570 460 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>845 10 825 490 0 0 1680 1050 </string>
+	<string>2645 10 945 1020 1680 0 1920 1080 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>845 10 825 510 0 0 1680 1050 </string>
+	<string>845 60 570 460 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
 	<string>12 12 822 508 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
@@ -1156,7 +1156,7 @@
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
-	<integer>0</integer>
+	<integer>1</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
@@ -1199,7 +1199,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/boggs/dev/b-ggs/dotfiles/iterm2</string>
+	<string>/Users/boggs/.dotfiles/iterm2</string>
 	<key>SUEnableAutomaticChecks</key>
 	<false/>
 	<key>SUFeedAlternateAppNameKey</key>

@@ -53,3 +53,17 @@
   paths:
     - original: slate/slate.js
       target: .slate.js
+- name: uebersicht
+  platforms:
+    - darwin
+  install_path: '~'
+  paths:
+    - original: uebersicht
+      target: .uebersicht
+- name: iterm2
+  platforms:
+    - darwin
+  install_path: '~'
+  paths:
+    - original: iterm2
+      target: .iterm2

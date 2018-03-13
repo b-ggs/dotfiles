@@ -1,5 +1,9 @@
 #!/bin/bash
 
-raw=$(ioreg -c AppleBacklightDisplay -r -d 1 | grep brightness | grep -o '"brightness"={"max"=[0-9]*,"min"=[0-9]*,"value"=[0-9]*}' | grep -o '{.*}' | sed 's/=/:/g')
+output=$(ioreg -c AppleBacklightDisplay -r -d 1 | grep -o '"brightness"={"max"=[0-9]*,"min"=[0-9]*,"value"=[0-9]*}' | grep -o '{.*}' | grep -o '"[a-z]*"=[0-9]*')
 
-echo $raw
+max=$(echo $output | head -1)
+value=$(echo $output | tail -1)
+
+echo $max
+echo $value

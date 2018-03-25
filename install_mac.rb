@@ -4,17 +4,21 @@ def run
   init
   install_homebrew
   install_dependencies
+  set_zsh_default
+  install_oh_my_zsh
   link_dotfiles
+  success
 end
 
 def init
+  @time_start = Time.now
   @dotfiles_path = File.absolute_path(__dir__)
   @home_path = ENV['HOME']
   @xdg_config_path = ENV['XDG_CONFIG_PATH'] || File.join(@home_path, '.config')
 end
 
 def install_homebrew
-  log "Installing Homebrew.."
+  log "Installing Homebrew..."
   if type('brew')[:success?]
     log 'Homebrew already exists. Skipping...'
   else
@@ -45,6 +49,32 @@ def install_dependencies
   end
 end
 
+def set_zsh_default
+  zsh_path = shell('which zsh')[:stdout]
+  log "Setting #{zsh_path} to default shell..."
+  if shell("cat /etc/shells | grep #{zsh_path}")[:success?]
+    log "#{zsh_path} is already default shell. Skipping..."
+  else
+    shell("sudo sh -c \"echo #{zsh_path} >> /etc/shells\"")
+    shell("chsh -s #{zsh_path}")
+    log "Successfully set #{zsh_path} as default shell."
+  end
+end
+
+def install_oh_my_zsh
+  log "Installing oh-my-zsh..."
+  if shell("test -e #{home_path('.oh-my-zsh')}")[:success?]
+    log "oh-my-zsh already exists. Skipping..."
+  else
+    if shell('sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"')
+      log "Successfully installed oh-my-zsh."
+    else
+      log "There was a problem installing oh-my-zsh."
+      exit 1
+    end
+  end
+end
+
 def link_dotfiles
   log "Linking dotfiles..."
   dotfiles.each do |dotfile|
@@ -59,6 +89,11 @@ def link_dotfiles
       exit 1
     end
   end
+end
+
+def success
+  @time_end = Time.now
+  log "Done! Took #{@time_end - @time_start}s."
 end
 
 def dependencies

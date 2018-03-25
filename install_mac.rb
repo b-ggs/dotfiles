@@ -81,6 +81,7 @@ def link_dotfiles
     link_from = dotfile[:link_from]
     link_to = dotfile[:link_to]
     log "Linking #{link_from} to #{link_to}..."
+    mkdir(dirname(link_to))
     rimraf(link_to)
     if link(link_from, link_to)
       log "Successfully linked #{link_from} to #{link_to}."
@@ -147,6 +148,10 @@ def rimraf(path)
   shell("rm -rf #{path}")
 end
 
+def mkdir(path)
+  shell("mkdir -p #{path}")
+end
+
 def link(from, to)
   shell("ln -sf #{from} #{to}")
 end
@@ -165,6 +170,10 @@ def shell(command)
     status: status,
     success?: status.zero?
   }
+end
+
+def dirname(path)
+  File.dirname(path)
 end
 
 def dotfiles_path(path)

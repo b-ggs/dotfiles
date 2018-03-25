@@ -3,6 +3,7 @@ require 'open3'
 def run
   init
   install_homebrew
+  setup_homebrew
   install_dependencies
   install_cask_dependencies
   set_zsh_default
@@ -28,6 +29,23 @@ def install_homebrew
     else
       log 'There was a problem installing Homebrew.'
       exit 1
+    end
+  end
+end
+
+def setup_homebrew
+  log 'Adding casks from caskroom...'
+  casks.each do |cask|
+    if shell("brew tap | grep #{cask}")[:success?]
+      log "Cask #{cask} already exists. Skipping..."
+    else
+      log "Adding cask #{cask}..."
+      if shell("brew tap #{cask}")[:success?]
+        log "Successfully added cask #{cask}."
+      else
+        log "There was a problem adding cask #{cask}."
+        exit 1
+      end
     end
   end
 end
@@ -118,8 +136,12 @@ def dependencies
   %w(git nvim vim zsh tmux gpg fzf the_silver_searcher)
 end
 
+def casks
+  %w(caskroom/cask caskroom/fonts)
+end
+
 def cask_dependencies
-  %w(iterm2 ubersicht slate)
+  %w(iterm2 ubersicht slate font-iosevka)
 end
 
 def dotfiles

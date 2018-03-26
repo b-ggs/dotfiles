@@ -4,7 +4,7 @@ Personal configurations for nvim, zsh, tmux, etc.
 
 ## Contents
 * [Installation](#installation)
-* [Post-installation](#post-installation)
+* [Manual Configuration](#manual-configuration)
 
 ## Installation
 
@@ -18,15 +18,9 @@ Run the script included to install Homebrew, install dependencies, and symlink d
 ruby install_mac.rb
 ```
 
-## Post-installation
+## Manual Configuration
 
-### Other Packages I Use
-
-These packages aren't required for my setup to work, but I still use them regularly.
-
-```
-brew install aria2
-```
+Unfortunately, we can't configure everything from the command line. (Or at least I haven't attempted to.)
 
 ### Neovim
 
@@ -38,23 +32,42 @@ nvim +PlugInstall
 
 Neovim may glitch out on first run, but succeeding runs should have it behave normally.
 
-### RVM
+### macOS
 
-Install rvm.
+Enable `System Preferences > General > Use dark menu and Dock`.
 
-```
-command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
-\curl -sSL https://get.rvm.io | bash -s stable
-```
+Enable `System Preferences > General > Automatically hide and show the menu bar`.
 
-Install ruby and set as default.
+Enable `System Preferences > Dock > Automatically hide and show the Dock`.
 
-```
-rvm install 2.5.0
-rvm use 2.5.0 --default
-```
+Under `System Preferences > Security & Privacy > Privacy > Accessibility`, make sure to enable `Slate`.
+
+Under `System Preferences > Users & Groups > Login Items`, make sure `Slate` and `Übersicht` are listed.
+
+### iTerm2
+
+Launch iTerm2.
+
+Go to `iTerm2 > Preferences...`.
+
+Under the `General` tab, set the value of `Load preferences from a custom folder or URL` to `~/.iterm2`.
+
+When asked if you want to copy your current iTerm2 config, select `No`.
+
+Quit iTerm2.
+
+Upon relaunch, the config should be loaded.
+
+### Übersicht
+
+Launch Übersicht.
+
+On the menu bar, click on the the Übersicht and head over to `Preferences...`
+
+Under the `General` tab, set the `Widgets Folder` to `~/.uebersicht`.
+
+Quit Übersicht.
+
+Upon relaunch, all the widgets should properly load.
 
 [xcode_direct_download]: https://stackoverflow.com/questions/10335747/how-to-download-xcode-dmg-or-xip-file
-[homebrew]: https://brew.sh/
-[linuxbrew]: http://linuxbrew.sh/
-[oh-my-zsh]: https://github.com/robbyrussell/oh-my-zsh

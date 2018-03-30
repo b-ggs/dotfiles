@@ -1,7 +1,7 @@
 PROMPT=""
 
 # User and host
-local user_host="%K{9} %F{0}%n%f%F{0}@%F{0}%M%f %k "
+local user_host="%K{9} %F{0}%n%f%F{0}@%F{0}%m%f %k "
 PROMPT="${PROMPT}${user_host}"
 
 # CWD

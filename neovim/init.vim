@@ -210,7 +210,7 @@ let g:ctrlsf_winsize = '50%'
 " Automake on normal mode changes, after 750ms
 call neomake#configure#automake('nw', 750)
 " Directory for tempfiles
-let g:neomake_tempfile_dir = '/tmp%:p:h'
+let g:neomake_tempfile_dir = '/tmp/neomake%:p:h'
 
 " ############
 " VIM_STARTIFY
@@ -285,4 +285,3 @@ highlight Search ctermbg=3 ctermfg=0
 highlight VertSplit ctermbg=0 ctermfg=4
 highlight Comment ctermfg=8
 highlight! link StartifySpecial Normal
-

@@ -90,10 +90,9 @@ eval "stty -ixon"
 # Fzf
 # ###
 
+# Change default fzf command to use ag
 export FZF_DEFAULT_COMMAND='ag --nocolor --ignore node_modules -g ""'
+# Use 16-color colorscheme
 export FZF_DEFAULT_OPTS="--color 16"
-if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
-  export PATH="$PATH:/usr/local/opt/fzf/bin"
-fi
-[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
-source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+# Source fzf zsh configs
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

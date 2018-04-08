@@ -14,7 +14,7 @@ windows:
       pre:
         - mkdir -p ~/dev/jessicamah/.dump && cd ~/dev/jessicamah/.dump
       panes:
-        - mysqld
+        - $(brew --prefix mysql@5.6)/bin/mysqld
         - solr:
           - cd ~/dev/jessicamah/indinero
           - bundle exec rake sunspot:solr:start

@@ -181,6 +181,10 @@ def dotfiles
     {
       link_from: dotfiles_path('iterm2'),
       link_to: home_path('.iterm2')
+    },
+    {
+      link_from: dotfiles_path('git/gitignore'),
+      link_to: home_path('.gitignore')
     }
   ]
 end

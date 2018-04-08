@@ -70,4 +70,12 @@ Quit Übersicht.
 
 Upon relaunch, all the widgets should properly load.
 
+### Git
+
+Add global excludesfile.
+
+```
+git config --global core.excludesfile ~/.gitignore
+```
+
 [xcode_direct_download]: https://stackoverflow.com/questions/10335747/how-to-download-xcode-dmg-or-xip-file

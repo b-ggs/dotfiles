@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+
+DOTFILES_PATH=$(cd $(dirname "$0") && pwd)
+XDG_CONFIG_PATH=${XDG_CONFIG_PATH:=$HOME/.config}
+OH_MY_ZSH_CUSTOM=${ZSH_CUSTOM:=$HOME/.oh-my-zsh/custom}
+
+run() {
+  welcome
+  symlink_macos
+  symlink_linux
+  symlink_common
+}
+
+welcome() {
+  # TODO: Find a better way to echo this heredoc?
+  echo "\
+Welcome to the symlink script!
+
+This script symlink the following configs:
+- macOS
+  - Ubersicht
+  - Slate
+  - iTerm2
+- Common
+  - neovim
+  - tmux
+  - tmuxinator
+  - zshrc
+  - oh-my-zsh themes
+  - gitignore
+  "
+  read -p "Press Enter to continue"
+}
+
+symlink_macos() {
+  if [[ ! "$(uname)" =~ "Darwin" ]]; then
+    return
+  fi
+  symlink $DOTFILES_PATH/uebersicht $HOME/.uebersicht
+  symlink $DOTFILES_PATH/iterm2 $HOME/.iterm2
+  symlink $DOTFILES_PATH/slate/slate.js $HOME/.slate.js
+}
+
+symlink_linux() {
+  if [[ ! "$(uname)" =~ "Linux" ]]; then
+    return
+  fi
+  # TODO: Put back old i3 and polybar configs that I previously threw away
+}
+
+symlink_common() {
+  symlink $DOTFILES_PATH/neovim/init.vim $XDG_CONFIG_PATH/nvim/init.vim
+  symlink $DOTFILES_PATH/tmux/tmux.conf $HOME/.tmux.conf
+  symlink $DOTFILES_PATH/tmuxinator $HOME/.tmuxinator
+  symlink $DOTFILES_PATH/zsh/zshrc $HOME/.zshrc
+  symlink $DOTFILES_PATH/zsh/themes $OH_MY_ZSH_CUSTOM/themes
+  symlink $DOTFILES_PATH/git/gitignore $HOME/.gitignore
+}
+
+symlink() {
+  echo "Linking $1 to $2..."
+  mkdir -p $(dirname $2)
+  rm -rf $2
+  ln -sf $1 $2
+}
+
+run

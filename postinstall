@@ -1,0 +1,112 @@
+#!/usr/bin/env bash
+
+run() {
+  welcome
+  postinstall_macos
+  postinstall_linux
+  postinstall_common
+}
+
+welcome() {
+  # TODO: Find a better way to echo this heredoc?
+  echo "\
+Welcome to the post-installation script!
+
+This script will do the following:
+- macOS
+  - Install packages from Homebrew
+    - aria2
+    - tldr
+- Common
+  - Set zsh as your default shell
+  - Install neovim plugins
+  - Set the global gitignore
+  - Install rvm and the latest ruby
+  - Install gems
+    - tmuxinator
+
+* Your screen may flash while Neovim installs plugins.
+* You may be prompted for your password.
+  "
+  read -p "Press Enter to continue"
+}
+
+postinstall_macos() {
+  if [[ ! "$(uname)" =~ "Darwin" ]]; then
+    return
+  fi
+  install_extra_brew_packages
+}
+
+postinstall_linux() {
+  if [[ ! "$(uname)" =~ "Linux" ]]; then
+    return
+  fi
+}
+
+postinstall_common() {
+  set_zsh_as_default_shell
+  install_neovim_plugs
+  set_global_gitignore
+  install_rvm_and_latest_ruby
+  install_gems
+}
+
+install_extra_brew_packages() {
+  _brew_install aria2
+  _brew_install tldr
+}
+
+set_zsh_as_default_shell() {
+  zsh_path=$(which zsh)
+  echo "Setting $zsh_path as default shell... (This may ask for your password.)"
+  if [[ "$(cat /etc/shells | grep $zsh_path)" ]]; then
+    echo "$zsh_path is already in /etc/shells! Skipping..."
+  else
+    sudo echo $zsh_path >> /etc/shells
+  fi
+  # TODO: Find a way to determine whether current user already has $zsh_path
+  # set as their default shell. Needs to work on both macOS and Linux.
+  chsh -s $zsh_path
+}
+
+install_neovim_plugs() {
+  echo "Installing Neovim plugins via vim-plug..."
+  nvim +PlugInstall +qall
+}
+
+set_global_gitignore() {
+  echo "Setting global gitignore..."
+  git config --global core.excludesfile $HOME/.gitignore
+}
+
+install_rvm_and_latest_ruby() {
+  if [[ "$(which rvm)" ]]; then
+    echo "RVM is already installed! Skipping..."
+    return
+  fi
+  \curl -sSL https://rvm.io/mpapis.asc | gpg --import -
+  \curl -sSL https://get.rvm.io | bash -s stable --ruby
+}
+
+install_gems() {
+  _install_gem tmuxinator
+}
+
+_brew_install() {
+  if [[ "$(brew list | grep $1)" ]]; then
+    echo "Package $1 already exists! Skipping..."
+    return
+  fi
+  brew install $1
+}
+
+_install_gem() {
+  if [[ "$(gem list | grep $1)" ]]; then
+    echo "Gem $1 already exists! Skipping..."
+    return
+  fi
+  gem install $1
+}
+
+run

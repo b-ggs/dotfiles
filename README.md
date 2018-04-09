@@ -8,29 +8,31 @@ Personal configurations for nvim, zsh, tmux, etc.
 
 ## Installation
 
-On macOS, make sure you have [Xcode](xcode_direct_download) or Xcode Command Line Tools before proceeding.
+* Clone the repository.
 
-Clone the repository.
+* On macOS, make sure you have [Xcode](xcode_direct_download) or Xcode Command Line Tools before proceeding.
 
-Run the script included to install Homebrew, install dependencies, and symlink dotfiles.
+* Install dependencies with
 
 ```
-ruby install_mac.rb
+./dependencies
+```
+
+* Symlink dotfiles with
+
+```
+./symlink
+```
+
+* Do some post-installation magic with
+
+```
+./postinstall
 ```
 
 ## Manual Configuration
 
 Unfortunately, we can't configure everything from the command line. (Or at least I haven't attempted to.)
-
-### Neovim
-
-Install all plugins with vim-plug.
-
-```
-nvim +PlugInstall
-```
-
-Neovim may glitch out on first run, but succeeding runs should have it behave normally.
 
 ### macOS
 
@@ -69,13 +71,5 @@ Under the `General` tab, set the `Widgets Folder` to `~/.uebersicht`.
 Quit Übersicht.
 
 Upon relaunch, all the widgets should properly load.
-
-### Git
-
-Add global excludesfile.
-
-```
-git config --global core.excludesfile ~/.gitignore
-```
 
 [xcode_direct_download]: https://stackoverflow.com/questions/10335747/how-to-download-xcode-dmg-or-xip-file

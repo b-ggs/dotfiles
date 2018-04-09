@@ -1,0 +1,107 @@
+#!/usr/bin/env bash
+
+HOMEBREW_TAPS=(caskroom/cask caskroom/fonts)
+HOMEBREW_PACKAGES=(git nvim vim zsh tmux gpg fzf the_silver_searcher)
+HOMEBREW_CASK_PACKAGES=(iterm2 ubersicht slate font-iosevka)
+
+run() {
+  welcome
+  install_macos
+  install_linux
+  install_common
+}
+
+welcome() {
+  # TODO: Find a better way to echo this heredoc?
+  echo "\
+Welcome to the dependencies script!
+
+This script will install the following:
+- macOS
+  - Homebrew
+  - Homebrew taps
+    - caskroom/cask
+    - caskroom/fonts
+  - Homebrew packages
+    - git
+    - nvim
+    - vim
+    - zsh
+    - tmux
+    - gpg
+    - fzf
+    - the_silver_searcher
+  - Homebrew Cask packages
+    - iterm2
+    - ubersicht
+    - slate
+    - font-iosevka
+- Common
+  - oh-my-zsh
+
+* You may be prompted for your password.
+  "
+  read -p "Press Enter to continue"
+}
+
+install_macos() {
+  if [[ ! "$(uname)" =~ "Darwin" ]]; then
+    return
+  fi
+  install_homebrew
+  setup_homebrew_taps
+  install_homebrew_packages
+  install_homebrew_cask_packages
+}
+
+install_linux() {
+  if [[ ! "$(uname)" =~ "Linux" ]]; then
+    return
+  fi
+  # TODO: Add Linux dependencies like i3
+}
+
+install_common() {
+  install_oh_my_zsh
+}
+
+install_homebrew() {
+  if [[ "$(type brew)" ]]; then
+    echo "Homebrew already exists! Skipping..."
+  else
+    echo "Installing Homebrew..."
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+}
+
+setup_homebrew_taps() {
+  for tap in "${HOMEBREW_TAPS[@]}"; do
+    echo "Adding Homebrew tap $tap..."
+    brew tap $tap
+  done
+}
+
+install_homebrew_packages() {
+  for package in "${HOMEBREW_PACKAGES[@]}"; do
+    echo "Installing Homebrew package $package..."
+    brew install $package
+  done
+}
+
+install_homebrew_cask_packages() {
+  for cask_package in "${HOMEBREW_CASK_PACKAGES[@]}"; do
+    echo "Installing Homebrew cask package $cask_package..."
+    brew cask install $cask_package
+  done
+}
+
+install_oh_my_zsh() {
+  if [[ "$(test -e $HOME/.oh-my-zsh)" ]]; then
+    echo "oh-my-zsh already exists! Skipping..."
+  else
+    echo "Installing oh-my-zsh..."
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  fi
+}
+
+run

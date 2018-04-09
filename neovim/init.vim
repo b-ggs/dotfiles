@@ -241,8 +241,27 @@ let g:startify_list_order = [
 " VIM_AIRLINE
 " ###########
 
+" Custom Airline theme
+scriptencoding utf-8
+let g:airline#themes#custom#palette = {}
+let s:N1 = [ '' , '' , 16 , 9 ]
+let s:N2 = [ '' , '' , 16 , 12 ]
+let s:N3 = [ '' , '' , 16 , 12 ]
+let g:airline#themes#custom#palette.normal = airline#themes#generate_color_map(s:N1, s:N2, s:N3)
+let s:I1 = [ '' , '' , 16 , 9 ]
+let s:I2 = [ '' , '' , 16 , 12 ]
+let s:I3 = [ '' , '' , 16 , 12 ]
+let g:airline#themes#custom#palette.insert = airline#themes#generate_color_map(s:I1, s:I2, s:I3)
+let s:V1 = [ '' , '' , 16 , 9 ]
+let s:V2 = [ '' , '' , 16 , 12 ]
+let s:V3 = [ '' , '' , 16 , 12 ]
+let g:airline#themes#custom#palette.visual = airline#themes#generate_color_map(s:V1, s:V2, s:V3)
+let s:IA1 = [ '' , '' , 16 , 8 ]
+let s:IA2 = [ '' , '' , 16 , 8 ]
+let s:IA3 = [ '' , '' , 16 , 8 ]
+let g:airline#themes#custom#palette.inactive = airline#themes#generate_color_map(s:IA1, s:IA2, s:IA3)
 " Set Airline theme to theme specified in zshrc
-let g:airline_theme=$ZSH_THEME
+let g:airline_theme='custom'
 " Customized Airline content
 function! AirlineInit()
   let spc = g:airline_symbols.space

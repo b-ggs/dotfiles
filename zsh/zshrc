@@ -57,6 +57,7 @@ alias hidedesktop='defaults write com.apple.finder CreateDesktop false && killal
 alias showdesktop='defaults write com.apple.finder CreateDesktop true && killall Finder'
 alias be='bundle exec'
 alias bi='bundle install'
+alias sleep='[[ "$(uname)" == "Darwin" ]] && open -a ScreenSaverEngine || echo "TODO: Implement for Linux"'
 
 # #################
 # Directory aliases

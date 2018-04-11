@@ -1,1 +1,1 @@
-echo $(date +"%l:%m %p")
+echo $(date +"%l:%M %p")

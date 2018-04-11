@@ -1,55 +1,31 @@
 command: 'sh ../scripts/spotify_macos.sh'
 
+name: 'spotify'
+
 refreshFrequency: 3000
 
-label: 'spotify'
-
-render: (output) ->
-  json = JSON.parse(output)
-  if json.state == 'not running'
+update: (output, domEl) ->
+  parsedOutput = JSON.parse(output)
+  state = parsedOutput.state
+  if state == 'not running'
+    @$item().hide()
     return ''
-  keyDiv = "<div class='text label'>&nbsp;#{@label}&nbsp;</div>"
-  titleDiv = "<div class='text value'>&nbsp;#{json.title}&nbsp;</div>"
-  artistDiv = "<div class='text value'>&nbsp;#{json.artist}&nbsp;</div>"
-  statusDiv =
-    if json.state != 'playing'
-      "<div class='text value'>&nbsp;#{json.state}&nbsp;</div>"
-    else
-      ''
-  """
-  <div class="container">
-    #{keyDiv}
-    #{titleDiv}
-    #{artistDiv}
-    #{statusDiv}
-  </div>
-  """
+  @$value(0).html(parsedOutput.title)
+  @$value(1).html(parsedOutput.artist)
+  if state != 'playing'
+    @$value(2).html(state)
+  else
+    @$value(2).hide()
+  @$item().show()
 
-style:
-  """
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  top: 10px;
+$item: ->
+  $("##{@name}-item")
 
-  .container
-    display: flex;
-    height: 30px;
-    padding: 0 5px 0 0;
-    background-color: #2b2b2b;
+$label: ->
+  $("##{@name}-label")
 
-  .text
-    font-family: Iosevka Term;
-    font-size: 14px;
-    color: #2b2b2b;
+$value: (index) ->
+  $("##{@name}-value-#{index}")
 
-  .label
-    align-self: center;
-    margin: 5px 0px 5px 5px;
-    background-color: #ffa3c1;
-
-  .value
-    align-self: center;
-    margin: 5px 0px 5px 5px;
-    background-color: #d2e9dd;
-  """
+render: (_output) ->
+  ""

@@ -1,54 +1,23 @@
 command: 'sh ../scripts/battery_macos.sh'
 
-refreshFrequency: 10000
+name: 'battery'
 
-label: 'battery'
+refreshFrequency: 15000
 
-render: (output) ->
-  json = JSON.parse(output)
-  keyDiv = "<div class='text key'>&nbsp;#{@label}&nbsp;</div>"
-  percentageDiv = "<div class='text value'>&nbsp;#{json.percentage}&nbsp;</div>"
-  statusDiv = "<div class='text value'>&nbsp;#{json.status}&nbsp;</div>"
-  remainingDiv =
-    if json.remaining == '' || json.status == 'charged'
-      ''
-    else
-      "<div class='text value'>&nbsp;#{json.remaining} remaining&nbsp;</div>"
-  """
-  <div class="container">
-    #{keyDiv}
-    #{percentageDiv}
-    #{statusDiv}
-    #{remainingDiv}
-  </div>
-  """
+update: (output, domEl) ->
+  parsedOutput = JSON.parse(output)
+  @$value(0).html("#{parsedOutput.percentage} (#{parsedOutput.remaining})")
+  @$value(1).html(parsedOutput.status)
+  @$item().show()
 
-style:
-  """
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-  top: 10px;
-  right: 10px;
+$item: ->
+  $("##{@name}-item")
 
-  .container
-    display: flex;
-    height: 30px;
-    padding: 0 5px 0 0;
-    background-color: #2b2b2b;
+$label: ->
+  $("##{@name}-label")
 
-  .text
-    font-family: Iosevka Term;
-    font-size: 14px;
-    color: #2b2b2b;
+$value: (index) ->
+  $("##{@name}-value-#{index}")
 
-  .key
-    align-self: center;
-    margin: 5px 0px 5px 5px;
-    background-color: #ffa3c1;
-
-  .value
-    align-self: center;
-    margin: 5px 0px 5px 5px;
-    background-color: #d2e9dd;
-  """
+render: (_output) ->
+  ""

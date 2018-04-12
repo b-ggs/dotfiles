@@ -14,6 +14,7 @@ update: (output, domEl) ->
   @$value(1).html(parsedOutput.artist)
   if state != 'playing'
     @$value(2).html(state)
+    @$value(2).show()
   else
     @$value(2).hide()
   @$item().show()

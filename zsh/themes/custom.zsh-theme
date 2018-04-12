@@ -11,7 +11,7 @@ PROMPT="${PROMPT}${current_dir}"
 # Git
 ZSH_THEME_GIT_PROMPT_PREFIX=" %K{12} %F{0}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%f %k"
-local git_branch="$(git_prompt_info)"
+local git_branch='$(git_prompt_info)'
 PROMPT="${PROMPT}${git_branch}"
 
 # Return code

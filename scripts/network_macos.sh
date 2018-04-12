@@ -21,7 +21,7 @@ done <<< "$(echo "$services")"
 
 if [ -n "$currentservice" ] ; then
     interface=$currentservice
-    network_id=`networksetup -getairportnetwork en0 | cut -c 24-`
+    network_id=`networksetup -getairportnetwork $sdev | cut -c 24-`
 else
     interface='none'
     network_id='none'

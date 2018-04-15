@@ -36,7 +36,7 @@ symlink_macos() {
   if [[ ! "$(uname)" =~ "Darwin" ]]; then
     return
   fi
-  symlink $DOTFILES_PATH/uebersicht $HOME/.uebersicht
+  symlink $DOTFILES_PATH/ubersicht $HOME/.ubersicht
   symlink $DOTFILES_PATH/iterm2 $HOME/.iterm2
   symlink $DOTFILES_PATH/slate/slate.js $HOME/.slate.js
 }

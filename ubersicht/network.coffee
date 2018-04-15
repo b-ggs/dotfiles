@@ -1,13 +1,20 @@
-command: 'sh ../scripts/network_macos.sh'
+command: 'sh ../scripts/network'
 
 name: 'network'
 
 refreshFrequency: 15000
 
 update: (output, domEl) ->
-  parsedOutput = JSON.parse(output)
-  @$label().html(parsedOutput.interface.toLowerCase())
-  @$value(0).html(parsedOutput.network_id)
+  data = JSON.parse(output)
+  if data.device_id == 'none'
+    @$label().html(@name)
+    @$value(0).html(data.device_id)
+  if data.network_name == 'ethernet'
+    @$label().html(data.network_name)
+    @$value(0).html(data.device_id)
+  else
+    @$label().html(data.device_name.toLowerCase())
+    @$value(0).html(data.network_name)
   @$item().show()
 
 $item: ->

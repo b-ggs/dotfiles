@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+# network
+# @b_ggs // github.com/b-ggs/macos-sysinfo-scripts
+# Returns active network interface, Wi-Fi network (if applicable), and local IP
+
+# Some snippets from Reorx on https://apple.stackexchange.com/a/223446
+
+run() {
+  get_active_service
+  get_network_name
+  response
+}
+
+get_active_service() {
+  services=$(networksetup -listnetworkserviceorder | grep 'Hardware Port')
+  while read -r service; do
+    service_name=$(echo "$service" | awk -F '(, )|(: )|[)]' '{ print $2 }')
+    device_id=$(echo "$service" | awk -F '(, )|(: )|[)]' '{ print $4 }')
+    if [[ -z "$device_id" ]]; then
+      continue
+    fi
+    ifconfig=$(ifconfig "$device_id" 2>/dev/null)
+    if [[ "$ifconfig" =~ "status: active" ]]; then
+      active_service_name=$service_name
+      active_device_id=$device_id
+      active_ip=$(echo "$ifconfig" | awk -F '(inet )|( netmask)' '{ print $2 }' | tr -d '\n')
+      break
+    fi
+  done <<< "$(echo "$services")"
+}
+
+get_network_name() {
+  if [[ -z "$active_device_id" ]]; then
+    return
+  fi
+  airport_network=$(networksetup -getairportnetwork "$active_device_id")
+  if [[ "$airport_network" =~ "Current Wi-Fi Network" ]]; then
+    active_network_name=$(echo "$airport_network" | awk -F 'Current Wi-Fi Network:' '{ print $NF }' | sed 's/^[[:space:]]*//g')
+  elif [[ "$airport_network" =~ "not a Wi-Fi interface" ]]; then
+    active_network_name='ethernet'
+  fi
+}
+
+response() {
+  json='{ '
+  json="${json}\"device_id\": \"${active_device_id:=none}\", "
+  json="${json}\"device_name\": \"${active_service_name:=none}\", "
+  json="${json}\"ip_addr\": \"${active_ip:=none}\", "
+  json="${json}\"network_name\": \"${active_network_name:=none}\""
+  json="${json} }"
+
+  echo $json
+}
+
+run

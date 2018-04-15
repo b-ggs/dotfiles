@@ -13,6 +13,8 @@ items:
     { name: 'battery', valuesCount: 2 }
     { name: 'keyboard', valuesCount: 1 }
     { name: 'trackpad', valuesCount: 1 }
+    { name: 'brightness', valuesCount: 1 }
+    { name: 'volume', valuesCount: 1 }
     { name: 'time', valuesCount: 1 }
   ]
 

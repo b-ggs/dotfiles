@@ -5,7 +5,7 @@
 # Returns current track's title, artist, and state (playing, paused) on Spotify
 
 if [[ ! $(pgrep -x Spotify) ]]; then
-  echo '{ state: "not running" }'
+  echo '{ "state": "not running" }'
   exit 1
 fi
 

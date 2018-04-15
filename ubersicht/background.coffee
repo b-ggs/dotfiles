@@ -89,6 +89,7 @@ style:
 
   .item
     display: flex
+    user-select: none
 
   .label
   .separator

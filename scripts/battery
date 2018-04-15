@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# battery
+# @b_ggs // github.com/b-ggs/macos-sysinfo-scripts
+# Returns Mac's current battery level, state (charging, discharging),
+# and time remaining
+
+# TODO: Check if battery is disconnected or unavailable
+
+details=$(pmset -g batt | grep %)
+
+field_separator="[)]|(; )|( remaining present: )"
+
+percent=$(echo "$details" | awk -F "$field_separator" '{ print $2 }' | sed 's/^[[:space:]]*//g')
+state=$(echo "$details" | awk -F "$field_separator" '{ print $3 }')
+remaining=$(echo "$details" | awk -F "$field_separator" '{ print $4 }')
+present=$(echo "$details" | awk -F "$field_separator" '{ print $5 }')
+
+json='{ '
+json="${json}\"percent\": \"$percent\", "
+json="${json}\"state\": \"$state\", "
+json="${json}\"time_remaining\": \"$remaining\", "
+json="${json}\"battery_present\": \"$present\""
+json="${json} }"
+
+echo $json

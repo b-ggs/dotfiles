@@ -1,4 +1,4 @@
-command: 'sh ../scripts/spotify_status'
+command: 'sh scripts/spotify_status'
 
 name: 'spotify'
 

@@ -1,4 +1,4 @@
-command: 'sh ../scripts/magic_keyboard_battery'
+command: 'sh scripts/magic_keyboard_battery'
 
 name: 'keyboard'
 

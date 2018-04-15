@@ -1,4 +1,4 @@
-command: 'sh ../scripts/brightness'
+command: 'sh scripts/brightness'
 
 name: 'brightness'
 

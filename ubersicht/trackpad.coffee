@@ -1,4 +1,4 @@
-command: 'sh ../scripts/magic_trackpad_battery'
+command: 'sh scripts/magic_trackpad_battery'
 
 name: 'trackpad'
 

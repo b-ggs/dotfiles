@@ -1,4 +1,4 @@
-command: 'sh ../scripts/battery'
+command: 'sh scripts/battery'
 
 name: 'battery'
 

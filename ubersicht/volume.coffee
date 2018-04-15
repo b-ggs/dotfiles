@@ -1,4 +1,4 @@
-command: 'sh ../scripts/volume'
+command: 'sh scripts/volume'
 
 name: 'volume'
 

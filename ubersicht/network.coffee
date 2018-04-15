@@ -1,4 +1,4 @@
-command: 'sh ../scripts/network'
+command: 'sh scripts/network'
 
 name: 'network'
 

@@ -12,7 +12,7 @@ update: (output, domEl) ->
   if parsedOutput.time_remaining == '0:00'
     percentValue = parsedOutput.percent
   else
-    percentValue = "#{parsedOutput.percent} (#{parsedOutput.remaining})"
+    percentValue = "#{parsedOutput.percent} (#{parsedOutput.time_remaining})"
   @$value(0).html(percentValue)
   @$value(1).html(parsedOutput.state)
   @$item().show()

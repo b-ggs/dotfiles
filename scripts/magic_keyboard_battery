@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# magic_keyboard_battery
+# @b_ggs // github.com/b-ggs/macos-sysinfo-scripts
+# Returns battery level of a connected Magic Keyboard
+
+percent=$(ioreg -c AppleBluetoothHIDKeyboard | awk '/"BatteryPercent" =/ { print $NF }')
+
+if [[ -z "$percent" ]]; then
+  echo 'not available'
+  exit 1
+fi
+
+echo "$percent%"

@@ -11,6 +11,8 @@ items:
   right: [
     { name: 'network', valuesCount: 1 }
     { name: 'battery', valuesCount: 2 }
+    { name: 'keyboard', valuesCount: 1 }
+    { name: 'trackpad', valuesCount: 1 }
     { name: 'time', valuesCount: 1 }
   ]
 

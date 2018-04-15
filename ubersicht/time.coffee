@@ -1,4 +1,4 @@
-command: 'sh ../scripts/time_unix.sh'
+command: 'sh ../scripts/time_formatted'
 
 name: 'time'
 

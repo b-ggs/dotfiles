@@ -53,7 +53,7 @@ symlink_common() {
   symlink $DOTFILES_PATH/tmux/tmux.conf $HOME/.tmux.conf
   symlink $DOTFILES_PATH/tmuxinator $HOME/.tmuxinator
   symlink $DOTFILES_PATH/zsh/zshrc $HOME/.zshrc
-  symlink $DOTFILES_PATH/zsh/themes $OH_MY_ZSH_CUSTOM/themes
+  symlink $DOTFILES_PATH/zsh/themes/custom.zsh-theme $OH_MY_ZSH_CUSTOM/themes/custom.zsh-theme
   symlink $DOTFILES_PATH/git/gitignore $HOME/.gitignore
 }
 

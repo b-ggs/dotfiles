@@ -4,52 +4,58 @@ positions: ['left', 'middle', 'right']
 
 items:
   left: [
-    { name: 'spotify', valuesCount: 3 }
+    { label: 'spotify', valueFields: 3 }
   ]
   middle: [
   ]
   right: [
-    { name: 'network', valuesCount: 1 }
-    { name: 'battery', valuesCount: 2 }
-    { name: 'keyboard', valuesCount: 1 }
-    { name: 'trackpad', valuesCount: 1 }
-    { name: 'brightness', valuesCount: 1 }
-    { name: 'volume', valuesCount: 1 }
-    { name: 'time', valuesCount: 1 }
+    { label: 'network', valueFields: 1 }
+    { label: 'battery', valueFields: 2 }
+    { label: 'keyboard', valueFields: 1 }
+    { label: 'trackpad', valueFields: 1 }
+    { label: 'brightness', valueFields: 1 }
+    { label: 'volume', valueFields: 1 }
+    { label: 'time', valueFields: 1 }
   ]
 
 render: (_output) ->
-  @$backgroundTemplate().get(0).outerHTML
-
-$backgroundTemplate: ->
-  $container = $("<div class='background'></div>")
+  $background = @background()
   for position in @positions
-    $container.append(@$groupTemplate(position))
-  $container
+    $background.append(@buildGroup(position))
+  $background.get(0).outerHTML
 
-$groupTemplate: (position) ->
-  $container = $("<div class='group #{position}-group'></div>")
+buildGroup: (position) ->
+  $group = @group(position)
   for item in @items[position]
-    $container.append(@$itemTemplate(item.name, item.valuesCount))
-  $container.append(@$separatorTemplate)
-  $container
+    $group.append(@buildItem(item.label, item.valueFields))
+  $group.append(@separator())
+  $group
 
-$itemTemplate: (name, valuesCount = 1) ->
-  $container = $("<div id='#{name}-item' class='item' style='display: none'>")
-  $container.append(@$separatorTemplate)
-  $container.append(@$labelTemplate(name))
-  for index in [0..valuesCount- 1]
-    $container.append(@$separatorTemplate)
-    $container.append(@$valueTemplate(name, index))
-  $container
+buildItem: (label, valueFields = 1) ->
+  $item = @item(label)
+  $item.append(@separator())
+  $item.append(@label(label))
+  for index in [0..valueFields - 1]
+    $item.append(@separator())
+    $item.append(@value(label, index))
+  $item
 
-$labelTemplate: (name) ->
-  $("<div id='#{name}-label' class='label'>#{name}</div>")
+background: ->
+  $("<div class='background'></div>")
 
-$valueTemplate: (name, index) ->
-  $("<div id='#{name}-value-#{index}' class='value'>Loading...</div>")
+group: (position) ->
+  $("<div class='group #{position}-group'></div>")
 
-$separatorTemplate: ->
+item: (label) ->
+  $("<div id='#{label}-item' class='item' style='display: none'>")
+
+label: (label) ->
+  $("<div id='#{label}-label' class='label'>#{label}</div>")
+
+value: (label, index) ->
+  $("<div id='#{label}-value-#{index}' class='value'>Loading...</div>")
+
+separator: ->
   $("<div class='separator'></div>")
 
 style:

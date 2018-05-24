@@ -21,8 +21,8 @@ source "$ZSH/oh-my-zsh.sh"
 # Keybindings
 # ###########
 
-bindkey "^P" up-line-or-search
-bindkey "^N" down-line-or-search
+bindkey "^P" up-line-or-beginning-search
+bindkey "^N" down-line-or-beginning-search
 
 # ####
 # PATH

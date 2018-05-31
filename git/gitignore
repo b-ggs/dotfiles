@@ -1,2 +1,10 @@
+# macOS
 .DS_Store
+
+# neomake
 .*@neomake*
+
+# universal-ctags
+tags
+tags.lock
+tags.temp

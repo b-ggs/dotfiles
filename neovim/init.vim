@@ -50,6 +50,8 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'dyng/ctrlsf.vim'
 " Async linter
 Plug 'b-ggs/neomake'
+" Ctags
+Plug 'ludovicchabant/vim-gutentags'
 " Direct upload to GitHub Gist
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'

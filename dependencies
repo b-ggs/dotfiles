@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 HOMEBREW_TAPS=(caskroom/cask caskroom/fonts)
-HOMEBREW_PACKAGES=(git nvim vim zsh tmux gpg fzf the_silver_searcher)
+HOMEBREW_PACKAGES=(git nvim vim zsh tmux gpg fzf the_silver_searcher unviersal-ctags)
 HOMEBREW_CASK_PACKAGES=(iterm2 ubersicht slate font-iosevka)
 
 run() {

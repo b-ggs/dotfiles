@@ -14,7 +14,7 @@ var bindings = {
     "modifier": "cmd,alt",
     "keys": {
       "fullScreen": "f",
-      "fullScreenNoGap": "g",
+      "fullScreenNoGap": "r",
       "left": direction.left,
       "right": direction.right,
       "up": direction.up,
@@ -31,9 +31,9 @@ var bindings = {
     }
   },
   "hint": {
-    "modifier": "cmd,ctrl",
+    "modifier": "cmd,alt",
     "keys": {
-      "hint": "f"
+      "hint": "g"
     }
   },
   "grid": {

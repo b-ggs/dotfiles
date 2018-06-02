@@ -16,11 +16,7 @@ state=$(echo "$details" | awk -F "$field_separator" '{ print $3 }')
 remaining=$(echo "$details" | awk -F "$field_separator" '{ print $4 }' | sed 's/(//g')
 present=$(echo "$details" | awk -F "$field_separator" '{ print $5 }')
 
-json='{ '
-json="${json}\"percent\": \"$percent\", "
-json="${json}\"state\": \"$state\", "
-json="${json}\"time_remaining\": \"$remaining\", "
-json="${json}\"battery_present\": \"$present\""
-json="${json} }"
-
-echo $json
+echo $present
+echo $percent
+echo $state
+echo $remaining

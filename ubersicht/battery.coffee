@@ -5,16 +5,19 @@ name: 'battery'
 refreshFrequency: 15000
 
 update: (output, domEl) ->
-  parsedOutput = JSON.parse(output)
-  if parsedOutput.battery_present == 'false'
+  [isPresent, percentage, state, timeRemaining] = output.trim().split("\n")
+
+  unless isPresent == 'true'
     @$item().hide()
     return
-  if parsedOutput.time_remaining == '0:00'
-    percentValue = parsedOutput.percent
+
+  if timeRemaining == '0:00'
+    percentText = percentage
   else
-    percentValue = "#{parsedOutput.percent} (#{parsedOutput.time_remaining})"
-  @$value(0).html(percentValue)
-  @$value(1).html(parsedOutput.state)
+    percentText = "#{percentage} (#{timeRemaining})"
+
+  @$value(0).html(percentText)
+  @$value(1).html(state)
   @$item().show()
 
 $item: ->
@@ -27,4 +30,4 @@ $value: (index) ->
   $("##{@name}-value-#{index}")
 
 render: (_output) ->
-  ""
+  ''

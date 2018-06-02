@@ -10,7 +10,7 @@ update: (output, domEl) ->
   if deviceId == 'none'
     @$label().html(@name)
     @$value(0).html(deviceId)
-  if networkName == 'ethernet'
+  else if networkName == 'ethernet'
     @$label().html(networkName)
     @$value(0).html(deviceId)
   else

@@ -13,11 +13,7 @@ input_volume=$(echo "$volume_settings" | awk -F "$field_separator" '{ print $4 }
 alert_volume=$(echo "$volume_settings" | awk -F "$field_separator" '{ print $6 }')
 muted=$(echo "$volume_settings" | awk -F "$field_separator" '{ print $8 }')
 
-json='{ '
-json="${json}\"output_volume\": \"$output_volume%\", "
-json="${json}\"input_volume\": \"$input_volume%\", "
-json="${json}\"alert_volume\": \"$alert_volume%\", "
-json="${json}\"is_muted\": \"$muted\""
-json="${json} }"
-
-echo $json
+echo $output_volume%
+echo $input_volume%
+echo $alert_volume%
+echo $muted

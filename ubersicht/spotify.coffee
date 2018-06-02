@@ -5,17 +5,21 @@ name: 'spotify'
 refreshFrequency: 3000
 
 update: (output, domEl) ->
-  data = JSON.parse(output)
-  if data.state == 'not running'
+  [state, title, artist, _album] = output.trim().split("\n")
+
+  if state  == 'not running'
     @$item().hide()
     return ''
-  @$value(0).html(data.title)
-  @$value(1).html(data.artist)
-  if data.state != 'playing'
-    @$value(2).html(data.state)
+
+  @$value(0).html(title)
+  @$value(1).html(artist)
+
+  if state != 'playing'
+    @$value(2).html(state)
     @$value(2).show()
   else
     @$value(2).hide()
+
   @$item().show()
 
 $item: ->
@@ -28,4 +32,4 @@ $value: (index) ->
   $("##{@name}-value-#{index}")
 
 render: (_output) ->
-  ""
+  ''

@@ -5,7 +5,7 @@
 # Returns current track's title, artist, and state (playing, paused) on Spotify
 
 if [[ ! $(pgrep -x Spotify) ]]; then
-  echo '{ "state": "not running" }'
+  echo 'not running'
   exit 1
 fi
 
@@ -14,11 +14,7 @@ title=$(osascript -e 'tell application "Spotify" to name of current track as str
 artist=$(osascript -e 'tell application "Spotify" to artist of current track as string')
 album=$(osascript -e 'tell application "Spotify" to album of current track as string')
 
-json='{ '
-json="${json}\"state\": \"$player_state\", "
-json="${json}\"title\": \"$title\", "
-json="${json}\"artist\": \"$artist\", "
-json="${json}\"album\": \"$album\""
-json="${json} }"
-
-echo $json
+echo $player_state
+echo $title
+echo $artist
+echo $album

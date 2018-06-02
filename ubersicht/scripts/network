@@ -43,14 +43,10 @@ get_network_name() {
 }
 
 response() {
-  json='{ '
-  json="${json}\"device_id\": \"${active_device_id:=none}\", "
-  json="${json}\"device_name\": \"${active_service_name:=none}\", "
-  json="${json}\"ip_addr\": \"${active_ip:=none}\", "
-  json="${json}\"network_name\": \"${active_network_name:=none}\""
-  json="${json} }"
-
-  echo $json
+  echo ${active_device_id:=none}
+  echo ${active_service_name:=none}
+  echo ${active_ip:=none}
+  echo ${active_network_name:=none}
 }
 
 run

@@ -5,16 +5,17 @@ name: 'network'
 refreshFrequency: 15000
 
 update: (output, domEl) ->
-  data = JSON.parse(output)
-  if data.device_id == 'none'
+  [deviceId, deviceName, _ipAddress, networkName] = output.trim().split("\n")
+
+  if deviceId == 'none'
     @$label().html(@name)
-    @$value(0).html(data.device_id)
-  if data.network_name == 'ethernet'
-    @$label().html(data.network_name)
-    @$value(0).html(data.device_id)
+    @$value(0).html(deviceId)
+  if networkName == 'ethernet'
+    @$label().html(networkName)
+    @$value(0).html(deviceId)
   else
-    @$label().html(data.device_name.toLowerCase())
-    @$value(0).html(data.network_name)
+    @$label().html(deviceName.toLowerCase())
+    @$value(0).html(networkName)
   @$item().show()
 
 $item: ->

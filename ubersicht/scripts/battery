@@ -9,12 +9,12 @@
 
 details=$(pmset -g batt | grep %)
 
-field_separator="[)]|(; )|( remaining present: )"
+field_separator="[)]|(; )|(remaining)|(present:)"
 
+present=$(echo "$details" | awk -F "$field_separator" '{ print $6 }' | sed 's/^[[:space:]]*//g')
 percent=$(echo "$details" | awk -F "$field_separator" '{ print $2 }' | sed 's/^[[:space:]]*//g')
 state=$(echo "$details" | awk -F "$field_separator" '{ print $3 }')
 remaining=$(echo "$details" | awk -F "$field_separator" '{ print $4 }' | sed 's/(//g')
-present=$(echo "$details" | awk -F "$field_separator" '{ print $5 }')
 
 echo $present
 echo $percent

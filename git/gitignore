@@ -8,3 +8,6 @@
 tags
 tags.lock
 tags.temp
+
+# node
+node_modules

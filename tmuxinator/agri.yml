@@ -1,0 +1,16 @@
+name: agri
+root: ~/dev/b-ggs/agrihydrogel-simulation
+pre_window: rvm use 2.5.1@agrihydrogel-simulation
+windows:
+  - agri:
+    - nvim
+  - agentscript:
+    - cd ~/dev/b-ggs/agentscript
+    - nvim
+  - servers:
+      panes:
+        - agri:
+          - rackup
+        - agentscript:
+          - cd ~/dev/b-ggs/agentscript
+          - python3 -m http.server 8001

@@ -4,7 +4,14 @@
 # @b_ggs // github.com/b-ggs/macos-sysinfo-scripts
 # Returns main display's brightness percentage
 
-backlight=$(ioreg -c AppleBacklightDisplay -r -d 1 | grep -o '"brightness"={"max"=[0-9]*,"min"=[0-9]*,"value"=[0-9]*}')
+backlight=$(ioreg -c AppleBacklightDisplay -r -d 1)
+
+if [ -z "$backlight" ]; then
+  echo 'not available'
+  exit 1
+fi
+
+backlight=$(echo "$backlight" | grep -o '"brightness"={"max"=[0-9]*,"min"=[0-9]*,"value"=[0-9]*}')
 
 field_separator='("max"=)|(,"min"=)|(,"value"=)|(})'
 

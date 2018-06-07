@@ -55,6 +55,7 @@ symlink_common() {
   symlink $DOTFILES_PATH/zsh/zshrc $HOME/.zshrc
   symlink $DOTFILES_PATH/zsh/themes/custom.zsh-theme $OH_MY_ZSH_CUSTOM/themes/custom.zsh-theme
   symlink $DOTFILES_PATH/git/gitignore $HOME/.gitignore
+  cp $DOTFILES_PATH/ngrok/ngrok-example.yml $HOME/.ngrok2/ngrok.yml
 }
 
 symlink() {
@@ -64,4 +65,10 @@ symlink() {
   ln -sf $1 $2
 }
 
+cp() {
+  echo "Copying $1 to $2..."
+  mkdir -p $(dirname $2)
+  rm -rf $2
+  cp -r $1 $2
+}
 run

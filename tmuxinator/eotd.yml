@@ -1,6 +1,6 @@
 name: eotd
 root: ~/dev/b-ggs/essaysonthedot
-pre_window: rvm use 2.5.1@essaysonthedot
+pre_window: chruby 2.5.1
 windows:
   - nvim:
     - nvim

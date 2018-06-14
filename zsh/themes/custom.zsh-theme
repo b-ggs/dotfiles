@@ -14,6 +14,10 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%f %k"
 local git_branch='$(git_prompt_info)'
 PROMPT="${PROMPT}${git_branch}"
 
+# Chruby
+local chruby_prompt=' %K{12} %F{0}$(chruby_prompt_info)%f %k'
+PROMPT="${PROMPT}${chruby_prompt}"
+
 # Return code
 local return_code="%(?.. %K{12} %F{0}%?%f %k)"
 PROMPT="${PROMPT}${return_code}"

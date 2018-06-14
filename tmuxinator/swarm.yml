@@ -1,6 +1,6 @@
 name: swarm
 root: ~/dev/dlsucomet/swarm-simulation
-pre_window: rvm use 2.3.1
+pre_window: chruby 2.3.1
 windows:
   - editor:
       - nvim

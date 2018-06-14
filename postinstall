@@ -17,13 +17,12 @@ This script will do the following:
   - Install packages from Homebrew
     - aria2
     - tldr
+    - ruby-install
+    - chruby
 - Common
   - Set zsh as your default shell
   - Install neovim plugins
   - Set the global gitignore
-  - Install rvm and the latest ruby
-  - Install gems
-    - tmuxinator
 
 * Your screen may flash while Neovim installs plugins.
 * You may be prompted for your password.
@@ -48,13 +47,15 @@ postinstall_common() {
   set_zsh_as_default_shell
   install_neovim_plugs
   set_global_gitignore
-  install_rvm_and_latest_ruby
+  install_ruby
   install_gems
 }
 
 install_extra_brew_packages() {
   _brew_install aria2
   _brew_install tldr
+  _brew_install ruby-install
+  _brew_install chruby
 }
 
 set_zsh_as_default_shell() {
@@ -80,13 +81,8 @@ set_global_gitignore() {
   git config --global core.excludesfile $HOME/.gitignore
 }
 
-install_rvm_and_latest_ruby() {
-  if [[ "$(which rvm)" ]]; then
-    echo "RVM is already installed! Skipping..."
-    return
-  fi
-  \curl -sSL https://rvm.io/mpapis.asc | gpg --import -
-  \curl -sSL https://get.rvm.io | bash -s stable --ruby
+install_ruby() {
+  ruby-install --latest
 }
 
 install_gems() {

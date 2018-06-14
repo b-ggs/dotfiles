@@ -1,6 +1,6 @@
 name: agri
 root: ~/dev/b-ggs/agrihydrogel-simulation
-pre_window: rvm use 2.5.1@agrihydrogel-simulation
+pre_window: chruby 2.5.1
 windows:
   - agri:
     - nvim

@@ -28,7 +28,6 @@ This script symlink the following configs:
   - zshrc
   - oh-my-zsh themes
   - gitignore
-  - ruby-version (for chruby)
   "
   read -p "Press Enter to continue"
 }
@@ -56,7 +55,6 @@ symlink_common() {
   symlink $DOTFILES_PATH/zsh/zshrc $HOME/.zshrc
   symlink $DOTFILES_PATH/zsh/themes/custom.zsh-theme $OH_MY_ZSH_CUSTOM/themes/custom.zsh-theme
   symlink $DOTFILES_PATH/git/gitignore $HOME/.gitignore
-  symlink $DOTFILES_PATH/chruby/ruby-version $HOME/.ruby-version
 }
 
 symlink() {

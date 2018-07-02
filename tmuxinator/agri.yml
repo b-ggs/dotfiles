@@ -1,16 +1,8 @@
 name: agri
-root: ~/dev/b-ggs/agrihydrogel-simulation
+root: ~/dev/b-ggs/agrihydrogel-simulation-pjs
 pre_window: chruby 2.5.1
 windows:
-  - agri:
+  - nvim:
     - nvim
-  - agentscript:
-    - cd ~/dev/b-ggs/agentscript
-    - nvim
-  - servers:
-      panes:
-        - agri:
-          - rackup
-        - agentscript:
-          - cd ~/dev/b-ggs/agentscript
-          - python3 -m http.server 8001
+  - server:
+    - bundle exec rackup

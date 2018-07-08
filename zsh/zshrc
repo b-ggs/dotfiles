@@ -69,6 +69,7 @@ alias lock='[[ "$(uname)" == "Darwin" ]] && open -a ScreenSaverEngine || echo "T
 
 alias home="cd ~"
 alias dev="cd ~/dev"
+alias b-ggs="cd ~/dev/b-ggs"
 alias dotfiles="cd ~/.dotfiles"
 alias dump="mkdir -p ~/.dump && cd ~/.dump"
 

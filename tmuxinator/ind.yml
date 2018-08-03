@@ -4,12 +4,11 @@ pre_window: chruby 2.1.5
 windows:
   - nvim:
     - nvim
-  - server: 
-      layout: even-horizontal
-      panes:
-        - bundle exec rails s
-        - bundle exec rails c
-  - services: 
+  - server:
+    - bundle exec rails s
+  - console:
+    - bundle exec rails c
+  - services:
       layout: tiled
       pre:
         - mkdir -p ~/dev/jessicamah/.dump && cd ~/dev/jessicamah/.dump

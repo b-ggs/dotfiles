@@ -72,6 +72,7 @@ alias dev="cd ~/dev"
 alias b-ggs="cd ~/dev/b-ggs"
 alias dotfiles="cd ~/.dotfiles"
 alias dump="mkdir -p ~/.dump && cd ~/.dump"
+alias ssh-config="cd ~/.ssh-config"
 
 # ###############
 # Project aliases

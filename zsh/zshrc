@@ -30,8 +30,16 @@ bindkey "^N" down-line-or-beginning-search
 # chruby #
 ##########
 
-source /usr/local/opt/chruby/share/chruby/chruby.sh
-source /usr/local/opt/chruby/share/chruby/auto.sh
+CHRUBY="/usr/local/opt/chruby/share/chruby/chruby.sh"
+CHRUBY_AUTO="/usr/local/opt/chruby/share/chruby/auto.sh"
+
+if [[ -e "$CHRUBY" ]]; then
+  source $CHRUBY
+fi
+
+if [[ -e "$CHRUBY_AUTO" ]]; then
+  source $CHRUBY_AUTO
+fi
 
 ########
 # PATH #

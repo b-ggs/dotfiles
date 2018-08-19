@@ -11,7 +11,7 @@
 # zgen #
 ########
 
-source "${HOME}/.zgen/zgen.zsh"
+source "$HOME/.zgen/zgen.zsh"
 if ! zgen saved; then
   zgen oh-my-zsh
   zgen oh-my-zsh plugins/git
@@ -60,6 +60,7 @@ export LANG="en_US.UTF-8"
 export EDITOR="nvim"
 export SHELL="$(which zsh)"
 export GOPATH="$HOME/Go"
+export DOTFILES_PATH="$HOME/.dotfiles"
 
 ###########
 # Aliases #
@@ -113,6 +114,13 @@ export FZF_DEFAULT_COMMAND='ag --nocolor --ignore node_modules -g ""'
 export FZF_DEFAULT_OPTS="--color 16"
 # Source fzf zsh configs
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#############
+# Overrides #
+#############
+
+# Specifically for use with remote servers so prefix won't conflict
+# export USE_C_B_AS_TMUX_PREFIX=true
 
 ##########
 # Prompt #

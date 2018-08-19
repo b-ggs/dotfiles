@@ -7,33 +7,35 @@
 #  ██████ ██████ ░██  ░██░███   ░░█████
 # ░░░░░░ ░░░░░░  ░░   ░░ ░░░     ░░░░░
 
-# #########
-# oh-my-zsh
-# #########
+########
+# zgen #
+########
 
-ZSH_THEME="custom"
-export ZSH="$HOME/.oh-my-zsh"
-DISABLE_AUTO_TITLE="true"
-plugins=(git chruby)
-source "$ZSH/oh-my-zsh.sh"
+source "${HOME}/.zgen/zgen.zsh"
+if ! zgen saved; then
+  zgen oh-my-zsh
+  zgen oh-my-zsh plugins/git
+  zgen oh-my-zsh plugins/chruby
+  zgen save
+fi
 
-# ###########
-# Keybindings
-# ###########
+#########
+# Binds #
+#########
 
 bindkey "^P" up-line-or-beginning-search
 bindkey "^N" down-line-or-beginning-search
 
-# ######
-# Chruby
-# ######
+##########
+# chruby #
+##########
 
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/opt/chruby/share/chruby/auto.sh
 
-# ####
-# PATH
-# ####
+########
+# PATH #
+########
 
 export PATH="$PATH:/usr/local/sbin"
 export PATH="$PATH:$HOME/.local/bin"
@@ -41,9 +43,9 @@ export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
 export PATH="$PATH:/home/linuxbrew/.linuxbrew/sbin"
 export PATH="$PATH:$HOME/Go/bin"
 
-# #############
-# Env variables
-# #############
+#######
+# ENV #
+#######
 
 export TERM="xterm-256color"
 export LANG="en_US.UTF-8"
@@ -51,9 +53,9 @@ export EDITOR="nvim"
 export SHELL="/usr/local/bin/zsh"
 export GOPATH="$HOME/Go"
 
-# #######
-# Aliases
-# #######
+###########
+# Aliases #
+###########
 
 alias sshfix="eval ssh-agent && ssh-add ~/.ssh/id_rsa"
 alias docker-init='eval $(docker-machine env default)'
@@ -63,9 +65,9 @@ alias be='bundle exec'
 alias bi='bundle install'
 alias lock='[[ "$(uname)" == "Darwin" ]] && open -a ScreenSaverEngine || echo "TODO: Implement for Linux"'
 
-# #################
-# Directory aliases
-# #################
+#####################
+# Directory aliases #
+#####################
 
 alias home="cd ~"
 alias dev="cd ~/dev"
@@ -74,9 +76,9 @@ alias dotfiles="cd ~/.dotfiles"
 alias dump="mkdir -p ~/.dump && cd ~/.dump"
 alias ssh-config="cd ~/.ssh-config"
 
-# ###############
-# Project aliases
-# ###############
+###################
+# Project aliases #
+###################
 
 # bundler
 alias dbundle="ruby -I /Users/boggs/dev/b-ggs/bundler/lib /Users/boggs/dev/b-ggs/bundler/exe/bundle"
@@ -85,17 +87,17 @@ alias ind="cd ~/dev/jessicamah/indinero"
 # b-ggs/papa
 alias dpapa="ruby -I /Users/boggs/dev/b-ggs/papa/lib /Users/boggs/dev/b-ggs/papa/exe/papa"
 
-# ################
-# General settings
-# ################
+####################
+# General settings #
+####################
 
 # Disable xoff
 # https://superuser.com/questions/124845/can-you-disable-the-ctrl-s-xoff-keystroke-in-putty
 eval "stty -ixon" 
 
-# ###
-# Fzf
-# ###
+#######
+# fzf #
+#######
 
 # Change default fzf command to use ag
 export FZF_DEFAULT_COMMAND='ag --nocolor --ignore node_modules -g ""'
@@ -103,3 +105,21 @@ export FZF_DEFAULT_COMMAND='ag --nocolor --ignore node_modules -g ""'
 export FZF_DEFAULT_OPTS="--color 16"
 # Source fzf zsh configs
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+##########
+# Prompt #
+##########
+
+local user_host="%K{9} %F{0}%n%f%F{0}@%F{0}%m%f %k "
+local current_dir="%K{12} %F{0}%~%f %k"
+if type chruby > /dev/null; then
+  local chruby_prompt=' %K{12} %F{0}chruby@$(chruby_prompt_info)%f %k'
+else
+  local chruby_prompt=''
+fi
+ZSH_THEME_GIT_PROMPT_PREFIX=" %K{12} %F{0}git@"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%f %k"
+local git_branch='$(git_prompt_info)'
+local return_code="%(?.. %K{12} %F{0}%?%f %k)"
+
+PROMPT="${user_host}${current_dir}${chruby_prompt}${git_branch}${return_code}"$'\n'"$ "

@@ -11,13 +11,6 @@
 " INITIAL CONFIG
 " ##############
 
-" Silently install vim-plug if it does not exist
-if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
 " Create nviminfo file if it does not exist
 if empty(glob('~/.config/nvim/nviminfo'))
   silent !touch ~/.config/nvim/nviminfo
@@ -51,7 +44,7 @@ Plug 'dyng/ctrlsf.vim'
 " Async linter
 Plug 'neomake/neomake'
 " Ctags
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 " Direct upload to GitHub Gist
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'

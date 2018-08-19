@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if [[ "$(which brew)" ]]; then
+  brew install curl git nvim vim zsh tmux gpg fzf the_silver_searcher
+elif [[ "$(which apt)" ]]; then
+  sudo apt install -y curl git neovim vim zsh tmux gpg silversearcher-ag
+  # fzf
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install
+fi

@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+# Install zsh if it does not exist
+if [[ ! "$(which zsh)" ]]; then
+  if [[ "$(which brew)" ]]; then
+    brew install zsh
+  elif [[ "$(which apt)" ]]; then
+    sudo apt install -y zsh
+  fi
+fi
+
+# Set zsh as default shell
+ZSH_PATH=$(which zsh)
+
+if [[ ! "$(cat /etc/shells | grep $ZSH_PATH)" ]]; then
+  sudo echo "$ZSH_PATH" >> /etc/shells
+fi
+chsh -s "$ZSH_PATH"
+
+# Install zgen if it does not exist
+ZGEN_PATH=$HOME/.zgen
+
+if [[ ! -e "$ZGEN_PATH" ]]; then
+  git clone https://github.com/tarjoilija/zgen.git "$ZGEN_PATH"
+fi
+
+# Symlink
+ORIGIN=$HOME/.dotfiles/zsh/zshrc
+TARGET=$HOME/.zshrc
+
+mkdir -p "$(dirname "$TARGET")"
+rm -rf "$TARGET"
+ln -sf "$ORIGIN" "$TARGET"
+
+# Start and source zshrc
+zsh
+source ~/.zshrc

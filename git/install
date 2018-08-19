@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# Install git if it does not exist
+if [[ ! "$(which git)" ]]; then
+  if [[ "$(which brew)" ]]; then
+    brew install git
+  elif [[ "$(which apt)" ]]; then
+    sudo apt install -y git
+  fi
+fi
+
+# Symlink
+ORIGIN=$HOME/.dotfiles/git/gitignore
+TARGET=$HOME/.gitignore
+
+mkdir -p "$(dirname "$TARGET")"
+rm -rf "$TARGET"
+ln -sf "$ORIGIN" "$TARGET"
+
+# Additional git configs
+git config --global user.name "boggs"
+git config --global user.email "hello@boggs.xyz"
+git config --global core.excludesfile $HOME/.gitignore

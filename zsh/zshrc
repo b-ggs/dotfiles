@@ -50,7 +50,7 @@ export PATH="$PATH:$HOME/Go/bin"
 export TERM="xterm-256color"
 export LANG="en_US.UTF-8"
 export EDITOR="nvim"
-export SHELL="/usr/local/bin/zsh"
+export SHELL="$(which zsh)"
 export GOPATH="$HOME/Go"
 
 ###########

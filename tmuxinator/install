@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# Install ruby if it does not exist
+if [[ ! "$(which gem)" ]]; then
+  if [[ "$(which brew)" ]]; then
+    brew install ruby
+  elif [[ "$(which apt)" ]]; then
+    sudo apt install -y ruby
+  fi
+fi
+
+# Install tmuxinator if it does not exist
+if [[ ! "$(gem list | grep tmuxinator)" ]]; then
+  gem install tmuxinator
+fi
+
+# Symlink
+ORIGIN=$HOME/.dotfiles/tmuxinator
+TARGET=$HOME/.tmuxinator
+
+mkdir -p "$(dirname "$TARGET")"
+rm -rf "$TARGET"
+ln -sf "$ORIGIN" "$TARGET"

@@ -7,15 +7,17 @@
 #  ██████ ██████ ░██  ░██░███   ░░█████
 # ░░░░░░ ░░░░░░  ░░   ░░ ░░░     ░░░░░
 
-# #########
-# oh-my-zsh
-# #########
+########
+# zgen #
+########
 
-ZSH_THEME="custom"
-export ZSH="$HOME/.oh-my-zsh"
-DISABLE_AUTO_TITLE="true"
-plugins=(git chruby)
-source "$ZSH/oh-my-zsh.sh"
+source "${HOME}/.zgen/zgen.zsh"
+if ! zgen saved; then
+  zgen oh-my-zsh
+  zgen oh-my-zsh plugins/git
+  zgen oh-my-zsh plugins/chruby
+  zgen save
+fi
 
 # ###########
 # Keybindings
@@ -103,3 +105,21 @@ export FZF_DEFAULT_COMMAND='ag --nocolor --ignore node_modules -g ""'
 export FZF_DEFAULT_OPTS="--color 16"
 # Source fzf zsh configs
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+##########
+# Prompt #
+##########
+
+local user_host="%K{9} %F{0}%n%f%F{0}@%F{0}%m%f %k "
+local current_dir="%K{12} %F{0}%~%f %k"
+if type chruby > /dev/null; then
+  local chruby_prompt=' %K{12} %F{0}chruby@$(chruby_prompt_info)%f %k'
+else
+  local chruby_prompt=''
+fi
+ZSH_THEME_GIT_PROMPT_PREFIX=" %K{12} %F{0}git@"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%f %k"
+local git_branch='$(git_prompt_info)'
+local return_code="%(?.. %K{12} %F{0}%?%f %k)"
+
+PROMPT="${user_host}${current_dir}${chruby_prompt}${git_branch}${return_code}"$'\n'"$ "

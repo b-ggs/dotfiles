@@ -33,5 +33,4 @@ rm -rf "$TARGET"
 ln -sf "$ORIGIN" "$TARGET"
 
 # Start and source zshrc
-zsh
-source ~/.zshrc
+zsh -c "exit"

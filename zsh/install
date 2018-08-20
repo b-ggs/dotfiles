@@ -31,6 +31,3 @@ TARGET=$HOME/.zshrc
 mkdir -p "$(dirname "$TARGET")"
 rm -rf "$TARGET"
 ln -sf "$ORIGIN" "$TARGET"
-
-# Start and source zshrc
-zsh -c "exit"

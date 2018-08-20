@@ -120,7 +120,7 @@ export FZF_DEFAULT_OPTS="--color 16"
 #############
 
 # Specifically for use with remote servers so prefix won't conflict
-# export USE_C_B_AS_TMUX_PREFIX=true
+# export USE_C_A_AS_TMUX_PREFIX=true
 
 ##########
 # Prompt #

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>AllowClipboardAccess</key>
-	<false/>
+	<true/>
 	<key>AppleAntiAliasingThreshold</key>
 	<integer>1</integer>
 	<key>AppleScrollAnimationEnabled</key>
@@ -547,16 +547,20 @@
 	<string>515 313 445 77 0 0 1680 1050 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>530 493 620 392 0 0 1680 1050 </string>
+	<key>NSWindow Frame SessionsPreferences</key>
+	<string>269 126 606 469 0 0 1360 768 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>175 398 796 486 0 0 1680 1050 </string>
+	<string>176 552 814 486 0 0 1680 1050 </string>
+	<key>NSWindow Frame UKCrashReporter</key>
+	<string>127 431 592 584 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>10 10 825 990 0 0 1680 1050 </string>
+	<string>10 10 1660 990 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>845 10 825 990 0 0 1680 1050 </string>
+	<string>10 10 1660 990 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>10 540 570 460 0 0 1680 1050 </string>
+	<string>727 565 570 460 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>845 40 570 460 0 0 1680 1050 </string>
+	<string>10 10 825 990 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
 	<string>12 60 570 460 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
@@ -1282,6 +1286,80 @@
 	<integer>1</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
+	<key>NoSyncRecordedVariableNames</key>
+	<dict>
+		<key>1</key>
+		<array>
+			<string>session.jobName</string>
+			<string>session.id</string>
+			<string>session.terminalIconName</string>
+			<string>session.profileName</string>
+			<string>session.tmuxClientName</string>
+			<string>session.name</string>
+			<string>session.termid</string>
+			<string>session.triggerName</string>
+			<string>session.tmuxWindowPane</string>
+			<string>session.hostname</string>
+			<string>session.username</string>
+			<string>session.tmuxRole</string>
+			<string>session.path</string>
+			<string>session.autoName</string>
+			<string>session.creationTimeString</string>
+			<string>session.rows</string>
+			<string>session.tmuxWindowTitle</string>
+			<string>session.tty</string>
+			<string>session.autoLogId</string>
+			<string>session.terminalWindowName</string>
+			<string>iterm2</string>
+			<string>session.jobPid</string>
+			<string>session.lastCommand</string>
+			<string>session.pid</string>
+			<string>session.presentationName</string>
+			<string>session.columns</string>
+		</array>
+		<key>16</key>
+		<array>
+			<string>titleOverride</string>
+			<string>currentTab.currentSession.session.columns</string>
+			<string>currentTab.currentSession.session.terminalWindowName</string>
+			<string>currentTab</string>
+			<string>currentTab.currentSession</string>
+			<string>currentTab.currentSession.session.pid</string>
+			<string>currentTab.currentSession.session.autoName</string>
+			<string>currentTab.currentSession.session.tty</string>
+			<string>currentTab.currentSession.session.presentationName</string>
+			<string>currentTab.currentSession.session.name</string>
+			<string>currentTab.currentSession.session.terminalIconName</string>
+			<string>currentTab.currentSession.session.jobName</string>
+			<string>currentTab.currentSession.session.rows</string>
+			<string>iterm2</string>
+			<string>currentTab.currentSession.session.termid</string>
+			<string>currentTab.currentSession.session.jobPid</string>
+		</array>
+		<key>2</key>
+		<array>
+			<string>titleOverride</string>
+			<string>currentSession</string>
+			<string>currentSession.session.termid</string>
+			<string>currentSession.session.pid</string>
+			<string>currentSession.session.autoName</string>
+			<string>currentSession.session.name</string>
+			<string>currentSession.session.rows</string>
+			<string>currentSession.session.tty</string>
+			<string>currentSession.session.jobName</string>
+			<string>currentSession.session.terminalWindowName</string>
+			<string>currentSession.session.presentationName</string>
+			<string>tmuxWindow</string>
+			<string>iterm2</string>
+			<string>currentSession.session.terminalIconName</string>
+			<string>currentSession.session.jobPid</string>
+			<string>currentSession.session.columns</string>
+		</array>
+		<key>4</key>
+		<array>
+			<string>pid</string>
+		</array>
+	</dict>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>536971772.40391004</real>
 	<key>OpenTmuxWindowsIn</key>
@@ -1332,7 +1410,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-04-30T17:19:35Z</date>
+	<date>2018-06-18T17:45:55Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -1353,6 +1431,8 @@
 	<integer>5</integer>
 	<key>TerminalVMargin</key>
 	<integer>5</integer>
+	<key>UKCrashReporterLastCrashReportDate</key>
+	<real>1531235200</real>
 	<key>UseBorder</key>
 	<false/>
 	<key>UseLionStyleFullscreen</key>
@@ -1366,7 +1446,7 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.2.20180422-nightly</string>
+	<string>3.2.20180818-nightly</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

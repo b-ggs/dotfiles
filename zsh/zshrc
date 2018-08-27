@@ -73,6 +73,7 @@ alias showdesktop='defaults write com.apple.finder CreateDesktop true && killall
 alias be='bundle exec'
 alias bi='bundle install'
 alias lock='[[ "$(uname)" == "Darwin" ]] && open -a ScreenSaverEngine || echo "TODO: Implement for Linux"'
+alias known-hosts="$EDITOR ~/.ssh/known_hosts"
 
 #####################
 # Directory aliases #

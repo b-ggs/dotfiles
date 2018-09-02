@@ -1,0 +1,95 @@
+#!/usr/bin/env bash
+
+# pak - a package manager detector and adapter
+# https://github.com/b-ggs/pak
+
+VERSION="0.0.1"
+PACKAGE_MANAGER=""
+
+detect() {
+  if [[ "$(which brew)" ]]; then
+    PACKAGE_MANAGER="brew"
+  else
+    if [[ "$(which sudo)" ]]; then
+      SUDO="sudo"
+    else
+      SUDO=""
+    fi
+
+    if [[ "$(which apt-get)" ]]; then
+      PACKAGE_MANAGER="apt-get"
+    fi
+  fi
+}
+
+unable_to_detect_error() {
+  echo "Cannot detect package manager for this system."
+  echo "Send an error report at https://github.com/b-ggs/pak/issues if you think this is an issue."
+  exit 1
+}
+
+COMMAND="$1"
+shift
+
+case "$COMMAND" in
+  install)
+    detect
+    case "$PACKAGE_MANAGER" in
+      brew)
+        INSTALL_COMMAND="$PACKAGE_MANAGER install"
+        ;;
+      apt-get)
+        INSTALL_COMMAND="$SUDO $PACKAGE_MANAGER install -y"
+        ;;
+      *)
+        unable_to_detect_error
+        ;;
+    esac
+
+    if [[ "$@" ]]; then
+      echo "[pak] Attempting to install '$@' via '$PACKAGE_MANAGER'..."
+      echo "[$PACKAGE_MANAGER]"
+      $INSTALL_COMMAND $@
+    else
+      echo $INSTALL_COMMAND
+    fi
+    ;;
+
+  -v | --version)
+    echo $VERSION
+    ;;
+
+  "")
+    detect
+    if [[ "$PACKAGE_MANAGER" ]]; then
+      echo $PACKAGE_MANAGER
+    else
+      unable_to_detect_error
+    fi
+    ;;
+
+  *)
+    echo "pak $VERSION
+
+a package manager detector and adapter
+
+https://github.com/b-ggs/pak
+
+- Print the current system's package manager
+    $ pak
+    brew
+
+- Print the install command for the system's package manager
+    $ pak install
+    brew install
+
+- Install packages with the system's package manager
+    $ pak install vim
+    [pak] Attempting to install 'vim' via 'brew'...
+    [brew]
+    ===> Installing 1 package
+    ...
+    🍺  /usr/local/Cellar/vim/8.1.0300
+"
+    ;;
+esac

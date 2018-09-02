@@ -1,10 +1,30 @@
 #!/usr/bin/env bash
 
-if [[ "$(which brew)" ]]; then
-  brew install curl git nvim vim zsh tmux gpg fzf the_silver_searcher
-elif [[ "$(which apt)" ]]; then
-  sudo apt install -y curl git neovim vim zsh tmux gpg silversearcher-ag
-  # fzf
-  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-  ~/.fzf/install
-fi
+PAK=${DOTFILES_PATH="$HOME/.dotfiles"}/helpers/pak
+PACKAGE_MANAGER=$($PAK)
+PACKAGES="curl git nvim vim zsh tmux gpg"
+BREW_PACKAGES="fzf the_silver_searcher"
+APT_PACKAGES="silversearcher-ag"
+
+case $PACKAGE_MANAGER in
+  brew)
+    PACKAGES="${PACKAGES} ${BREW_PACKAGES}"
+    ;;
+  apt-get)
+    PACKAGES="${PACKAGES} ${APT_PACKAGES}"
+    ;;
+esac
+
+echo $PACKAGES
+
+$PAK install $PACKAGES
+
+# Install fzf manually because it's not available on apt-get
+case $PACKAGE_MANAGER in
+  apt-get)
+    if [[ ! -d "~/.fzf" ]]; then
+      git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+      ~/.fzf/install
+    fi
+    ;;
+esac

@@ -1418,7 +1418,7 @@
 	<key>ShowFullScreenTabBar</key>
 	<true/>
 	<key>ShowMetalFPSmeter</key>
-	<true/>
+	<false/>
 	<key>ShowPaneTitles</key>
 	<true/>
 	<key>SplitPaneDimmingAmount</key>

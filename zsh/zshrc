@@ -75,6 +75,8 @@ alias be='bundle exec'
 alias bi='bundle install'
 alias lock='[[ "$(uname)" == "Darwin" ]] && open -a ScreenSaverEngine || echo "TODO: Implement for Linux"'
 alias known-hosts="$EDITOR ~/.ssh/known_hosts"
+alias d='docker'
+alias dc='docker-compose'
 
 #####################
 # Directory aliases #
@@ -86,6 +88,7 @@ alias b-ggs="cd ~/dev/b-ggs"
 alias dotfiles="cd ~/.dotfiles"
 alias dump="mkdir -p ~/.dump && cd ~/.dump"
 alias ssh-config="cd ~/.ssh-config"
+alias dotbin='cd ~/.bin'
 
 ###################
 # Project aliases #

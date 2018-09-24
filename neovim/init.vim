@@ -98,9 +98,8 @@ set noshowmode
 " Use terminal cursor for all modes
 set guicursor=
 
-"
 " ##########
-" KEY_REMAPS
+" KEY REMAPS
 " ##########
 
 " Set leader key to Space
@@ -132,6 +131,7 @@ inoremap <Up> <NOP>
 inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
+map Q <NOP>
 
 " ######
 " MACROS

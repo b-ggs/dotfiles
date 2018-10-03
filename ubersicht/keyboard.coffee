@@ -2,7 +2,7 @@ command: 'sh scripts/magic_keyboard_battery'
 
 name: 'keyboard'
 
-refreshFrequency: 3000
+refreshFrequency: 10000
 
 update: (output, domEl) ->
   data = output.trim()

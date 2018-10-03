@@ -2,7 +2,7 @@ command: 'sh scripts/spotify_status'
 
 name: 'spotify'
 
-refreshFrequency: 3000
+refreshFrequency: 10000
 
 update: (output, domEl) ->
   [state, title, artist, _album] = output.trim().split("\n")

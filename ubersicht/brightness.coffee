@@ -2,7 +2,7 @@ command: 'sh scripts/brightness'
 
 name: 'brightness'
 
-refreshFrequency: 3000
+refreshFrequency: 10000
 
 update: (output, domEl) ->
   data = output.trim()

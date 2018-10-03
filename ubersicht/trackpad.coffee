@@ -2,7 +2,7 @@ command: 'sh scripts/magic_trackpad_battery'
 
 name: 'trackpad'
 
-refreshFrequency: 3000
+refreshFrequency: 10000
 
 update: (output, domEl) ->
   data = output.trim()

@@ -2,7 +2,7 @@ command: 'sh scripts/volume'
 
 name: 'volume'
 
-refreshFrequency: 3000
+refreshFrequency: 10000
 
 update: (output, domEl) ->
   [output, _input, _alert, isMuted] = output.trim().split("\n")

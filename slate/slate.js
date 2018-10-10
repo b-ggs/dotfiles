@@ -50,7 +50,7 @@ var bindings = {
 
 var gap = 10;
 var offsets = {
-  "top": 40,
+  "top": 0,
   "bottom": 0
 };
 

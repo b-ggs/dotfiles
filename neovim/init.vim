@@ -91,8 +91,8 @@ set tabstop=2
 set shiftwidth=2
 " Tab key will insert spaces instead of tabs
 set expandtab
-" Display trailing whitespaces as •
-set list listchars=trail:•
+" Display trailing whitespaces as • and tab as →•
+set list listchars=trail:•,tab:→•
 " Hide mode in statusline
 set noshowmode
 " Use terminal cursor for all modes

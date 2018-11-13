@@ -552,17 +552,17 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>383 245 606 469 0 0 1680 1050 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>527 426 918 512 0 0 1680 1027 </string>
+	<string>140 221 796 486 0 0 1600 877 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>127 431 592 584 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>10 10 1660 990 0 0 1680 1050 </string>
+	<string>10 50 1660 967 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>-110 565 570 460 0 0 1680 1050 </string>
+	<string>10 59 1580 808 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>1930 10 1900 1020 1920 0 1920 1080 </string>
+	<string>10 570 570 460 0 0 1920 1080 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>1932 567 570 460 1920 0 1920 1080 </string>
+	<string>10 10 1900 1020 0 0 1920 1080 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
 	<string>12 60 570 460 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
@@ -1280,6 +1280,8 @@
 			<string>/Users/boggs</string>
 		</dict>
 	</array>
+	<key>NoSyncHaveRequestedFullDiskAccess</key>
+	<true/>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
@@ -1453,7 +1455,7 @@
 	<key>UseBorder</key>
 	<false/>
 	<key>UseLionStyleFullscreen</key>
-	<true/>
+	<false/>
 	<key>UseMetal</key>
 	<true/>
 	<key>WindowNumber</key>
@@ -1463,7 +1465,7 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.2.3beta1</string>
+	<string>3.2.5beta1</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

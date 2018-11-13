@@ -89,6 +89,8 @@ alias dotfiles="cd ~/.dotfiles"
 alias dump="mkdir -p ~/.dump && cd ~/.dump"
 alias ssh-config="cd ~/.ssh-config"
 alias dotbin='cd ~/.bin'
+alias Downloads='cd ~/Downloads'
+alias Desktop='cd ~/Desktop'
 
 ###################
 # Project aliases #

@@ -146,3 +146,7 @@ local git_branch='$(git_prompt_info)'
 local return_code="%(?.. %K{12} %F{0}%?%f %k)"
 
 PROMPT="${user_host}${current_dir}${chruby_prompt}${git_branch}${return_code}"$'\n'"$ "
+
+if type fortune > /dev/null; then
+  fortune undertale-determination
+fi

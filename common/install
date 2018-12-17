@@ -1,30 +1,18 @@
 #!/usr/bin/env bash
 
-PAK=${DOTFILES_PATH="$HOME/.dotfiles"}/helpers/pak
-PACKAGE_MANAGER=$($PAK)
 PACKAGES="curl git nvim vim zsh tmux gpg"
 BREW_PACKAGES="fzf the_silver_searcher"
 APT_PACKAGES="silversearcher-ag"
 
-case $PACKAGE_MANAGER in
-  brew)
-    PACKAGES="${PACKAGES} ${BREW_PACKAGES}"
-    ;;
-  apt-get)
-    PACKAGES="${PACKAGES} ${APT_PACKAGES}"
-    ;;
-esac
+if [[ "$(which brew)" ]]; then
+  brew install $PACKAGES $BREW_PACKAGES
+else if [[ "$(which apt-get)" ]]; then
+  sudo apt-get install -y $PACKAGES $APT_PACKAGES
 
-echo $PACKAGES
+  # Install fzf manually because it's not available on apt-get
+  if [[ ! -d "~/.fzf" ]]; then
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install
+  fi
+fi
 
-$PAK install $PACKAGES
-
-# Install fzf manually because it's not available on apt-get
-case $PACKAGE_MANAGER in
-  apt-get)
-    if [[ ! -d "~/.fzf" ]]; then
-      git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-      ~/.fzf/install
-    fi
-    ;;
-esac

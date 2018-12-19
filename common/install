@@ -6,7 +6,7 @@ APT_PACKAGES="silversearcher-ag"
 
 if [[ "$(which brew)" ]]; then
   brew install $PACKAGES $BREW_PACKAGES
-else if [[ "$(which apt-get)" ]]; then
+elif [[ "$(which apt-get)" ]]; then
   sudo apt-get install -y $PACKAGES $APT_PACKAGES
 
   # Install fzf manually because it's not available on apt-get
@@ -15,4 +15,3 @@ else if [[ "$(which apt-get)" ]]; then
     ~/.fzf/install
   fi
 fi
-

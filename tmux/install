@@ -10,7 +10,7 @@ if [[ ! "$(which tmux)" ]]; then
 fi
 
 # Symlink
-ORIGIN=$HOME/.dotfiles/tmux/tmux.conf
+ORIGIN=$HOME/.files/tmux/tmux.conf
 TARGET=$HOME/.tmux.conf
 
 mkdir -p "$(dirname "$TARGET")"

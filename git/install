@@ -10,7 +10,7 @@ if [[ ! "$(which git)" ]]; then
 fi
 
 # Symlink
-ORIGIN=$HOME/.dotfiles/git/gitignore
+ORIGIN=$HOME/.files/git/gitignore
 TARGET=$HOME/.gitignore
 
 mkdir -p "$(dirname "$TARGET")"

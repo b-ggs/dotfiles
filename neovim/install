@@ -10,7 +10,7 @@ if [[ ! "$(which nvim)" ]]; then
 fi
 
 # Symlink
-ORIGIN=$HOME/.dotfiles/neovim/init.vim
+ORIGIN=$HOME/.files/neovim/init.vim
 TARGET=$HOME/.config/nvim/init.vim
 
 mkdir -p "$(dirname "$TARGET")"

@@ -61,7 +61,7 @@ export LANG="en_US.UTF-8"
 export EDITOR="nvim"
 export SHELL="$(which zsh)"
 export GOPATH="$HOME/Go"
-export DOTFILES_PATH="$HOME/.dotfiles"
+export DOTFILES_PATH="$HOME/.files"
 
 ###########
 # Aliases #
@@ -85,7 +85,7 @@ alias dc='docker-compose'
 alias home="cd ~"
 alias dev="cd ~/dev"
 alias b-ggs="cd ~/dev/b-ggs"
-alias dotfiles="cd ~/.dotfiles"
+alias dotfiles="cd ~/.files"
 alias dump="mkdir -p ~/.dump && cd ~/.dump"
 alias ssh-config="cd ~/.ssh-config"
 alias dotbin='cd ~/.bin'

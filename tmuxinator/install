@@ -15,7 +15,7 @@ if [[ ! "$(gem list | grep tmuxinator)" ]]; then
 fi
 
 # Symlink
-ORIGIN=$HOME/.dotfiles/tmuxinator
+ORIGIN=$HOME/.files/tmuxinator
 TARGET=$HOME/.tmuxinator
 
 mkdir -p "$(dirname "$TARGET")"

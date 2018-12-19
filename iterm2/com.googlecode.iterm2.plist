@@ -552,17 +552,17 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>383 245 606 469 0 0 1680 1050 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>140 221 796 486 0 0 1600 877 </string>
+	<string>-1724 367 796 486 -1920 -30 1920 1057 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>127 431 592 584 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>10 50 1660 967 0 0 1680 1027 </string>
+	<string>-1910 -20 1900 1037 -1920 -30 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>10 59 1580 808 0 0 1680 1027 </string>
+	<string>-1910 -20 1900 1037 -1920 -30 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>10 570 570 460 0 0 1920 1080 </string>
+	<string>-838 47 570 460 -1920 -30 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>10 10 1900 1020 0 0 1920 1080 </string>
+	<string>2645 557 570 460 1680 -30 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
 	<string>12 60 570 460 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
@@ -1419,7 +1419,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/boggs/.dotfiles/iterm2</string>
+	<string>/Users/boggs/.files/iterm2</string>
 	<key>SUEnableAutomaticChecks</key>
 	<false/>
 	<key>SUFeedAlternateAppNameKey</key>

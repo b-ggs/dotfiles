@@ -56,7 +56,7 @@ Plug 'metakirby5/codi.vim'
 " Start screen
 Plug 'mhinz/vim-startify'
 " Better statusline
-Plug 'b-ggs/vim-airline'
+Plug 'vim-airline/vim-airline'
 " Displays diff in gutter
 Plug 'airblade/vim-gitgutter'
 " 16-color colorscheme
@@ -231,50 +231,32 @@ let g:startify_list_order = [
   \ ]
 
 " ###########
-" VIM_AIRLINE
+" VIM-AIRLINE
 " ###########
 
-" Custom Airline theme
-scriptencoding utf-8
-let g:airline#themes#custom#palette = {}
-let s:N1 = [ '' , '' , 16 , 9 ]
-let s:N2 = [ '' , '' , 16 , 12 ]
-let s:N3 = [ '' , '' , 16 , 12 ]
-let g:airline#themes#custom#palette.normal = airline#themes#generate_color_map(s:N1, s:N2, s:N3)
-let s:I1 = [ '' , '' , 16 , 9 ]
-let s:I2 = [ '' , '' , 16 , 12 ]
-let s:I3 = [ '' , '' , 16 , 12 ]
-let g:airline#themes#custom#palette.insert = airline#themes#generate_color_map(s:I1, s:I2, s:I3)
-let s:V1 = [ '' , '' , 16 , 9 ]
-let s:V2 = [ '' , '' , 16 , 12 ]
-let s:V3 = [ '' , '' , 16 , 12 ]
-let g:airline#themes#custom#palette.visual = airline#themes#generate_color_map(s:V1, s:V2, s:V3)
-let s:IA1 = [ '' , '' , 16 , 8 ]
-let s:IA2 = [ '' , '' , 16 , 8 ]
-let s:IA3 = [ '' , '' , 16 , 8 ]
-let g:airline#themes#custom#palette.inactive = airline#themes#generate_color_map(s:IA1, s:IA2, s:IA3)
-" Set Airline theme to theme specified in zshrc
-let g:airline_theme='custom'
-" Customized Airline content
-function! AirlineInit()
-  let spc = g:airline_symbols.space
-  let g:airline_section_a = airline#section#create_left(['mode'])
-  let g:airline_section_b = ''
-  if exists("+autochdir") && &autochdir == 1
-    let g:airline_section_c = airline#section#create_left(['path'])
-  else
-    let g:airline_section_c = airline#section#create_left(['file'])
-  endif
-  let g:airline_section_x = ''
-  let g:airline_section_y = airline#section#create_left(['filetype'])
-  let g:airline_section_z = airline#section#create_left(['%3p%%'.spc, 'linenr',  ':%3v'])
-  let g:airline_section_error = ''
-  let g:airline_section_warning = ''
-  let g:airline_left_sep = ' '
-  let g:airline_right_sep = ' '
+let g:airline_left_sep = ' '
+let g:airline_right_sep = ' '
+let g:airline_skip_empty_sections = 1
+let g:airline_section_b = ''
+let g:airline_theme_patch_func = 'AirlineThemePatch'
+function! AirlineThemePatch(palette)
+  let s:outer = ['', '', 16, 9]
+  let s:inner = ['', '', 16, 12]
+  let s:inactive = ['', '', 16, 8]
+
+  let s:active_map = airline#themes#generate_color_map(s:outer, s:inner, s:inner)
+  let s:inactive_map = airline#themes#generate_color_map(s:inactive, s:inactive, s:inactive)
+
+  let a:palette.normal = s:active_map
+  let a:palette.insert = s:active_map
+  let a:palette.visual = s:active_map
+  let a:palette.inactive = s:inactive_map
+
+  let a:palette.normal_modified = s:active_map
+  let a:palette.insert_modified = s:active_map
+  let a:palette.visual_modified = s:active_map
+  let a:palette.inactive_modified = s:inactive_map
 endfunction
-autocmd User AirlineAfterInit call AirlineInit()
-autocmd VimEnter * call AirlineInit()
 
 " ###########
 " ONEDARK_VIM

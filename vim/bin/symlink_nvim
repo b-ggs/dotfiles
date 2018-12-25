@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+ORIGIN=$HOME/.files/vim
+TARGET=$HOME/.config/nvim
+
+mkdir -p "$(dirname "$TARGET")"
+rm -rf "$TARGET"
+ln -sf "$ORIGIN" "$TARGET"

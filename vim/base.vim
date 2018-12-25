@@ -1,3 +1,5 @@
+" Remove compatibility with VI
+set nocompatible
 " Set encoding to utf-8
 set encoding=utf-8
 scriptencoding utf-8
@@ -46,16 +48,15 @@ map k gk
 command W w
 command Wq wq
 map <F1> <Esc>
-imap <F1> <Esc>
 map <S-k> <Nop>
 map Q <NOP>
 " Write with sudo
 command Sudow w !sudo tee %
 " Remap pane navigation to Ctrl+[h, j, k, l]
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 " Remap splits to SPC+[-,\]
-nnoremap <leader>- <c-w>s
-nnoremap <leader>\ <c-w>v
+nnoremap <leader>- <C-w>s
+nnoremap <leader>\ <C-w>v

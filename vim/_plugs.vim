@@ -38,7 +38,7 @@ Plug 'metakirby5/codi.vim'
 " Start screen
 Plug 'mhinz/vim-startify'
 " Better statusline
-Plug 'vim-airline/vim-airline'
+Plug 'b-ggs/vim-airline'
 " Displays diff in gutter
 Plug 'airblade/vim-gitgutter'
 " 16-color colorscheme

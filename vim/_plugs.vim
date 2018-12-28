@@ -6,8 +6,12 @@ endif
 
 call plug#begin(plugged_dir)
 " Fuzzy searching
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+if executable('fzf')
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
+else
+  Plug 'ctrlpvim/ctrlp.vim'
+endif
 " Tree explorer
 Plug 'scrooloose/nerdtree'
 " Language packs

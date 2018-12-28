@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+origin_paths=$(ls -d -1 $(dirname $(realpath "$0"))/*.vim)
+target_dir=$HOME/.config/nvim
+
+mkdir -p $target_dir
+
+for origin_path in $origin_paths; do
+  basename=$(basename $origin_path)
+  target_path=$target_dir/$basename
+
+  rm -f $target_path
+  ln -sf "$origin_path" "$target_path"
+done

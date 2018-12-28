@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if [[ ! "$(which zsh)" ]]; then
+  if [[ "$(which brew)" ]]; then
+    brew install neovim
+  elif [[ "$(which apt-get)" ]]; then
+    sudo apt-get install -y neovim
+  fi
+fi
+
+../symlink_nvim
+
+curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

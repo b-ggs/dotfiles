@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
 # Install ruby if it does not exist
-if [[ ! "$(which gem)" ]]; then
-  if [[ "$(which brew)" ]]; then
+if [[ -z "$(command -v gem 2> /dev/null)" ]]; then
+  if [[ -z "$(command -v brew 2> /dev/null)" ]]; then
+    echo "brew is not installed"
+    exit 1
+  else
     brew install ruby
-  elif [[ "$(which apt)" ]]; then
-    sudo apt install -y ruby
   fi
 fi
 

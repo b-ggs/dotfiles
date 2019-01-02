@@ -1,15 +1,30 @@
 #!/usr/bin/env bash
 
-if [[ ! "$(which zsh)" ]]; then
-  if [[ "$(which brew)" ]]; then
-    brew install neovim
-  elif [[ "$(which apt-get)" ]]; then
-    sudo apt-get install -y neovim
+# Install nvim if it does not exist
+if [[ -z "$(command -v nvim 2> /dev/null)" ]]; then
+  if [[ -z "$(command -v brew 2> /dev/null)" ]]; then
+    echo "brew is not installed"
+    exit 1
+  else
+    brew install nvim
   fi
 fi
 
-$(dirname "$0")/symlink_nvim
+# Symlink
+origin_paths="$(ls -d -1 $(dirname $(realpath "$0"))/*.vim)"
+target_dir="$HOME/.config/nvim"
 
+mkdir -p "$target_dir"
+
+for origin_path in "$origin_paths"; do
+  basename="$(basename "$origin_path")"
+  target_path="$target_dir"/"$basename"
+
+  rm -f "$target_path"
+  ln -sf "$origin_path" "$target_path"
+done
+
+# vim-plug
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 nvim +PlugInstall +qall

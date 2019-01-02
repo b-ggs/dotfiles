@@ -1,15 +1,32 @@
 #!/usr/bin/env bash
 
-if [[ ! "$(which zsh)" ]]; then
-  if [[ "$(which brew)" ]]; then
+# Install vim if it does not exist
+if [[ -z "$(command -v vim 2> /dev/null)" ]]; then
+  if [[ -z "$(command -v brew 2> /dev/null)" ]]; then
+    echo "brew is not installed"
+    exit 1
+  else
     brew install vim
-  elif [[ "$(which apt-get)" ]]; then
-    sudo apt-get install -y vim
   fi
 fi
 
-$(dirname "$0")/symlink_vim
+# Symlink
+origin_paths="$(ls -d -1 $(dirname $(realpath "$0"))/*.vim)"
+target_dir="$HOME/.vim"
 
+mkdir -p "$target_dir"
+
+for origin_path in "$origin_paths"; do
+  basename="$(basename "$origin_path")"
+  target_path="$target_dir"/"$basename"
+
+  rm -f "$target_path"
+  ln -sf "$origin_path" "$target_path"
+done
+
+ln -sf "$target_dir/init.vim" "$HOME/.vimrc"
+
+# vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 vim +PlugInstall +qall

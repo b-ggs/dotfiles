@@ -1,33 +1,39 @@
 #!/usr/bin/env bash
 
-# Install zsh if it does not exist
-if [[ ! "$(which zsh)" ]]; then
-  if [[ "$(which brew)" ]]; then
-    brew install zsh
-  elif [[ "$(which apt)" ]]; then
-    sudo apt install -y zsh
-  fi
+if [[ -z "$(command -v zsh 2> /dev/null)" ]]; then
+  brew install zsh
 fi
 
-# Set zsh as default shell
-ZSH_PATH=$(which zsh)
-
-if [[ ! "$(cat /etc/shells | grep $ZSH_PATH)" ]]; then
-  sudo echo "$ZSH_PATH" >> /etc/shells
-fi
-chsh -s "$ZSH_PATH"
+zsh_path="$(command -v zsh)"
 
 # Install zgen if it does not exist
-ZGEN_PATH=$HOME/.zgen
 
-if [[ ! -e "$ZGEN_PATH" ]]; then
-  git clone https://github.com/tarjoilija/zgen.git "$ZGEN_PATH"
+zgen_path="$HOME/.zgen"
+if [[ ! -e "$zgen_path" ]]; then
+  git clone https://github.com/tarjoilija/zgen.git "$zgen_path"
 fi
 
 # Symlink
-ORIGIN=$HOME/.files/zsh/zshrc
-TARGET=$HOME/.zshrc
 
-mkdir -p "$(dirname "$TARGET")"
-rm -rf "$TARGET"
-ln -sf "$ORIGIN" "$TARGET"
+origin_paths="$(ls -d -1 $(dirname $(realpath "$0"))/*.zsh)"
+target_dir="$HOME/.zsh"
+
+mkdir -p "$target_dir"
+
+for origin_path in $origin_paths; do
+  basename="$(basename $origin_path)"
+  target_path="$target_dir/$basename"
+
+  rm -f "$target_path"
+  ln -sf "$origin_path" "$target_path"
+done
+
+ln -sf "$target_dir/init.zsh" "$HOME/.zshrc"
+
+# Change default shell to zsh
+echo "Changing default shell... SIGKILL to stop"
+
+if [[ ! "$(cat /etc/shells | grep $zsh_path)" ]]; then
+  sudo echo "$zsh_path" >> /etc/shells
+fi
+chsh -s "$zsh_path"

@@ -52,6 +52,12 @@ export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
 export PATH="$PATH:/home/linuxbrew/.linuxbrew/sbin"
 export PATH="$PATH:$HOME/Go/bin"
 
+# Check if current session is over SSH
+if [[ -n "$SSH_TTY" ]] && ( [[ "$SSH_TTY" == "$(tty)" ]] || ( [[ -n "$TMUX" ]] && [[ "$SSH_TTY" == "/dev/$(ps ax | grep "$(tmux display-message -p '#{client_pid}')" | grep -v grep | awk '{ print $2 }')" ]] ) ); then
+  export IS_SSH="true"
+fi
+
+
 #######
 # ENV #
 #######
@@ -134,6 +140,11 @@ export FZF_DEFAULT_OPTS="--color 16"
 ##########
 
 local user_host="%K{9} %F{0}%n%f%F{0}@%F{0}%m%f %k "
+if [[ -n "$IS_SSH" ]]; then
+  local ssh_prompt='%K{12} %F{0}SSH%f %k '
+else
+  local ssh_prompt=''
+fi
 local current_dir="%K{12} %F{0}%~%f %k"
 if type chruby > /dev/null; then
   local chruby_prompt=' %K{12} %F{0}chruby@$(chruby_prompt_info)%f %k'
@@ -145,7 +156,7 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%f %k"
 local git_branch='$(git_prompt_info)'
 local return_code="%(?.. %K{12} %F{0}%?%f %k)"
 
-PROMPT="${user_host}${current_dir}${chruby_prompt}${git_branch}${return_code}"$'\n'"$ "
+PROMPT="${user_host}${ssh_prompt}${current_dir}${chruby_prompt}${git_branch}${return_code}"$'\n'"$ "
 
 if type fortune > /dev/null; then
   fortune undertale-determination

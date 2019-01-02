@@ -6,7 +6,7 @@ Personal configurations for nvim, zsh, tmux, etc.
 
 ```
 git clone git@github.com:b-ggs/dotfiles.git $HOME/.files
-$HOME/.files/common/install
+$HOME/.files/brew/install
 $HOME/.files/termux/install
 $HOME/.files/zsh/install
 $HOME/.files/vim/install_nvim

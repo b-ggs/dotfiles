@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [[ "$PREFIX" == "/data/data/com.termux/files/usr" ]] && [[ "$(uname -o)" == "Android" ]]; then
+if [[ "$PREFIX" != "/data/data/com.termux/files/usr" ]] || [[ "$(uname -o)" != "Android" ]]; then
   echo "This needs to be run in Termux"
   exit 1
 fi

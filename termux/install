@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if [[ "$PREFIX" == "/data/data/com.termux/files/usr" ]] && [[ "$(uname -o)" == "Android" ]]; then
+  echo "This needs to be run in Termux"
+  exit 1
+fi
+
+PACKAGES="termux-api curl git nvim vim zsh tmux gpg fzf silversearcher-ag"
+
+apt-get install -y $PACKAGES

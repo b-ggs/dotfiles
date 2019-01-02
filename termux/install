@@ -5,6 +5,6 @@ if [[ "$PREFIX" != "/data/data/com.termux/files/usr" ]] || [[ "$(uname -o)" != "
   exit 1
 fi
 
-PACKAGES="termux-api curl git nvim vim zsh tmux gpg fzf silversearcher-ag"
+PACKAGES="termux-api curl git neovim vim zsh tmux gnupg fzf silversearcher-ag"
 
 apt-get install -y $PACKAGES

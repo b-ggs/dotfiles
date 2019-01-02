@@ -21,7 +21,8 @@ alias Downloads="cd $HOME/Downloads"
 alias Desktop="cd $HOME/Desktop"
 
 alias known-hosts="$EDITOR $HOME/.ssh/known_hosts"
-alias ssh-config="$EDITOR $HOME/.ssh-config/config"
+alias ssh-config="$EDITOR $HOME/.ssh/config"
+alias authorized-keys="$EDITOR $HOME/.ssh/authorized_keys"
 
 alias ind="cd $HOME/dev/jessicamah/indinero"
 

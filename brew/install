@@ -5,7 +5,7 @@ if [[ -z "$(command -v brew 2> /dev/null)" ]]; then
   exit 1
 fi
 
-PACKAGES="fzf the_silver_searcher"
+PACKAGES="curl git nvim vim zsh tmux gpg fzf the_silver_searcher"
 LINUX_PACKAGES="xclip"
 
 [[ "$(uname)" == "Linux" ]] && PACKAGES="$PACKAGES $LINUX_PACKAGES"

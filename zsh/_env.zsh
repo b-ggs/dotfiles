@@ -9,8 +9,15 @@ fi
 
 export TERM="xterm-256color"
 export LANG="en_US.UTF-8"
-export EDITOR="nvim"
 export SHELL="$(which zsh)"
+
+if [[ -n "$(command -v nvim 2> /dev/null)" ]]; then
+  export EDITOR="nvim"
+elif [[ -n "$(command -v vim 2> /dev/null)" ]]; then
+  export EDITOR="vim"
+else
+  export EDITOR="vi"
+fi
 
 # Check if current session is over SSH
 if [[ -n "$SSH_TTY" ]] && ( [[ "$SSH_TTY" == "$(tty)" ]] || ( [[ -n "$TMUX" ]] && [[ "$SSH_TTY" == "/dev/$(ps ax | grep "$(tmux display-message -p '#{client_pid}')" | grep -v grep | awk '{ print $2 }')" ]] ) ); then

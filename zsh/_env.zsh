@@ -1,7 +1,7 @@
 export PATH="$PATH:$HOME/.bin"
 export PATH="$PATH:$HOME/.local/bin"
 
-if [[ "$(uname)" == "Linux" ]]; then
+if [[ "$(uname)" == "Linux" ]] && [[ ! $(uname -o) == "Android" ]]; then
   export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
   export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"
   export PATH="/home/linuxbrew/.linuxbrew/opt:$PATH"

@@ -38,7 +38,12 @@ ln -sf "$target_dir/init.zsh" "$HOME/.zshrc"
 # Change default shell to zsh
 echo "Changing default shell... SIGKILL to stop"
 
-if [[ ! "$(cat /etc/shells | grep $zsh_path)" ]]; then
-  sudo echo "$zsh_path" >> /etc/shells
+if [[ $(uname -o) == "Android" ]]; then
+  # Special case for Termux
+  chsh -s "zsh"
+else
+  if [[ ! "$(cat /etc/shells | grep $zsh_path)" ]]; then
+    sudo echo "$zsh_path" >> /etc/shells
+  fi
+  chsh -s "$zsh_path"
 fi
-chsh -s "$zsh_path"

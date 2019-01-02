@@ -10,7 +10,7 @@ if [[ -z "$(command -v tmux 2> /dev/null)" ]]; then
   fi
 fi
 
- Symlink
+# Symlink
 ORIGIN=$HOME/.files/tmux/tmux.conf
 TARGET=$HOME/.tmux.conf
 

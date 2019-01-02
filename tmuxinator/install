@@ -11,8 +11,8 @@ if [[ -z "$(command -v gem 2> /dev/null)" ]]; then
 fi
 
 # Install tmuxinator if it does not exist
-if [[ ! "$(gem list | grep tmuxinator)" ]]; then
-  gem install tmuxinator
+if [[ -z "$(gem list | grep tmuxinator)" ]]; then
+  gem install tmuxinator --no-doc --no-ri
 fi
 
 # Symlink

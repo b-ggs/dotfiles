@@ -12,7 +12,7 @@
 ########
 
 source "$HOME/.zgen/zgen.zsh"
-if ! zgen saved; then
+if [[ -n "$(command -v zgen 2> /dev/null)" ]] && ! zgen saved; then
   zgen oh-my-zsh
   zgen oh-my-zsh plugins/git
   zgen oh-my-zsh plugins/chruby
@@ -54,12 +54,6 @@ if [[ "$(uname)" == "Linux" ]]; then
   export PATH="/home/linuxbrew/.linuxbrew/opt:$PATH"
 fi
 
-# Check if current session is over SSH
-if [[ -n "$SSH_TTY" ]] && ( [[ "$SSH_TTY" == "$(tty)" ]] || ( [[ -n "$TMUX" ]] && [[ "$SSH_TTY" == "/dev/$(ps ax | grep "$(tmux display-message -p '#{client_pid}')" | grep -v grep | awk '{ print $2 }')" ]] ) ); then
-  export IS_SSH="true"
-fi
-
-
 #######
 # ENV #
 #######
@@ -71,12 +65,15 @@ export SHELL="$(which zsh)"
 export GOPATH="$HOME/Go"
 export DOTFILES_PATH="$HOME/.files"
 
+# Check if current session is over SSH
+if [[ -n "$SSH_TTY" ]] && ( [[ "$SSH_TTY" == "$(tty)" ]] || ( [[ -n "$TMUX" ]] && [[ "$SSH_TTY" == "/dev/$(ps ax | grep "$(tmux display-message -p '#{client_pid}')" | grep -v grep | awk '{ print $2 }')" ]] ) ); then
+  export IS_SSH="true"
+fi
+
 ###########
 # Aliases #
 ###########
 
-alias sshfix="eval ssh-agent && ssh-add ~/.ssh/id_rsa"
-alias docker-init='eval $(docker-machine env default)'
 alias hidedesktop='defaults write com.apple.finder CreateDesktop false && killall Finder'
 alias showdesktop='defaults write com.apple.finder CreateDesktop true && killall Finder'
 alias be='bundle exec'
@@ -123,43 +120,28 @@ eval "stty -ixon"
 # fzf #
 #######
 
-# Change default fzf command to use ag
-export FZF_DEFAULT_COMMAND='ag --nocolor --ignore node_modules -g ""'
-# Use 16-color colorscheme
-export FZF_DEFAULT_OPTS="--color 16"
-# Source fzf zsh configs
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-#############
-# Overrides #
-#############
-
-# Specifically for use with remote servers so prefix won't conflict
-# export USE_C_A_AS_TMUX_PREFIX=true
+if [[ -f "$HOME/.fzf.zsh" ]]; then
+  # Change default fzf command to use ag
+  export FZF_DEFAULT_COMMAND='ag --nocolor --ignore node_modules -g ""'
+  # Use 16-color colorscheme
+  export FZF_DEFAULT_OPTS="--color 16"
+  # Source fzf zsh configs
+  source ~/.fzf.zsh
+fi
 
 ##########
 # Prompt #
 ##########
 
-local user_host="%K{9} %F{0}%n%f%F{0}@%F{0}%m%f %k "
-if [[ -n "$IS_SSH" ]]; then
-  local ssh_prompt='%K{12} %F{0}SSH%f %k '
-else
-  local ssh_prompt=''
-fi
-local current_dir="%K{12} %F{0}%~%f %k"
-if type chruby > /dev/null; then
-  local chruby_prompt=' %K{12} %F{0}chruby@$(chruby_prompt_info)%f %k'
-else
-  local chruby_prompt=''
-fi
+local USER_HOST="%K{9} %F{0}%n%f%F{0}@%F{0}%m%f %k "
+[[ -n "$IS_SSH" ]] && local IS_SSH_PROMPT='%K{12} %F{0}SSH%f %k '
+local PWD_PROMPT="%K{12} %F{0}%~%f %k"
+[[ -n "$(command -v chruby 2> /dev/null)" ]] && local CHRUBY_PROMPT=' %K{12} %F{0}chruby@$(chruby_prompt_info)%f %k'
 ZSH_THEME_GIT_PROMPT_PREFIX=" %K{12} %F{0}git@"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%f %k"
-local git_branch='$(git_prompt_info)'
-local return_code="%(?.. %K{12} %F{0}%?%f %k)"
+local GIT_PROMPT='$(git_prompt_info)'
+local RETURN_PROMPT="%(?.. %K{12} %F{0}%?%f %k)"
 
-PROMPT="${user_host}${ssh_prompt}${current_dir}${chruby_prompt}${git_branch}${return_code}"$'\n'"$ "
+PROMPT="${USER_HOST}${IS_SSH_PROMPT}${PWD_PROMPT}${CHRUBY_PROMPT}${GIT_PROMPT}${RETURN_PROMPT}"$'\n'"$ "
 
-if type fortune > /dev/null; then
-  fortune undertale-determination
-fi
+[[ -n "$(command -v fortune 2> /dev/null)" ]] && fortune undertale-determination

@@ -32,4 +32,4 @@ done
 # vim-plug
 curl -fLo $CONFIG_PATH/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-$BIN +PlugInstall +qall
+nvim -u $HOME/.config/nvim/_plugs.vim +PlugInstall +qall

@@ -8,7 +8,7 @@
 " ░░ ░░░   ░░ ░░    ░░  ░░    ░░    ░░ ░░░  ░░  ░░
 
 runtime base.vim
-runtime macros.vim
+runtime _macros.vim
 runtime _plugs.vim
 runtime _fzf.vim
 runtime _ctrlp.vim
@@ -20,4 +20,4 @@ runtime _neomake.vim
 runtime _startify.vim
 runtime _airline.vim
 runtime _onedark.vim
-runtime colors.vim
+runtime _colors.vim

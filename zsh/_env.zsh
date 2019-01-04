@@ -18,8 +18,3 @@ elif [[ -n "$(command -v vim 2> /dev/null)" ]]; then
 else
   export EDITOR="vi"
 fi
-
-# Check if current session is over SSH
-if [[ -n "$SSH_TTY" ]] && ( [[ "$SSH_TTY" == "$(tty)" ]] || ( [[ -n "$TMUX" ]] && [[ "$SSH_TTY" == "/dev/$(ps ax | grep "$(tmux display-message -p '#{client_pid}')" | grep -v grep | awk '{ print $2 }')" ]] ) ); then
-  export IS_SSH="true"
-fi

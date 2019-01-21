@@ -1,6 +1,6 @@
 name: ind
 root: ~/dev/jessicamah/indinero
-pre_window: chruby 2.1.6
+pre_window: chruby 2.1.5
 windows:
   - nvim:
     - nvim

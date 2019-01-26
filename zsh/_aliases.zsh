@@ -25,6 +25,8 @@ alias ssh-config="$EDITOR $HOME/.ssh/config"
 alias authorized-keys="$EDITOR $HOME/.ssh/authorized_keys"
 
 alias ind="cd $HOME/dev/jessicamah/indinero"
+alias ind-ntbk="cd $HOME/dev/b-ggs/indinero-notebook"
+alias jmah="cd $HOME/dev/jessicamah"
 
 alias dbundle="ruby -I $HOME/dev/b-ggs/bundler/lib $HOME/dev/b-ggs/bundler/exe/bundle"
 alias dpapa="ruby -I $HOME/dev/b-ggs/papa/lib $HOME/dev/b-ggs/papa/exe/papa"

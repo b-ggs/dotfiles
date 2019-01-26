@@ -7,3 +7,4 @@ hi Search ctermbg=3 ctermfg=0
 hi VertSplit ctermbg=0 ctermfg=4
 hi Comment ctermfg=8
 hi! link StartifySpecial Normal
+hi Normal ctermbg=NONE guibg=NONE

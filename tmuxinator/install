@@ -12,7 +12,8 @@ fi
 
 # Install tmuxinator if it does not exist
 if [[ -z "$(gem list | grep tmuxinator)" ]]; then
-  gem install tmuxinator --no-doc --no-ri
+  # Using sudo for system ruby on macOS. TODO look into a more portable solution
+  sudo gem install tmuxinator --no-doc --no-ri
 fi
 
 # Symlink

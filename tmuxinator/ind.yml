@@ -1,21 +1,7 @@
 name: ind
 root: ~/dev/jessicamah/indinero
-pre_window: chruby 2.1.5
 windows:
   - nvim:
     - nvim
-  - server:
-    - bundle exec rails s
-  - console:
-    - bundle exec rails c
-  - services:
-      layout: tiled
-      pre:
-        - mkdir -p ~/dev/jessicamah/.dump && cd ~/dev/jessicamah/.dump
-      panes:
-        - $(brew --prefix mysql@5.7)/bin/mysqld
-        - solr:
-          - cd ~/dev/jessicamah/indinero
-          - bundle exec rake sunspot:solr:start
-        - mongod --dbpath .
-        - redis-server
+  - docker-compose:
+    - docker-compose up

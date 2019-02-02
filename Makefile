@@ -9,6 +9,14 @@ brew-macos:
 brew-linux:
 	brew install xclip
 
+# tmux
+
+tmux-install:
+	brew install tmux
+
+tmux-symlink:
+	@ORIGIN=tmux/tmux.conf TARGET=${HOME}/.tmux.conf make symlink
+
 # git
 
 git-install:

@@ -4,4 +4,4 @@ windows:
   - nvim:
     - nvim
   - docker-compose:
-    - docker-compose up
+    - docker-compose -f docker-compose.macos.development.yml up

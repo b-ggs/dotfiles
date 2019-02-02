@@ -17,6 +17,14 @@ tmux-install:
 tmux-symlink:
 	@ORIGIN=tmux/tmux.conf TARGET=${HOME}/.tmux.conf make symlink
 
+# tmuxinator
+
+tmuxinator-install:
+	gem install tmuxinator
+
+tmuxinator-symlink:
+	@ORIGIN=tmuxinator/ TARGET=${HOME}/.tmuxinator make symlink
+
 # git
 
 git-install:

@@ -28,6 +28,11 @@ slate-install:
 slate-symlink:
 	@ORIGIN=slate/slate.js TARGET=${HOME}/.slate.js make symlink
 
+# termux
+
+termux-install:
+	apt-get install -y termux-api curl git neovim vim zsh tmux gnupg fzf silversearcher-ag ruby
+
 # util
 
 symlink:

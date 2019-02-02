@@ -9,6 +9,32 @@ brew-macos:
 brew-linux:
 	brew install xclip
 
+# vim:
+
+vim-install:
+	brew install vim
+
+vim-symlink:
+	@ORIGIN=vim/init.vim TARGET=${HOME}/.vimrc  make symlink
+	@ORIGIN=vim/ TARGET=${HOME}/.vim/modules  make symlink
+
+vim-configure:
+	curl -fLo ${HOME}/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	vim -u ${PWD}/vim/_plugs.vim +PlugInstall +qall
+
+# nvim:
+
+nvim-install:
+	brew install nvim
+
+nvim-symlink:
+	@ORIGIN=vim/init.vim TARGET=${HOME}/.config/nvim/init.vim make symlink
+	@ORIGIN=vim/ TARGET=${HOME}/.config/nvim/modules make symlink
+
+nvim-configure:
+	curl -fLo ${HOME}/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	nvim -u ${PWD}/vim/_plugs.vim +PlugInstall +qall
+
 # tmux
 
 tmux-install:

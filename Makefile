@@ -4,10 +4,11 @@ brew-common: check-unix
 	brew install curl git nvim vim zsh tmux gpg fzf the_silver_searcher
 
 brew-macos: check-darwin
+	brew install um
 	brew cask install slate
 
 brew-linux: check-gnu-linux
-	brew install xclip
+	brew install xclip sinclairtarget/wst/um
 
 # vim:
 
@@ -90,6 +91,20 @@ slate-install:
 
 slate-symlink:
 	@ORIGIN=slate/slate.js TARGET=${HOME}/.slate.js make symlink
+
+# um
+
+um-install:
+	@make um-install-macos || make um-install-linux
+
+um-symlink:
+	@ORIGIN=um TARGET=${HOME}/.um make symlink
+
+um-install-macos:
+	brew install um
+
+um-install-linux:
+	brew install sinclairtarget/wst/um
 
 # termux
 

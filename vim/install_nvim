@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-BIN=nvim CONFIG_PATH="$HOME/.config/nvim" $(dirname $(realpath "$0"))/install_vim

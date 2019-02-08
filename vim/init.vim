@@ -21,3 +21,5 @@ runtime modules/_startify.vim
 runtime modules/_airline.vim
 runtime modules/_onedark.vim
 runtime modules/_colors.vim
+
+let g:polyglot_disabled = ['yaml']

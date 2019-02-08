@@ -19,10 +19,11 @@ alias dump="mkdir -p $HOME/.dump && cd $HOME/.dump"
 alias dotbin="cd $HOME/.bin"
 alias Downloads="cd $HOME/Downloads"
 alias Desktop="cd $HOME/Desktop"
+alias dockerfiles="cd $HOME/dev/b-ggs/dockerfiles"
 
 alias known-hosts="$EDITOR $HOME/.ssh/known_hosts"
-alias ssh-config="$EDITOR $HOME/.ssh/config"
-alias authorized-keys="$EDITOR $HOME/.ssh/authorized_keys"
+alias ssh-config="cd $HOME/.ssh-config"
+alias authorized-keys="cd $HOME/.authorized-keys"
 
 alias ind="cd $HOME/dev/jessicamah/indinero"
 alias ind-ntbk="cd $HOME/dev/b-ggs/indinero-notebook"

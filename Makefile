@@ -106,6 +106,14 @@ um-install-macos:
 um-install-linux:
 	brew install sinclairtarget/wst/um
 
+# karabiner
+
+karabiner-install:
+	brew install karabiner-elements
+
+karabiner-symlink:
+	@ORIGIN=karabiner/karabiner.json TARGET=${HOME}/.config/karabiner/karabiner.json make symlink
+
 # termux
 
 termux-install:

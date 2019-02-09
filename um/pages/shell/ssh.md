@@ -33,3 +33,8 @@
 
 `-o option`
 : Override config file
+
+## KEYBINDS
+
+`~.<ENTER>`
+: Force exit out of session

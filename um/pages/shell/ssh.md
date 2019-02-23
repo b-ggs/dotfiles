@@ -14,6 +14,9 @@
 `ssh -o "UserKnownHostsFile /dev/null"`
 : Ignore known_hosts
 
+`ssh -J host1 host2`
+: Host jumping
+
 ## OPTIONS
 
 `-D`
@@ -33,6 +36,9 @@
 
 `-o option`
 : Override config file
+
+`-J host1 host2`
+: Host jumping
 
 ## KEYBINDS
 

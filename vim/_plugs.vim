@@ -12,7 +12,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Tree explorer
 Plug 'scrooloose/nerdtree'
 " Language packs
-Plug 'b-ggs/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 " Commenting lines
 Plug 'tomtom/tcomment_vim'
 " Better motion

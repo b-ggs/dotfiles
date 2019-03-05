@@ -1,14 +1,13 @@
 # brew
 
 brew-common: check-unix
-	brew install curl git nvim vim zsh tmux gpg fzf the_silver_searcher
+	brew install curl git nvim vim zsh tmux gpg fzf the_silver_searcher um
 
 brew-macos: check-darwin
-	brew install um
 	brew cask install slate
 
 brew-linux: check-gnu-linux
-	brew install xclip sinclairtarget/wst/um
+	brew install xclip
 
 # vim:
 

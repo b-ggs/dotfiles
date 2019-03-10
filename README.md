@@ -6,12 +6,17 @@ Personal configurations for nvim, zsh, tmux, etc.
 
 ```
 git clone git@github.com:b-ggs/dotfiles.git $HOME/.files
-$HOME/.files/brew/install
-$HOME/.files/termux/install
-$HOME/.files/zsh/install
-$HOME/.files/vim/install_nvim
-$HOME/.files/vim/install_vim
-$HOME/.files/git/install
-$HOME/.files/tmux/install
-$HOME/.files/tmuxinator/install
+
+make \
+  brew-common \
+  brew-macos \
+  brew-linux \
+  nvim-symlink \
+  nvim-configure \
+  zsh-symlink \
+  zsh-configure \
+  tmux-symlink \
+  git-configure \
+  git-symlink \
+  um-symlink
 ```

@@ -94,16 +94,10 @@ slate-symlink:
 # um
 
 um-install:
-	@make um-install-macos || make um-install-linux
+	brew install um
 
 um-symlink:
 	@ORIGIN=um TARGET=${HOME}/.um make symlink
-
-um-install-macos:
-	brew install um
-
-um-install-linux:
-	brew install sinclairtarget/wst/um
 
 # karabiner
 

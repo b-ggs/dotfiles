@@ -799,14 +799,18 @@
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>330 301 620 392 0 0 1280 777 </string>
+	<key>NSWindow Frame SessionsPreferences</key>
+	<string>-1002 926 606 469 -1271 800 1920 1057 </string>
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>122 481 796 486 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>725 59 945 489 0 0 1680 1027 </string>
+	<string>10 60 1660 957 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>10 58 1660 959 0 0 1680 1027 </string>
+	<string>-1910 715 570 460 -1920 128 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>1920 -275 1900 1037 1920 -275 1280 777 </string>
+	<string>-1907 711 570 460 -1920 128 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
 	<string>-1611 58 570 460 -1920 0 1920 1057 </string>
 	<key>NeverWarnAboutShortLivedSessions_E8F21B8E-A489-4604-977D-DB176D370638</key>
@@ -2230,6 +2234,8 @@
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>8D536893-6972-466C-9A03-A50C5A730E0B</string>
+	<key>NoSyncNeverAskAboutSettingAlternateMouseScroll</key>
+	<true/>
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
@@ -2282,7 +2288,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-02-02T15:35:01Z</date>
+	<date>2019-07-06T07:07:44Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -2316,7 +2322,7 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.2.7</string>
+	<string>3.2.9</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

@@ -13,6 +13,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 " Language packs
 Plug 'sheerun/vim-polyglot'
+" Logstash
+Plug 'robbles/logstash.vim'
 " Commenting lines
 Plug 'tomtom/tcomment_vim'
 " Better motion
@@ -44,4 +46,6 @@ Plug 'b-ggs/vim-airline'
 Plug 'airblade/vim-gitgutter'
 " 16-color colorscheme
 Plug 'joshdick/onedark.vim'
+" Intellisense
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 call plug#end()

@@ -23,3 +23,4 @@ runtime modules/_onedark.vim
 runtime modules/_colors.vim
 
 let g:polyglot_disabled = ['yaml']
+let g:neomake_python_enabled_makers = ['pep8']

@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  machine:
+    build:
+      context: .
+    image: bxggs/dotfiles-box
+    stdin_open: true
+    tty: true
+

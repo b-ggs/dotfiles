@@ -1,4 +1,4 @@
-# dotfiles [travis][travis]
+# dotfiles ![travis][travis]
 
 Personal configurations for nvim, zsh, tmux, etc.
 

@@ -1,4 +1,4 @@
-# dotfiles
+# dotfiles [travis][travis]
 
 Personal configurations for nvim, zsh, tmux, etc.
 
@@ -20,3 +20,5 @@ make \
   git-symlink \
   um-symlink
 ```
+
+[travis]: https://travis-ci.org/b-ggs/dotfiles.svg?branch=master

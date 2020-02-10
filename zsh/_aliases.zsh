@@ -25,9 +25,9 @@ alias known-hosts="$EDITOR $HOME/.ssh/known_hosts"
 alias ssh-config="cd $HOME/.ssh-config"
 alias authorized-keys="cd $HOME/.authorized-keys"
 
-alias ind="cd $HOME/dev/jessicamah/indinero"
+alias ind="cd $HOME/dev/inDinero/indinero"
+alias ind-map="cd $HOME/dev/inDinero/indinero-ms-map-rails-vproto"
 alias ind-ntbk="cd $HOME/dev/b-ggs/indinero-notebook"
-alias jmah="cd $HOME/dev/jessicamah"
 
 alias dbundle="ruby -I $HOME/dev/b-ggs/bundler/lib $HOME/dev/b-ggs/bundler/exe/bundle"
 alias dpapa="ruby -I $HOME/dev/b-ggs/papa/lib $HOME/dev/b-ggs/papa/exe/papa"

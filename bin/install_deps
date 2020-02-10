@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -ex
+
+BREW_COMMON_PKGS="curl git nvim vim zsh tmux gpg fzf the_silver_searcher um"
+BREW_MACOS_PKGS="slate"
+BREW_LINUX_PKGS="xclip"
+
+APT_COMMON_PKGS="curl git neovim vim tmux gpg silversearcher-ag zsh sudo tmux xclip"

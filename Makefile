@@ -112,6 +112,11 @@ karabiner-symlink:
 termux-install:
 	apt-get install -y termux-api curl git neovim vim zsh tmux gnupg fzf silversearcher-ag ruby
 
+# alacritty
+
+alacritty-symlink:
+	@ORIGIN=alacritty/alacritty.yml TARGET=${HOME}/.config/alacritty/alacritty.yml make symlink
+
 # util
 
 symlink:

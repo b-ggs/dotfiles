@@ -117,6 +117,11 @@ termux-install:
 alacritty-symlink:
 	@ORIGIN=alacritty/alacritty.yml TARGET=${HOME}/.config/alacritty/alacritty.yml make symlink
 
+# kitty
+
+kitty-symlink:
+	@ORIGIN=kitty/kitty.conf TARGET=${HOME}/.config/kitty/kitty.conf make symlink
+
 # util
 
 symlink:

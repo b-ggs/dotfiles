@@ -122,6 +122,11 @@ alacritty-symlink:
 kitty-symlink:
 	@ORIGIN=kitty/kitty.conf TARGET=${HOME}/.config/kitty/kitty.conf make symlink
 
+# streamlink
+
+streamlink-symlink:
+	@ORIGIN=streamlink/config TARGET=${HOME}/.config/streamlink/config make symlink
+
 # util
 
 symlink:

@@ -27,6 +27,7 @@ alias authorized-keys="cd $HOME/.authorized-keys"
 
 alias ind="cd $HOME/dev/inDinero/indinero"
 alias ind-map="cd $HOME/dev/inDinero/indinero-ms-map-rails-vproto"
+alias ind-leap="cd $HOME/dev/inDinero/leap"
 alias ind-ntbk="cd $HOME/dev/b-ggs/indinero-notebook"
 
 alias dbundle="ruby -I $HOME/dev/b-ggs/bundler/lib $HOME/dev/b-ggs/bundler/exe/bundle"

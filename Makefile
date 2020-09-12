@@ -127,6 +127,11 @@ kitty-symlink:
 streamlink-symlink:
 	@ORIGIN=streamlink/config TARGET=${HOME}/.config/streamlink/config make symlink
 
+# hammerspoon
+
+hammerspoon-symlink:
+	@ORIGIN=hammerspoon/init.lua TARGET=${HOME}/.hammerspoon/init.lua make symlink
+
 # util
 
 symlink:

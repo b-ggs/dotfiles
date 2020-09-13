@@ -1,63 +1,59 @@
--- Window full
-hs.hotkey.bind({"cmd", "alt"}, "f", function()
+function setFrame(frameBuilder, multiplier)
   local win = hs.window.focusedWindow()
-  local f = win:frame()
+  local frame = win:frame()
   local screen = win:screen()
   local max = screen:frame()
+  local gap = 10
 
-  f.x = max.x
-  f.y = max.y
-  f.w = max.w
-  f.h = max.h
-  win:setFrame(f)
-end)
+  local frame = frameBuilder(win, frame, max, gap, multiplier)
 
--- Window 50% up
-hs.hotkey.bind({"cmd", "alt"}, "k", function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-  local screen = win:screen()
-  local max = screen:frame()
+  informativeText = "x: " .. frame.x .. " y: " .. frame.y .. " w: " .. frame.w .. " h: ".. frame.h
+  hs.notify.new({title="Hammerspoon", informativeText=informativeText}):send()
 
-  f.y = max.y / 2
-  f.h = max.h / 2
-  win:setFrame(f)
-end)
+  win:setFrame(frame)
+end
 
--- Window 50% down
-hs.hotkey.bind({"cmd", "alt"}, "j", function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-  local screen = win:screen()
-  local max = screen:frame()
+function full(win, frame, max, gap)
+  frame.x = max.x + gap
+  frame.y = max.y + gap
+  frame.w = max.w - gap * 2
+  frame.h = max.h - gap * 2
+  return frame
+end
 
-  f.y = max.y + (max.h / 2)
-  f.h = max.h / 2
-  win:setFrame(f)
-end)
+function up(win, frame, max, gap, multiplier)
+  frame.y = max.y + gap
+  frame.h = (max.h * multiplier) - (gap * 3 *  multiplier)
+  return frame
+end
 
--- Window 50% left
-hs.hotkey.bind({"cmd", "alt"}, "h", function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-  local screen = win:screen()
-  local max = screen:frame()
+function down(win, frame, max, gap, multiplier)
+  frame.y = max.y + (max.h * multiplier) + (gap * multiplier)
+  frame.h = (max.h * multiplier) - (gap * 3 * multiplier)
+  return frame
+end
 
-  f.x = max.x
-  f.w = max.w / 2
-  win:setFrame(f)
-end)
+function left(win, frame, max, gap, multiplier)
+  frame.x = max.x + gap
+  frame.w = (max.w * multiplier) - (gap * 3 * multiplier)
+  return frame
+end
 
--- Window 50% right
-hs.hotkey.bind({"cmd", "alt"}, "l", function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-  local screen = win:screen()
-  local max = screen:frame()
+function right(win, frame, max, gap, multiplier)
+  frame.x = max.x + (max.w * multiplier) + (gap * multiplier)
+  frame.w = (max.w * multiplier) - (gap * 3 * multiplier)
+  return frame
+end
 
-  f.x = max.x + (max.w / 2)
-  f.w = max.w / 2
-  win:setFrame(f)
-end)
+hs.hotkey.bind({"cmd", "alt"}, "r", hs.reload)
+hs.hotkey.bind({"cmd", "alt"}, "f", function() setFrame(full) end)
+hs.hotkey.bind({"cmd", "alt"}, "h", function() setFrame(left, 1 / 2) end)
+hs.hotkey.bind({"cmd", "alt", "shift"}, "h", function() setFrame(left, 2 / 3) end)
+hs.hotkey.bind({"cmd", "alt"}, "j", function() setFrame(down, 1 / 2) end)
+hs.hotkey.bind({"cmd", "alt"}, "k", function() setFrame(up , 1 / 2) end)
+hs.hotkey.bind({"cmd", "alt"}, "l", function() setFrame(right, 1 / 2) end)
+hs.hotkey.bind({"cmd", "alt", "shift"}, "l", function() setFrame(right, 1 / 3) end)
+
+hs.window.animationDuration = 0.1
 
 hs.notify.new({title="Hammerspoon", informativeText="Config loaded"}):send()

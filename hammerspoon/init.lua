@@ -7,8 +7,8 @@ function setFrame(frameBuilder)
 
   local frame = frameBuilder(win, frame, max, gap)
 
-  informativeText = "x: " .. frame.x .. " y: " .. frame.y .. " w: " .. frame.w .. " h: ".. frame.h
-  hs.notify.new({title="Hammerspoon", informativeText=informativeText}):send()
+  -- informativeText = "x: " .. frame.x .. " y: " .. frame.y .. " w: " .. frame.w .. " h: ".. frame.h
+  -- hs.notify.new({title="Hammerspoon", informativeText=informativeText}):send()
 
   win:setFrame(frame)
 end

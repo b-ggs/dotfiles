@@ -9,10 +9,10 @@
 
 runtime modules/base.vim
 runtime modules/_macros.vim
+runtime modules/_polyglot.vim
 runtime modules/_plugs.vim
 runtime modules/_fzf.vim
 runtime modules/_ctrlp.vim
-runtime modules/_polyglot.vim
 runtime modules/_nerdtree.vim
 runtime modules/_easymotion.vim
 runtime modules/_incsearch.vim

@@ -4,9 +4,9 @@ let g:airline_skip_empty_sections = 1
 let g:airline_section_b = ''
 let g:airline_theme_patch_func = 'AirlineThemePatch'
 function! AirlineThemePatch(palette)
-  let s:outer = ['', '', 16, 9]
-  let s:inner = ['', '', 16, 12]
-  let s:inactive = ['', '', 16, 8]
+  let s:outer = ['', '', 0, 9]
+  let s:inner = ['', '', 0, 12]
+  let s:inactive = ['', '', 0, 8]
 
   let s:active_map = airline#themes#generate_color_map(s:outer, s:inner, s:inner)
   let s:inactive_map = airline#themes#generate_color_map(s:inactive, s:inactive, s:inactive)

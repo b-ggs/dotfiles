@@ -66,6 +66,6 @@ hs.hotkey.bind({"cmd", "alt"}, "k", function() setFrame(up50) end)
 hs.hotkey.bind({"cmd", "alt"}, "l", function() setFrame(right50) end)
 hs.hotkey.bind({"cmd", "alt", "shift"}, "l", function() setFrame(right33) end)
 
-hs.window.animationDuration = 0.1
+hs.window.animationDuration = 0
 
 hs.notify.new({title="Hammerspoon", informativeText="Config loaded"}):send()

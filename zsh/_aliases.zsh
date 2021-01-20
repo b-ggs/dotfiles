@@ -20,6 +20,7 @@ alias dotbin="cd $HOME/.bin"
 alias Downloads="cd $HOME/Downloads"
 alias Desktop="cd $HOME/Desktop"
 alias dockerfiles="cd $HOME/dev/b-ggs/dockerfiles"
+alias wslhome="cd $(wslpath $(wslvar USERPROFILE))"
 
 alias known-hosts="$EDITOR $HOME/.ssh/known_hosts"
 alias ssh-config="cd $HOME/.ssh-config"

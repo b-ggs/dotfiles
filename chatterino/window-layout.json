@@ -1,0 +1,79 @@
+{
+    "windows": [
+        {
+            "emotePopup": {
+                "x": 1379,
+                "y": 559
+            },
+            "height": 941,
+            "tabs": [
+                {
+                    "highlightsEnabled": true,
+                    "splits2": {
+                        "data": {
+                            "type": "whispers"
+                        },
+                        "filters": [
+                        ],
+                        "flexh": 1,
+                        "flexv": 1,
+                        "moderationMode": false,
+                        "type": "split"
+                    }
+                },
+                {
+                    "highlightsEnabled": true,
+                    "splits2": {
+                        "data": {
+                            "type": "mentions"
+                        },
+                        "filters": [
+                        ],
+                        "flexh": 1,
+                        "flexv": 1,
+                        "moderationMode": false,
+                        "type": "split"
+                    }
+                },
+                {
+                    "highlightsEnabled": true,
+                    "selected": true,
+                    "splits2": {
+                        "items": [
+                            {
+                                "data": {
+                                    "name": "hasanabi",
+                                    "type": "twitch"
+                                },
+                                "filters": [
+                                ],
+                                "flexh": 1,
+                                "flexv": 1.5081610446137106,
+                                "moderationMode": false,
+                                "type": "split"
+                            },
+                            {
+                                "data": {
+                                    "name": "hasanabi",
+                                    "type": "twitch"
+                                },
+                                "filters": [
+                                    "b98490ab-6b68-4bdd-8531-cc14a8ef8091"
+                                ],
+                                "flexh": 1,
+                                "flexv": 0.4918389553862894,
+                                "moderationMode": false,
+                                "type": "split"
+                            }
+                        ],
+                        "type": "vertical"
+                    }
+                }
+            ],
+            "type": "main",
+            "width": 354,
+            "x": 1326,
+            "y": 53
+        }
+    ]
+}

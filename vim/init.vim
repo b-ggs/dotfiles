@@ -22,3 +22,5 @@ runtime modules/_startify.vim
 runtime modules/_airline.vim
 runtime modules/_onedark.vim
 runtime modules/_colors.vim
+
+autocmd BufNewFile,BufRead *.inky set filetype=html.erb

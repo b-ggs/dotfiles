@@ -3,3 +3,4 @@
 git config --global user.name "boggs"
 git config --global user.email "hello@boggs.xyz"
 git config --global core.excludesfile $HOME/.gitignore
+git config --global pull.rebase false

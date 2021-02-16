@@ -46,4 +46,6 @@ Plug 'b-ggs/vim-airline'
 Plug 'airblade/vim-gitgutter'
 " 16-color colorscheme
 Plug 'joshdick/onedark.vim'
+" coc
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()

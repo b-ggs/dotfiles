@@ -14,3 +14,4 @@ source $HOME/.zsh/_aliases.zsh
 source $HOME/.zsh/_fzf.zsh
 source $HOME/.zsh/_prompt.zsh
 source $HOME/.zsh/_misc.zsh
+source $HOME/.zsh/_pyenv.zsh

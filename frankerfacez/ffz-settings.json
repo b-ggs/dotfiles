@@ -3,7 +3,27 @@
   "type":"full",
   "values":{
     "exp-lock":1611698937878,
+    "p:0:chat.filtering.deleted-style":1,
+    "p:0:ffzap.betterttv.gif_emoticons_mode":2,
+    "p:0:chat.points.auto-rewards":true,
     "p:0:player.ext-hide":2,
+    "p:0:chat.filtering.display-deleted":"DETAILED",
+    "addons.enabled":[
+      "ffzap-core",
+      "pronouns",
+      "new-account-highlighter",
+      "fs-chat",
+      "ffzap-bttv"
+    ],
+    "cfg-collapsed":[
+      "appearance.theme",
+      "chat.actions.in_line",
+      "chat.actions",
+      "debugging.socket"
+    ],
+    "emote-menu.collapsed":[
+      
+    ],
     "p:0:layout.prime-offers":false,
     "cfg-seen":[
       "i18n.debug.capture",
@@ -265,26 +285,6 @@
       "addon.fs-chat.automatic",
       "addon.fs-chat.metadata",
       "addon.fs-chat.shortcut"
-    ],
-    "p:0:chat.filtering.deleted-style":1,
-    "addons.enabled":[
-      "ffzap-core",
-      "ffzap-bttv",
-      "pronouns",
-      "new-account-highlighter",
-      "fs-chat"
-    ],
-    "p:0:ffzap.betterttv.gif_emoticons_mode":2,
-    "p:0:chat.points.auto-rewards":true,
-    "cfg-collapsed":[
-      "appearance.theme",
-      "chat.actions.in_line",
-      "chat.actions",
-      "debugging.socket"
-    ],
-    "emote-menu.collapsed":[
-      
-    ],
-    "p:0:chat.filtering.display-deleted":"DETAILED"
+    ]
   }
 }

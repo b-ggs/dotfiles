@@ -1,78 +1,73 @@
 {
+    "behaviour": {
+        "autorun": false
+    },
+    "misc": {
+        "currentVersion": "2.2.3-beta2",
+        "beta": true,
+        "experimentalIrc": true
+    },
     "ui": {
         "lastSelectChannelTab": 0,
         "lastSelectIrcConn": -1
     },
-    "accounts": {
-    },
-    "appearance": {
-        "showTabLiveButton": true,
-        "messages": {
-            "alternateMessageBackground": false,
-            "separateMessages": false,
-            "colorizeNicknames": false,
-            "showTimestamps": true,
-            "timestampFormat": "h:mm"
-        },
-        "enableAnimationsWhenFocused": true,
-        "splitheader": {
-            "showUptime": true,
-            "showViewerCount": true,
-            "showGame": true,
-            "showTitle": true
-        },
-        "uiScale2": 0.7999999523162842,
-        "thumbnailSizeStream": 2,
-        "thumbnailSize": 100,
-        "boldScale": 63.0
-    },
-    "links": {
-        "linkInfoTooltip": true
-    },
-    "emotes": {
-        "scale": 1.0,
-        "emojiSet": "EmojiOne 3"
-    },
-    "misc": {
-        "currentVersion": "2.2.3-beta2"
+    "accounts": {},
+    "filtering": {
+        "filters": [
+            {
+                "name": "partners mods vips staff broadcaster + timeouts - bots",
+                "filter": "((author.badges contains \"partner\" || author.badges contains \"moderator\" || author.badges contains \"vip\" || author.badges contains \"staff\" || author.badges contains \"broadcaster\" || author.badges contains \"admin\") || (flags.system_message && !flags.sub_message)) && (author.name !== \"Fossabot\" && author.name !== \"Streamlabs\" && author.name !== \"Nightbot\" && author.name !== \"AmazefulBot\" && author.name !== \"SchnozeBot\"  && author.name !== \"StreamElements\")\n",
+                "id": "e99e8443-5011-45c1-b4ec-c6ed1f72f605"
+            },
+            {
+                "name": "remove graynames\n\n",
+                "filter": "(!(author.no_color) || flags.system_message || flags.whisper || flags.highlighted || flags.points_redeemed || flags.sub_message)\n",
+                "id": "f7d8123a-68fe-4627-9c2f-8bd9fb6fbd72"
+            },
+            {
+                "name": "non-subbed graynames only PepeLa",
+                "filter": "author.no_color && !(author.subbed) && !(flags.system_message || flags.whisper || flags.highlighted || flags.points_redeemed || flags.sub_message)\n",
+                "id": "6dc1a83e-f823-4d22-9278-33b0bcb8e6f5"
+            }
+        ]
     },
     "highlighting": {
         "users": [
             {
-                "pattern": "boggsbot",
+                "pattern": "BoggsBot",
                 "showInMentions": false,
                 "alert": false,
                 "sound": false,
                 "regex": false,
                 "case": false,
                 "soundUrl": "",
-                "color": "#7f7f3f49"
-            }
-        ],
-        "blacklist": []
-    },
-    "filtering": {
-        "filters": [
-            {
-                "name": "partners mods vips staff broadcaster + timeouts - fossabot - streamlabs - nightbot\n\n",
-                "filter": "((author.badges contains \"partner\" || author.badges contains \"moderator\" || author.badges contains \"vip\" || author.badges contains \"staff\" || author.badges contains \"broadcaster\" || author.badges contains \"admin\") || (flags.system_message && !flags.sub_message)) && (author.name !== \"Fossabot\" && author.name !== \"Streamlabs\" && author.name !== \"Nightbot\" && author.name !== \"AmazefulBot\")\n",
-                "id": "b98490ab-6b68-4bdd-8531-cc14a8ef8091"
-            },
-            {
-                "name": "remove graynames",
-                "filter": "(!(author.no_color) || flags.system_message || flags.whisper || flags.highlighted || flags.points_redeemed || flags.sub_message)\n",
-                "id": "46e0de59-cc6f-40e1-8d7d-dd705889abb0"
+                "color": "#7f007f1e"
             }
         ]
     },
-    "notifications": {
-        "enableFlashTaskbar": true,
-        "enablePlaySound": true,
-        "twitch": [
-            "hasanabi"
-        ]
+    "links": {
+        "linkInfoTooltip": true
     },
-    "cache": {
-        "path": ""
+    "appearance": {
+        "enableAnimationsWhenFocused": true,
+        "splitheader": {
+            "showUptime": true,
+            "showViewerCount": true
+        },
+        "messages": {
+            "alternateMessageBackground": true,
+            "colorizeNicknames": false,
+            "showTimestamps": true,
+            "timestampFormat": "h:mm a"
+        },
+        "uiScale2": 1.0,
+        "windowAlwaysOnTop": true,
+        "smoothScrollingNewMessages": false
+    },
+    "moderation": {
+        "timeoutStackStyle": 2
+    },
+    "debug": {
+        "showUnhandledIrcMessages": true
     }
 }

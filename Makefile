@@ -29,6 +29,7 @@ nvim-install:
 
 nvim-symlink:
 	@ORIGIN=vim/init.vim TARGET=${HOME}/.config/nvim/init.vim make symlink
+	@ORIGIN=vim/_coc-settings.json TARGET=${HOME}/.config/nvim/coc-settings.json make symlink
 	@ORIGIN=vim/ TARGET=${HOME}/.config/nvim/modules make symlink
 
 nvim-configure:

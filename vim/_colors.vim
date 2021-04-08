@@ -8,3 +8,6 @@ hi VertSplit ctermbg=0 ctermfg=4
 hi Comment ctermfg=8
 hi! link StartifySpecial Normal
 hi Normal ctermbg=NONE guibg=NONE
+hi CocFloating ctermbg=4 ctermfg=0
+hi Pmenu ctermbg=4 ctermfg=0
+hi PmenuSel ctermbg=1 ctermfg=0

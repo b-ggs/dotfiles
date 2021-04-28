@@ -3,9 +3,12 @@
         "autorun": false
     },
     "misc": {
-        "currentVersion": "2.2.3-beta2",
+        "currentVersion": "2.3.0",
         "beta": true,
-        "experimentalIrc": true
+        "experimentalIrc": false,
+        "twitch": {
+            "messageHistoryLimit": 800
+        }
     },
     "ui": {
         "lastSelectChannelTab": 0,
@@ -43,7 +46,14 @@
                 "soundUrl": "",
                 "color": "#7f007f1e"
             }
-        ]
+        ],
+        "whisperHighlight": {
+            "enableTaskbarFlashing": true,
+            "enableSound": true
+        },
+        "redeemedHighlight": {
+            "highlighted": true
+        }
     },
     "links": {
         "linkInfoTooltip": true
@@ -52,22 +62,39 @@
         "enableAnimationsWhenFocused": true,
         "splitheader": {
             "showUptime": true,
-            "showViewerCount": true
+            "showViewerCount": true,
+            "showGame": true,
+            "showTitle": true
         },
         "messages": {
             "alternateMessageBackground": true,
             "colorizeNicknames": false,
             "showTimestamps": true,
-            "timestampFormat": "h:mm a"
+            "timestampFormat": "h:mm a",
+            "findAllUsernames": true,
+            "separateMessages": false,
+            "collapseMessagesMinLines": 0
         },
         "uiScale2": 1.0,
         "windowAlwaysOnTop": true,
-        "smoothScrollingNewMessages": false
+        "smoothScrollingNewMessages": false,
+        "thumbnailSize": 100
     },
     "moderation": {
         "timeoutStackStyle": 2
     },
     "debug": {
         "showUnhandledIrcMessages": true
+    },
+    "whispers": {
+        "highlightInlineWhispers": true
+    },
+    "emotes": {
+        "scale": 1.0,
+        "removeSpacesBetweenEmotes": true
+    },
+    "similarity": {
+        "hideSimilarMaxMessagesToCheck": 3,
+        "similarityPercentage": 0.8999999761581421
     }
 }

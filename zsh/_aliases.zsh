@@ -10,6 +10,7 @@ alias be='bundle exec'
 alias bi='bundle install'
 alias d='docker'
 alias dc='docker-compose'
+alias pos='poetry shell'
 
 alias home='cd $HOME'
 alias dev='cd $HOME/dev'

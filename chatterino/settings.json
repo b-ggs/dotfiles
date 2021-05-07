@@ -3,7 +3,7 @@
         "autorun": false
     },
     "misc": {
-        "currentVersion": "2.3.0",
+        "currentVersion": "2.3.1",
         "beta": true,
         "experimentalIrc": false,
         "twitch": {
@@ -23,7 +23,7 @@
                 "id": "e99e8443-5011-45c1-b4ec-c6ed1f72f605"
             },
             {
-                "name": "remove graynames\n\n",
+                "name": "remove graynames",
                 "filter": "(!(author.no_color) || flags.system_message || flags.whisper || flags.highlighted || flags.points_redeemed || flags.sub_message)\n",
                 "id": "f7d8123a-68fe-4627-9c2f-8bd9fb6fbd72"
             },
@@ -53,7 +53,8 @@
         },
         "redeemedHighlight": {
             "highlighted": true
-        }
+        },
+        "badges": []
     },
     "links": {
         "linkInfoTooltip": true

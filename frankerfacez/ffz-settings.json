@@ -3,28 +3,68 @@
     "type": "full",
     "values": {
         "exp-lock": 1611698937878,
-        "p:0:chat.filtering.deleted-style": 1,
         "p:0:player.vod.autoplay": false,
         "p:0:player.home.autoplay": false,
-        "addons.enabled": [
-            "ffzap-core",
-            "pronouns",
-            "new-account-highlighter",
-            "fs-chat",
-            "ffzap-bttv"
-        ],
-        "p:0:ffzap.betterttv.gif_emoticons_mode": 2,
-        "p:0:chat.filtering.highlight-mentions": true,
-        "p:0:chat.points.auto-rewards": true,
         "p:0:chat.lines.alternate": false,
-        "emote-menu.collapsed": [],
+        "p:0:chat.filtering.highlight-basic-badges": [
+            {
+                "v": {
+                    "remove": false,
+                    "v": "broadcaster",
+                    "c": "#7B0213",
+                    "p": 0
+                },
+                "id": "1620402536297-0.6374978398630218-0"
+            },
+            {
+                "v": {
+                    "remove": false,
+                    "v": "moderator",
+                    "c": "#356004",
+                    "p": 0
+                },
+                "id": "1620402545218-0.532380690314203-1"
+            },
+            {
+                "v": {
+                    "remove": false,
+                    "v": "partner",
+                    "c": "#4D0C87",
+                    "p": 0
+                },
+                "id": "1620402571712-0.19968328116248335-2"
+            },
+            {
+                "v": {
+                    "remove": false,
+                    "v": "staff",
+                    "c": "#5C5C5C",
+                    "p": 0
+                },
+                "id": "1620402825431-0.2149038571932682-6"
+            },
+            {
+                "v": {
+                    "remove": false,
+                    "v": "vip",
+                    "c": "#680B80",
+                    "p": 0
+                },
+                "id": "1620403294252-0.2354283650335769-8"
+            },
+            {
+                "v": {
+                    "remove": false,
+                    "v": "2",
+                    "c": "#18181C",
+                    "p": 1
+                },
+                "id": "1620403365712-0.24281661708454738-9"
+            }
+        ],
         "p:0:chat.me-style": 1,
         "p:0:player.no-autoplay": true,
         "p:0:player.ext-hide": 2,
-        "p:0:chat.filtering.display-deleted": "DETAILED",
-        "cfg-collapsed": [
-            "chat.actions"
-        ],
         "p:0:layout.prime-offers": false,
         "p:0:ffzap.core.remove_spaces": true,
         "cfg-seen": [
@@ -313,53 +353,23 @@
             "chat.filtering.mention-priority",
             "chat.filtering.debug"
         ],
-        "p:0:chat.lines.padding": false,
-        "p:0:chat.filtering.highlight-basic-badges": [
-            {
-                "v": {
-                    "v": "broadcaster",
-                    "c": "#D0021B",
-                    "p": 0,
-                    "remove": false
-                },
-                "id": "1620402536297-0.6374978398630218-0"
-            },
-            {
-                "v": {
-                    "v": "moderator",
-                    "c": "#417505",
-                    "p": 0,
-                    "remove": false
-                },
-                "id": "1620402545218-0.532380690314203-1"
-            },
-            {
-                "v": {
-                    "v": "partner",
-                    "c": "#9013FE",
-                    "p": 0,
-                    "remove": false
-                },
-                "id": "1620402571712-0.19968328116248335-2"
-            },
-            {
-                "v": {
-                    "v": "staff",
-                    "c": "#9B9B9B",
-                    "p": 0,
-                    "remove": false
-                },
-                "id": "1620402825431-0.2149038571932682-6"
-            },
-            {
-                "v": {
-                    "v": "vip",
-                    "c": "#BD10E0",
-                    "p": 0,
-                    "remove": false
-                }
-            }
+        "p:0:chat.filtering.deleted-style": 1,
+        "addons.enabled": [
+            "ffzap-core",
+            "pronouns",
+            "new-account-highlighter",
+            "fs-chat",
+            "ffzap-bttv"
         ],
-        "p:0:newusers.highlightcolor": "#4A4A4A"
+        "p:0:ffzap.betterttv.gif_emoticons_mode": 2,
+        "p:0:chat.filtering.highlight-mentions": true,
+        "p:0:newusers.highlightcolor": "#4A4A4A",
+        "p:0:chat.points.auto-rewards": true,
+        "cfg-collapsed": [
+            "chat.actions"
+        ],
+        "p:0:chat.lines.padding": false,
+        "emote-menu.collapsed": [],
+        "p:0:chat.filtering.display-deleted": "DETAILED"
     }
 }

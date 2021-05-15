@@ -3,9 +3,22 @@
     "type": "full",
     "values": {
         "exp-lock": 1611698937878,
+        "p:0:ffzap.core.highlight_sound_types": [
+            "mention"
+        ],
+        "p:0:channel.hide-unfollow": true,
         "p:0:player.vod.autoplay": false,
+        "p:0:layout.portrait-min-chat": true,
         "p:0:player.home.autoplay": false,
+        "p:0:layout.portrait": true,
+        "p:0:layout.display-bits-button": false,
+        "p:0:metadata.host-button": false,
+        "p:0:directory.hide-recommended": true,
+        "p:0:metadata.viewers": false,
+        "p:0:layout.side-nav.show-rec-channels": 0,
         "p:0:chat.lines.alternate": false,
+        "p:0:layout.minimal-navigation": false,
+        "p:0:metadata.uptime.no-native": true,
         "p:0:chat.filtering.highlight-basic-badges": [
             {
                 "v": {
@@ -64,7 +77,12 @@
         ],
         "p:0:chat.me-style": 1,
         "p:0:player.no-autoplay": true,
+        "p:0:channel.auto-click-chat": true,
+        "p:0:chat.bits.animated": false,
         "p:0:player.ext-hide": 2,
+        "p:0:chat.emote-menu.tall": true,
+        "p:0:channel.auto-skip-trailer": true,
+        "p:0:layout.side-nav.hide-offline": true,
         "p:0:layout.prime-offers": false,
         "p:0:ffzap.core.remove_spaces": true,
         "cfg-seen": [
@@ -351,9 +369,18 @@
             "chat.points.auto-rewards",
             "newusers.priority",
             "chat.filtering.mention-priority",
-            "chat.filtering.debug"
+            "chat.filtering.debug",
+            "ffz.search.matches-only",
+            "chat.emote-menu.tall",
+            "deck.link",
+            "deck.auto-settings"
         ],
+        "p:0:chat.filtering.clickable-mentions": false,
         "p:0:chat.filtering.deleted-style": 1,
+        "p:0:metadata.player-stats": true,
+        "p:0:clips.layout.big": true,
+        "p:0:chat.viewer-cards.highlight-chat": false,
+        "p:0:ffzap.core.highlight_sound_prevent_own_channel": true,
         "addons.enabled": [
             "ffzap-core",
             "pronouns",
@@ -364,11 +391,17 @@
         "p:0:ffzap.betterttv.gif_emoticons_mode": 2,
         "p:0:chat.filtering.highlight-mentions": true,
         "p:0:newusers.highlightcolor": "#4A4A4A",
+        "p:0:chat.tab-complete.emotes-without-colon": true,
+        "p:0:chat.emote-menu.reduced-padding": true,
         "p:0:chat.points.auto-rewards": true,
+        "p:0:player.volume-always-shown": true,
+        "p:0:player.compressor.default": true,
         "cfg-collapsed": [
-            "chat.actions"
+            "chat.badges"
         ],
+        "p:0:ffzap.core.enable_highlight_sound": true,
         "p:0:chat.lines.padding": false,
+        "p:0:sub-button.prime-notice": false,
         "emote-menu.collapsed": [],
         "p:0:chat.filtering.display-deleted": "DETAILED"
     }

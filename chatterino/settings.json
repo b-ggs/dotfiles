@@ -3,7 +3,7 @@
         "autorun": false
     },
     "misc": {
-        "currentVersion": "2.3.1",
+        "currentVersion": "2.3.2",
         "beta": true,
         "experimentalIrc": false,
         "twitch": {

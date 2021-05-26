@@ -1,10 +1,10 @@
 # brew
 
 brew-common: check-unix
-	brew install curl git nvim vim zsh tmux gpg fzf the_silver_searcher um
+	brew install curl git nvim zsh tmux gpg fzf the_silver_searcher um
 
 brew-macos: check-darwin
-	brew cask install slate
+	brew cask install hammerspoon
 
 brew-linux: check-gnu-linux
 	brew install xclip

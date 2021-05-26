@@ -74,7 +74,7 @@
         ],
         "p:0:channel.hide-unfollow": true,
         "p:0:player.no-autoplay": true,
-        "p:0:channel.auto-click-chat": true,
+        "p:0:channel.auto-click-chat": false,
         "p:0:player.ext-hide": 2,
         "p:0:chat.emote-menu.tall": true,
         "p:0:channel.auto-skip-trailer": true,

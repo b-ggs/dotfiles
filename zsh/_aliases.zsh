@@ -31,3 +31,5 @@ alias ind='cd $HOME/dev/inDinero/indinero'
 alias ind-map='cd $HOME/dev/inDinero/indinero-ms-map-rails-vproto'
 alias ind-leap='cd $HOME/dev/inDinero/leap'
 alias ind-ntbk='cd $HOME/dev/b-ggs/indinero-notebook'
+
+alias mp='cd $HOME/dev/mplusmuseum/website-cms'

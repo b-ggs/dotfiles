@@ -42,8 +42,7 @@ zsh-install:
 	brew install zsh
 
 zsh-symlink:
-	@ORIGIN=zsh/init.zsh TARGET=${HOME}/.zshrc make symlink
-	@ORIGIN=zsh/ TARGET=${HOME}/.zsh make symlink
+	@ORIGIN=zsh/zshrc TARGET=${HOME}/.zshrc make symlink
 
 zsh-configure:
 	@rm -rf ${HOME}/.zgen

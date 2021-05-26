@@ -1,0 +1,114 @@
+# zgen
+
+source "$HOME/.zgen/zgen.zsh"
+if [[ -n "$(command -v zgen 2> /dev/null)" ]] && ! zgen saved; then
+  zgen oh-my-zsh
+  zgen oh-my-zsh plugins/git
+  zgen oh-my-zsh plugins/docker
+  zgen oh-my-zsh plugins/docker-compose
+  zgen oh-my-zsh plugins/pyenv
+  zgen oh-my-zsh plugins/virtualenv
+  zgen save
+fi
+
+# binds
+
+bindkey "^P" up-line-or-beginning-search
+bindkey "^N" down-line-or-beginning-search
+
+# env
+
+export PATH="$PATH:$HOME/.bin"
+export PATH="$PATH:$HOME/.local/bin"
+
+if [[ "$(uname)" == "Linux" ]] && [[ ! $(uname -o) == "Android" ]]; then
+  export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+  export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"
+  export PATH="/home/linuxbrew/.linuxbrew/opt:$PATH"
+fi
+
+export TERM="xterm-256color"
+export LANG="en_US.UTF-8"
+export SHELL="$(which zsh)"
+
+if [[ -n "$(command -v nvim 2> /dev/null)" ]]; then
+  export EDITOR="nvim"
+elif [[ -n "$(command -v vim 2> /dev/null)" ]]; then
+  export EDITOR="vim"
+else
+  export EDITOR="vi"
+fi
+
+# aliases
+
+if [[ "$(uname)" == "Darwin" ]]; then
+  alias lock='open -a ScreenSaverEngine'
+  alias hidedesktop='defaults write com.apple.finder CreateDesktop false && killall Finder'
+  alias showdesktop='defaults write com.apple.finder CreateDesktop true && killall Finder'
+elif [[ "$(uname)" == "Linux" ]]; then
+  alias lock='i3lock'
+fi
+
+alias be='bundle exec'
+alias bi='bundle install'
+alias d='docker'
+alias dc='docker-compose'
+alias pos='poetry shell'
+
+alias home='cd $HOME'
+alias dev='cd $HOME/dev'
+alias b-ggs='cd $HOME/dev/b-ggs'
+alias dotfiles='cd $HOME/.files'
+alias dump='mkdir -p $HOME/.dump && cd $HOME/.dump'
+alias dotbin='cd $HOME/.bin'
+alias Downloads='cd $HOME/Downloads'
+alias Desktop='cd $HOME/Desktop'
+alias dockerfiles='cd $HOME/dev/b-ggs/dockerfiles'
+alias wslhome='cd $(wslpath $(wslvar USERPROFILE))'
+
+alias known-hosts='$EDITOR $HOME/.ssh/known_hosts'
+alias ssh-config='cd $HOME/.ssh-config'
+alias authorized-keys='cd $HOME/.authorized-keys'
+
+alias ind='cd $HOME/dev/inDinero/indinero'
+alias ind-map='cd $HOME/dev/inDinero/indinero-ms-map-rails-vproto'
+alias ind-leap='cd $HOME/dev/inDinero/leap'
+alias ind-ntbk='cd $HOME/dev/b-ggs/indinero-notebook'
+
+alias mp='cd $HOME/dev/mplusmuseum/website-cms'
+
+# fzf
+
+if [[ -f "$HOME/.fzf.zsh" ]]; then
+  # Change default fzf command to use ag
+  export FZF_DEFAULT_COMMAND='ag --hidden --unrestricted --nocolor --ignore node_modules --ignore .git -g ""'
+  # Use 16-color colorscheme
+  export FZF_DEFAULT_OPTS="--color 16"
+  # Source fzf zsh configs
+  source "$HOME/.fzf.zsh"
+fi
+
+# prompt
+
+local USER_HOST='%K{9} %F{0}%n%f%F{0}@%F{0}%m%f %k '
+if [[ -n "$SSH_CLIENT" ]]; then
+  local SSH_CLIENT_PROMPT='%K{12} %F{0}SSH%f %k '
+fi
+local PWD_PROMPT='%K{12} %F{0}%~%f %k'
+ZSH_THEME_GIT_PROMPT_PREFIX=' %K{12} %F{0}git@'
+ZSH_THEME_GIT_PROMPT_SUFFIX='%f %k'
+local GIT_PROMPT='$(git_prompt_info) '
+local PYENV_PROMPT='%K{12} %F{0}pyenv@$(pyenv_prompt_info)%f %k '
+ZSH_THEME_VIRTUALENV_PREFIX='%K{12} %F{0}venv@'
+ZSH_THEME_VIRTUALENV_SUFFIX='%f %k '
+local VIRTUALENV_PROMPT='$(virtualenv_prompt_info)'
+local TIME="%K{12} %F{0}%*%f %k"
+local RETURN_PROMPT="%(?.. %K{12} %F{0}%?%f %k)"
+
+PROMPT="${USER_HOST}${SSH_CLIENT_PROMPT}${PWD_PROMPT}${GIT_PROMPT}${PYENV_PROMPT}${VIRTUALENV_PROMPT}${TIME}${RETURN_PROMPT}"$'\n'"$ "
+
+# pyenv
+
+eval "$(pyenv init -)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

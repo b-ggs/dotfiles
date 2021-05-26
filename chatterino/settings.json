@@ -1,6 +1,9 @@
 {
     "behaviour": {
-        "autorun": false
+        "autorun": false,
+        "autocompletion": {
+            "userCompletionOnlyWithAt": false
+        }
     },
     "misc": {
         "currentVersion": "2.3.2",
@@ -68,13 +71,14 @@
             "showTitle": true
         },
         "messages": {
-            "alternateMessageBackground": true,
+            "alternateMessageBackground": false,
             "colorizeNicknames": false,
             "showTimestamps": true,
             "timestampFormat": "h:mm a",
             "findAllUsernames": true,
             "separateMessages": false,
-            "collapseMessagesMinLines": 0
+            "collapseMessagesMinLines": 0,
+            "showLastMessageIndicator": false
         },
         "uiScale2": 1.0,
         "windowAlwaysOnTop": true,
@@ -92,10 +96,15 @@
     },
     "emotes": {
         "scale": 1.0,
-        "removeSpacesBetweenEmotes": true
+        "removeSpacesBetweenEmotes": true,
+        "stackBits": true
     },
     "similarity": {
         "hideSimilarMaxMessagesToCheck": 3,
         "similarityPercentage": 0.8999999761581421
+    },
+    "logging": {
+        "path": "",
+        "enabled": true
     }
 }

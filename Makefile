@@ -28,6 +28,7 @@ zsh-install:
 	brew install zsh
 
 zsh-symlink:
+	@ORIGIN=zsh/zprofile TARGET=${HOME}/.zprofile make symlink
 	@ORIGIN=zsh/zshrc TARGET=${HOME}/.zshrc make symlink
 
 zsh-configure:

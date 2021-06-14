@@ -289,3 +289,7 @@ hi PmenuSel ctermfg=0
 " temp inky stuff
 
 autocmd BufNewFile,BufRead *.inky set filetype=html.erb
+
+" testing coc stuff
+
+autocmd FileType * let b:coc_additional_keywords = ["-"]

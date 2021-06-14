@@ -11,9 +11,11 @@
         "p:0:player.home.autoplay": false,
         "p:0:layout.portrait": true,
         "p:0:ffzap.core.highlight_sound_prevent_own_channel": true,
+        "p:0:channel.panel-tips": true,
         "p:0:directory.hide-recommended": true,
         "p:0:metadata.viewers": false,
         "p:0:layout.side-nav.show-rec-channels": 0,
+        "p:0:player.theatre.metadata": true,
         "p:0:chat.lines.alternate": false,
         "p:0:layout.minimal-navigation": false,
         "p:0:chat.filtering.highlight-basic-badges": [
@@ -21,7 +23,7 @@
                 "v": {
                     "remove": false,
                     "v": "broadcaster",
-                    "c": "rgba(255, 0, 37, 0.5)",
+                    "c": "rgba(255, 0, 37, 0.3)",
                     "p": 0
                 },
                 "id": "1620402536297-0.6374978398630218-0"
@@ -30,7 +32,7 @@
                 "v": {
                     "remove": false,
                     "v": "moderator",
-                    "c": "rgba(135, 255, 0, 0.5)",
+                    "c": "rgba(135, 255, 0, 0.3)",
                     "p": 0
                 },
                 "id": "1620402545218-0.532380690314203-1"
@@ -39,7 +41,7 @@
                 "v": {
                     "remove": false,
                     "v": "partner",
-                    "c": "rgba(134, 0, 255, 0.5)",
+                    "c": "rgba(134, 0, 255, 0.3)",
                     "p": 0
                 },
                 "id": "1620402571712-0.19968328116248335-2"
@@ -48,7 +50,7 @@
                 "v": {
                     "remove": false,
                     "v": "staff",
-                    "c": "rgba(155, 155, 155, 0.5)",
+                    "c": "rgba(155, 155, 155, 0.3)",
                     "p": 0
                 },
                 "id": "1620402825431-0.2149038571932682-6"
@@ -57,7 +59,7 @@
                 "v": {
                     "remove": false,
                     "v": "vip",
-                    "c": "rgba(203, 0, 255, 0.5)",
+                    "c": "rgba(203, 0, 255, 0.3)",
                     "p": 0
                 },
                 "id": "1620403294252-0.2354283650335769-8"
@@ -74,10 +76,13 @@
         ],
         "p:0:channel.hide-unfollow": true,
         "p:0:player.no-autoplay": true,
+        "p:0:chat.subs.compact": false,
         "p:0:channel.auto-click-chat": false,
         "p:0:player.ext-hide": 2,
+        "p:0:addon.inlinetab.tip-count": true,
         "p:0:chat.emote-menu.tall": true,
         "p:0:channel.auto-skip-trailer": true,
+        "p:0:chat.emotes.2x": false,
         "p:0:ffzap.core.enable_highlight_sound": true,
         "p:0:metadata.uptime.no-native": true,
         "p:0:ffzap.core.remove_spaces": true,
@@ -369,12 +374,20 @@
             "ffz.search.matches-only",
             "chat.emote-menu.tall",
             "deck.link",
-            "deck.auto-settings"
+            "deck.auto-settings",
+            "chat.name-format",
+            "addon.inlinetab.tip-count",
+            "addon.inlinetab.tips",
+            "addon.inlinetab.no_commands",
+            "addon.inlinetab.no_mentions",
+            "addon.inlinetab.mention_prefix"
         ],
+        "p:0:metadata.modview.hide-info": false,
         "p:0:chat.me-style": 1,
         "p:0:chat.filtering.clickable-mentions": false,
         "p:0:chat.filtering.deleted-style": 1,
         "p:0:metadata.player-stats": true,
+        "p:0:addon.inlinetab.no_mentions": true,
         "p:0:layout.prime-offers": false,
         "p:0:clips.layout.big": true,
         "p:0:layout.portrait-min-chat": true,
@@ -382,9 +395,8 @@
         "addons.enabled": [
             "ffzap-core",
             "pronouns",
-            "new-account-highlighter",
-            "fs-chat",
-            "ffzap-bttv"
+            "ffzap-bttv",
+            "inline-tab-completion"
         ],
         "p:0:ffzap.betterttv.gif_emoticons_mode": 2,
         "p:0:chat.filtering.highlight-mentions": true,
@@ -397,9 +409,12 @@
         "p:0:layout.side-nav.hide-offline": true,
         "p:0:chat.bits.animated": false,
         "p:0:chat.filtering.display-deleted": "DETAILED",
+        "p:0:chat.emote-menu.show-quick-nav": false,
         "cfg-collapsed": [
-            "chat.badges"
+            "player.compressor",
+            "data_management.reporting"
         ],
+        "p:0:player.mute-click": true,
         "p:0:player.compressor.default": true,
         "p:0:sub-button.prime-notice": false,
         "p:0:chat.lines.padding": false,

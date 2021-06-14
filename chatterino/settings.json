@@ -3,7 +3,8 @@
         "autorun": false,
         "autocompletion": {
             "userCompletionOnlyWithAt": false
-        }
+        },
+        "mouseScrollMultiplier": 1.0
     },
     "misc": {
         "currentVersion": "2.3.2",
@@ -21,11 +22,6 @@
     "filtering": {
         "filters": [
             {
-                "name": "partners mods vips staff broadcaster + timeouts - bots",
-                "filter": "((author.badges contains \"partner\" || author.badges contains \"moderator\" || author.badges contains \"vip\" || author.badges contains \"staff\" || author.badges contains \"broadcaster\" || author.badges contains \"admin\") || (flags.system_message && !flags.sub_message)) && (author.name !== \"Fossabot\" && author.name !== \"Streamlabs\" && author.name !== \"Nightbot\" && author.name !== \"AmazefulBot\" && author.name !== \"SchnozeBot\"  && author.name !== \"StreamElements\")\n",
-                "id": "e99e8443-5011-45c1-b4ec-c6ed1f72f605"
-            },
-            {
                 "name": "remove graynames",
                 "filter": "(!(author.no_color) || flags.system_message || flags.whisper || flags.highlighted || flags.points_redeemed || flags.sub_message)\n",
                 "id": "f7d8123a-68fe-4627-9c2f-8bd9fb6fbd72"
@@ -34,6 +30,11 @@
                 "name": "non-subbed graynames only PepeLa",
                 "filter": "author.no_color && !(author.subbed) && !(flags.system_message || flags.whisper || flags.highlighted || flags.points_redeemed || flags.sub_message)\n",
                 "id": "6dc1a83e-f823-4d22-9278-33b0bcb8e6f5"
+            },
+            {
+                "name": "partners mods vips staff broadcaster + timeouts - bots",
+                "filter": "((author.badges contains \"partner\" || author.badges contains \"moderator\" || author.badges contains \"vip\" || author.badges contains \"staff\" || author.badges contains \"broadcaster\" || author.badges contains \"admin\") || (flags.system_message && !flags.sub_message)) && (author.name !== \"Fossabot\" && author.name !== \"Streamlabs\" && author.name !== \"Nightbot\" && author.name !== \"AmazefulBot\" && author.name !== \"SchnozeBot\"  && author.name !== \"StreamElements\")\n",
+                "id": "e99e8443-5011-45c1-b4ec-c6ed1f72f605"
             }
         ]
     },
@@ -81,7 +82,7 @@
             "showLastMessageIndicator": false
         },
         "uiScale2": 1.0,
-        "windowAlwaysOnTop": true,
+        "windowAlwaysOnTop": false,
         "smoothScrollingNewMessages": false,
         "thumbnailSize": 100
     },
@@ -106,5 +107,27 @@
     "logging": {
         "path": "",
         "enabled": true
+    },
+    "external": {
+        "streamlink": {
+            "useCustomPath": true,
+            "customPath": "/usr/local/bin/",
+            "options": "",
+            "quality": "Source"
+        },
+        "urischeme": "iina://"
+    },
+    "notifications": {
+        "enablePlaySound": true,
+        "twitch": [
+            "HasanAbi",
+            "noelmiller",
+            "Garek",
+            "buddha",
+            "Biotoxz_",
+            "AnthonyZ"
+        ],
+        "enableFlashTaskbar": true,
+        "highlightSoundPath": ""
     }
 }

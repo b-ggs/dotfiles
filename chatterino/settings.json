@@ -7,7 +7,7 @@
         "mouseScrollMultiplier": 1.0
     },
     "misc": {
-        "currentVersion": "2.3.2",
+        "currentVersion": "2.3.3",
         "beta": true,
         "experimentalIrc": false,
         "twitch": {

@@ -406,6 +406,8 @@
         "p:0:chat.emote-menu.reduced-padding": true,
         "p:0:chat.points.auto-rewards": true,
         "p:0:player.volume-always-shown": true,
+        "emote-menu.collapsed": [],
+        "p:0:chat.scroller.smooth-scroll": 0,
         "p:0:layout.side-nav.hide-offline": true,
         "p:0:chat.bits.animated": false,
         "p:0:chat.filtering.display-deleted": "DETAILED",
@@ -417,7 +419,6 @@
         "p:0:player.mute-click": true,
         "p:0:player.compressor.default": true,
         "p:0:sub-button.prime-notice": false,
-        "p:0:chat.lines.padding": false,
-        "emote-menu.collapsed": []
+        "p:0:chat.lines.padding": false
     }
 }

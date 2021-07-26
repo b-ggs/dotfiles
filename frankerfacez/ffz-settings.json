@@ -6,10 +6,12 @@
         "p:0:ffzap.core.highlight_sound_types": [
             "mention"
         ],
+        "p:0:chat.timestamp-format": "h:mm",
         "p:0:player.vod.autoplay": false,
         "p:0:metadata.host-button": false,
         "p:0:player.home.autoplay": false,
         "p:0:layout.portrait": true,
+        "p:0:chat.scroller.smooth-scroll": 0,
         "p:0:ffzap.core.highlight_sound_prevent_own_channel": true,
         "p:0:channel.panel-tips": true,
         "p:0:directory.hide-recommended": true,
@@ -380,7 +382,8 @@
             "addon.inlinetab.tips",
             "addon.inlinetab.no_commands",
             "addon.inlinetab.no_mentions",
-            "addon.inlinetab.mention_prefix"
+            "addon.inlinetab.mention_prefix",
+            "chat.bits.cheer-notice"
         ],
         "p:0:metadata.modview.hide-info": false,
         "p:0:chat.me-style": 1,
@@ -391,6 +394,7 @@
         "p:0:layout.prime-offers": false,
         "p:0:clips.layout.big": true,
         "p:0:layout.portrait-min-chat": true,
+        "p:0:chat.extra-timestamps": true,
         "p:0:chat.viewer-cards.highlight-chat": false,
         "addons.enabled": [
             "ffzap-core",
@@ -407,18 +411,34 @@
         "p:0:chat.points.auto-rewards": true,
         "p:0:player.volume-always-shown": true,
         "emote-menu.collapsed": [],
-        "p:0:chat.scroller.smooth-scroll": 0,
         "p:0:layout.side-nav.hide-offline": true,
         "p:0:chat.bits.animated": false,
         "p:0:chat.filtering.display-deleted": "DETAILED",
         "p:0:chat.emote-menu.show-quick-nav": false,
         "cfg-collapsed": [
             "player.compressor",
-            "data_management.reporting"
+            "data_management.reporting",
+            "chat.appearance"
         ],
         "p:0:player.mute-click": true,
         "p:0:player.compressor.default": true,
         "p:0:sub-button.prime-notice": false,
-        "p:0:chat.lines.padding": false
+        "p:0:chat.lines.padding": false,
+        "p:0:chat.filtering.highlight-basic-users": [
+            {
+                "v": {
+                    "remove": false,
+                    "v": "boggsbot",
+                    "t": "text",
+                    "c": "rgba(0, 255, 240, 0.5)",
+                    "s": false,
+                    "h": false,
+                    "w": true,
+                    "p": 1
+                },
+                "id": "1627264083964-0.8709699718033637-0"
+            }
+        ],
+        "p:0:chat.filtering.process-own": true
     }
 }

@@ -7,7 +7,7 @@
         "mouseScrollMultiplier": 1.0
     },
     "misc": {
-        "currentVersion": "2.3.3",
+        "currentVersion": "7.3.4",
         "beta": true,
         "experimentalIrc": false,
         "twitch": {
@@ -35,6 +35,11 @@
                 "name": "partners mods vips staff broadcaster + timeouts - bots",
                 "filter": "((author.badges contains \"partner\" || author.badges contains \"moderator\" || author.badges contains \"vip\" || author.badges contains \"staff\" || author.badges contains \"broadcaster\" || author.badges contains \"admin\") || (flags.system_message && !flags.sub_message)) && (author.name !== \"Fossabot\" && author.name !== \"Streamlabs\" && author.name !== \"Nightbot\" && author.name !== \"AmazefulBot\" && author.name !== \"SchnozeBot\"  && author.name !== \"StreamElements\")\n",
                 "id": "e99e8443-5011-45c1-b4ec-c6ed1f72f605"
+            },
+            {
+                "name": "non-subbed only",
+                "filter": "!(author.subbed) && !(flags.system_message || flags.whisper || flags.highlighted || flags.points_redeemed || flags.sub_message)\n",
+                "id": "f6d6bbbd-242b-4b16-bbef-e85a5c0c8666"
             }
         ]
     },
@@ -84,7 +89,8 @@
         "uiScale2": 1.0,
         "windowAlwaysOnTop": false,
         "smoothScrollingNewMessages": false,
-        "thumbnailSize": 100
+        "thumbnailSize": 100,
+        "thumbnailSizeStream": 2
     },
     "moderation": {
         "timeoutStackStyle": 2
@@ -122,8 +128,8 @@
         "twitch": [
             "HasanAbi",
             "noelmiller",
-            "Garek",
             "buddha",
+            "Garek",
             "Biotoxz_",
             "AnthonyZ"
         ],

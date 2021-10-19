@@ -4,5 +4,26 @@
   "python.formatting.provider": "black",
   "python.analysis.useLibraryCodeForTypes": false,
   "python.analysis.diagnosticMode": "workspace",
-  "coc.preferences.jumpCommand": "vsplit"
+  "coc.preferences.jumpCommand": "vsplit",
+  "languageserver": {
+    "sourcery": {
+      "command": "sourcery",
+      "args": [
+        "lsp"
+      ],
+      "filetypes": [
+        "python"
+      ],
+      "initializationOptions": {
+         "token": "user_RHwd1i_QfqysIq31Wac1sGPhxlz4g_WAVlDxLCI5iT9Cesghe9P_GroCd_8",
+         "extension_version": "coc.vim",
+         "editor_version": "vim"
+      },
+      "settings": {
+        "sourcery": {
+          "metricsEnabled": false
+        }
+      }
+    }
+  }
 }

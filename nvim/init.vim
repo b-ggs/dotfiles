@@ -294,3 +294,6 @@ autocmd BufNewFile,BufRead *.inky set filetype=html.erb
 
 autocmd FileType * let b:coc_additional_keywords = ["-"]
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> ga <Plug>(coc-codeaction-selected)
+nmap <silent> gs <Plug>(coc-codeaction)
+nmap <silent> gf <Plug>(coc-fix-current)

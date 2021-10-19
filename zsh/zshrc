@@ -54,6 +54,7 @@ alias bi='bundle install'
 alias d='docker'
 alias dc='docker-compose'
 alias pos='poetry shell'
+alias vac='source venv/bin/activate'
 
 alias home='cd $HOME'
 alias dev='cd $HOME/dev'
@@ -76,6 +77,7 @@ alias ind-leap='cd $HOME/dev/inDinero/leap'
 alias ind-ntbk='cd $HOME/dev/b-ggs/indinero-notebook'
 
 alias mp='cd $HOME/dev/mplusmuseum/website-cms'
+alias mf='cd $HOME/dev/mozilla/foundation.mozilla.org'
 
 # fzf
 

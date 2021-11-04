@@ -1,0 +1,4 @@
+--glob=!.git/
+--glob=!node_modules/*
+--glob=!venv/*
+--smart-case

@@ -1,7 +1,7 @@
 # brew
 
 brew-common: check-unix
-	brew install curl git nvim zsh tmux gpg fzf the_silver_searcher um
+	brew install curl git nvim zsh tmux gpg fzf the_silver_searcher um ripgrep
 
 brew-macos: check-darwin
 	brew cask install hammerspoon
@@ -118,6 +118,10 @@ streamlink-symlink:
 
 hammerspoon-symlink:
 	@ORIGIN=hammerspoon/init.lua TARGET=${HOME}/.hammerspoon/init.lua make symlink
+
+# ripgrep
+ripgrep-symlink:
+	@ORIGIN=ripgrep/ripgreprc TARGET=${HOME}/.ripgreprc make symlink
 
 # util
 

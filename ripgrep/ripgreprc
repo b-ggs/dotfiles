@@ -1,4 +1,6 @@
 --glob=!.git/
 --glob=!node_modules/*
 --glob=!venv/*
+--glob=!**__pycache__
 --smart-case
+--no-ignore-vcs

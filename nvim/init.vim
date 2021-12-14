@@ -99,8 +99,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 " Language packs
 Plug 'sheerun/vim-polyglot'
-" Logstash
-Plug 'robbles/logstash.vim'
 " Commenting lines
 Plug 'tomtom/tcomment_vim'
 " Better motion
@@ -134,11 +132,22 @@ Plug 'airblade/vim-gitgutter'
 Plug 'joshdick/onedark.vim'
 " coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" tags
+Plug 'ludovicchabant/vim-gutentags'
+" copilot
+Plug 'github/copilot.vim'
 call plug#end()
 
 " coc
 
 let g:coc_global_extensions = ['coc-pyright']
+
+autocmd FileType * let b:coc_additional_keywords = ["-"]
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> ga <Plug>(coc-codeaction-selected)
+nmap <silent> gs <Plug>(coc-codeaction)
+nmap <silent> gf <Plug>(coc-fix-current)
 
 " fzf
 
@@ -149,7 +158,34 @@ if executable('fzf')
   " Binds
   map <leader>f :FzfFiles<CR>
   map <leader>b :FzfBuffer<CR>
-  map // :FzfLines<CR>
+  map <leader>d :FzfTags<CR>
+  map <leader>/ :FzfLines<CR>
+
+  " Floating window borders
+  function! CreateCenteredFloatingWindow()
+    let width = min([&columns - 4, max([80, &columns - 20])])
+    let height = min([&lines - 4, max([20, &lines - 10])])
+    let top = ((&lines - height) / 2) - 1
+    let left = (&columns - width) / 2
+    let opts = {'relative': 'editor', 'row': top, 'col': left, 'width': width, 'height': height, 'style': 'minimal'}
+
+    let top = "╭" . repeat("─", width - 2) . "╮"
+    let mid = "│" . repeat(" ", width - 2) . "│"
+    let bot = "╰" . repeat("─", width - 2) . "╯"
+    let lines = [top] + repeat([mid], height - 2) + [bot]
+    let s:buf = nvim_create_buf(v:false, v:true)
+    call nvim_buf_set_lines(s:buf, 0, -1, v:true, lines)
+    call nvim_open_win(s:buf, v:true, opts)
+    set winhl=Normal:Floating
+    let opts.row += 1
+    let opts.height -= 2
+    let opts.col += 2
+    let opts.width -= 4
+    call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
+    au BufWipeout <buffer> exe 'bw '.s:buf
+  endfunction
+
+  let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
 endif
 
 " ctrlp
@@ -215,12 +251,7 @@ let g:neomake_python_enabled_makers = ['pep8']
 " startify
 
 " Custom header
-let g:startify_custom_header = [
-  \'   ┌─┐┌┐     ┌─┐┌─┐┌─┐',
-  \'   │└┘├┴┐    │ ┬│ ┬└─┐',
-  \'   └──└─┘────└─┘└─┘└─┘',
-  \'',
-  \ ]
+let g:startify_custom_header = ['   boggs']
 " Do not change to directory of opened file
 let g:startify_change_to_dir = 0
 " Change directory to opened file's git repository's root
@@ -289,11 +320,3 @@ hi PmenuSel ctermfg=0
 " temp inky stuff
 
 autocmd BufNewFile,BufRead *.inky set filetype=html.erb
-
-" testing coc stuff
-
-autocmd FileType * let b:coc_additional_keywords = ["-"]
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> ga <Plug>(coc-codeaction-selected)
-nmap <silent> gs <Plug>(coc-codeaction)
-nmap <silent> gf <Plug>(coc-fix-current)

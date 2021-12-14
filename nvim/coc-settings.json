@@ -1,29 +1,32 @@
 {
   "coc.preferences.formatOnSaveFiletypes": ["python"],
-  "python.linting.flake8Enabled": true,
-  "python.formatting.provider": "black",
-  "python.analysis.useLibraryCodeForTypes": false,
-  "python.analysis.diagnosticMode": "workspace",
+  // Open jumps in vertical split
   "coc.preferences.jumpCommand": "vsplit",
+  // Python/Pyright settings
+  "python.linting.flake8Enabled": false, // Enable this on a per-project basis
+  "python.formatting.provider": "black",
+  "python.analysis.diagnosticMode": "workspace",
   "languageserver": {
-    "sourcery": {
-      "command": "sourcery",
-      "args": [
-        "lsp"
-      ],
-      "filetypes": [
-        "python"
-      ],
-      "initializationOptions": {
-         "token": "user_RHwd1i_QfqysIq31Wac1sGPhxlz4g_WAVlDxLCI5iT9Cesghe9P_GroCd_8",
-         "extension_version": "coc.vim",
-         "editor_version": "vim"
-      },
-      "settings": {
-        "sourcery": {
-          "metricsEnabled": false
-        }
-      }
-    }
+    // Sourcery settings
+    // Enable this on a per-project basis
+    // "sourcery": {
+    //   "command": "sourcery",
+    //   "args": [
+    //     "lsp"
+    //   ],
+    //   "filetypes": [
+    //     "python"
+    //   ],
+    //   "initializationOptions": {
+    //      "token": "",
+    //      "extension_version": "coc.vim",
+    //      "editor_version": "vim"
+    //   },
+    //   "settings": {
+    //     "sourcery": {
+    //       "metricsEnabled": false
+    //     }
+    //   }
+    // }
   }
 }

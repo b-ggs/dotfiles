@@ -75,6 +75,8 @@
                 "id": "1620403365712-0.24281661708454738-9"
             }
         ],
+        "p:0:addon.seventv_emotes.animated_avatars": false,
+        "p:0:addon.seventv_emotes.update_messages": false,
         "p:0:chat.filtering.highlight-mentions": true,
         "p:0:player.no-autoplay": true,
         "p:0:addon.inlinetab.tip-count": true,
@@ -84,25 +86,24 @@
             "ffzap-core",
             "ffzap-bttv",
             "inline-tab-completion",
-            "7tv-emotes"
+            "7tv-emotes",
+            "smokemotes"
         ],
         "p:0:ffzap.betterttv.gif_emoticons_mode": 2,
-        "p:0:layout.display-bits-button": false,
         "p:0:newusers.highlightcolor": "#4A4A4A",
         "p:0:chat.tab-complete.emotes-without-colon": true,
-        "p:0:layout.side-nav.hide-offline": true,
         "p:0:chat.emote-menu.show-quick-nav": false,
+        "p:0:layout.side-nav.hide-offline": true,
         "cfg-collapsed": [
             "player.compressor",
             "data_management.reporting",
-            "home.changelog",
-            "chat.actions"
+            "chat.actions.room"
         ],
         "p:0:player.compressor.default": true,
         "p:0:ffzap.core.highlight_sound_types": [
             "mention"
         ],
-        "p:0:ffzap.core.highlight_sound_prevent_own_channel": true,
+        "p:0:layout.display-bits-button": false,
         "p:0:channel.panel-tips": true,
         "p:0:layout.side-nav.show-rec-channels": 0,
         "p:0:layout.minimal-navigation": false,
@@ -427,10 +428,29 @@
             "addon.seventv_emotes.global_emotes",
             "addon.seventv_emotes.socket",
             "addon.seventv_emotes.update_messages",
-            "chat.banners.drops"
+            "chat.banners.drops",
+            "addon.seventv_emotes.unlisted_emotes",
+            "addon.seventv_emotes.emote_updates",
+            "addon.seventv_emotes.animated_avatars",
+            "addon.seventv_emotes.badges",
+            "layout.hide-discover-luna",
+            "chat.rich.want-mid",
+            "smokemotes.keep_hd_video",
+            "smokemotes.auto_live_follow_page",
+            "smokemotes.mod_keybinds",
+            "smokemotes.auto_exit_viewercard",
+            "smokemotes.pinned_mentions",
+            "smokemotes.pinned_messages_remove",
+            "smokemotes.pinned_reasons",
+            "smokemotes.pinned_messages_max",
+            "smokemotes.pinned_timer",
+            "smokemotes.pinned_border",
+            "smokemotes.pinned_font_color",
+            "smokemotes.pinned_bg"
         ],
         "p:0:chat.filtering.remove-deleted": 0,
         "p:0:clips.layout.big": true,
+        "p:0:addon.seventv_emotes.emote_updates": false,
         "p:0:metadata.modview.hide-info": false,
         "p:0:chat.name-format": 0,
         "p:0:chat.filtering.display-deleted": "DETAILED",
@@ -438,6 +458,7 @@
         "exp-lock": 1611698937878,
         "p:0:metadata.viewers": false,
         "p:0:chat.lines.alternate": false,
+        "p:0:ffzap.core.highlight_sound_prevent_own_channel": true,
         "p:0:player.ext-hide": 2,
         "p:0:ffzap.core.remove_spaces": true,
         "p:0:chat.scroller.freeze": 1,

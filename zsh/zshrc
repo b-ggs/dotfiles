@@ -93,10 +93,12 @@ local PWD_PROMPT='%K{12} %F{0}%~%f %k'
 ZSH_THEME_GIT_PROMPT_PREFIX=' %K{12} %F{0}git@'
 ZSH_THEME_GIT_PROMPT_SUFFIX='%f %k'
 local GIT_PROMPT='$(git_prompt_info) '
-local PYENV_PROMPT='%K{12} %F{0}pyenv@$(pyenv_prompt_info)%f %k '
-ZSH_THEME_VIRTUALENV_PREFIX='%K{12} %F{0}venv@'
-ZSH_THEME_VIRTUALENV_SUFFIX='%f %k '
-local VIRTUALENV_PROMPT='$(virtualenv_prompt_info)'
+if [[ -n "$(command -v pyenv)" ]]; then
+  local PYENV_PROMPT='%K{12} %F{0}pyenv@$(pyenv_prompt_info)%f %k '
+  ZSH_THEME_VIRTUALENV_PREFIX='%K{12} %F{0}venv@'
+  ZSH_THEME_VIRTUALENV_SUFFIX='%f %k '
+  local VIRTUALENV_PROMPT='$(virtualenv_prompt_info)'
+fi
 if [[ -d "$HOME/.fnm" ]]; then
   local FNM_PROMPT='%K{12} %F{0}fnm@$(fnm current)%f %k '
 fi
@@ -107,7 +109,10 @@ PROMPT="${USER_HOST}${SSH_CLIENT_PROMPT}${PWD_PROMPT}${GIT_PROMPT}${PYENV_PROMPT
 
 # pyenv
 
-eval "$(pyenv init -)"
+# check if pyenv is installed
+if [[ -n "$(command -v pyenv)" ]]; then
+  eval "$(pyenv init -)"
+fi
 
 # fzf
 

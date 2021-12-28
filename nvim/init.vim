@@ -301,6 +301,11 @@ endfunction
 let g:onedark_termcolors=16
 colorscheme onedark
 
+" copilot
+
+imap <silent><script><expr> <C-j> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
+
 " colors
 
 " Set background to dark

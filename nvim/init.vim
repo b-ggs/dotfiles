@@ -125,8 +125,7 @@ Plug 'metakirby5/codi.vim'
 " Start screen
 Plug 'mhinz/vim-startify'
 " Better statusline
-" Plug 'b-ggs/vim-airline'
-Plug 'nvim-lualine/lualine.nvim'
+Plug 'b-ggs/vim-airline'
 " Displays diff in gutter
 Plug 'airblade/vim-gitgutter'
 " 16-color colorscheme
@@ -272,62 +271,29 @@ map <leader>S :Startify<CR>
 
 " airline
 
-" let g:airline_left_sep = ' '
-" let g:airline_right_sep = ' '
-" let g:airline_skip_empty_sections = 1
-" let g:airline_section_b = ''
-" let g:airline_theme_patch_func = 'AirlineThemePatch'
-" function! AirlineThemePatch(palette)
-"   let s:outer = ['', '', 0, 9]
-"   let s:inner = ['', '', 0, 12]
-"   let s:inactive = ['', '', 0, 8]
-"
-"   let s:active_map = airline#themes#generate_color_map(s:outer, s:inner, s:inner)
-"   let s:inactive_map = airline#themes#generate_color_map(s:inactive, s:inactive, s:inactive)
-"
-"   let a:palette.normal = s:active_map
-"   let a:palette.insert = s:active_map
-"   let a:palette.visual = s:active_map
-"   let a:palette.inactive = s:inactive_map
-"
-"   let a:palette.normal_modified = s:active_map
-"   let a:palette.insert_modified = s:active_map
-"   let a:palette.visual_modified = s:active_map
-"   let a:palette.inactive_modified = s:inactive_map
-" endfunction
+let g:airline_left_sep = ' '
+let g:airline_right_sep = ' '
+let g:airline_skip_empty_sections = 1
+let g:airline_section_b = ''
+let g:airline_theme_patch_func = 'AirlineThemePatch'
+function! AirlineThemePatch(palette)
+  let s:outer = ['', '', 0, 9]
+  let s:inner = ['', '', 0, 12]
+  let s:inactive = ['', '', 0, 8]
 
-" lualine
+  let s:active_map = airline#themes#generate_color_map(s:outer, s:inner, s:inner)
+  let s:inactive_map = airline#themes#generate_color_map(s:inactive, s:inactive, s:inactive)
 
-lua <<EOF
-require'lualine'.setup {
-  options = {
-    icons_enabled = true,
-    theme = 'auto',
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
-    disabled_filetypes = {},
-    always_divide_middle = true,
-  },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
-  },
-  tabline = {},
-  extensions = {}
-}
-EOF
+  let a:palette.normal = s:active_map
+  let a:palette.insert = s:active_map
+  let a:palette.visual = s:active_map
+  let a:palette.inactive = s:inactive_map
+
+  let a:palette.normal_modified = s:active_map
+  let a:palette.insert_modified = s:active_map
+  let a:palette.visual_modified = s:active_map
+  let a:palette.inactive_modified = s:inactive_map
+endfunction
 
 " onedark
 

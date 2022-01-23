@@ -20,7 +20,7 @@ nvim-symlink:
 
 nvim-configure:
 	curl -fLo ${HOME}/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	nvim -u ${PWD}/vim/_plugs.vim +PlugInstall +qall
+	nvim +PlugInstall +qall
 
 # zsh
 

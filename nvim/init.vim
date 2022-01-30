@@ -18,8 +18,6 @@ scriptencoding utf-8
 set noswapfile
 " Disable bells
 set noerrorbells
-" Set statusline path relative to cwd
-set statusline+=%f
 " Set clipboard register to system clipboard
 set clipboard=unnamed,unnamedplus
 " Wrap line to previous line's indentation
@@ -42,6 +40,25 @@ set list listchars=trail:•,tab:→•
 set noshowmode
 " Use terminal cursor for all modes
 set guicursor=
+
+" statusline
+set laststatus=2
+" start with blank
+set statusline=
+" relative filename
+set statusline+=%f
+" modified flag
+set statusline+=%m
+" read-only flag
+set statusline+=%r
+" switch to right-align
+set statusline+=%=
+" line number, column number
+set statusline+=%L,%c
+" space character
+set statusline+=\ 
+" file type
+set statusline+=%y
 
 " Set viminfo path
 if has('nvim')
@@ -125,11 +142,11 @@ Plug 'metakirby5/codi.vim'
 " Start screen
 Plug 'mhinz/vim-startify'
 " Better statusline
-Plug 'b-ggs/vim-airline'
+" Plug 'b-ggs/vim-airline'
 " Displays diff in gutter
 Plug 'airblade/vim-gitgutter'
 " 16-color colorscheme
-Plug 'joshdick/onedark.vim'
+Plug 'jeffkreeftmeijer/vim-dim'
 " coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " tags
@@ -251,7 +268,7 @@ let g:neomake_python_enabled_makers = ['pep8']
 " startify
 
 " Custom header
-let g:startify_custom_header = ['   boggs']
+let g:startify_custom_header = ['   welcome to hell']
 " Do not change to directory of opened file
 let g:startify_change_to_dir = 0
 " Change directory to opened file's git repository's root
@@ -271,35 +288,32 @@ map <leader>S :Startify<CR>
 
 " airline
 
-let g:airline_left_sep = ' '
-let g:airline_right_sep = ' '
-let g:airline_skip_empty_sections = 1
-let g:airline_section_b = ''
-let g:airline_theme_patch_func = 'AirlineThemePatch'
-function! AirlineThemePatch(palette)
-  let s:outer = ['', '', 0, 9]
-  let s:inner = ['', '', 0, 12]
-  let s:inactive = ['', '', 0, 8]
+" let g:airline_left_sep = ' '
+" let g:airline_right_sep = ' '
+" let g:airline_skip_empty_sections = 1
+" let g:airline_section_b = ''
+" let g:airline_theme_patch_func = 'AirlineThemePatch'
+" function! AirlineThemePatch(palette)
+"   let s:outer = ['', '', 0, 9]
+"   let s:inner = ['', '', 0, 12]
+"   let s:inactive = ['', '', 0, 8]
+"
+"   let s:active_map = airline#themes#generate_color_map(s:outer, s:inner, s:inner)
+"   let s:inactive_map = airline#themes#generate_color_map(s:inactive, s:inactive, s:inactive)
+"
+"   let a:palette.normal = s:active_map
+"   let a:palette.insert = s:active_map
+"   let a:palette.visual = s:active_map
+"   let a:palette.inactive = s:inactive_map
+"
+"   let a:palette.normal_modified = s:active_map
+"   let a:palette.insert_modified = s:active_map
+"   let a:palette.visual_modified = s:active_map
+"   let a:palette.inactive_modified = s:inactive_map
+" endfunction
 
-  let s:active_map = airline#themes#generate_color_map(s:outer, s:inner, s:inner)
-  let s:inactive_map = airline#themes#generate_color_map(s:inactive, s:inactive, s:inactive)
-
-  let a:palette.normal = s:active_map
-  let a:palette.insert = s:active_map
-  let a:palette.visual = s:active_map
-  let a:palette.inactive = s:inactive_map
-
-  let a:palette.normal_modified = s:active_map
-  let a:palette.insert_modified = s:active_map
-  let a:palette.visual_modified = s:active_map
-  let a:palette.inactive_modified = s:inactive_map
-endfunction
-
-" onedark
-
-" Set onedark to 16-color colorscheme
-let g:onedark_termcolors=16
-colorscheme onedark
+" vim-dim
+colorscheme dim
 
 " copilot
 
@@ -311,16 +325,19 @@ let g:copilot_no_tab_map = v:true
 " Set background to dark
 set background=dark
 " Color overrides
-hi LineNr ctermfg=4
+hi LineNr ctermfg=8
 hi Visual ctermbg=3 ctermfg=0
 hi Search ctermbg=3 ctermfg=0
-hi VertSplit ctermbg=0 ctermfg=4
+hi VertSplit ctermbg=NONE ctermfg=8
 hi Comment ctermfg=8
 hi! link StartifySpecial Normal
 hi Normal ctermbg=NONE guibg=NONE
 hi CocFloating ctermbg=0
 hi Pmenu ctermbg=0
 hi PmenuSel ctermfg=0
+hi SignColumn ctermbg=NONE
+hi StatusLine ctermbg=NONE ctermfg=1
+hi StatusLineNC ctermbg=NONE ctermfg=8
 
 " temp inky stuff
 

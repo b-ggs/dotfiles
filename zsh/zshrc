@@ -1,5 +1,8 @@
 # binds
 
+# use emacs mode i think???
+# https://unix.stackexchange.com/a/197841
+bindkey -e
 bindkey "^P" history-beginning-search-backward
 bindkey "^N" history-beginning-search-forward
 
@@ -120,6 +123,7 @@ alias gd='git diff'
 alias ga='git add'
 alias grbi='git rebase -i'
 alias gc='git commit -v'
+alias gcl='git clone'
 
 function __git_prompt_git() {
   GIT_OPTIONAL_LOCKS=0 command git "$@"

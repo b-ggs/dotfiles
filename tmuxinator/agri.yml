@@ -1,8 +1,0 @@
-name: agri
-root: ~/dev/b-ggs/agrihydrogel-simulation-pjs
-pre_window: chruby 2.5.1
-windows:
-  - nvim:
-    - nvim
-  - server:
-    - bundle exec rackup

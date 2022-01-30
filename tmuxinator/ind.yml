@@ -1,7 +1,0 @@
-name: ind
-root: ~/dev/jessicamah/indinero
-windows:
-  - nvim:
-    - nvim
-  - docker-compose:
-    - docker-compose -f docker-compose.macos.development.yml up

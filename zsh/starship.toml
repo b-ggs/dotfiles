@@ -9,13 +9,12 @@ $character"""
 format = "[$path](red) "
 
 [git_branch]
-format = "git@$branch "
+format = "$branch "
 
 [python]
-format = "py@$version( venv@$virtualenv) "
+format = "$version( $virtualenv) "
 symbol = ""
 version_format = "$raw"
-pyenv_prefix = "pyenv"
 
 [time]
 format = "$time"

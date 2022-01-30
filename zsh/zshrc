@@ -1,16 +1,3 @@
-# zgen
-
-source "$HOME/.zgen/zgen.zsh"
-if [[ -n "$(command -v zgen 2> /dev/null)" ]] && ! zgen saved; then
-  zgen oh-my-zsh
-  zgen oh-my-zsh plugins/git
-  zgen oh-my-zsh plugins/docker
-  zgen oh-my-zsh plugins/docker-compose
-  zgen oh-my-zsh plugins/pyenv
-  zgen oh-my-zsh plugins/virtualenv
-  zgen save
-fi
-
 # binds
 
 bindkey "^P" up-line-or-beginning-search
@@ -122,3 +109,7 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden'
 export FZF_DEFAULT_OPTS="--color 16"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# starship
+
+eval "$(starship init zsh)"

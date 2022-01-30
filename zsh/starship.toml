@@ -1,0 +1,27 @@
+format = """
+$directory\
+$git_branch\
+$python\
+$time
+$character"""
+
+[directory]
+format = "[$path](red) "
+
+[git_branch]
+format = "git@$branch "
+
+[python]
+format = "py@$version( venv@$virtualenv) "
+symbol = ""
+version_format = "$raw"
+pyenv_prefix = "pyenv"
+
+[time]
+format = "$time"
+disabled = false
+
+[character]
+success_symbol = "\\$"
+error_symbol = "[\\$](red)"
+vicmd_symbol = "[\\$](blue)"

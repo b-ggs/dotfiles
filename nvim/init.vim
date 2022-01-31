@@ -354,6 +354,7 @@ hi Type ctermfg=4
 hi Identifier ctermfg=1
 hi PreProc ctermfg=4
 hi Constant ctermfg=6
+hi Search ctermbg=1 ctermfg=0
 
 hi pythonClassVar ctermfg=3
 hi pythonConditional ctermfg=4

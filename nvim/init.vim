@@ -345,8 +345,10 @@ hi PmenuSel ctermbg=NONE ctermfg=1
 " 
 hi Conceal ctermbg=8 ctermfg=0
 hi Pmenu ctermbg=NONE ctermfg=1
+hi NormalFloat ctermbg=NONE ctermfg=15
 hi MatchParen ctermfg=0
 
+hi ErrorMsg ctermfg=0
 hi Statement ctermfg=1
 hi Type ctermfg=4
 hi Identifier ctermfg=1

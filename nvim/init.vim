@@ -54,7 +54,7 @@ set statusline+=%r
 " switch to right-align
 set statusline+=%=
 " line number, column number
-set statusline+=%L,%c
+set statusline+=%l,%c
 " space character
 set statusline+=\ 
 " file type

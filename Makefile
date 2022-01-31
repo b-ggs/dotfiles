@@ -30,10 +30,10 @@ zsh-install:
 zsh-symlink:
 	@ORIGIN=zsh/zprofile TARGET=${HOME}/.zprofile make symlink
 	@ORIGIN=zsh/zshrc TARGET=${HOME}/.zshrc make symlink
+	@ORIGIN=zsh/starship.toml TARGET=${HOME}/.config/starship.toml make symlink
 
 zsh-configure:
-	@rm -rf ${HOME}/.zgen
-	git clone https://github.com/tarjoilija/zgen.git ${HOME}/.zgen
+	sh -c "$$(curl -fsSL https://starship.rs/install.sh)" -- --yes
 	@make zsh-configure-unix || make zsh-configure-termux
 
 zsh-configure-unix: check-unix

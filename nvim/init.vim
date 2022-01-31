@@ -153,6 +153,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ludovicchabant/vim-gutentags'
 " copilot
 Plug 'github/copilot.vim'
+" synstack
+Plug 'dylnmc/synstack.vim'
 call plug#end()
 
 " coc
@@ -320,6 +322,9 @@ colorscheme dim
 imap <silent><script><expr> <C-j> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
 
+" synstack
+:nmap <leader>ss <plug>(SynStack)
+
 " colors
 
 " Set background to dark
@@ -342,25 +347,15 @@ hi Conceal ctermbg=8 ctermfg=0
 hi Pmenu ctermbg=NONE ctermfg=1
 hi MatchParen ctermfg=0
 
-hi pythonStatement ctermfg=1
-hi pythonClass ctermfg=4
-hi pythonStatement ctermfg=5
-hi pythonFunction ctermfg=1
+hi Statement ctermfg=1
+hi Type ctermfg=4
+hi Identifier ctermfg=1
+hi PreProc ctermfg=4
+hi Constant ctermfg=6
+
 hi pythonClassVar ctermfg=3
 hi pythonConditional ctermfg=4
-hi pythonFunctionCall ctermfg=1
-hi pythonString ctermfg=6
 hi pythonOperator ctermfg=10
-hi pythonImport ctermfg=4
-
-" Show highlight groups with leader+sp
-nmap <leader>sp :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
 
 " temp inky stuff
 

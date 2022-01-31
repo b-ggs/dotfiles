@@ -324,20 +324,43 @@ let g:copilot_no_tab_map = v:true
 
 " Set background to dark
 set background=dark
+
 " Color overrides
-hi LineNr ctermfg=8
-hi Visual ctermbg=3 ctermfg=0
-hi Search ctermbg=3 ctermfg=0
+
+" Vertical split line
 hi VertSplit ctermbg=NONE ctermfg=8
-hi Comment ctermfg=8
-hi! link StartifySpecial Normal
-hi Normal ctermbg=NONE guibg=NONE
-hi CocFloating ctermbg=0
-hi Pmenu ctermbg=0
-hi PmenuSel ctermfg=0
+" Gutter and gutter symbols
 hi SignColumn ctermbg=NONE
+" Status line
 hi StatusLine ctermbg=NONE ctermfg=1
+" Inactive status line
 hi StatusLineNC ctermbg=NONE ctermfg=8
+" Selected item (e.g. in fzf)
+hi PmenuSel ctermbg=NONE ctermfg=1
+" 
+hi Conceal ctermbg=8 ctermfg=0
+hi Pmenu ctermbg=NONE ctermfg=1
+hi MatchParen ctermfg=0
+
+hi pythonStatement ctermfg=1
+hi pythonClass ctermfg=4
+hi pythonStatement ctermfg=5
+hi pythonFunction ctermfg=1
+hi pythonClassVar ctermfg=3
+hi pythonConditional ctermfg=4
+hi pythonFunctionCall ctermfg=1
+hi pythonString ctermfg=6
+hi pythonOperator ctermfg=10
+hi pythonImport ctermfg=4
+
+" Show highlight groups with leader+sp
+nmap <leader>sp :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
 
 " temp inky stuff
 

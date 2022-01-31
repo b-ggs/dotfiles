@@ -1,6 +1,7 @@
 format = """
 $directory\
 $git_branch\
+$git_status\
 $python\
 $time
 $character"""
@@ -9,7 +10,16 @@ $character"""
 format = "[$path](red) "
 
 [git_branch]
-format = "$branch "
+format = "$branch"
+
+[git_status]
+format = "($conflicted$untracked$modified$staged$renamed$deleted) "
+conflicted = "*"
+untracked = "*"
+modified = "*"
+staged = "*"
+renamed = "*"
+deleted = "*"
 
 [python]
 format = "$version( $virtualenv) "

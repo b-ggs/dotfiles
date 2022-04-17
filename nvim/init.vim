@@ -115,7 +115,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Tree explorer
 Plug 'scrooloose/nerdtree'
 " Language packs
-Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot', { 'commit': '83422e0a1fcfc88f3475104b0e0674e8dbe3130e' }
 " Commenting lines
 Plug 'tomtom/tcomment_vim'
 " Better motion
@@ -340,13 +340,14 @@ hi SignColumn ctermbg=NONE
 hi StatusLine ctermbg=NONE ctermfg=1
 " Inactive status line
 hi StatusLineNC ctermbg=NONE ctermfg=8
-" Selected item (e.g. in fzf)
+" Unselected floating menu items (e.g. in coc)
+hi Pmenu ctermbg=NONE ctermfg=15
+" Selected floating menu item (e.g. in coc)
 hi PmenuSel ctermbg=NONE ctermfg=1
-" 
 hi Conceal ctermbg=8 ctermfg=0
-hi Pmenu ctermbg=NONE ctermfg=1
 hi NormalFloat ctermbg=NONE ctermfg=15
 hi MatchParen ctermfg=0
+hi CocHighlightText ctermfg=1 ctermbg=0
 
 hi ErrorMsg ctermfg=0
 hi Statement ctermfg=1

@@ -112,7 +112,7 @@ kitty-symlink:
 # streamlink
 
 streamlink-symlink:
-	@ORIGIN=streamlink/config TARGET=${HOME}/.config/streamlink/config make symlink
+	@ORIGIN=streamlink/config TARGET="${HOME}/Library/Application Support/streamlink/config" make symlink
 
 # hammerspoon
 
@@ -126,9 +126,9 @@ ripgrep-symlink:
 # util
 
 symlink:
-	@mkdir -p $$(dirname ${TARGET})
-	@rm -rf ${TARGET}
-	ln -sf ${PWD}/${ORIGIN} ${TARGET}
+	mkdir -p "$$(dirname '${TARGET}')"
+	rm -rf "${TARGET}"
+	ln -sf "${PWD}/${ORIGIN}" "${TARGET}"
 
 check-unix:
 	@make check-darwin || make check-linux

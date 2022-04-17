@@ -75,30 +75,6 @@ alias vw='cd $HOME/dev/vilantis/waste-backend'
 
 alias lipsum='echo "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." | pbcopy'
 
-# prompt
-
-local USER_HOST='%K{9} %F{0}%n%f%F{0}@%F{0}%m%f %k '
-if [[ -n "$SSH_CLIENT" ]]; then
-  local SSH_CLIENT_PROMPT='%K{12} %F{0}SSH%f %k '
-fi
-local PWD_PROMPT='%K{12} %F{0}%~%f %k'
-ZSH_THEME_GIT_PROMPT_PREFIX=' %K{12} %F{0}git@'
-ZSH_THEME_GIT_PROMPT_SUFFIX='%f %k'
-local GIT_PROMPT='$(git_prompt_info) '
-# if [[ -n "$(command -v pyenv)" ]]; then
-#   local PYENV_PROMPT='%K{12} %F{0}pyenv@$(pyenv_prompt_info)%f %k '
-#   ZSH_THEME_VIRTUALENV_PREFIX='%K{12} %F{0}venv@'
-#   ZSH_THEME_VIRTUALENV_SUFFIX='%f %k '
-#   local VIRTUALENV_PROMPT='$(virtualenv_prompt_info)'
-# fi
-if [[ -d "$HOME/.fnm" ]]; then
-  local FNM_PROMPT='%K{12} %F{0}fnm@$(fnm current)%f %k '
-fi
-local TIME="%K{12} %F{0}%*%f %k"
-local RETURN_PROMPT="%(?.. %K{12} %F{0}%?%f %k)"
-
-PROMPT="${USER_HOST}${SSH_CLIENT_PROMPT}${PWD_PROMPT}${GIT_PROMPT}${PYENV_PROMPT}${VIRTUALENV_PROMPT}${FNM_PROMPT}${TIME}${RETURN_PROMPT}"$'\n'"$ "
-
 # pyenv
 
 # check if pyenv is installed
@@ -115,70 +91,19 @@ export FZF_DEFAULT_OPTS="--color 16"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# git aliases
-# based off of:
-# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/git.plugin.zsh
-# https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/git.zsh
-
-alias gst='git status'
-alias gd='git diff'
-alias ga='git add'
-alias grbi='git rebase -i'
-alias grba='git rebase --abort'
-alias grbc='git rebase --continue'
-alias gc='git commit -v'
-alias gcl='git clone'
-alias gcmsg='git commit -m'
-alias gco='git checkout'
-alias gcp='git cherry-pick'
-alias gcpa='git cherry-pick --abort'
-alias gcpc='git cherry-pick --continue'
-alias gf='git fetch'
-alias gsps='git show --pretty=short --show-signature'
-
-function __git_prompt_git() {
-  GIT_OPTIONAL_LOCKS=0 command git "$@"
-}
-
-function git_current_branch() {
-  local ref
-  ref=$(__git_prompt_git symbolic-ref --quiet HEAD 2> /dev/null)
-  local ret=$?
-  if [[ $ret != 0 ]]; then
-    [[ $ret == 128 ]] && return  # no git repo.
-    ref=$(__git_prompt_git rev-parse --short HEAD 2> /dev/null) || return
-  fi
-  echo ${ref#refs/heads/}
-}
-
-function ggl() {
-  if [[ "$#" != 0 ]] && [[ "$#" != 1 ]]; then
-    git pull origin "${*}"
-  else
-    [[ "$#" == 0 ]] && local b="$(git_current_branch)"
-    git pull origin "${b:=$1}"
-  fi
-}
-
-function ggp() {
-  if [[ "$#" != 0 ]] && [[ "$#" != 1 ]]; then
-    git push origin "${*}"
-  else
-    [[ "$#" == 0 ]] && local b="$(git_current_branch)"
-    git push origin "${b:=$1}"
-  fi
-}
-
-function ggf() {
-  [[ "$#" != 1 ]] && local b="$(git_current_branch)"
-  git push --force origin "${b:=$1}"
-}
-
 # Other functions
 
 function gnubin_path() {
   export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
 }
+
+# omz
+
+export ZSH="$HOME/.oh-my-zsh"
+
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
 
 # starship
 

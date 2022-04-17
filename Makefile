@@ -1,7 +1,7 @@
 # brew
 
 brew-common: check-unix
-	brew install curl git nvim zsh tmux gpg fzf the_silver_searcher um ripgrep
+	brew install curl git nvim zsh tmux gpg fzf um ripgrep
 
 brew-macos: check-darwin
 	brew cask install hammerspoon
@@ -27,14 +27,15 @@ nvim-configure:
 zsh-install:
 	brew install zsh
 
+zsh-configure:
+	sh -c "$$(curl -fsSL https://starship.rs/install.sh)" -- --yes
+	sh -c "$$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	@make zsh-configure-unix || make zsh-configure-termux
+
 zsh-symlink:
 	@ORIGIN=zsh/zprofile TARGET=${HOME}/.zprofile make symlink
 	@ORIGIN=zsh/zshrc TARGET=${HOME}/.zshrc make symlink
 	@ORIGIN=zsh/starship.toml TARGET=${HOME}/.config/starship.toml make symlink
-
-zsh-configure:
-	sh -c "$$(curl -fsSL https://starship.rs/install.sh)" -- --yes
-	@make zsh-configure-unix || make zsh-configure-termux
 
 zsh-configure-unix: check-unix
 	sudo sh -c "echo $$(command -v zsh) >> /etc/shells"

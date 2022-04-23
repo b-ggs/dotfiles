@@ -16,4 +16,8 @@ RUN make zsh-configure
 RUN make zsh-symlink
 RUN make tmux-symlink
 
+RUN make nvim-version
+RUN make zsh-version
+RUN make tmux-version
+
 WORKDIR /root/

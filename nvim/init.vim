@@ -97,7 +97,7 @@ let @i='oimport ipdb; ipdb.set_trace();'
 " polyglot
 
 " Disable vue because https://github.com/posva/vim-vue/issues/95#issuecomment-530436727
-let g:polyglot_disabled = ['yaml', 'vue']
+let g:polyglot_disabled = ['vue']
 
 " plugs
 

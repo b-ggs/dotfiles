@@ -1,0 +1,24 @@
+FROM ubuntu:20.04
+
+RUN apt update -y \
+  && apt install -y software-properties-common \
+  && add-apt-repository ppa:neovim-ppa/unstable \
+  && apt update -y \
+  && apt install -y neovim zsh git ripgrep fzf tmux nodejs make curl sudo
+
+# copy dotfiles
+COPY . /root/.files/
+
+WORKDIR /root/.files/
+
+RUN make nvim-symlink
+RUN make nvim-configure
+RUN make zsh-configure
+RUN make zsh-symlink
+RUN make tmux-symlink
+
+RUN make nvim-version
+RUN make zsh-version
+RUN make tmux-version
+
+WORKDIR /root/

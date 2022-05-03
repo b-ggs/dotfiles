@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 git config --global user.name "boggs"
-git config --global user.email "hello@boggs.xyz"
+git config --global user.email "6130147+b-ggs@users.noreply.github.com"
 git config --global core.excludesfile $HOME/.gitignore
 git config --global pull.rebase false
 git config --global init.defaultBranch main

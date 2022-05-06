@@ -119,7 +119,7 @@ Plug 'sheerun/vim-polyglot', { 'commit': '83422e0a1fcfc88f3475104b0e0674e8dbe313
 " Commenting lines
 Plug 'tomtom/tcomment_vim'
 " Better motion
-Plug 'easymotion/vim-easymotion'
+Plug 'phaazon/hop.nvim'
 " Ends structures
 Plug 'tpope/vim-endwise'
 Plug 'rstacruz/vim-closer'
@@ -224,16 +224,11 @@ let NERDTreeWinPos = "right"
 " Binds
 map <leader>t :NERDTreeToggle<CR>
 
-" easymotion
+" hop.nvim
 
-" Keep cursor column in vertical motions
-let g:EasyMotion_startofline = 0
-
-" Binds
-map <leader>l <Plug>(easymotion-lineforward)
-map <leader>j <Plug>(easymotion-j)
-map <leader>k <Plug>(easymotion-k)
-map <leader>h <Plug>(easymotion-linebackward)
+lua require'hop'.setup()
+map <leader>j :HopLine<CR>
+map <leader>k :HopLine<CR>
 
 " incsearch
 

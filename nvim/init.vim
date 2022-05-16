@@ -167,6 +167,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> ga <Plug>(coc-codeaction-selected)
 nmap <silent> gs <Plug>(coc-codeaction)
 nmap <silent> gf <Plug>(coc-fix-current)
+nmap <silent> gr <Plug>(coc-rename)
 
 " fzf
 

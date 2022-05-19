@@ -228,8 +228,11 @@ map <leader>t :NERDTreeToggle<CR>
 " hop.nvim
 
 lua require'hop'.setup()
-map <leader>j :HopLine<CR>
-map <leader>k :HopLine<CR>
+" Use <cmd> instead of : here
+" https://github.com/phaazon/hop.nvim/issues/126
+map <leader>j <cmd>HopLine<CR>
+map <leader>k <cmd>HopLine<CR>
+map <leader>l <cmd>HopChar1<CR>
 
 " incsearch
 

@@ -41,7 +41,7 @@ set noshowmode
 " Use terminal cursor for all modes
 set guicursor=
 
-" statusline
+" statusline http://vimdoc.sourceforge.net/htmldoc/options.html#'statusline'
 set laststatus=2
 " start with blank
 set statusline=
@@ -53,12 +53,12 @@ set statusline+=%m
 set statusline+=%r
 " switch to right-align
 set statusline+=%=
-" line number, column number
-set statusline+=%l,%c
+" line number/number of lines, column number
+set statusline+=%l/%L,%c
 " space character
 set statusline+=\ 
 " file type
-set statusline+=%y
+set statusline+=%Y
 
 " Set viminfo path
 if has('nvim')

@@ -1,10 +1,10 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 RUN apt update -y \
   && apt install -y software-properties-common \
   && add-apt-repository ppa:neovim-ppa/unstable \
   && apt update -y \
-  && apt install -y neovim zsh git ripgrep fzf tmux nodejs make curl sudo
+  && apt install -y neovim zsh git ripgrep fzf tmux nodejs make curl sudo universal-ctags
 
 # copy dotfiles
 COPY . /root/.files/

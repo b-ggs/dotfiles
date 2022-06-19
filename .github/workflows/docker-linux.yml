@@ -22,9 +22,12 @@ jobs:
           docker build -t dotfiles -f "${{ matrix.dockerfile }}" .
       - name: Show package versions
         run: |
-          docker run --rm dotfiles \
-            nvim --version \
-            && zsh --version \
-            && tmux -V \
-            && rg --version \
-            && git --version \
+          docker \
+            run \
+            --rm \
+            dotfiles \
+            zsh -c "nvim --version \
+              && zsh --version \
+              && tmux -V \
+              && rg --version \
+              && git --version"

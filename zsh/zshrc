@@ -107,6 +107,13 @@ plugins=(git fzf)
 
 source $ZSH/oh-my-zsh.sh
 
+# fnm
+
+if [[ -d "$HOME/.fnm" ]]; then
+  export PATH="$HOME/.fnm:$PATH"
+  eval "$(fnm env --use-on-cd)"
+fi
+
 # starship
 
 eval "$(starship init zsh)"

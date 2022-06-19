@@ -20,10 +20,7 @@ nvim-symlink:
 
 nvim-configure:
 	curl -fLo ${HOME}/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	nvim +PlugInstall +qall
-
-nvim-version:
-	nvim --version
+	nvim +PlugInstall +CocInstall +qall
 
 # zsh
 
@@ -47,9 +44,6 @@ zsh-configure-unix: check-unix
 zsh-configure-termux: check-termux
 	chsh -s "zsh"
 
-zsh-version:
-	zsh --version
-
 # tmux
 
 tmux-install:
@@ -57,9 +51,6 @@ tmux-install:
 
 tmux-symlink:
 	@ORIGIN=tmux/tmux.conf TARGET=${HOME}/.tmux.conf make symlink
-
-tmux-version:
-	tmux -V
 
 # tmuxinator
 
@@ -79,9 +70,6 @@ git-configure:
 
 git-symlink:
 	@ORIGIN=git/gitignore TARGET=${HOME}/.gitignore make symlink
-
-git-version:
-	git --version
 
 # slate
 

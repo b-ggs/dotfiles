@@ -114,8 +114,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 " Tree explorer
 Plug 'scrooloose/nerdtree'
-" Language packs
-Plug 'sheerun/vim-polyglot', { 'commit': '83422e0a1fcfc88f3475104b0e0674e8dbe3130e' }
+" Tree-sitter
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/playground'
 " Commenting lines
 Plug 'tomtom/tcomment_vim'
 " Better motion
@@ -363,3 +364,25 @@ hi pythonOperator ctermfg=10
 " temp inky stuff
 
 autocmd BufNewFile,BufRead *.inky set filetype=html.erb
+
+" tree-sitter
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = {
+    "query",
+    "python",
+    "html",
+    "javascript",
+    "dockerfile",
+    "markdown",
+  },
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
+
+nmap <leader>st :TSHighlightCapturesUnderCursor<CR>
+nmap <leader>sp :TSPlaygroundToggle<CR>

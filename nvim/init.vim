@@ -160,7 +160,7 @@ call plug#end()
 
 " coc
 
-let g:coc_global_extensions = ["coc-pyright", "coc-svelte", "coc-json"]
+let g:coc_global_extensions = ["coc-pyright", "coc-svelte", "coc-json", "coc-rls"]
 
 autocmd FileType * let b:coc_additional_keywords = ["-"]
 
@@ -376,6 +376,7 @@ require'nvim-treesitter.configs'.setup {
     "javascript",
     "dockerfile",
     "markdown",
+    "rust",
   },
   highlight = {
     enable = true,

@@ -11,6 +11,7 @@ bindkey "^N" history-beginning-search-forward
 export PATH="$PATH:$HOME/.bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:/usr/local/sbin"
+export PATH="$PATH:$HOME/.cargo/bin/"
 
 if [[ "$(uname)" == "Linux" ]] && [[ ! $(uname -o) == "Android" ]]; then
   export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"

@@ -3,6 +3,7 @@ $directory\
 $git_branch\
 $git_status\
 $python\
+$nodejs\
 $time
 $character"""
 
@@ -22,7 +23,12 @@ renamed = "*"
 deleted = "*"
 
 [python]
-format = "$version( $virtualenv) "
+format = "(python-$version( $virtualenv)) "
+symbol = ""
+version_format = "$raw"
+
+[nodejs]
+format = "(node-$version) "
 symbol = ""
 version_format = "$raw"
 

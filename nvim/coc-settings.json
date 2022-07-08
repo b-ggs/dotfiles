@@ -5,7 +5,7 @@
   // Python/Pyright settings
   "python.linting.flake8Enabled": false, // Enable this on a per-project basis
   "python.formatting.provider": "black",
-  "python.analysis.diagnosticMode": "workspace",
+  "python.analysis.diagnosticMode": "openFilesOnly",
   "languageserver": {
     // Sourcery settings
     // Enable this on a per-project basis

@@ -377,6 +377,8 @@ require'nvim-treesitter.configs'.setup {
     "dockerfile",
     "markdown",
     "rust",
+    "svelte",
+    "typescript",
   },
   highlight = {
     enable = true,

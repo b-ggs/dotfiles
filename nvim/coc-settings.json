@@ -1,5 +1,10 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["python"],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "python",
+    "javascript",
+    "typescript",
+    "svelte"
+  ],
   // Open jumps in vertical split
   "coc.preferences.jumpCommand": "vsplit",
   // Python/Pyright settings

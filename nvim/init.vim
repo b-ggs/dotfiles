@@ -160,7 +160,7 @@ call plug#end()
 
 " coc
 
-let g:coc_global_extensions = ["coc-pyright", "coc-svelte", "coc-json", "coc-rls"]
+let g:coc_global_extensions = ["coc-pyright", "coc-svelte", "coc-json", "coc-rls", "coc-tsserver", "coc-prettier"]
 
 autocmd FileType * let b:coc_additional_keywords = ["-"]
 

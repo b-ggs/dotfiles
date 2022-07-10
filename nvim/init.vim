@@ -160,7 +160,7 @@ call plug#end()
 
 " coc
 
-let g:coc_global_extensions = ["coc-pyright", "coc-svelte", "coc-json", "coc-rls", "coc-tsserver", "coc-prettier"]
+let g:coc_global_extensions = ["coc-pyright", "coc-svelte", "coc-json", "coc-rls", "coc-tsserver", "coc-prettier", "coc-css", "coc-html"]
 
 autocmd FileType * let b:coc_additional_keywords = ["-"]
 
@@ -169,6 +169,9 @@ nmap <silent> ga <Plug>(coc-codeaction-selected)
 nmap <silent> gs <Plug>(coc-codeaction)
 nmap <silent> gf <Plug>(coc-fix-current)
 nmap <silent> gr <Plug>(coc-rename)
+
+inoremap <silent><expr> <c-space> coc#refresh()
+
 
 " fzf
 

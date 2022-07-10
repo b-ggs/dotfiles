@@ -3,7 +3,10 @@
     "python",
     "javascript",
     "typescript",
-    "svelte"
+    "svelte",
+    "html",
+    "css",
+    "scss"
   ],
   // Open jumps in vertical split
   "coc.preferences.jumpCommand": "vsplit",

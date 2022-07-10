@@ -115,6 +115,12 @@ if [[ -d "$HOME/.fnm" ]]; then
   eval "$(fnm env --use-on-cd)"
 fi
 
+# poetry
+
+if [[ -d "$HOME/.poetry" ]]; then
+  export PATH="$HOME/.poetry/bin:$PATH"
+fi
+
 # starship
 
 eval "$(starship init zsh)"

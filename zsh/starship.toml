@@ -4,7 +4,8 @@ $git_branch\
 $git_status\
 $python\
 $nodejs\
-$time
+$time\
+${custom.ssh}
 $character"""
 
 [directory]
@@ -33,10 +34,14 @@ symbol = ""
 version_format = "$raw"
 
 [time]
-format = "$time"
+format = "$time "
 disabled = false
 
 [character]
 success_symbol = "\\$"
 error_symbol = "[\\$](red)"
 vicmd_symbol = "[\\$](blue)"
+
+[custom.ssh]
+format = "SSH "
+when = """ test ! -z "$SSH_CLIENT" """

@@ -51,6 +51,8 @@ set statusline+=%f
 set statusline+=%m
 " read-only flag
 set statusline+=%r
+" coc status
+" set statusline+=\ %{coc#status()}
 " switch to right-align
 set statusline+=%=
 " line number/number of lines, column number

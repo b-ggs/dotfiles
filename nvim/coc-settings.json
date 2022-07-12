@@ -1,3 +1,4 @@
+// vim: syntax=jsonc
 {
   "coc.preferences.formatOnSaveFiletypes": [
     "python",
@@ -10,6 +11,28 @@
   ],
   // Open jumps in vertical split
   "coc.preferences.jumpCommand": "vsplit",
+  // Border configs. TODO: look into winblend
+  // Winblend works pretty well with :set termguicolors
+  // Maybe it's time to move away from strictly using 16 colors?
+  "suggest.floatConfig": {
+    "border": true
+    // "winblend": 30
+  },
+  "diagnostic.floatConfig": {
+    "border": true,
+    "rounded": true
+    // "winblend": 30
+  },
+  "signature.floatConfig": {
+    "border": true,
+    "rounded": true
+    // "winblend": 30
+  },
+  "hover.floatConfig": {
+    "border": true,
+    "rounded": true
+    // "winblend": 30
+  },
   // Python/Pyright settings
   "python.linting.flake8Enabled": false, // Enable this on a per-project basis
   "python.formatting.provider": "black",

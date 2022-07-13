@@ -91,6 +91,25 @@ nnoremap <C-l> <C-w>l
 nnoremap <leader>- <C-w>s
 nnoremap <leader>\ <C-w>v
 
+" Tab navigation via leader+number
+" https://vim.fandom.com/wiki/Alternative_tab_navigation
+nnoremap <leader>1 1gt
+nnoremap <leader>2 2gt
+nnoremap <leader>3 3gt
+nnoremap <leader>4 4gt
+nnoremap <leader>5 5gt
+
+" Tab navigation with t prefix
+" https://vim.fandom.com/wiki/Alternative_tab_navigation
+nnoremap th :tabprev<CR>
+nnoremap tj :tabprev<CR>
+nnoremap tk :tabnext<CR>
+nnoremap tl :tabnext<CR>
+nnoremap tt :tabedit<Space>
+nnoremap tn :tabnew<CR>
+nnoremap tm :tabm<Space>
+nnoremap td :tabclose<CR>
+
 " macros
 
 let @p='gg0Orequire ''pry''orequire ''pry-byebug''0'
@@ -113,7 +132,6 @@ call plug#begin(plugged_dir)
 " Fuzzy searching
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'ctrlpvim/ctrlp.vim'
 " Tree explorer
 Plug 'scrooloose/nerdtree'
 " Tree-sitter
@@ -169,8 +187,10 @@ autocmd FileType * let b:coc_additional_keywords = ["-"]
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> ga <Plug>(coc-codeaction-selected)
 nmap <silent> gs <Plug>(coc-codeaction)
-nmap <silent> gf <Plug>(coc-fix-current)
+nmap <silent> gf <Plug>(coc-format)
 nmap <silent> gr <Plug>(coc-rename)
+nmap <silent> go <Plug>(coc-refactor)
+nmap <silent> ge <Plug>(coc-references)
 
 inoremap <silent><expr> <c-space> coc#refresh()
 
@@ -224,19 +244,19 @@ if executable('fzf')
   let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
 endif
 
-" ctrlp
-
-if !executable('fzf')
-  " Binds
-  map <leader>f :CtrlP<CR>
-endif
-
 " nerdtree
 
-" Quit NERDTree when a file is opened
-let NERDTreeQuitOnOpen = 1
 let NERDTreeShowHidden = 1
 let NERDTreeWinPos = "right"
+
+" Start NERDTree alongside Startify
+" https://github.com/mhinz/vim-startify/issues/319#issuecomment-519081487
+autocmd VimEnter *
+            \   if !argc()
+            \ |   Startify
+            \ |   NERDTree
+            \ |   wincmd w
+            \ | endif
 
 " Binds
 map <leader>t :NERDTreeToggle<CR>

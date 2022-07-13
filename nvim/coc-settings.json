@@ -11,6 +11,13 @@
   ],
   // Open jumps in vertical split
   "coc.preferences.jumpCommand": "vsplit",
+  // Don't scan or perform diagnostics on these folders
+  "workspace.ignoredFolders": [
+    "node_modules",
+    ".pyenv",
+    "venv"
+  ],
+  // "suggest.enablePreview": true,
   // Border configs. TODO: look into winblend
   // Winblend works pretty well with :set termguicolors
   // Maybe it's time to move away from strictly using 16 colors?
@@ -34,9 +41,10 @@
     // "winblend": 30
   },
   // Python/Pyright settings
-  "python.linting.flake8Enabled": false, // Enable this on a per-project basis
   "python.formatting.provider": "black",
-  "python.analysis.diagnosticMode": "openFilesOnly",
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.analysis.diagnosticMode": "workspace",
   "languageserver": {
     // Sourcery settings
     // Enable this on a per-project basis

@@ -124,6 +124,11 @@ hammerspoon-symlink:
 ripgrep-symlink:
 	@ORIGIN=ripgrep/ripgreprc TARGET=${HOME}/.ripgreprc make symlink
 
+
+# ctags
+ctags-symlink:
+	@ORIGIN=ctags/config.ctags TARGET=${HOME}/.ctags.d/config.ctags make symlink
+
 # util
 
 symlink:

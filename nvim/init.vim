@@ -345,6 +345,7 @@ local catppuccin = require("catppuccin")
 catppuccin.setup({
   integrations = {
     coc_nvim = true,
+    gitgutter = true,
   }
 })
 EOF

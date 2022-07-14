@@ -173,6 +173,8 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'github/copilot.vim'
 " synstack
 Plug 'dylnmc/synstack.vim'
+" Hex codes to colors
+Plug 'norcalli/nvim-colorizer.lua'
 call plug#end()
 
 " coc
@@ -426,3 +428,9 @@ EOF
 
 nmap <leader>st :TSHighlightCapturesUnderCursor<CR>
 nmap <leader>sp :TSPlaygroundToggle<CR>
+
+" colorizer
+
+lua <<EOF
+require'colorizer'.setup()
+EOF

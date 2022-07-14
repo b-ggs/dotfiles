@@ -9,7 +9,7 @@ ${custom.ssh}
 $character"""
 
 [directory]
-format = "[$path](red) "
+format = "[$path](purple bold) "
 
 [git_branch]
 format = "$branch"

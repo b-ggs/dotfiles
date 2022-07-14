@@ -163,7 +163,7 @@ Plug 'mhinz/vim-startify'
 " Plug 'b-ggs/vim-airline'
 " Displays diff in gutter
 Plug 'airblade/vim-gitgutter'
-" 16-color colorscheme
+" colorscheme
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 " coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -337,12 +337,15 @@ map <leader>S :Startify<CR>
 "   let a:palette.inactive_modified = s:inactive_map
 " endfunction
 
-" vim-dim
+" catppuccin
 lua << EOF
 local catppuccin = require("catppuccin")
 
 -- configure it
 catppuccin.setup({
+  integrations = {
+    coc_nvim = true,
+  }
 })
 EOF
 

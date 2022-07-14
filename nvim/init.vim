@@ -164,7 +164,7 @@ Plug 'mhinz/vim-startify'
 " Displays diff in gutter
 Plug 'airblade/vim-gitgutter'
 " 16-color colorscheme
-Plug 'jeffkreeftmeijer/vim-dim'
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 " coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " tags
@@ -338,7 +338,17 @@ map <leader>S :Startify<CR>
 " endfunction
 
 " vim-dim
-colorscheme dim
+lua << EOF
+local catppuccin = require("catppuccin")
+
+-- configure it
+catppuccin.setup({
+})
+EOF
+
+" Vim Script
+let g:catppuccin_flavour = "mocha" " latte, frappe, macchiato, mocha
+colorscheme catppuccin
 
 " copilot
 

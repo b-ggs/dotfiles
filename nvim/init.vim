@@ -249,15 +249,6 @@ endif
 let NERDTreeShowHidden = 1
 let NERDTreeWinPos = "right"
 
-" Start NERDTree alongside Startify
-" https://github.com/mhinz/vim-startify/issues/319#issuecomment-519081487
-autocmd VimEnter *
-            \   if !argc()
-            \ |   Startify
-            \ |   NERDTree
-            \ |   wincmd w
-            \ | endif
-
 " Binds
 map <leader>t :NERDTreeToggle<CR>
 

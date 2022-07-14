@@ -313,32 +313,6 @@ let g:startify_list_order = [
 " Binds
 map <leader>S :Startify<CR>
 
-" airline
-
-" let g:airline_left_sep = ' '
-" let g:airline_right_sep = ' '
-" let g:airline_skip_empty_sections = 1
-" let g:airline_section_b = ''
-" let g:airline_theme_patch_func = 'AirlineThemePatch'
-" function! AirlineThemePatch(palette)
-"   let s:outer = ['', '', 0, 9]
-"   let s:inner = ['', '', 0, 12]
-"   let s:inactive = ['', '', 0, 8]
-"
-"   let s:active_map = airline#themes#generate_color_map(s:outer, s:inner, s:inner)
-"   let s:inactive_map = airline#themes#generate_color_map(s:inactive, s:inactive, s:inactive)
-"
-"   let a:palette.normal = s:active_map
-"   let a:palette.insert = s:active_map
-"   let a:palette.visual = s:active_map
-"   let a:palette.inactive = s:inactive_map
-"
-"   let a:palette.normal_modified = s:active_map
-"   let a:palette.insert_modified = s:active_map
-"   let a:palette.visual_modified = s:active_map
-"   let a:palette.inactive_modified = s:inactive_map
-" endfunction
-
 " catppuccin
 lua << EOF
 local catppuccin = require("catppuccin")
@@ -368,37 +342,6 @@ let g:copilot_no_tab_map = v:true
 
 " Set background to dark
 set background=dark
-
-" Color overrides
-
-" Vertical split line
-hi VertSplit ctermbg=NONE ctermfg=8
-" Gutter and gutter symbols
-hi SignColumn ctermbg=NONE
-" Status line
-hi StatusLine ctermbg=NONE ctermfg=1
-" Inactive status line
-hi StatusLineNC ctermbg=NONE ctermfg=8
-" Unselected floating menu items (e.g. in coc)
-hi Pmenu ctermbg=NONE ctermfg=15
-" Selected floating menu item (e.g. in coc)
-hi PmenuSel ctermbg=NONE ctermfg=1
-hi Conceal ctermbg=8 ctermfg=0
-hi NormalFloat ctermbg=NONE ctermfg=15
-hi MatchParen ctermfg=0
-hi CocHighlightText ctermfg=1 ctermbg=0
-
-hi ErrorMsg ctermfg=0
-hi Statement ctermfg=1
-hi Type ctermfg=4
-hi Identifier ctermfg=1
-hi PreProc ctermfg=4
-hi Constant ctermfg=6
-hi Search ctermbg=1 ctermfg=0
-
-hi pythonClassVar ctermfg=3
-hi pythonConditional ctermfg=4
-hi pythonOperator ctermfg=10
 
 " temp inky stuff
 

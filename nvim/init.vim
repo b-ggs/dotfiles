@@ -141,9 +141,6 @@ Plug 'nvim-treesitter/playground'
 Plug 'tomtom/tcomment_vim'
 " Better motion
 Plug 'phaazon/hop.nvim'
-" Ends structures
-Plug 'tpope/vim-endwise'
-Plug 'rstacruz/vim-closer'
 " Git integration
 Plug 'tpope/vim-fugitive'
 " Better search

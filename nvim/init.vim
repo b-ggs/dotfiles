@@ -160,7 +160,7 @@ Plug 'mhinz/vim-startify'
 " Displays diff in gutter
 Plug 'airblade/vim-gitgutter'
 " colorscheme
-Plug 'catppuccin/nvim', {'as': 'catppuccin'}
+Plug 'b-ggs/catppuccin-nvim', {'as': 'catppuccin'}
 " coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " tags
@@ -319,16 +319,21 @@ set termguicolors
 
 lua << EOF
 local catppuccin = require("catppuccin")
+-- local palette = require("catppuccin.core.palettes.init").get_palette()
 
 catppuccin.setup({
   integrations = {
     coc_nvim = true,
     gitgutter = true,
-  }
+  },
+  -- custom_highlights = {
+  --   String = { fg = palette.pink },
+  --   TSString = { fg = palette.pink },
+  -- },
 })
 EOF
 
-let g:catppuccin_flavour = "mocha" " latte, frappe, macchiato, mocha
+let g:catppuccin_flavour = "pinkdrink" " latte, frappe, macchiato, mocha, pinkdrink
 colorscheme catppuccin
 
 " copilot

@@ -157,8 +157,6 @@ Plug 'janko-m/vim-test'
 Plug 'metakirby5/codi.vim'
 " Start screen
 Plug 'mhinz/vim-startify'
-" Better statusline
-" Plug 'b-ggs/vim-airline'
 " Displays diff in gutter
 Plug 'airblade/vim-gitgutter'
 " colorscheme
@@ -177,7 +175,16 @@ call plug#end()
 
 " coc
 
-let g:coc_global_extensions = ["coc-pyright", "coc-svelte", "coc-json", "coc-rls", "coc-tsserver", "coc-prettier", "coc-css", "coc-html"]
+let g:coc_global_extensions = [
+  \ "coc-pyright",
+  \ "coc-svelte",
+  \ "coc-json",
+  \ "coc-rls",
+  \ "coc-tsserver",
+  \ "coc-prettier",
+  \ "coc-css",
+  \ "coc-html",
+  \ ]
 
 autocmd FileType * let b:coc_additional_keywords = ["-"]
 
@@ -201,14 +208,12 @@ aug python
   au BufWrite *.py call CocAction('format')
 aug END
 
-
 " fzf
 
 if executable('fzf')
   " Prepend all fzf commands with 'Fzf'
   let g:fzf_command_prefix = 'Fzf'
 
-  " Binds
   map <leader>f :FzfFiles<CR>
   map <leader>b :FzfBuffer<CR>
   map <leader>d :FzfTags<CR>
@@ -246,7 +251,6 @@ endif
 let NERDTreeShowHidden = 1
 let NERDTreeWinPos = "right"
 
-" Binds
 map <leader>t :NERDTreeToggle<CR>
 
 " hop.nvim
@@ -263,7 +267,6 @@ map <leader>l <cmd>HopChar1<CR>
 " Turn off highlights after cursor move
 let g:incsearch#auto_nohlsearch = 1
 
-" Binds
 map / <Plug>(incsearch-forward)
 map ? <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
@@ -279,7 +282,6 @@ map g# <Plug>(incsearch-nohl-g#)
 " Set window size to 50%
 let g:ctrlsf_winsize = '50%'
 
-" Binds
 nmap <leader>a <Plug>CtrlSFPrompt
 nmap <leader>* <Plug>CtrlSFCCwordPath<CR>
 
@@ -308,14 +310,16 @@ let g:startify_list_order = [
   \ 'files',
   \ ]
 
-" Binds
 map <leader>S :Startify<CR>
 
-" catppuccin
+" colors: catppuccin
+
+set background=dark
+set termguicolors
+
 lua << EOF
 local catppuccin = require("catppuccin")
 
--- configure it
 catppuccin.setup({
   integrations = {
     coc_nvim = true,
@@ -324,7 +328,6 @@ catppuccin.setup({
 })
 EOF
 
-" Vim Script
 let g:catppuccin_flavour = "mocha" " latte, frappe, macchiato, mocha
 colorscheme catppuccin
 
@@ -335,11 +338,6 @@ let g:copilot_no_tab_map = v:true
 
 " synstack
 :nmap <leader>ss <plug>(SynStack)
-
-" colors
-
-" Set background to dark
-set background=dark
 
 " temp inky stuff
 

@@ -36,8 +36,6 @@ set shiftwidth=2
 set expandtab
 " Display trailing whitespaces as • and tab as →•
 set list listchars=trail:•,tab:→•
-" Hide mode in statusline
-set noshowmode
 " Use terminal cursor for all modes
 set guicursor=
 

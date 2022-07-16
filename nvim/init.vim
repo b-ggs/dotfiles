@@ -133,7 +133,7 @@ Plug 'junegunn/fzf.vim'
 " Tree explorer
 Plug 'scrooloose/nerdtree'
 " Tree-sitter
-Plug 'nvim-treesitter/nvim-treesitter', { 'commit': '3bd228781bf4a927c5ceaf7a4687fed9f96d12b5' }
+Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/playground'
 " Commenting lines
 Plug 'tomtom/tcomment_vim'

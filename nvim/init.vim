@@ -39,26 +39,26 @@ set list listchars=trail:•,tab:→•
 " Use terminal cursor for all modes
 set guicursor=
 
-" statusline http://vimdoc.sourceforge.net/htmldoc/options.html#'statusline'
-set laststatus=2
-" start with blank
-set statusline=
-" relative filename
-set statusline+=%f
-" modified flag
-set statusline+=%m
-" read-only flag
-set statusline+=%r
-" coc status
-" set statusline+=\ %{coc#status()}
-" switch to right-align
-set statusline+=%=
-" line number/number of lines, column number
-set statusline+=%l/%L,%c
-" space character
-set statusline+=\ 
-" file type
-set statusline+=%Y
+" " statusline http://vimdoc.sourceforge.net/htmldoc/options.html#'statusline'
+" set laststatus=2
+" " start with blank
+" set statusline=
+" " relative filename
+" set statusline+=%f
+" " modified flag
+" set statusline+=%m
+" " read-only flag
+" set statusline+=%r
+" " coc status
+" " set statusline+=\ %{coc#status()}
+" " switch to right-align
+" set statusline+=%=
+" " line number/number of lines, column number
+" set statusline+=%l/%L,%c
+" " space character
+" set statusline+=\ 
+" " file type
+" set statusline+=%Y
 
 " Set viminfo path
 if has('nvim')
@@ -171,6 +171,8 @@ Plug 'github/copilot.vim'
 Plug 'dylnmc/synstack.vim'
 " Hex codes to colors
 Plug 'norcalli/nvim-colorizer.lua'
+" Lua-powered statusline
+Plug 'nvim-lualine/lualine.nvim'
 call plug#end()
 
 " coc
@@ -351,4 +353,69 @@ nmap <leader>sp :TSPlaygroundToggle<CR>
 
 lua <<EOF
 require'colorizer'.setup()
+EOF
+
+" lualine
+
+lua <<EOF
+local palette = require("catppuccin.palettes.init").get_palette()
+
+require('lualine').setup({
+  options = {
+    theme = "catppuccin",
+    section_separators = '',
+    component_separators = '',
+  },
+  sections = {
+    lualine_a = {
+      {
+        "filename",
+        separator = { left = '', right = '' },
+        color = { bg = palette.pink, fg = palette.base, gui = "bold" },
+        padding = 0,
+      },
+    },
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {
+      {
+        "%l/%L,%c",
+        color = { bg = palette.mantle, fg = palette.text },
+        padding = 1,
+      },
+      {
+        "filetype",
+        color = { bg = palette.mantle, fg = palette.text },
+        padding = 0,
+      },
+    },
+  },
+  inactive_sections = {
+    lualine_a = {
+      {
+        'filename',
+        color = { fg = palette.surface1 },
+        padding = 1,
+      },
+    },
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {
+      {
+        "%l/%L,%c",
+        color = { bg = palette.mantle, fg = palette.surface1 },
+        padding = 1,
+      },
+      {
+        "filetype",
+        color = { bg = palette.mantle, fg = palette.surface1 },
+        padding = 0,
+      },
+    },
+  },
+})
 EOF

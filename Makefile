@@ -109,6 +109,7 @@ alacritty-symlink:
 
 kitty-symlink:
 	@ORIGIN=kitty/kitty.conf TARGET=${HOME}/.config/kitty/kitty.conf make symlink
+	@ORIGIN=kitty/themes TARGET=${HOME}/.config/kitty/themes make symlink
 
 # streamlink
 

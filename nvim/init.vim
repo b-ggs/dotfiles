@@ -38,6 +38,8 @@ set expandtab
 set list listchars=trail:•,tab:→•
 " Use terminal cursor for all modes
 set guicursor=
+" Disable mouse
+set mouse=
 
 " " statusline http://vimdoc.sourceforge.net/htmldoc/options.html#'statusline'
 " set laststatus=2

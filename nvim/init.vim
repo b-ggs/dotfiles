@@ -370,6 +370,7 @@ require('lualine').setup({
     lualine_a = {
       {
         "filename",
+        path = 1,
         separator = { left = '', right = '' },
         color = { bg = palette.pink, fg = palette.base, gui = "bold" },
         padding = 0,
@@ -396,6 +397,7 @@ require('lualine').setup({
     lualine_a = {
       {
         'filename',
+        path = 1,
         color = { fg = palette.surface1 },
         padding = 1,
       },

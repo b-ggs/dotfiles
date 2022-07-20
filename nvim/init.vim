@@ -147,8 +147,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'haya14busa/incsearch.vim'
 " Find and replace in cwd
 Plug 'dyng/ctrlsf.vim'
-" Async linter
-Plug 'neomake/neomake'
 " Direct upload to GitHub Gist
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
@@ -201,6 +199,17 @@ nmap <silent> go <Plug>(coc-refactor)
 nmap <silent> ge <Plug>(coc-references)
 
 inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocActionAsync('doHover')
+  endif
+endfunction
 
 " Bit of a hack to consistently get coc-pyright to format python files
 " For some reason, black is a bit of a hit-or-miss when saving files,
@@ -262,13 +271,6 @@ let g:ctrlsf_winsize = '50%'
 
 nmap <leader>a <Plug>CtrlSFPrompt
 nmap <leader>* <Plug>CtrlSFCCwordPath<CR>
-
-" neomake
-
-" Automake on normal mode changes, after 750ms
-call neomake#configure#automake('nw', 750)
-
-let g:neomake_python_enabled_makers = ['pep8']
 
 " startify
 

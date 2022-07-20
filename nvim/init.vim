@@ -42,11 +42,7 @@ set guicursor=
 set mouse=
 
 " Set viminfo path
-if has('nvim')
-  set viminfo='100,n$HOME/.config/nvim/nviminfo
-else
-  set viminfo='100,n$HOME/.vim/viminfo
-endif
+set viminfo='100,n$HOME/.config/nvim/nviminfo
 
 " Set leader key to Space
 let mapleader = "\<Space>"
@@ -101,12 +97,7 @@ let g:polyglot_disabled = ['vue']
 
 " plugs
 
-if has('nvim')
-  let plugged_dir = "$HOME/.config/nvim/plugged"
-else
-  let plugged_dir = "$HOME/.vim/plugged"
-endif
-
+let plugged_dir = "$HOME/.config/nvim/plugged"
 call plug#begin(plugged_dir)
 " Fuzzy searching
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }

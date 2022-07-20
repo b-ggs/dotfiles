@@ -41,27 +41,6 @@ set guicursor=
 " Disable mouse
 set mouse=
 
-" " statusline http://vimdoc.sourceforge.net/htmldoc/options.html#'statusline'
-" set laststatus=2
-" " start with blank
-" set statusline=
-" " relative filename
-" set statusline+=%f
-" " modified flag
-" set statusline+=%m
-" " read-only flag
-" set statusline+=%r
-" " coc status
-" " set statusline+=\ %{coc#status()}
-" " switch to right-align
-" set statusline+=%=
-" " line number/number of lines, column number
-" set statusline+=%l/%L,%c
-" " space character
-" set statusline+=\ 
-" " file type
-" set statusline+=%Y
-
 " Set viminfo path
 if has('nvim')
   set viminfo='100,n$HOME/.config/nvim/nviminfo

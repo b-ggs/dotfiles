@@ -143,6 +143,12 @@ Plug 'dylnmc/synstack.vim'
 Plug 'norcalli/nvim-colorizer.lua'
 " Lua-powered statusline
 Plug 'nvim-lualine/lualine.nvim'
+" Per-directory local config
+Plug 'klen/nvim-config-local'
+" neotest and neotest dependencies
+Plug 'nvim-lua/plenary.nvim'
+Plug 'antoinemadec/FixCursorHold.nvim'
+Plug 'nvim-neotest/neotest'
 call plug#end()
 
 " coc
@@ -396,4 +402,12 @@ require('lualine').setup({
     },
   },
 })
+EOF
+
+" nvim-config-local
+
+lua <<EOF
+require('config-local').setup {
+  config_files = { "local.nvimrc" }
+}
 EOF

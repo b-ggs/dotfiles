@@ -185,16 +185,6 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Bit of a hack to consistently get coc-pyright to format python files
-" For some reason, black is a bit of a hit-or-miss when saving files,
-" even when coc.preferences.willSaveHandlerTimeout is set to the highest
-" possible value
-" https://github.com/fannheyward/coc-pyright/issues/229#issuecomment-754231643
-aug python
-  au!
-  au BufWrite *.py call CocAction('format')
-aug END
-
 " fzf
 
 if executable('fzf')

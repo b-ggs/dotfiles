@@ -404,8 +404,7 @@ EOF
 " vim-test
 " ---
 
-nmap <silent> tt :TestNearest --keepdb<CR>
-nmap <silent> tr :TestNearest<CR>
+nmap <silent> tn :TestNearest<CR>
 nmap <silent> tf :TestFile<CR>
 
 let test#strategy = "neovim"

@@ -120,11 +120,6 @@ Plug 'dyng/ctrlsf.vim'
 " Direct upload to GitHub Gist
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
-" Run tests from inside nvim
-Plug 'tpope/vim-dispatch'
-Plug 'janko-m/vim-test'
-" Interactive scratchpad
-Plug 'metakirby5/codi.vim'
 " Start screen
 Plug 'mhinz/vim-startify'
 " Displays diff in gutter
@@ -145,10 +140,13 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'nvim-lualine/lualine.nvim'
 " Per-directory local config
 Plug 'klen/nvim-config-local'
+" vim-test
+Plug 'vim-test/vim-test'
 " neotest and neotest dependencies
 Plug 'nvim-lua/plenary.nvim'
 Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'nvim-neotest/neotest'
+Plug 'nvim-neotest/neotest-vim-test'
 call plug#end()
 
 " coc
@@ -411,3 +409,32 @@ require('config-local').setup {
   config_files = { "local.nvimrc" }
 }
 EOF
+
+" ---
+" vim-test
+" ---
+
+nmap <silent> tt :TestNearest --keepdb<CR>
+nmap <silent> tr :TestNearest<CR>
+nmap <silent> tf :TestFile<CR>
+
+let test#strategy = "neovim"
+let test#neovim#term_position = "vert"
+" Override this value in local.nvimrc
+let test#python#djangotest#executable='docker exec web python manage.py test'
+
+" ---
+" neotest
+" ---
+
+lua <<EOF
+require("neotest").setup({
+  adapters = {
+    require("neotest-vim-test"),
+  },
+})
+EOF
+
+nmap <silent> tt <cmd>lua require("neotest").run.run()<CR>
+nmap <silent> ts <cmd>lua require("neotest").summary.toggle()<CR>
+nmap <silent> to <cmd>lua require("neotest").output.open()<CR>

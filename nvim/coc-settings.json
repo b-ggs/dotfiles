@@ -14,8 +14,9 @@
   // Don't scan or perform diagnostics on these folders
   "workspace.ignoredFolders": [
     "node_modules",
-    ".pyenv",
-    "venv"
+    "venv",
+    "$HOME/.pyenv",
+    "$HOME"
   ],
   // "suggest.enablePreview": true,
   // Border configs. TODO: look into winblend

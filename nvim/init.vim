@@ -7,7 +7,9 @@
 " ░██ ███  ░██░██  ░░██ ░██  ░░██   ░██ ███ ░██ ░██
 " ░░ ░░░   ░░ ░░    ░░  ░░    ░░    ░░ ░░░  ░░  ░░
 
-" base
+" ---
+" general config
+" ---
 
 " Remove compatibility with VI
 set nocompatible
@@ -43,6 +45,10 @@ set mouse=
 
 " Set viminfo path
 set viminfo='100,n$HOME/.config/nvim/nviminfo
+
+" ---
+" keybinds
+" ---
 
 " Set leader key to Space
 let mapleader = "\<Space>"
@@ -85,17 +91,16 @@ nnoremap tn :tabnew<CR>
 nnoremap tm :tabm<Space>
 nnoremap td :tabclose<CR>
 
+" ---
 " macros
+" ---
 
 let @p='gg0Orequire ''pry''orequire ''pry-byebug''0'
 let @i='oimport ipdb; ipdb.set_trace();'
 
-" polyglot
-
-" Disable vue because https://github.com/posva/vim-vue/issues/95#issuecomment-530436727
-let g:polyglot_disabled = ['vue']
-
-" plugs
+" ---
+" vim-plug
+" ---
 
 let plugged_dir = "$HOME/.config/nvim/plugged"
 call plug#begin(plugged_dir)
@@ -140,16 +145,18 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'nvim-lualine/lualine.nvim'
 " Per-directory local config
 Plug 'klen/nvim-config-local'
-" vim-test
+" Run tests in a neovim terminal
 Plug 'vim-test/vim-test'
-" neotest and neotest dependencies
+" Async tests
 Plug 'nvim-lua/plenary.nvim'
 Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'nvim-neotest/neotest'
 Plug 'nvim-neotest/neotest-vim-test'
 call plug#end()
 
-" coc
+" ---
+" coc.nvim
+" ---
 
 let g:coc_global_extensions = [
   \ "coc-pyright",
@@ -185,7 +192,9 @@ function! s:show_documentation()
   endif
 endfunction
 
+" ---
 " fzf
+" ---
 
 if executable('fzf')
   " Prepend all fzf commands with 'Fzf'
@@ -204,7 +213,9 @@ let NERDTreeWinPos = "right"
 
 map <leader>t :NERDTreeToggle<CR>
 
+" ---
 " hop.nvim
+" ---
 
 lua require'hop'.setup()
 " Use <cmd> instead of : here
@@ -213,7 +224,9 @@ map <leader>j <cmd>HopLine<CR>
 map <leader>k <cmd>HopLine<CR>
 map <leader>l <cmd>HopChar1<CR>
 
+" ---
 " incsearch
+" ---
 
 " Turn off highlights after cursor move
 let g:incsearch#auto_nohlsearch = 1
@@ -228,7 +241,9 @@ map # <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
+" ---
 " ctrlsf
+" ---
 
 " Set window size to 50%
 let g:ctrlsf_winsize = '50%'
@@ -236,7 +251,9 @@ let g:ctrlsf_winsize = '50%'
 nmap <leader>a <Plug>CtrlSFPrompt
 nmap <leader>* <Plug>CtrlSFCCwordPath<CR>
 
+" ---
 " startify
+" ---
 
 " Custom header
 let g:startify_custom_header = ['   welcome to hell']
@@ -256,43 +273,44 @@ let g:startify_list_order = [
 
 map <leader>S :Startify<CR>
 
-" colors: catppuccin
+" ---
+" catppuccin
+" ---
 
 set background=dark
 set termguicolors
 
 lua << EOF
 local catppuccin = require("catppuccin")
--- local palette = require("catppuccin.core.palettes.init").get_palette()
 
 catppuccin.setup({
   integrations = {
     coc_nvim = true,
     gitgutter = true,
   },
-  -- custom_highlights = {
-  --   String = { fg = palette.pink },
-  --   TSString = { fg = palette.pink },
-  -- },
 })
 EOF
 
 let g:catppuccin_flavour = "pinkdrink" " latte, frappe, macchiato, mocha, pinkdrink
 colorscheme catppuccin
 
+" ---
 " copilot
+" ---
 
+" Use Ctrl-j to accept suggestions
 imap <silent><script><expr> <C-j> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
 
+" ---
 " synstack
-:nmap <leader>ss <plug>(SynStack)
+" ---
 
-" temp inky stuff
+nmap <leader>ss <plug>(SynStack)
 
-autocmd BufNewFile,BufRead *.inky set filetype=html.erb
-
-" tree-sitter
+" ---
+" treesitter
+" ---
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
@@ -317,13 +335,17 @@ EOF
 nmap <leader>st :TSHighlightCapturesUnderCursor<CR>
 nmap <leader>sp :TSPlaygroundToggle<CR>
 
+" ---
 " colorizer
+" ---
 
 lua <<EOF
 require'colorizer'.setup()
 EOF
 
+" ---
 " lualine
+" ---
 
 lua <<EOF
 local palette = require("catppuccin.palettes.init").get_palette()
@@ -392,7 +414,9 @@ require('lualine').setup({
 })
 EOF
 
+" ---
 " nvim-config-local
+" ---
 
 lua <<EOF
 require('config-local').setup {
@@ -410,7 +434,7 @@ nmap <silent> tf :TestFile<CR>
 let test#strategy = "neovim"
 let test#neovim#term_position = "vert"
 " Override this value in local.nvimrc
-let test#python#djangotest#executable='docker exec web python manage.py test'
+let test#python#djangotest#executable="docker exec web python manage.py test"
 
 " ---
 " neotest

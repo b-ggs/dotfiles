@@ -118,8 +118,6 @@ Plug 'tomtom/tcomment_vim'
 Plug 'phaazon/hop.nvim'
 " Git integration
 Plug 'tpope/vim-fugitive'
-" Better search
-Plug 'haya14busa/incsearch.vim'
 " Find and replace in cwd
 Plug 'dyng/ctrlsf.vim'
 " Direct upload to GitHub Gist
@@ -131,8 +129,6 @@ Plug 'mhinz/vim-startify'
 Plug 'airblade/vim-gitgutter'
 " colorscheme
 Plug 'b-ggs/catppuccin-nvim', {'as': 'catppuccin'}
-" coc
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " tags
 Plug 'ludovicchabant/vim-gutentags'
 " copilot
@@ -155,98 +151,12 @@ Plug 'nvim-neotest/neotest-vim-test'
 " Native lsp
 Plug 'neovim/nvim-lspconfig'
 " Completion
-Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
 call plug#end()
-
-" ---
-" coc.nvim
-" ---
-
-" let g:coc_global_extensions = [
-"   \ "coc-pyright",
-"   \ "coc-svelte",
-"   \ "coc-json",
-"   \ "coc-rls",
-"   \ "coc-tsserver",
-"   \ "coc-prettier",
-"   \ "coc-css",
-"   \ "coc-html",
-"   \ ]
-"
-" autocmd FileType * let b:coc_additional_keywords = ["-"]
-"
-" nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> ga <Plug>(coc-codeaction-selected)
-" nmap <silent> gs <Plug>(coc-codeaction)
-" nmap <silent> gf <Plug>(coc-format)
-" nmap <silent> gr <Plug>(coc-rename)
-" nmap <silent> go <Plug>(coc-refactor)
-" nmap <silent> ge <Plug>(coc-references)
-"
-" inoremap <silent><expr> <c-space> coc#refresh()
-"
-" " Use K to show documentation in preview window
-" nnoremap <silent> K :call <SID>show_documentation()<CR>
-"
-" function! s:show_documentation()
-"   if (index(['vim','help'], &filetype) >= 0)
-"     execute 'h '.expand('<cword>')
-"   else
-"     call CocActionAsync('doHover')
-"   endif
-" endfunction
-
-" ---
-" nvim-lspconfig
-" ---
-
-lua <<EOF
--- Mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap=true, silent=true }
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
-
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-  -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- Mappings.
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-  vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-  vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-  vim.keymap.set('n', '<space>wl', function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, bufopts)
-  vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
-end
-
-local lsp = require "lspconfig"
-local lsp_flags = {}
-local coq = require "coq"
-
-require('lspconfig')['pyright'].setup{
-  cmd = { "npx", "pyright-langserver", "--stdio" },
-  on_attach = on_attach,
-  flags = lsp_flags,
-  coq.lsp_ensure_capabilities{
-  },
-}
-EOF
 
 " ---
 " fzf
@@ -279,23 +189,6 @@ lua require'hop'.setup()
 map <leader>j <cmd>HopLine<CR>
 map <leader>k <cmd>HopLine<CR>
 map <leader>l <cmd>HopChar1<CR>
-
-" ---
-" incsearch
-" ---
-
-" Turn off highlights after cursor move
-let g:incsearch#auto_nohlsearch = 1
-
-map / <Plug>(incsearch-forward)
-map ? <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-map n <Plug>(incsearch-nohl-n)
-map N <Plug>(incsearch-nohl-N)
-map * <Plug>(incsearch-nohl-*)
-map # <Plug>(incsearch-nohl-#)
-map g* <Plug>(incsearch-nohl-g*)
-map g# <Plug>(incsearch-nohl-g#)
 
 " ---
 " ctrlsf
@@ -507,3 +400,124 @@ EOF
 nmap <silent> tt <cmd>lua require("neotest").run.run()<CR>
 nmap <silent> ts <cmd>lua require("neotest").summary.toggle()<CR>
 nmap <silent> to <cmd>lua require("neotest").output.open()<CR>
+
+" ---
+" nvim-cmp
+" ---
+
+set completeopt=menu,menuone,noselect
+
+lua <<EOF
+-- Setup nvim-cmp.
+local cmp = require'cmp'
+
+cmp.setup({
+  snippet = {
+    -- REQUIRED - you must specify a snippet engine
+    expand = function(args)
+      -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+      -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+      -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+      -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+    end,
+  },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  }),
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    -- { name = 'vsnip' }, -- For vsnip users.
+    -- { name = 'luasnip' }, -- For luasnip users.
+    -- { name = 'ultisnips' }, -- For ultisnips users.
+    -- { name = 'snippy' }, -- For snippy users.
+  }, {
+    { name = 'buffer' },
+  })
+})
+
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline('/', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
+EOF
+
+" ---
+" nvim-lspconfig
+" ---
+
+lua <<EOF
+-- Mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+local opts = { noremap=true, silent=true }
+vim.keymap.set('n', 'ge', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', 'gp', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', 'gn', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', 'gq', vim.diagnostic.setloclist, opts)
+
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  -- Enable completion triggered by <c-x><c-o>
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- Mappings.
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'gh', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('n', 'gH', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', 'gwa', vim.lsp.buf.add_workspace_folder, bufopts)
+  vim.keymap.set('n', 'gwr', vim.lsp.buf.remove_workspace_folder, bufopts)
+  vim.keymap.set('n', 'gwl', function()
+    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  end, bufopts)
+  vim.keymap.set('n', 'gtd', vim.lsp.buf.type_definition, bufopts)
+  vim.keymap.set('n', 'grn', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', 'gca', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  vim.keymap.set('n', 'gf', vim.lsp.buf.formatting, bufopts)
+end
+
+-- Globally add borders to all nvim-lspconfig floating windows
+-- https://github.com/neovim/nvim-lspconfig/wiki/UI-customization#borders
+border="single"
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {}
+  opts.border = opts.border or border
+  return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
+
+-- Setup lspconfig.
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+require('lspconfig')['pyright'].setup {
+  cmd = { "npx", "pyright-langserver", "--stdio" },
+  on_attach = on_attach,
+  flags = lsp_flags,
+  capabilities = capabilities
+}
+EOF

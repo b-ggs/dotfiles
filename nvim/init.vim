@@ -132,7 +132,7 @@ Plug 'airblade/vim-gitgutter'
 " colorscheme
 Plug 'b-ggs/catppuccin-nvim', {'as': 'catppuccin'}
 " coc
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " tags
 Plug 'ludovicchabant/vim-gutentags'
 " copilot
@@ -152,45 +152,101 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'nvim-neotest/neotest'
 Plug 'nvim-neotest/neotest-vim-test'
+" Native lsp
+Plug 'neovim/nvim-lspconfig'
+" Completion
+Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
 call plug#end()
 
 " ---
 " coc.nvim
 " ---
 
-let g:coc_global_extensions = [
-  \ "coc-pyright",
-  \ "coc-svelte",
-  \ "coc-json",
-  \ "coc-rls",
-  \ "coc-tsserver",
-  \ "coc-prettier",
-  \ "coc-css",
-  \ "coc-html",
-  \ ]
+" let g:coc_global_extensions = [
+"   \ "coc-pyright",
+"   \ "coc-svelte",
+"   \ "coc-json",
+"   \ "coc-rls",
+"   \ "coc-tsserver",
+"   \ "coc-prettier",
+"   \ "coc-css",
+"   \ "coc-html",
+"   \ ]
+"
+" autocmd FileType * let b:coc_additional_keywords = ["-"]
+"
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> ga <Plug>(coc-codeaction-selected)
+" nmap <silent> gs <Plug>(coc-codeaction)
+" nmap <silent> gf <Plug>(coc-format)
+" nmap <silent> gr <Plug>(coc-rename)
+" nmap <silent> go <Plug>(coc-refactor)
+" nmap <silent> ge <Plug>(coc-references)
+"
+" inoremap <silent><expr> <c-space> coc#refresh()
+"
+" " Use K to show documentation in preview window
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
+"
+" function! s:show_documentation()
+"   if (index(['vim','help'], &filetype) >= 0)
+"     execute 'h '.expand('<cword>')
+"   else
+"     call CocActionAsync('doHover')
+"   endif
+" endfunction
 
-autocmd FileType * let b:coc_additional_keywords = ["-"]
+" ---
+" nvim-lspconfig
+" ---
 
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> ga <Plug>(coc-codeaction-selected)
-nmap <silent> gs <Plug>(coc-codeaction)
-nmap <silent> gf <Plug>(coc-format)
-nmap <silent> gr <Plug>(coc-rename)
-nmap <silent> go <Plug>(coc-refactor)
-nmap <silent> ge <Plug>(coc-references)
+lua <<EOF
+-- Mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+local opts = { noremap=true, silent=true }
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
-inoremap <silent><expr> <c-space> coc#refresh()
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  -- Enable completion triggered by <c-x><c-o>
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+  -- Mappings.
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+  vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+  vim.keymap.set('n', '<space>wl', function()
+    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  end, bufopts)
+  vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
+  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+end
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocActionAsync('doHover')
-  endif
-endfunction
+local lsp = require "lspconfig"
+local lsp_flags = {}
+local coq = require "coq"
+
+require('lspconfig')['pyright'].setup{
+  cmd = { "npx", "pyright-langserver", "--stdio" },
+  on_attach = on_attach,
+  flags = lsp_flags,
+  coq.lsp_ensure_capabilities{
+  },
+}
+EOF
 
 " ---
 " fzf
@@ -285,7 +341,7 @@ local catppuccin = require("catppuccin")
 
 catppuccin.setup({
   integrations = {
-    coc_nvim = true,
+    -- coc_nvim = true,
     gitgutter = true,
   },
 })

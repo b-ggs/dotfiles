@@ -246,6 +246,7 @@ require'nvim-treesitter.configs'.setup {
     "rust",
     "svelte",
     "typescript",
+    "lua",
   },
   highlight = {
     enable = true,

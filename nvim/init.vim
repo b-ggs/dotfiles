@@ -106,9 +106,6 @@ let @i='oimport ipdb; ipdb.set_trace();'
 
 let plugged_dir = "$HOME/.config/nvim/plugged"
 call plug#begin(plugged_dir)
-" Fuzzy searching
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 " Tree explorer
 Plug 'scrooloose/nerdtree'
 " Tree-sitter
@@ -156,21 +153,9 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
+" Fuzzy finder
+Plug 'nvim-telescope/telescope.nvim', {'tag': '0.1.0'}
 call plug#end()
-
-" ---
-" fzf
-" ---
-
-if executable('fzf')
-  " Prepend all fzf commands with 'Fzf'
-  let g:fzf_command_prefix = 'Fzf'
-
-  map <leader>f :FzfFiles<CR>
-  map <leader>b :FzfBuffer<CR>
-  map <leader>d :FzfTags<CR>
-  map <leader>/ :FzfLines<CR>
-endif
 
 " nerdtree
 
@@ -223,7 +208,6 @@ local catppuccin = require("catppuccin")
 
 catppuccin.setup({
   integrations = {
-    -- coc_nvim = true,
     gitgutter = true,
   },
 })
@@ -510,3 +494,12 @@ require('lspconfig')['pyright'].setup {
   capabilities = capabilities
 }
 EOF
+
+" ---
+" telescope
+" ---
+
+nnoremap <leader>f <cmd>Telescope find_files<CR>
+nnoremap <leader>g <cmd>Telescope live_grep<CR>
+nnoremap <leader>b <cmd>Telescope buffers<CR>
+nnoremap <leader>/ <cmd>Telescope current_buffer_fuzzy_find<CR>

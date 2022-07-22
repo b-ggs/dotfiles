@@ -109,8 +109,6 @@ call plug#begin(plugged_dir)
 " Tree-sitter
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/playground'
-" Commenting lines
-Plug 'tomtom/tcomment_vim'
 " Git integration
 Plug 'tpope/vim-fugitive'
 " Find and replace in cwd
@@ -155,6 +153,8 @@ Plug 'nvim-telescope/telescope.nvim', {'tag': '0.1.0'}
 Plug 'kyazdani42/nvim-tree.lua'
 " Git decorations
 Plug 'lewis6991/gitsigns.nvim'
+" Commenting
+Plug 'numToStr/Comment.nvim'
 call plug#end()
 
 " ---
@@ -536,4 +536,12 @@ map <leader>t :NvimTreeToggle<CR>
 
 lua <<EOF
 require('gitsigns').setup()
+EOF
+
+" ---
+" comment.nvim
+" ---
+
+lua <<EOF
+require('Comment').setup()
 EOF

@@ -42,6 +42,8 @@ set list listchars=trail:•,tab:→•
 set guicursor=
 " Disable mouse
 set mouse=
+" Relative line numbers
+set relativenumber
 
 " Set viminfo path
 set viminfo='100,n$HOME/.config/nvim/nviminfo
@@ -114,8 +116,6 @@ Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/playground'
 " Commenting lines
 Plug 'tomtom/tcomment_vim'
-" Better motion
-Plug 'phaazon/hop.nvim'
 " Git integration
 Plug 'tpope/vim-fugitive'
 " Find and replace in cwd
@@ -178,17 +178,6 @@ let NERDTreeShowHidden = 1
 let NERDTreeWinPos = "right"
 
 map <leader>t :NERDTreeToggle<CR>
-
-" ---
-" hop.nvim
-" ---
-
-lua require'hop'.setup()
-" Use <cmd> instead of : here
-" https://github.com/phaazon/hop.nvim/issues/126
-map <leader>j <cmd>HopLine<CR>
-map <leader>k <cmd>HopLine<CR>
-map <leader>l <cmd>HopChar1<CR>
 
 " ---
 " ctrlsf

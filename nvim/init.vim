@@ -113,9 +113,6 @@ Plug 'nvim-treesitter/playground'
 Plug 'tpope/vim-fugitive'
 " Find and replace in cwd
 Plug 'dyng/ctrlsf.vim'
-" Direct upload to GitHub Gist
-Plug 'mattn/webapi-vim'
-Plug 'mattn/gist-vim'
 " Start screen
 Plug 'mhinz/vim-startify'
 " colorscheme

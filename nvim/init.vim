@@ -106,8 +106,6 @@ let @i='oimport ipdb; ipdb.set_trace();'
 
 let plugged_dir = "$HOME/.config/nvim/plugged"
 call plug#begin(plugged_dir)
-" Tree explorer
-Plug 'scrooloose/nerdtree'
 " Tree-sitter
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/playground'
@@ -122,8 +120,6 @@ Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
 " Start screen
 Plug 'mhinz/vim-startify'
-" Displays diff in gutter
-Plug 'airblade/vim-gitgutter'
 " colorscheme
 Plug 'b-ggs/catppuccin-nvim', {'as': 'catppuccin'}
 " tags
@@ -155,14 +151,11 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 " Fuzzy finder
 Plug 'nvim-telescope/telescope.nvim', {'tag': '0.1.0'}
+" File exploer
+Plug 'kyazdani42/nvim-tree.lua'
+" Git decorations
+Plug 'lewis6991/gitsigns.nvim'
 call plug#end()
-
-" nerdtree
-
-let NERDTreeShowHidden = 1
-let NERDTreeWinPos = "right"
-
-map <leader>t :NERDTreeToggle<CR>
 
 " ---
 " ctrlsf
@@ -208,7 +201,6 @@ local catppuccin = require("catppuccin")
 
 catppuccin.setup({
   integrations = {
-    gitgutter = true,
   },
 })
 EOF
@@ -504,3 +496,44 @@ nnoremap <leader>f <cmd>Telescope find_files<CR>
 nnoremap <leader>g <cmd>Telescope live_grep<CR>
 nnoremap <leader>b <cmd>Telescope buffers<CR>
 nnoremap <leader>/ <cmd>Telescope current_buffer_fuzzy_find<CR>
+
+" ---
+" nvim-tree
+" ---
+
+lua <<EOF
+require("nvim-tree").setup({
+  view = {
+    side = "right",
+  },
+  diagnostics = {
+    enable = true,
+    show_on_dirs = true,
+    icons = {
+      hint = "H",
+      info = "I",
+      warning = "W",
+      error = "E",
+    },
+  },
+  renderer = {
+    icons = {
+      show = {
+        file = false,
+        folder = false,
+      },
+      git_placement = "after",
+    },
+  },
+})
+EOF
+
+map <leader>t :NvimTreeToggle<CR>
+
+" ---
+" gitsigns
+" ---
+
+lua <<EOF
+require('gitsigns').setup()
+EOF

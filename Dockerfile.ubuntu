@@ -5,7 +5,7 @@ RUN apt update -y \
   # Install Neovim >=0.7 from PPA because Ubuntu 22.04 only comes with Neovim 0.6
   && add-apt-repository ppa:neovim-ppa/unstable \
   && apt update -y \
-  && apt install -y neovim zsh git ripgrep fzf tmux make curl sudo unzip universal-ctags \
+  && apt install -y build-essential neovim zsh git ripgrep fzf tmux make curl sudo unzip universal-ctags stow \
   # Install Node 16 because Copilot does not support Node 18
   && curl -fsSL https://fnm.vercel.app/install | bash \
   && $HOME/.fnm/fnm install 16
@@ -15,15 +15,13 @@ COPY . /root/.files/
 
 WORKDIR /root/.files/
 
-RUN make nvim-symlink \
+RUN stow nvim \
   && make nvim-configure \
   && make zsh-configure \
-  && make zsh-symlink \
-  && make tmux-symlink \
-  && make ripgrep-symlink \
+  && stow zsh \
+  && stow tmux \
+  && stow ripgrep \
   && make git-configure \
-  && make git-symlink
-
-WORKDIR /root/
+  && stow git
 
 CMD ["zsh"]

@@ -6,17 +6,14 @@ Personal configurations for nvim, zsh, tmux, etc.
 
 ```
 git clone git@github.com:b-ggs/dotfiles.git $HOME/.files
-
-make \
-  brew-common \
-  brew-macos \
-  brew-linux \
-  nvim-symlink \
-  nvim-configure \
-  zsh-symlink \
-  zsh-configure \
-  tmux-symlink \
-  git-configure \
-  git-symlink \
-  um-symlink
+cd $HOME/.files
+stow nvim
+stow nvim
+make nvim-configure
+make zsh-configure
+stow zsh
+stow tmux
+stow ripgrep
+make git-configure
+stow git
 ```

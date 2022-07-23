@@ -1,7 +1,7 @@
 FROM archlinux:base-devel
 
 RUN pacman -Syu --noconfirm \
-  && pacman -S --noconfirm neovim zsh git ripgrep fzf tmux unzip ctags \
+  && pacman -S --noconfirm neovim zsh git ripgrep fzf tmux unzip ctags stow \
   # Install Node 16 because Copilot does not support Node 18
   && curl -fsSL https://fnm.vercel.app/install | bash \
   && $HOME/.fnm/fnm install 16
@@ -11,15 +11,13 @@ COPY . /root/.files/
 
 WORKDIR /root/.files/
 
-RUN make nvim-symlink \
+RUN stow nvim \
   && make nvim-configure \
   && make zsh-configure \
-  && make zsh-symlink \
-  && make tmux-symlink \
-  && make ripgrep-symlink \
+  && stow zsh \
+  && stow tmux \
+  && stow ripgrep \
   && make git-configure \
-  && make git-symlink
-
-WORKDIR /root/
+  && stow git
 
 CMD ["zsh"]

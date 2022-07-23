@@ -473,9 +473,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'grn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', 'gca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', 'gF', function()
-    vim.lsp.buf.format({ async = true })
-  end, bufopts)
+  vim.keymap.set('n', 'gF', vim.lsp.buf.format, bufopts)
 end
 
 -- Globally add borders to all nvim-lspconfig floating windows

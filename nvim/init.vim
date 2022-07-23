@@ -550,6 +550,7 @@ nnoremap <leader>g <cmd>Telescope live_grep<CR>
 nnoremap <leader>b <cmd>Telescope buffers<CR>
 nnoremap <leader>d <cmd>Telescope tags<CR>
 nnoremap <leader>/ <cmd>Telescope current_buffer_fuzzy_find<CR>
+nnoremap <leader>k <cmd>Telescope keymaps<CR>
 
 " ---
 " nvim-tree

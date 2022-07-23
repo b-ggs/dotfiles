@@ -138,6 +138,8 @@ Plug 'nvim-neotest/neotest'
 Plug 'nvim-neotest/neotest-vim-test'
 " Native lsp
 Plug 'neovim/nvim-lspconfig'
+" Prettier diagnostics
+Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 " Completion
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -426,6 +428,14 @@ cmp.setup.cmdline(':', {
 EOF
 
 " ---
+" lsp_lines
+" ---
+
+lua <<EOF
+require("lsp_lines").setup()
+EOF
+
+" ---
 " nvim-lspconfig
 " ---
 
@@ -473,6 +483,11 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   opts.border = opts.border or border
   return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
+
+-- Disable virtual_text since it's redundant due to lsp_lines.
+vim.diagnostic.config({
+  virtual_text = false,
+})
 
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())

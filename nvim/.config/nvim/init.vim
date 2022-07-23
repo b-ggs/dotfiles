@@ -598,3 +598,11 @@ EOF
 lua <<EOF
 require('Comment').setup()
 EOF
+
+" ---
+" vim-gutentags
+" ---
+
+" Use rg to feed files to vim-gutentags
+" https://github.com/universal-ctags/ctags/issues/218#issuecomment-377731658
+let g:gutentags_file_list_command = 'rg --files | rg -v ".json"'

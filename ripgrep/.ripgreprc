@@ -4,4 +4,4 @@
 --glob=!**__pycache__
 --glob=!*.mypy_cache
 --smart-case
---no-ignore-vcs
+--hidden

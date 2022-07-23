@@ -5,7 +5,8 @@ $git_status\
 $python\
 $nodejs\
 $time\
-${custom.ssh}
+${custom.ssh}\
+${custom.docker}
 $character"""
 
 [directory]
@@ -45,3 +46,7 @@ vicmd_symbol = "[\\$](blue)"
 [custom.ssh]
 format = "SSH "
 when = """ test ! -z "$SSH_CLIENT" """
+
+[custom.docker]
+format = "Docker "
+when = """ test ! -z "$IN_DOCKER" """

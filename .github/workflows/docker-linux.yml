@@ -30,4 +30,8 @@ jobs:
               && zsh --version \
               && tmux -V \
               && rg --version \
-              && git --version"
+              && git --version \
+              && git --version \
+              \$HOME/.fnm/fnm exec --using=16 node --version \
+              \$HOME/.fnm/fnm exec --using=16 npm list --location=global \
+            "

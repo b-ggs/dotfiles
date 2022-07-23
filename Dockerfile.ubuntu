@@ -8,20 +8,25 @@ RUN apt update -y \
   && apt install -y build-essential neovim zsh git ripgrep fzf tmux make curl sudo unzip universal-ctags stow \
   # Install Node 16 because Copilot does not support Node 18
   && curl -fsSL https://fnm.vercel.app/install | bash \
-  && $HOME/.fnm/fnm install 16
+  && $HOME/.fnm/fnm install 16 \
+  && $HOME/.fnm/fnm exec --using=16 npm update --location=global npm
 
 # copy dotfiles
 COPY . /root/.files/
 
 WORKDIR /root/.files/
 
-RUN stow nvim \
-  && make nvim-configure \
-  && make zsh-configure \
+RUN make zsh-configure \
   && stow zsh \
+  && stow nvim \
+  && make nvim-configure \
+  && $HOME/.fnm/fnm exec --using=16 make nvim-install-language-servers \
   && stow tmux \
   && stow ripgrep \
   && make git-configure \
   && stow git
+
+# Just to inform the Starship prompt to show that we are in a Docker container
+ENV IN_DOCKER true
 
 CMD ["zsh"]

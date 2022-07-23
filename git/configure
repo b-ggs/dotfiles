@@ -5,3 +5,8 @@ git config --global user.email "6130147+b-ggs@users.noreply.github.com"
 git config --global core.excludesfile $HOME/.gitignore
 git config --global pull.rebase false
 git config --global init.defaultBranch main
+
+# https://web.archive.org/web/20220209150721/https://michaelheap.com/git-ignore-rev/
+git config --global blame.ignoreRevsFile .git-blame-ignore-revs
+git config --global blame.markIgnoredLines true
+git config --global blame.markUnblamableLines true

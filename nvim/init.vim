@@ -146,6 +146,8 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
+" Formatting
+Plug 'mhartington/formatter.nvim'
 " Fuzzy finder
 Plug 'nvim-telescope/telescope.nvim', {'tag': '0.1.0'}
 " File exploer
@@ -471,7 +473,9 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'grn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', 'gca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', 'gf', vim.lsp.buf.formatting, bufopts)
+  vim.keymap.set('n', 'gF', function()
+    vim.lsp.buf.format({ async = true })
+  end, bufopts)
 end
 
 -- Globally add borders to all nvim-lspconfig floating windows
@@ -500,12 +504,51 @@ require('lspconfig')['pyright'].setup {
 EOF
 
 " ---
+" formatter.nvim
+" ---
+
+lua <<EOF
+require('formatter').setup({
+  filetype = {
+    python = {
+      require("formatter.filetypes.python").black,
+      require("formatter.filetypes.python").isort,
+    },
+    htmldjango = {
+      function()
+        return {
+          exe = "djhtml",
+          args = { "-" },
+          stdin = true,
+        }
+      end,
+    },
+    svelte = {
+      require("formatter.filetypes.svelte").prettier,
+    },
+    javascript = {
+      require("formatter.filetypes.javascript").prettier,
+    },
+    css = {
+      require("formatter.filetypes.css").prettier,
+    },
+    ["*"] = {
+      require("formatter.filetypes.any").remove_trailing_whitespace,
+    }
+  },
+})
+EOF
+
+nnoremap <silent> gf :Format<CR>
+
+" ---
 " telescope
 " ---
 
 nnoremap <leader>f <cmd>Telescope find_files<CR>
 nnoremap <leader>g <cmd>Telescope live_grep<CR>
 nnoremap <leader>b <cmd>Telescope buffers<CR>
+nnoremap <leader>d <cmd>Telescope tags<CR>
 nnoremap <leader>/ <cmd>Telescope current_buffer_fuzzy_find<CR>
 
 " ---

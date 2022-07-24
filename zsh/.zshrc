@@ -81,7 +81,7 @@ alias sshkeys='ssh -o AddKeysToAgent=yes -o ForwardAgent=yes'
 
 # check if pyenv is installed
 if [[ -n "$(command -v pyenv)" ]]; then
-  eval "$(pyenv init -)"
+  eval "$(pyenv init --path)"
 fi
 
 # fzf

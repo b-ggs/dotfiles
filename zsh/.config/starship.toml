@@ -5,6 +5,7 @@ $git_status\
 $python\
 $nodejs\
 $time\
+$cmd_duration\
 ${custom.ssh}\
 ${custom.docker}
 $character"""
@@ -37,6 +38,9 @@ version_format = "$raw"
 [time]
 format = "$time "
 disabled = false
+
+[cmd_duration]
+format = "$duration "
 
 [character]
 success_symbol = "\\$"

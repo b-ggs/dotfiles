@@ -154,6 +154,8 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'lewis6991/gitsigns.nvim'
 " Commenting
 Plug 'numToStr/Comment.nvim'
+" Parentheses matching
+Plug 'p00f/nvim-ts-rainbow'
 call plug#end()
 
 " ---
@@ -200,6 +202,7 @@ local catppuccin = require("catppuccin")
 
 catppuccin.setup({
   integrations = {
+    ts_rainbow = true,
   },
 })
 EOF
@@ -243,6 +246,9 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
     additional_vim_regex_highlighting = false,
   },
+  rainbow = {
+    enable = true
+  }
 }
 EOF
 

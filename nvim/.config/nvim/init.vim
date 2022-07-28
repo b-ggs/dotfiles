@@ -207,7 +207,7 @@ catppuccin.setup({
 })
 EOF
 
-let g:catppuccin_flavour = "pinkdrink" " latte, frappe, macchiato, mocha, pinkdrink
+let g:catppuccin_flavour = "pinkdrink_v2"
 colorscheme catppuccin
 
 " ---

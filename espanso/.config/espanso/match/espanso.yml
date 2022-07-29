@@ -1,0 +1,3 @@
+matches:
+  - regex: "l(?P<port>.*)!"
+    replace: "http://localhost:{{port}}/"

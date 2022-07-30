@@ -38,6 +38,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
   alias lock='open -a ScreenSaverEngine'
   alias hidedesktop='defaults write com.apple.finder CreateDesktop false && killall Finder'
   alias showdesktop='defaults write com.apple.finder CreateDesktop true && killall Finder'
+  alias resetdock='defaults write com.apple.dock tilesize -int 32; killall Dock'
 elif [[ "$(uname)" == "Linux" ]]; then
   alias lock='i3lock'
 fi

@@ -470,7 +470,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'grn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', 'gca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', 'gF', vim.lsp.buf.format, bufopts)
+  vim.keymap.set('n', 'gF', vim.lsp.buf.formatting, bufopts)
 end
 
 -- Globally add borders to all nvim-lspconfig floating windows
@@ -489,13 +489,13 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 require('lspconfig')['pyright'].setup {
   on_attach = on_attach,
   flags = lsp_flags,
-  capabilities = capabilities
+  capabilities = capabilities,
 }
 
 require('lspconfig')['svelte'].setup {
   on_attach = on_attach,
   flags = lsp_flags,
-  capabilities = capabilities
+  capabilities = capabilities,
 }
 EOF
 

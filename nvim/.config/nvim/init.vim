@@ -547,6 +547,7 @@ nnoremap <leader>b <cmd>Telescope buffers<CR>
 nnoremap <leader>d <cmd>Telescope tags<CR>
 nnoremap <leader>/ <cmd>Telescope current_buffer_fuzzy_find<CR>
 nnoremap <leader>k <cmd>Telescope keymaps<CR>
+nnoremap <leader>s <cmd>Telescope lsp_dynamic_workspace_symbols<CR>
 
 " ---
 " nvim-tree

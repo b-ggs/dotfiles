@@ -156,6 +156,9 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'numToStr/Comment.nvim'
 " Parentheses matching
 Plug 'p00f/nvim-ts-rainbow'
+" LSP installer
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
 call plug#end()
 
 " ---
@@ -632,3 +635,24 @@ EOF
 " Use rg to feed files to vim-gutentags
 " https://github.com/universal-ctags/ctags/issues/218#issuecomment-377731658
 let g:gutentags_file_list_command = 'rg --files | rg -v ".json"'
+
+" ---
+" mason.nvim
+" ---
+
+lua <<EOF
+require("mason").setup()
+
+require("mason-lspconfig").setup({
+  ensure_installed = {
+    "cssls",
+    "html",
+    "pyright",
+    "sumneko_lua",
+    "svelte",
+    "tsserver",
+    "vimls",
+  },
+  automatic_installation = true,
+})
+EOF

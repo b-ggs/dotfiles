@@ -4,9 +4,6 @@ nvim-configure:
 	curl -fLo ${HOME}/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	nvim --headless +PlugInstall +qall
 
-nvim-install-language-servers:
-	npm install --location=global pyright prettier typescript typescript-language-server vscode-langservers-extracted vim-language-server
-
 # zsh
 
 zsh-configure:

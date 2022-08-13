@@ -5,7 +5,7 @@ nvim-configure:
 	nvim --headless +PlugInstall +qall
 
 nvim-install-language-servers:
-	npm install --location=global pyright prettier
+	npm install --location=global pyright prettier typescript typescript-language-server vscode-langservers-extracted vim-language-server
 
 # zsh
 

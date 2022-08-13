@@ -486,6 +486,8 @@ end
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+
 require('lspconfig')['pyright'].setup {
   on_attach = on_attach,
   flags = lsp_flags,
@@ -493,6 +495,31 @@ require('lspconfig')['pyright'].setup {
 }
 
 require('lspconfig')['svelte'].setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+  capabilities = capabilities,
+}
+
+require('lspconfig')['html'].setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+  capabilities = capabilities,
+  filetypes = {"html", "htmldjango"},
+}
+
+require('lspconfig')['cssls'].setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+  capabilities = capabilities,
+}
+
+require('lspconfig')['tsserver'].setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+  capabilities = capabilities,
+}
+
+require('lspconfig')['vimls'].setup {
   on_attach = on_attach,
   flags = lsp_flags,
   capabilities = capabilities,

@@ -2,10 +2,9 @@ FROM archlinux:base-devel
 
 RUN pacman -Syu --noconfirm \
   && pacman -S --noconfirm neovim zsh git ripgrep fzf tmux unzip ctags stow \
-  # Install Node 16 because Copilot does not support Node 18
   && curl -fsSL https://fnm.vercel.app/install | bash \
-  && $HOME/.fnm/fnm install 16 \
-  && $HOME/.fnm/fnm exec --using=16 npm update --location=global npm
+  && $HOME/.fnm/fnm install 18 \
+  && $HOME/.fnm/fnm exec --using=18 npm update --location=global npm
 
 # copy dotfiles
 COPY . /root/.files/

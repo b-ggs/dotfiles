@@ -2,14 +2,12 @@ FROM ubuntu:22.04
 
 RUN apt-get update -y \
   && apt-get install -y software-properties-common \
-  # Install Neovim >=0.7 from PPA because Ubuntu 22.04 only comes with Neovim 0.6
   && add-apt-repository ppa:neovim-ppa/stable \
   && apt-get update -y \
   && apt-get install -y build-essential neovim zsh git ripgrep fzf tmux make curl sudo unzip universal-ctags stow \
-  # Install Node 16 because Copilot does not support Node 18
   && curl -fsSL https://fnm.vercel.app/install | bash \
-  && $HOME/.fnm/fnm install 16 \
-  && $HOME/.fnm/fnm exec --using=16 npm update --location=global npm
+  && $HOME/.fnm/fnm install 18 \
+  && $HOME/.fnm/fnm exec --using=18 npm update --location=global npm
 
 # copy dotfiles
 COPY . /root/.files/

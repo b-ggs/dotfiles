@@ -120,7 +120,7 @@ Plug 'b-ggs/catppuccin-nvim', {'as': 'catppuccin'}
 " tags
 Plug 'ludovicchabant/vim-gutentags'
 " copilot
-Plug 'github/copilot.vim'
+" Plug 'github/copilot.vim'
 " synstack
 Plug 'dylnmc/synstack.vim'
 " Hex codes to colors
@@ -218,8 +218,8 @@ colorscheme catppuccin
 " ---
 
 " Use Ctrl-j to accept suggestions
-imap <silent><script><expr> <C-j> copilot#Accept("\<CR>")
-let g:copilot_no_tab_map = v:true
+" imap <silent><script><expr> <C-j> copilot#Accept("\<CR>")
+" let g:copilot_no_tab_map = v:true
 
 " ---
 " synstack

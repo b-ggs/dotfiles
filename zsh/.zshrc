@@ -122,6 +122,13 @@ if [[ -d "$HOME/.poetry" ]]; then
   export PATH="$HOME/.poetry/bin:$PATH"
 fi
 
+# fly
+
+if [[ -d "$HOME/.fly" ]]; then
+  export FLYCTL_INSTALL="/home/angela/.fly"
+  export PATH="$FLYCTL_INSTALL/bin:$PATH"
+fi
+
 # starship
 
 eval "$(starship init zsh)"

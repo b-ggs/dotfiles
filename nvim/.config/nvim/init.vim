@@ -54,9 +54,11 @@ set viminfo='100,n$HOME/.config/nvim/nviminfo
 
 " Set leader key to Space
 let mapleader = "\<Space>"
-" Move via display line
-map j gj
-map k gk
+" Move via display line, but only if v:count is 0
+" i.e. `j` will execute `gj`, but `2j` will execute `2j`
+" https://stackoverflow.com/a/21000307
+nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
+nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
 " Remaps to correct mistypes
 command W w
 command Wq wq

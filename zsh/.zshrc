@@ -66,15 +66,6 @@ alias known-hosts='$EDITOR $HOME/.ssh/known_hosts'
 alias ssh-config='cd $HOME/.ssh-config'
 alias authorized-keys='cd $HOME/.authorized-keys'
 
-alias ind='cd $HOME/dev/inDinero/indinero'
-alias ind-map='cd $HOME/dev/inDinero/indinero-ms-map-rails-vproto'
-alias ind-leap='cd $HOME/dev/inDinero/leap'
-alias ind-ntbk='cd $HOME/dev/b-ggs/indinero-notebook'
-
-alias mp='cd $HOME/dev/mplusmuseum/website-cms'
-alias mf='cd $HOME/dev/mozilla/foundation.mozilla.org'
-alias vw='cd $HOME/dev/vilantis/waste-backend'
-
 alias lipsum='echo "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." | pbcopy'
 
 alias sshkeys='ssh -o AddKeysToAgent=yes -o ForwardAgent=yes'
@@ -132,3 +123,9 @@ fi
 # starship
 
 eval "$(starship init zsh)"
+
+# private zshrc
+
+if [ -f "$HOME/.private.zshrc" ]; then
+  source "$HOME/.private.zshrc" 
+fi

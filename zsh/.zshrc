@@ -95,12 +95,6 @@ export FZF_DEFAULT_OPTS="--color 16"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Other functions
-
-function gnubin_path() {
-  export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
-}
-
 # omz
 
 export ZSH="$HOME/.oh-my-zsh"
@@ -116,11 +110,11 @@ if [[ -d "$HOME/.fnm" ]]; then
   eval "$(fnm env --use-on-cd)"
 fi
 
-# poetry
+# poetry 1.1
 
-if [[ -d "$HOME/.poetry" ]]; then
-  export PATH="$HOME/.poetry/bin:$PATH"
-fi
+# if [[ -d "$HOME/.poetry" ]]; then
+#   export PATH="$HOME/.poetry/bin:$PATH"
+# fi
 
 # fly
 

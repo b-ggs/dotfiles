@@ -44,7 +44,6 @@ set guicursor=
 set mouse=
 " Relative line numbers
 set relativenumber
-
 " Set viminfo path
 set viminfo='100,n$HOME/.config/nvim/nviminfo
 
@@ -54,24 +53,29 @@ set viminfo='100,n$HOME/.config/nvim/nviminfo
 
 " Set leader key to Space
 let mapleader = "\<Space>"
+
 " Move via display line, but only if v:count is 0
 " i.e. `j` will execute `gj`, but `2j` will execute `2j`
 " https://stackoverflow.com/a/21000307
 nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
 nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
+
 " Remaps to correct mistypes
 command W w
 command Wq wq
 map <F1> <Esc>
 map <S-k> <Nop>
 map Q <NOP>
+
 " Write with sudo
 command Sudow w !sudo tee %
+
 " Remap pane navigation to Ctrl+[h, j, k, l]
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
 " Remap splits to SPC+[-,\]
 nnoremap <leader>- <C-w>s
 nnoremap <leader>\ <C-w>v
@@ -94,6 +98,9 @@ nnoremap tt :tabedit<Space>
 nnoremap tn :tabnew<CR>
 nnoremap tm :tabm<Space>
 nnoremap td :tabclose<CR>
+
+" Restart LSP
+nnoremap lr :LspRestart<CR>
 
 " ---
 " macros

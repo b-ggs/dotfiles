@@ -9,6 +9,7 @@
         "p:0:chat.filtering.color-mentions": true,
         "p:0:ffzap.core.remove_spaces": true,
         "p:0:chat.timestamp-format": "h:mm",
+        "p:0:chat.emote-menu.enabled": false,
         "p:0:chat.filtering.highlight-basic-badges": [
             {
                 "v": {
@@ -66,12 +67,9 @@
             }
         ],
         "p:0:player.no-autoplay": true,
-        "p:0:addon.seventv_emotes.nametag_paints": false,
         "addons.enabled": [
             "ffzap-core",
             "ffzap-bttv",
-            "inline-tab-completion",
-            "7tv-emotes",
             "smokemotes",
             "pronouns"
         ],
@@ -79,14 +77,14 @@
         "p:0:chat.emote-menu.show-quick-nav": false,
         "cfg-collapsed": [
             "data_management.reporting",
-            "channel.behavior"
+            "channel.behavior",
+            "debugging.data_sources"
         ],
         "p:0:player.compressor.default": true,
         "p:0:ffzap.core.highlight_sound_types": [
             "mention"
         ],
         "p:0:ffzap.core.highlight_sound_prevent_own_channel": true,
-        "p:0:addon.seventv_emotes.emote_updates": false,
         "p:0:chat.name-format": 0,
         "p:0:channel.hide-unfollow": true,
         "p:0:chat.bits.animated": false,
@@ -106,7 +104,6 @@
         "p:0:player.hide-event-bar": true,
         "p:0:chat.filtering.display-deleted": "DETAILED",
         "p:0:player.home.autoplay": false,
-        "p:0:chat.subs.compact": false,
         "p:0:chat.viewer-cards.highlight-chat": true,
         "p:0:chat.emote-menu.reduced-padding": true,
         "emote-menu.collapsed": [],
@@ -114,8 +111,6 @@
         "p:0:metadata.host-button": false,
         "p:0:layout.portrait": true,
         "p:0:directory.hide-recommended": true,
-        "p:0:addon.seventv_emotes.animated_avatars": false,
-        "p:0:addon.seventv_emotes.update_messages": false,
         "p:0:addon.inlinetab.tip-count": true,
         "p:0:metadata.player-stats": true,
         "p:0:layout.portrait-min-chat": true,
@@ -144,7 +139,6 @@
             }
         ],
         "p:0:channel.auto-skip-trailer": true,
-        "p:0:chat.emotes.2x": false,
         "p:0:layout.side-nav.hide-offline": true,
         "p:0:metadata.uptime.no-native": true,
         "cfg-seen": [
@@ -488,7 +482,19 @@
             "addon.pronouns.color.ziehir",
             "chat.emotes.limit-size",
             "directory.block-titles",
-            "chat.banners.last-events"
+            "chat.banners.last-events",
+            "chat.filtering.hidden-tokens",
+            "player.compressor.force-legacy",
+            "ffzap.liriklive.global_emoticons",
+            "ffzap.liriklive.sub_emoticons",
+            "pn.show-badges",
+            "pn.show-reason",
+            "pn.timestamps",
+            "pn.threshold",
+            "pn.rules",
+            "addon.7tv_emotes.channel_emotes",
+            "addon.7tv_emotes.global_emotes",
+            "addon.7tv_emotes.update_messages"
         ],
         "p:0:chat.filtering.remove-deleted": 0,
         "p:0:clips.layout.big": true,

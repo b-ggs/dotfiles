@@ -88,26 +88,12 @@ export FZF_DEFAULT_OPTS="--color 16"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# omz
-
-export ZSH="$HOME/.oh-my-zsh"
-
-plugins=(git fzf)
-
-source $ZSH/oh-my-zsh.sh
-
 # fnm
 
-if [[ -d "$HOME/.fnm" ]]; then
+if [[ -d "$HOME/.fnm" ]] || [[ -f /opt/homebrew/bin/fnm ]]; then
   export PATH="$HOME/.fnm:$PATH"
   eval "$(fnm env --use-on-cd)"
 fi
-
-# poetry 1.1
-
-# if [[ -d "$HOME/.poetry" ]]; then
-#   export PATH="$HOME/.poetry/bin:$PATH"
-# fi
 
 # fly
 
@@ -122,12 +108,21 @@ if [[ -d "$HOME/.deta" ]]; then
   export PATH="$HOME/.deta/bin:$PATH"
 fi
 
-# starship
-
-eval "$(starship init zsh)"
-
 # private zshrc
 
 if [ -f "$HOME/.private.zshrc" ]; then
   source "$HOME/.private.zshrc" 
 fi
+
+# omz
+
+export ZSH="$HOME/.oh-my-zsh"
+
+plugins=(git fzf)
+
+source $ZSH/oh-my-zsh.sh
+
+
+# starship
+
+eval "$(starship init zsh)"

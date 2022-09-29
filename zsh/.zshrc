@@ -72,13 +72,6 @@ alias lipsum='echo "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
 alias sshkeys='ssh -o AddKeysToAgent=yes -o ForwardAgent=yes'
 alias sshforward='ssh -L 8000:localhost:8000 -L 8143:localhost:8143 -L 8823:localhost:8823 -L 5678:localhost:5678 -L 3000:localhost:3000 -L 8086:localhost:8086 -L 5432:localhost:5432 -L 8080:localhost:8080 -L 8082:localhost:8082 -L 8001:localhost:8001 -CNT '
 
-# pyenv
-
-# check if pyenv is installed
-if [[ -n "$(command -v pyenv)" ]]; then
-  eval "$(pyenv init --path)"
-fi
-
 # fzf
 
 # Change default fzf command to use rg

@@ -166,6 +166,8 @@ Plug 'p00f/nvim-ts-rainbow'
 " LSP installer
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
+" Context
+Plug 'nvim-treesitter/nvim-treesitter-context'
 call plug#end()
 
 " ---
@@ -671,3 +673,13 @@ require("mason-lspconfig").setup({
   automatic_installation = true,
 })
 EOF
+
+" ---
+" nvim-treesitter-context
+" ---
+
+lua <<EOF
+require'treesitter-context'.setup()
+EOF
+
+hi TreesitterContextBottom gui=underline guisp=Grey

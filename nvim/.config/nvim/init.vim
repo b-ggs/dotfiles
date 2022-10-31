@@ -261,6 +261,7 @@ require'nvim-treesitter.configs'.setup {
     "svelte",
     "typescript",
     "lua",
+    "json",
   },
   highlight = {
     enable = true,
@@ -574,6 +575,15 @@ require('formatter').setup({
     },
     css = {
       require("formatter.filetypes.css").prettier,
+    },
+    json = {
+      require("formatter.filetypes.json").prettier,
+    },
+    html = {
+      require("formatter.filetypes.html").prettier,
+    },
+    yaml = {
+      require("formatter.filetypes.yaml").prettier,
     },
     -- ["*"] = {
     --  require("formatter.filetypes.any").remove_trailing_whitespace,

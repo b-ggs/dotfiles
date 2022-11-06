@@ -151,6 +151,9 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
+" Snippets
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
 " Formatting
 Plug 'mhartington/formatter.nvim'
 " Fuzzy finder
@@ -251,17 +254,18 @@ nmap <leader>ss <plug>(SynStack)
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
-    "query",
-    "python",
+    "astro",
+    "dockerfile",
     "html",
     "javascript",
-    "dockerfile",
+    "json",
+    "lua",
     "markdown",
+    "python",
+    "query",
     "rust",
     "svelte",
     "typescript",
-    "lua",
-    "json",
   },
   highlight = {
     enable = true,
@@ -408,7 +412,7 @@ cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
       -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
       -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
       -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
@@ -427,7 +431,7 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    -- { name = 'vsnip' }, -- For vsnip users.
+    { name = 'vsnip' }, -- For vsnip users.
     -- { name = 'luasnip' }, -- For luasnip users.
     -- { name = 'ultisnips' }, -- For ultisnips users.
     -- { name = 'snippy' }, -- For snippy users.
@@ -509,6 +513,32 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
+require('lspconfig')['astro'].setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+  capabilities = capabilities,
+}
+
+require('lspconfig')['cssls'].setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+  capabilities = capabilities,
+}
+
+require('lspconfig')['emmet_ls'].setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+  capabilities = capabilities,
+  filetypes = {"html", "htmldjango"},
+}
+
+require('lspconfig')['html'].setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+  capabilities = capabilities,
+  filetypes = {"html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "htmldjango"}
+}
+
 require('lspconfig')['pyright'].setup {
   on_attach = on_attach,
   flags = lsp_flags,
@@ -516,19 +546,6 @@ require('lspconfig')['pyright'].setup {
 }
 
 require('lspconfig')['svelte'].setup {
-  on_attach = on_attach,
-  flags = lsp_flags,
-  capabilities = capabilities,
-}
-
-require('lspconfig')['html'].setup {
-  on_attach = on_attach,
-  flags = lsp_flags,
-  capabilities = capabilities,
-  filetypes = {"html", "htmldjango"},
-}
-
-require('lspconfig')['cssls'].setup {
   on_attach = on_attach,
   flags = lsp_flags,
   capabilities = capabilities,
@@ -584,6 +601,12 @@ require('formatter').setup({
     },
     yaml = {
       require("formatter.filetypes.yaml").prettier,
+    },
+    yaml = {
+      require("formatter.filetypes.yaml").prettier,
+    },
+    markdown = {
+      require("formatter.filetypes.markdown").prettier,
     },
     -- ["*"] = {
     --  require("formatter.filetypes.any").remove_trailing_whitespace,
@@ -672,7 +695,9 @@ require("mason").setup()
 
 require("mason-lspconfig").setup({
   ensure_installed = {
+    "astro",
     "cssls",
+    "emmet_ls",
     "html",
     "pyright",
     "sumneko_lua",

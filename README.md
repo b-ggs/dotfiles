@@ -8,7 +8,6 @@ Personal configurations for nvim, zsh, tmux, etc.
 git clone git@github.com:b-ggs/dotfiles.git $HOME/.files
 cd $HOME/.files
 stow nvim
-stow nvim
 make nvim-configure
 make zsh-configure
 stow zsh

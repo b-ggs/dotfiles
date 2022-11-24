@@ -100,7 +100,7 @@ nnoremap tm :tabm<Space>
 nnoremap td :tabclose<CR>
 
 " Restart LSP
-nnoremap lr :LspRestart<CR>
+nnoremap rr :LspRestart<CR>
 
 " ---
 " macros
@@ -656,6 +656,9 @@ require("nvim-tree").setup({
       },
       git_placement = "after",
     },
+  },
+  git = {
+    ignore = false,
   },
 })
 EOF

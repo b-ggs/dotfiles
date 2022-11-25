@@ -165,7 +165,7 @@ Plug 'lewis6991/gitsigns.nvim'
 " Commenting
 Plug 'numToStr/Comment.nvim'
 " Parentheses matching
-Plug 'p00f/nvim-ts-rainbow'
+" Plug 'p00f/nvim-ts-rainbow'
 " LSP installer
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
@@ -588,6 +588,9 @@ require('formatter').setup({
       require("formatter.filetypes.svelte").prettier,
     },
     javascript = {
+      require("formatter.filetypes.javascript").prettier,
+    },
+    javascriptreact = {
       require("formatter.filetypes.javascript").prettier,
     },
     css = {

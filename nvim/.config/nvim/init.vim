@@ -166,9 +166,10 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'numToStr/Comment.nvim'
 " Parentheses matching
 " Plug 'p00f/nvim-ts-rainbow'
-" LSP installer
+" LSP, linter, formatter installer
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
 " Context
 Plug 'nvim-treesitter/nvim-treesitter-context'
 call plug#end()
@@ -712,6 +713,30 @@ require("mason-lspconfig").setup({
     "vimls",
   },
   automatic_installation = true,
+})
+EOF
+
+" ---
+" mason-tool-installer
+" ---
+
+lua <<EOF
+require('mason-tool-installer').setup({
+  ensure_installed = {
+    "astro-language-server",
+    "black",
+    "css-lsp",
+    "emmet-ls",
+    "html-lsp",
+    "isort",
+    "lua-language-server",
+    "prettier",
+    "pyright",
+    "svelte-language-server",
+    "typescript-language-server",
+    "vim-language-server",
+  },
+  run_on_start = false,
 })
 EOF
 

@@ -311,7 +311,7 @@ require('lualine').setup({
         separator = { left = '', right = '' },
         color = { bg = palette.pink, fg = palette.base, gui = "bold" },
         padding = 0,
-        shorting_target = 0,
+        shorting_target = 10,
       },
     },
     lualine_b = {},
@@ -320,14 +320,14 @@ require('lualine').setup({
     lualine_y = {},
     lualine_z = {
       {
-        "%l/%L,%c",
-        color = { bg = palette.mantle, fg = palette.text },
-        padding = 1,
-      },
-      {
         "filetype",
         color = { bg = palette.mantle, fg = palette.text },
         padding = 0,
+      },
+      {
+        "%l/%L,%c",
+        color = { bg = palette.mantle, fg = palette.text },
+        padding = 1,
       },
     },
   },
@@ -338,7 +338,7 @@ require('lualine').setup({
         path = 1,
         color = { fg = palette.surface1 },
         padding = 1,
-        shorting_target = 0,
+        shorting_target = 10,
       },
     },
     lualine_b = {},
@@ -347,14 +347,14 @@ require('lualine').setup({
     lualine_y = {},
     lualine_z = {
       {
-        "%l/%L,%c",
-        color = { bg = palette.mantle, fg = palette.surface1 },
-        padding = 1,
-      },
-      {
         "filetype",
         color = { bg = palette.mantle, fg = palette.surface1 },
         padding = 0,
+      },
+      {
+        "%l/%L,%c",
+        color = { bg = palette.mantle, fg = palette.surface1 },
+        padding = 1,
       },
     },
   },

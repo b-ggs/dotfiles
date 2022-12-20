@@ -84,8 +84,14 @@ export FZF_DEFAULT_OPTS="--color 16"
 
 # fnm
 
-if [[ -d "$HOME/.fnm" ]] || [[ -f /opt/homebrew/bin/fnm ]]; then
-  export PATH="$HOME/.fnm:$PATH"
+# This seems to work on macOS. Don't have a system to retest this.
+# if [[ -d "$HOME/.fnm" ]] || [[ -f /opt/homebrew/bin/fnm ]]; then
+#   export PATH="$HOME/.fnm:$PATH"
+#   eval "$(fnm env --use-on-cd)"
+# fi
+
+if [[ -d "$HOME/.local/share/fnm" ]]; then
+  export PATH="$HOME/.local/share/fnm:$PATH"
   eval "$(fnm env --use-on-cd)"
 fi
 

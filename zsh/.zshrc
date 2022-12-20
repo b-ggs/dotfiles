@@ -108,6 +108,13 @@ if [ -f "$HOME/.private.zshrc" ]; then
   source "$HOME/.private.zshrc" 
 fi
 
+# keychain
+
+if [[ -d "$HOME/.keychain" ]]; then
+  keychain --nogui -q $HOME/.ssh/id_ed25519
+  source $HOME/.keychain/$(hostname)-sh
+fi
+
 # omz
 
 export ZSH="$HOME/.oh-my-zsh"

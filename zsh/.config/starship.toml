@@ -8,8 +8,7 @@ $time\
 $cmd_duration\
 ${custom.ssh}\
 ${custom.docker}
-$kubernetes
-$character"""
+($kubernetes)$character"""
 
 [directory]
 format = "[](fg:purple)[$path](bg:purple fg:black bold)[](fg:purple) "

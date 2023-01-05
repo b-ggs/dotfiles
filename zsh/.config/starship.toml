@@ -8,6 +8,7 @@ $time\
 $cmd_duration\
 ${custom.ssh}\
 ${custom.docker}
+$kubernetes
 $character"""
 
 [directory]
@@ -34,6 +35,11 @@ version_format = "$raw"
 format = "(node-$version) "
 symbol = ""
 version_format = "$raw"
+
+[kubernetes]
+# format = 'on [⛵ ($user on )($cluster in )$context \($namespace\)](dimmed green) '
+format = "(kube: ($user on )($cluster in )$context \\($namespace\\)) "
+disabled = false
 
 [time]
 format = "$time "

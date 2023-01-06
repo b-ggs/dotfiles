@@ -272,6 +272,7 @@ require'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "astro",
     "dockerfile",
+    "help",
     "html",
     "javascript",
     "json",
@@ -282,6 +283,7 @@ require'nvim-treesitter.configs'.setup {
     "rust",
     "svelte",
     "typescript",
+    "vim",
   },
   highlight = {
     enable = true,

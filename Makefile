@@ -11,14 +11,6 @@ zsh-configure:
 	sh -c "$$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	rm -f $$HOME/.zshrc
 	rm -f $$HOME/.zprofile
-	@make zsh-configure-unix || make zsh-configure-termux
-
-zsh-configure-unix: check-unix
-	sudo sh -c "echo $$(command -v zsh) >> /etc/shells"
-	chsh -s $$(command -v zsh)
-
-zsh-configure-termux: check-termux
-	chsh -s "zsh"
 
 # git
 

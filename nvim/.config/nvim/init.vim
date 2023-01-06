@@ -115,7 +115,7 @@ nnoremap tm :tabm<Space>
 nnoremap td :tabclose<CR>
 
 " Restart LSP
-nnoremap rr :LspRestart<CR>
+nnoremap lr :LspRestart<CR>
 
 " ---
 " macros

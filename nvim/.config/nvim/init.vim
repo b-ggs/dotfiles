@@ -750,6 +750,7 @@ require('mason-tool-installer').setup({
     "prettier",
     "pyright",
     "svelte-language-server",
+    "terraform-ls",
     "typescript-language-server",
     "vim-language-server",
   },

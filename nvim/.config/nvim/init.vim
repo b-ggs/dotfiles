@@ -22,6 +22,21 @@ set noswapfile
 set noerrorbells
 " Set clipboard register to system clipboard
 set clipboard=unnamed,unnamedplus
+" Clipboard for WSL
+if has('wsl')
+    let g:clipboard = {
+          \   'name': 'wslclipboard',
+          \   'copy': {
+          \      '+': 'win32yank.exe -i --crlf',
+          \      '*': 'win32yank.exe -i --crlf',
+          \    },
+          \   'paste': {
+          \      '+': 'win32yank.exe -o --lf',
+          \      '*': 'win32yank.exe -o --lf',
+          \   },
+          \   'cache_enabled': 1,
+          \ }
+endif
 " Wrap line to previous line's indentation
 set breakindent
 " Show line numbers and set width to 3

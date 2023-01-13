@@ -272,6 +272,7 @@ require'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "astro",
     "dockerfile",
+    "hcl",
     "help",
     "html",
     "javascript",
@@ -751,6 +752,7 @@ require('mason-tool-installer').setup({
     "pyright",
     "svelte-language-server",
     "terraform-ls",
+    "tflint",
     "typescript-language-server",
     "vim-language-server",
   },

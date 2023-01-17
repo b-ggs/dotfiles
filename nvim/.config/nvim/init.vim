@@ -570,6 +570,18 @@ require('lspconfig')['svelte'].setup {
   capabilities = capabilities,
 }
 
+require('lspconfig')['terraformls'].setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+  capabilities = capabilities,
+}
+
+require('lspconfig')['tflint'].setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+  capabilities = capabilities,
+}
+
 require('lspconfig')['tsserver'].setup {
   on_attach = on_attach,
   flags = lsp_flags,
@@ -769,3 +781,17 @@ require'treesitter-context'.setup()
 EOF
 
 hi TreesitterContextBottom gui=underline guisp=Grey
+
+
+" ---
+" Force Terraform files to use tf syntax
+" ---
+"
+" https://web.archive.org/web/20221201222713/https://www.mukeshsharma.dev/2022/02/08/neovim-workflow-for-terraform.html
+
+silent! autocmd! filetypedetect BufRead,BufNewFile *.tf
+autocmd BufRead,BufNewFile *.hcl set filetype=hcl
+autocmd BufRead,BufNewFile .terraformrc,terraform.rc set filetype=hcl
+autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform
+autocmd BufRead,BufNewFile *.tf,*.tfvars set syntax=tf
+autocmd BufRead,BufNewFile *.tfstate,*.tfstate.backup set filetype=json

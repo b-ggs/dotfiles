@@ -49,6 +49,7 @@ alias d='docker'
 alias dc='docker-compose'
 alias poi='poetry install'
 alias pos='poetry shell'
+alias popreferactive='poetry config virtualenvs.prefer-active-python true'
 alias vac='source venv/bin/activate'
 alias van='python3 -m venv venv'
 
@@ -84,11 +85,10 @@ export FZF_DEFAULT_OPTS="--color 16"
 
 # fnm
 
-# This seems to work on macOS. Don't have a system to retest this.
-# if [[ -d "$HOME/.fnm" ]] || [[ -f /opt/homebrew/bin/fnm ]]; then
-#   export PATH="$HOME/.fnm:$PATH"
-#   eval "$(fnm env --use-on-cd)"
-# fi
+if [[ -d "$HOME/.fnm" ]] || [[ -f /opt/homebrew/bin/fnm ]]; then
+  export PATH="$HOME/.fnm:$PATH"
+  eval "$(fnm env --use-on-cd)"
+fi
 
 if [[ -d "$HOME/.local/share/fnm" ]]; then
   export PATH="$HOME/.local/share/fnm:$PATH"

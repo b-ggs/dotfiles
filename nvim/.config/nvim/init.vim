@@ -511,8 +511,8 @@ local on_attach = function(client, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, bufopts)
   vim.keymap.set('n', 'gtd', vim.lsp.buf.type_definition, bufopts)
-  vim.keymap.set('n', 'grn', vim.lsp.buf.rename, bufopts)
-  vim.keymap.set('n', 'gca', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', 'g2', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', 'g3', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', 'gF', vim.lsp.buf.formatting, bufopts)
 end
@@ -563,6 +563,22 @@ require('lspconfig')['pyright'].setup {
   flags = lsp_flags,
   capabilities = capabilities,
 }
+
+sourcery_token = os.getenv("SOURCERY_TOKEN")
+
+if(sourcery_token)
+then
+  require('lspconfig')['sourcery'].setup {
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+    init_options = {
+        token = sourcery_token,
+        extension_version = 'vim.lsp',
+        editor_version = 'vim',
+    },
+  }
+end
 
 require('lspconfig')['svelte'].setup {
   on_attach = on_attach,

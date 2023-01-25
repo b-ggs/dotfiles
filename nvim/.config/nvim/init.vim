@@ -753,6 +753,7 @@ require("mason-lspconfig").setup({
     "emmet_ls",
     "html",
     "pyright",
+    "sourcery",
     "sumneko_lua",
     "svelte",
     "tsserver",

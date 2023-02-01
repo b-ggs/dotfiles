@@ -558,10 +558,16 @@ require('lspconfig')['html'].setup {
   filetypes = {"html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "htmldjango"}
 }
 
-require('lspconfig')['pyright'].setup {
+require('lspconfig')['pylsp'].setup {
   on_attach = on_attach,
   flags = lsp_flags,
   capabilities = capabilities,
+}
+
+require('lspconfig')['pyright'].setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+  -- capabilities = capabilities,
 }
 
 sourcery_token = os.getenv("SOURCERY_TOKEN")
@@ -753,6 +759,7 @@ require("mason-lspconfig").setup({
     "emmet_ls",
     "html",
     "pyright",
+    "pylsp",
     "sourcery",
     "sumneko_lua",
     "svelte",
@@ -779,6 +786,7 @@ require('mason-tool-installer').setup({
     "lua-language-server",
     "prettier",
     "pyright",
+    "python-lsp-server",
     "svelte-language-server",
     "terraform-ls",
     "tflint",

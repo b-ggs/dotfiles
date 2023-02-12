@@ -170,7 +170,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 " Formatting
-Plug 'mhartington/formatter.nvim'
+Plug 'jose-elias-alvarez/null-ls.nvim'
 " Fuzzy finder
 Plug 'nvim-telescope/telescope.nvim', {'tag': '0.1.0'}
 " File exploer
@@ -558,12 +558,6 @@ require('lspconfig')['html'].setup {
   filetypes = {"html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "htmldjango"}
 }
 
-require('lspconfig')['pylsp'].setup {
-  on_attach = on_attach,
-  flags = lsp_flags,
-  capabilities = capabilities,
-}
-
 require('lspconfig')['pyright'].setup {
   on_attach = on_attach,
   flags = lsp_flags,
@@ -618,60 +612,23 @@ require('lspconfig')['vimls'].setup {
 EOF
 
 " ---
-" formatter.nvim
+" null-ls.nvim
 " ---
 
 lua <<EOF
-require('formatter').setup({
-  filetype = {
-    python = {
-      require("formatter.filetypes.python").black,
-      require("formatter.filetypes.python").isort,
+local null_ls = require("null-ls")
+
+null_ls.setup({
+    sources = {
+        null_ls.builtins.formatting.black,
+        null_ls.builtins.formatting.ruff,
+        null_ls.builtins.formatting.djhtml,
+        null_ls.builtins.formatting.prettier,
     },
-    htmldjango = {
-      function()
-        return {
-          exe = "djhtml",
-          args = { "-" },
-          stdin = true,
-        }
-      end,
-    },
-    svelte = {
-      require("formatter.filetypes.svelte").prettier,
-    },
-    javascript = {
-      require("formatter.filetypes.javascript").prettier,
-    },
-    javascriptreact = {
-      require("formatter.filetypes.javascript").prettier,
-    },
-    css = {
-      require("formatter.filetypes.css").prettier,
-    },
-    json = {
-      require("formatter.filetypes.json").prettier,
-    },
-    html = {
-      require("formatter.filetypes.html").prettier,
-    },
-    yaml = {
-      require("formatter.filetypes.yaml").prettier,
-    },
-    yaml = {
-      require("formatter.filetypes.yaml").prettier,
-    },
-    markdown = {
-      require("formatter.filetypes.markdown").prettier,
-    },
-    -- ["*"] = {
-    --  require("formatter.filetypes.any").remove_trailing_whitespace,
-    -- }
-  },
 })
 EOF
 
-nnoremap <silent> gf :Format<CR>
+nnoremap <silent> gf <cmd>lua vim.lsp.buf.format()<CR>
 
 " ---
 " telescope
@@ -759,7 +716,7 @@ require("mason-lspconfig").setup({
     "emmet_ls",
     "html",
     "pyright",
-    "pylsp",
+    "ruff_lsp",
     "sourcery",
     "sumneko_lua",
     "svelte",
@@ -782,11 +739,10 @@ require('mason-tool-installer').setup({
     "css-lsp",
     "emmet-ls",
     "html-lsp",
-    "isort",
     "lua-language-server",
     "prettier",
     "pyright",
-    "python-lsp-server",
+    "ruff",
     "svelte-language-server",
     "terraform-ls",
     "tflint",

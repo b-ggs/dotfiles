@@ -609,6 +609,12 @@ require('lspconfig')['vimls'].setup {
   flags = lsp_flags,
   capabilities = capabilities,
 }
+
+require('lspconfig')['volar'].setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+  capabilities = capabilities,
+}
 EOF
 
 " ---
@@ -722,6 +728,7 @@ require("mason-lspconfig").setup({
     "svelte",
     "tsserver",
     "vimls",
+    "volar",
   },
   automatic_installation = true,
 })
@@ -747,6 +754,7 @@ require('mason-tool-installer').setup({
     "terraform-ls",
     "tflint",
     "typescript-language-server",
+    "volar",
     "vim-language-server",
   },
   run_on_start = false,

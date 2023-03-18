@@ -561,7 +561,14 @@ require('lspconfig')['html'].setup {
 require('lspconfig')['pyright'].setup {
   on_attach = on_attach,
   flags = lsp_flags,
-  -- capabilities = capabilities,
+  capabilities = capabilities,
+}
+
+
+require('lspconfig')['rust_analyzer'].setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+  capabilities = capabilities,
 }
 
 sourcery_token = os.getenv("SOURCERY_TOKEN")
@@ -610,16 +617,53 @@ require('lspconfig')['vimls'].setup {
   capabilities = capabilities,
 }
 
-require('lspconfig')['volar'].setup {
-  on_attach = on_attach,
-  flags = lsp_flags,
-  capabilities = capabilities,
-}
+-- require('lspconfig')['volar'].setup {
+--   on_attach = on_attach,
+--   flags = lsp_flags,
+--   capabilities = capabilities,
+-- }
+--
+-- require('lspconfig')['vuels'].setup {
+--   on_attach = on_attach,
+--   flags = lsp_flags,
+--   capabilities = capabilities,
+-- }
+
+-- https://github.com/2nthony/dotfiles/blob/main/.config/lvim/lua/plugins/lspconfig.lua
+
+-- vue
+-- enable take over mode, disable tsserver
+local lsp = require("lspconfig")
+local util = require("lspconfig.util")
+
+local vue_path = util.path.join(project_root, "node_modules", "vue")
+local is_vue = vim.fn.isdirectory(vue_path) == 1
+if is_vue then
+  lsp.volar.setup {
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+    filetypes = {
+      'vue',
+      'javascript',
+      'typescript',
+      'javascriptreact',
+      'typescriptreact',
+      'json',
+    },
+  }
+  lsp.tsserver.setup {
+    root_dir = function() return false end,
+    single_file_support = false,
+  }
+end
 EOF
 
 " ---
 " null-ls.nvim
 " ---
+
+" https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
 
 lua <<EOF
 local null_ls = require("null-ls")
@@ -627,9 +671,10 @@ local null_ls = require("null-ls")
 null_ls.setup({
     sources = {
         null_ls.builtins.formatting.black,
-        null_ls.builtins.formatting.ruff,
         null_ls.builtins.formatting.djhtml,
         null_ls.builtins.formatting.prettier,
+        null_ls.builtins.formatting.ruff,
+        null_ls.builtins.formatting.rustfmt,
     },
 })
 EOF
@@ -724,11 +769,13 @@ require("mason-lspconfig").setup({
     "lua_ls",
     "pyright",
     "ruff_lsp",
+    "rust_analyzer",
     "sourcery",
     "svelte",
     "tsserver",
     "vimls",
     "volar",
+    "vuels",
   },
   automatic_installation = true,
 })
@@ -750,11 +797,11 @@ require('mason-tool-installer').setup({
     "prettier",
     "pyright",
     "ruff",
+    "rustfmt",
     "svelte-language-server",
     "terraform-ls",
     "tflint",
     "typescript-language-server",
-    "volar",
     "vim-language-server",
   },
   run_on_start = false,

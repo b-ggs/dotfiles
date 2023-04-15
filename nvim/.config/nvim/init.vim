@@ -156,7 +156,7 @@ Plug 'vim-test/vim-test'
 " Async tests
 Plug 'nvim-lua/plenary.nvim'
 Plug 'antoinemadec/FixCursorHold.nvim'
-Plug 'nvim-neotest/neotest'
+Plug 'nvim-neotest/neotest', {'tag': 'v2.11.0'}
 Plug 'nvim-neotest/neotest-vim-test'
 " Native lsp
 Plug 'neovim/nvim-lspconfig'
@@ -179,6 +179,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'lewis6991/gitsigns.nvim'
 " Commenting
 Plug 'numToStr/Comment.nvim'
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 " Parentheses matching
 " Plug 'p00f/nvim-ts-rainbow'
 " LSP, linter, formatter installer
@@ -293,7 +294,11 @@ require'nvim-treesitter.configs'.setup {
   rainbow = {
     enable = true,
     extended_mode = true,
-  }
+  },
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
+  },
 }
 EOF
 
@@ -742,7 +747,9 @@ EOF
 " ---
 
 lua <<EOF
-require('Comment').setup()
+require('Comment').setup({
+  pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+})
 EOF
 
 " ---

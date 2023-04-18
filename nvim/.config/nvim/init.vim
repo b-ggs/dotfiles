@@ -156,7 +156,7 @@ Plug 'vim-test/vim-test'
 " Async tests
 Plug 'nvim-lua/plenary.nvim'
 Plug 'antoinemadec/FixCursorHold.nvim'
-Plug 'nvim-neotest/neotest', {'tag': 'v2.11.0'}
+Plug 'nvim-neotest/neotest'
 Plug 'nvim-neotest/neotest-vim-test'
 " Native lsp
 Plug 'neovim/nvim-lspconfig'

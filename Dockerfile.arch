@@ -3,8 +3,8 @@ FROM archlinux:base-devel
 RUN pacman -Syu --noconfirm \
   && pacman -S --noconfirm neovim zsh git ripgrep fzf tmux unzip ctags stow \
   && curl -fsSL https://fnm.vercel.app/install | bash \
-  && $HOME/.local/share/fnm/fnm install 19 \
-  && $HOME/.local/share/fnm/fnm exec --using=19 npm update --location=global npm
+  && $HOME/.local/share/fnm/fnm install 20 \
+  && $HOME/.local/share/fnm/fnm exec --using=20 npm update --location=global npm
 
 # copy dotfiles
 COPY . /root/.files/

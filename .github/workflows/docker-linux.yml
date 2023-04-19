@@ -32,6 +32,6 @@ jobs:
               && rg --version \
               && git --version \
               && git --version \
-              && \$HOME/.local/share/fnm/fnm exec --using=19 node --version \
-              && \$HOME/.local/share/fnm/fnm exec --using=19 npm list --location=global \
+              && \$HOME/.local/share/fnm/fnm exec --using=20 node --version \
+              && \$HOME/.local/share/fnm/fnm exec --using=20 npm list --location=global \
             "

@@ -188,6 +188,8 @@ Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
 " Context
 Plug 'nvim-treesitter/nvim-treesitter-context'
+" Copilot
+Plug 'github/copilot.vim'
 call plug#end()
 
 " ---
@@ -824,6 +826,14 @@ require'treesitter-context'.setup()
 EOF
 
 hi TreesitterContextBottom gui=underline guisp=Grey
+
+" ---
+" copilot.vim
+" ---
+
+" Use Ctrl-j to accept suggestions
+imap <silent><script><expr> <C-j> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
 
 
 " ---

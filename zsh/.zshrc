@@ -8,10 +8,10 @@ bindkey "^N" history-beginning-search-forward
 
 # env
 
-export PATH="$PATH:$HOME/.bin"
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:/usr/local/sbin"
-export PATH="$PATH:$HOME/.cargo/bin/"
+export PATH="$HOME/.bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/.cargo/bin$PATH"
 
 if [[ "$(uname)" == "Linux" ]] && [[ ! $(uname -o) == "Android" ]]; then
   export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
@@ -120,6 +120,9 @@ if [[ -d "$HOME/.keychain" ]]; then
   keychain --nogui -q $HOME/.ssh/id_ed25519
   source $HOME/.keychain/$(hostname)-sh
 fi
+
+# TODO: move to an appropriate section I guess
+export PATH="$HOME/.local/bin:$PATH"
 
 # omz
 

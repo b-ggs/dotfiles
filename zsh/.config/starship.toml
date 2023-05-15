@@ -7,8 +7,8 @@ $nodejs\
 $time\
 $cmd_duration\
 ${custom.ssh}\
-${custom.docker}
-($kubernetes)$character"""
+${custom.docker}(\n$kubernetes)
+$character"""
 
 [directory]
 format = "[](fg:purple)[$path](bg:purple fg:black bold)[](fg:purple) "
@@ -18,12 +18,6 @@ format = "$branch"
 
 [git_status]
 format = "($conflicted$untracked$modified$staged$renamed$deleted) "
-conflicted = "*"
-untracked = "*"
-modified = "*"
-staged = "*"
-renamed = "*"
-deleted = "*"
 
 [python]
 format = "(python-$version( $virtualenv)) "
@@ -37,11 +31,12 @@ version_format = "$raw"
 
 [kubernetes]
 # format = 'on [⛵ ($user on )($cluster in )$context \($namespace\)](dimmed green) '
-format = "(kube: ($user on )($cluster in )$context \\($namespace\\)) "
+format = "(($user on )($cluster in )$context \\($namespace\\)) "
 disabled = false
 
 [time]
 format = "$time "
+use_12hr = true
 disabled = false
 
 [cmd_duration]

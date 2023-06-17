@@ -7,3 +7,7 @@ if [[ -d "$HOME/.pyenv" ]]; then
   export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init --path)"
 fi
+
+if [[ -d "$HOME/.orbstack" ]]; then
+  source ~/.orbstack/shell/init.zsh 2>/dev/null || :
+fi

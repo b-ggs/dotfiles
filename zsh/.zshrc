@@ -136,3 +136,13 @@ source $ZSH/oh-my-zsh.sh
 # starship
 
 eval "$(starship init zsh)"
+
+# pnpm
+
+if [[ -d "$HOME/Library/pnpm" ]]; then
+  export PNPM_HOME="/Users/joshua/Library/pnpm"
+  case ":$PATH:" in
+    *":$PNPM_HOME:"*) ;;
+    *) export PATH="$PNPM_HOME:$PATH" ;;
+  esac
+fi

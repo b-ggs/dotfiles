@@ -186,6 +186,8 @@ Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
+" LSP progress
+Plug 'j-hui/fidget.nvim', { 'tag': 'legacy' }
 " Context
 Plug 'nvim-treesitter/nvim-treesitter-context'
 " Copilot
@@ -815,6 +817,14 @@ require('mason-tool-installer').setup({
   },
   run_on_start = false,
 })
+EOF
+
+" ---
+" fidget.nvim
+" ---
+
+lua <<EOF
+require"fidget".setup{}
 EOF
 
 " ---

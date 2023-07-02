@@ -172,7 +172,7 @@ Plug 'hrsh7th/vim-vsnip'
 " Formatting
 Plug 'jose-elias-alvarez/null-ls.nvim'
 " Fuzzy finder
-Plug 'nvim-telescope/telescope.nvim', {'tag': '0.1.0'}
+Plug 'nvim-telescope/telescope.nvim', {'tag': '0.1.2'}
 " File exploer
 Plug 'kyazdani42/nvim-tree.lua'
 " Git decorations

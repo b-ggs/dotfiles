@@ -115,14 +115,7 @@ nnoremap tm :tabm<Space>
 nnoremap td :tabclose<CR>
 
 " Restart LSP
-nnoremap rr :LspRestart<CR>
-
-" ---
-" macros
-" ---
-
-let @p='gg0Orequire ''pry''orequire ''pry-byebug''0'
-let @i='oimport ipdb; ipdb.set_trace();'
+nnoremap lr :LspRestart<CR>
 
 " ---
 " vim-plug

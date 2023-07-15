@@ -185,6 +185,8 @@ Plug 'j-hui/fidget.nvim', { 'tag': 'legacy' }
 Plug 'nvim-treesitter/nvim-treesitter-context'
 " Copilot
 Plug 'github/copilot.vim'
+" Guess indentation
+Plug 'NMAC427/guess-indent.nvim'
 call plug#end()
 
 " ---
@@ -840,6 +842,14 @@ hi TreesitterContextBottom gui=underline guisp=Grey
 imap <silent><script><expr> <C-j> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
 
+
+" ---
+" guess-indent
+" ---
+
+lua <<EOF
+require('guess-indent').setup {}
+EOF
 
 " ---
 " Force Terraform files to use tf syntax

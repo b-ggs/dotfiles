@@ -677,6 +677,7 @@ null_ls.setup({
         null_ls.builtins.formatting.prettier,
         null_ls.builtins.formatting.ruff,
         null_ls.builtins.formatting.rustfmt,
+        null_ls.builtins.formatting.stylua,
     },
 })
 EOF
@@ -803,6 +804,7 @@ require('mason-tool-installer').setup({
     "ruff",
     "rustfmt",
     "svelte-language-server",
+    "stylua",
     "terraform-ls",
     "tflint",
     "typescript-language-server",

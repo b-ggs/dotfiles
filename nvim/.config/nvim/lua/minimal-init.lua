@@ -27,9 +27,6 @@ vim.opt.smartcase = true
 -- Indent with 2 spaces when >> << == are used
 vim.opt.shiftwidth = 2
 
--- Tab key will insert spaces instead of tabs
--- vim.opt.expandtab = true
-
 -- Display trailing whitespaces as • and tab as →•
 vim.opt.list = true
 vim.opt.listchars = { tab = "→ ", trail = "•" }

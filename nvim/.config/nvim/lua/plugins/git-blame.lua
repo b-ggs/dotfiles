@@ -1,3 +1,3 @@
 return {
-  'f-person/git-blame.nvim'
+	"f-person/git-blame.nvim",
 }

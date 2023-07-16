@@ -3,11 +3,13 @@ return {
 	dependencies = {
 		"nvim-neotest/neotest-vim-test",
 	},
-	opts = {
-		adapters = {
-			require("neotest-vim-test"),
-		},
-	},
+	opts = function()
+		return {
+			adapters = {
+				require("neotest-vim-test"),
+			},
+		}
+	end,
 	init = function()
 		vim.cmd([[
 	  nmap <silent> tt <cmd>lua require("neotest").run.run()<CR>

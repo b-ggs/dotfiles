@@ -1,4 +1,1 @@
-return {
-	"norcalli/nvim-colorizer.lua",
-	config = true,
-}
+return {"norcalli/nvim-colorizer.lua", config = true}

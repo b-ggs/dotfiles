@@ -24,9 +24,6 @@ vim.opt.ignorecase = true
 -- Case sensitive search for queries with caps
 vim.opt.smartcase = true
 
--- Display tabs as 2 spaces
-vim.opt.tabstop = 4
-
 -- Indent with 2 spaces when >> << == are used
 vim.opt.shiftwidth = 2
 

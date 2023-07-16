@@ -187,6 +187,8 @@ Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'github/copilot.vim'
 " Guess indentation
 Plug 'NMAC427/guess-indent.nvim'
+" Neovim Lua stuff
+Plug 'folke/neodev.nvim'
 call plug#end()
 
 " ---
@@ -849,6 +851,32 @@ let g:copilot_no_tab_map = v:true
 
 lua <<EOF
 require('guess-indent').setup {}
+EOF
+
+" ---
+" neodev
+" ---
+
+lua <<EOF
+require('neodev').setup {}
+
+-- then setup your lsp server as usual
+local lspconfig = require('lspconfig')
+
+-- example to setup lua_ls and enable call snippets
+lspconfig.lua_ls.setup({
+  settings = {
+    Lua = {
+      completion = {
+        callSnippet = "Replace"
+      },
+      workspace = {
+        checkThirdParty = false,
+      },
+    }
+  }
+})
+
 EOF
 
 " ---

@@ -14,7 +14,6 @@ WORKDIR /root/.files/
 RUN make zsh-configure \
   && stow zsh \
   && stow nvim \
-  && make nvim-configure \
   && stow tmux \
   && stow ripgrep \
   && make git-configure \

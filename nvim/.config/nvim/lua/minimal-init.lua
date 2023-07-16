@@ -31,7 +31,7 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 2
 
 -- Tab key will insert spaces instead of tabs
-vim.opt.expandtab = true
+-- vim.opt.expandtab = true
 
 -- Display trailing whitespaces as • and tab as →•
 vim.opt.list = true

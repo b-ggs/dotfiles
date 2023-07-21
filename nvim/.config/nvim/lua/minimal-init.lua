@@ -59,8 +59,8 @@ vim.keymap.set("n", "k", "v:count ? 'k' : 'gk'", { expr = true })
 
 -- Remaps to correct mistypes
 vim.keymap.set({ "n", "i", "v" }, "<F1>", "<Esc>")
-vim.keymap.set({ "n", "i", "v" }, "<S-K>", "<Esc>")
-vim.keymap.set({ "n", "i", "v" }, "Q", "<Nop>")
+vim.keymap.set({ "n", }, "<S-K>", "<Nop>")
+vim.keymap.set({ "n", }, "Q", "<Nop>")
 
 -- Commands to correct mistypes
 vim.api.nvim_create_user_command("W", "w", {})

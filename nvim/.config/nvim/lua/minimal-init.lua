@@ -75,3 +75,7 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 -- Remap creating splits to leader+{-,\}
 vim.keymap.set("n", "<Leader>-", ":split<CR>")
 vim.keymap.set("n", "<Leader>\\", ":vsplit<CR>")
+
+-- Disable python3 and ruby providers
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0

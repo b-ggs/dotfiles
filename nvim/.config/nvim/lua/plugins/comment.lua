@@ -1,1 +1,1 @@
-return {"numToStr/Comment.nvim", config = true}
+return { "numToStr/Comment.nvim", config = true }

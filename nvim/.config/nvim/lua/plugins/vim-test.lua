@@ -1,7 +1,7 @@
 return {
-    "vim-test/vim-test",
-    init = function()
-        vim.cmd([[
+  "vim-test/vim-test",
+  init = function()
+    vim.cmd([[
             nmap <silent> tn :TestNearest<CR>
             nmap <silent> tf :TestFile<CR>
             let test#strategy = "neovim"
@@ -9,5 +9,5 @@ return {
             " Override this value in local.nvimrc
             let test#python#djangotest#executable="docker exec web python manage.py test"
         ]])
-    end
+  end,
 }

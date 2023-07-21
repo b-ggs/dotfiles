@@ -13,4 +13,4 @@ jobs:
 
       - name: Stylua
         run: |
-          npx @johnnymorganz/stylua-bin -c -g nvim/.config/nvim/**/*.lua | nvim -
+          npx @johnnymorganz/stylua-bin -c -g nvim/.config/nvim/**/*.lua

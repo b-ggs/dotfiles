@@ -1,6 +1,5 @@
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
   opts = function()
     local palette = require("catppuccin.palettes.init").get_palette()
 

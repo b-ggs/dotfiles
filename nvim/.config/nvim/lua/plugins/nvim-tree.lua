@@ -1,9 +1,29 @@
 return {
   "nvim-tree/nvim-tree.lua",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
   opts = {
     view = { side = "right" },
-    renderer = { icons = { git_placement = "after" } },
+    renderer = {
+      icons = {
+        show = {
+          file = false,
+          folder = false,
+          folder_arrow = true,
+        },
+        git_placement = "after",
+        glyphs = {
+          folder = {
+            arrow_closed = "▶",
+            arrow_open = "▼",
+            default = "▶",
+            open = "▼",
+            empty = "▶",
+            empty_open = "▼",
+            symlink = "▶",
+            symlink_open = "▼",
+          },
+        },
+      },
+    },
     git = { ignore = false },
   },
   init = function()

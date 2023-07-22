@@ -186,5 +186,11 @@ return {
         single_file_support = false,
       })
     end
+
+    require("lspconfig")["lua_ls"].setup({
+      on_attach = on_attach,
+      flags = lsp_flags,
+      capabilities = capabilities,
+    })
   end,
 }

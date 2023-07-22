@@ -1,5 +1,10 @@
 -- minimal-init.lua
 -- Contains a minimal set of settings (i.e. without plugins) for Neovim
+
+-- Disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- No swapfiles
 vim.opt.swapfile = false
 

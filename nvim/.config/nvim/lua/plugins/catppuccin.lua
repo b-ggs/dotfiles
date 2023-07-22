@@ -3,7 +3,12 @@ return {
   name = "catppuccin",
   priority = 1000,
   opts = {
-    integrations = { ts_rainbow = true },
+    integrations = {
+      mason = true,
+      treesitter_context = true,
+      ts_rainbow = true,
+      which_key = true,
+    },
     color_overrides = {
       mocha = {
         text = "#F4CDE9",

@@ -15,23 +15,23 @@ $character"""
 format = "[](fg:purple)[$path](bg:purple fg:black bold)[](fg:purple) "
 
 [git_branch]
-format = "$branch"
+format = "(• $branch)"
 
 [git_status]
 format = "($conflicted$untracked$modified$staged$renamed$deleted) "
 
 [python]
-format = "(python-$version( $virtualenv)) "
+format = "(• python-$version( $virtualenv)) "
 symbol = ""
 version_format = "$raw"
 
 [nodejs]
-format = "(node-$version) "
+format = "(• node-$version) "
 symbol = ""
 version_format = "$raw"
 
 [rust]
-format = "(rust-$version) "
+format = "(• rust-$version) "
 symbol = ""
 version_format = "$raw"
 
@@ -41,12 +41,13 @@ format = "(($user on )($cluster in )$context \\($namespace\\)) "
 disabled = false
 
 [time]
-format = "$time "
+format = "• $time "
 use_12hr = true
 disabled = false
 
 [cmd_duration]
-format = "$duration "
+min_time = 0
+format = "• $duration "
 
 [character]
 success_symbol = "\\$"
@@ -54,9 +55,9 @@ error_symbol = "[\\$](red)"
 vicmd_symbol = "[\\$](blue)"
 
 [custom.ssh]
-format = "SSH "
+format = "• SSH "
 when = """ test ! -z "$SSH_CLIENT" """
 
 [custom.docker]
-format = "Docker "
+format = "• Docker "
 when = """ test ! -z "$IN_DOCKER" """

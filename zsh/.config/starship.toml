@@ -21,7 +21,7 @@ format = "(• $branch)"
 format = "($conflicted$untracked$modified$staged$renamed$deleted) "
 
 [python]
-format = "(• python-$version( $virtualenv)) "
+format = "(• python-$version( • $virtualenv)) "
 symbol = ""
 version_format = "$raw"
 

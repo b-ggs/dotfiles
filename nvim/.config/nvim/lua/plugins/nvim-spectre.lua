@@ -4,8 +4,8 @@ return {
     color_devicons = false,
   },
   init = function()
-    vim.keymap.set('n', '<leader>a', '<cmd>lua require("spectre").toggle()<CR>', {
-        desc = "Toggle Spectre"
+    vim.keymap.set("n", "<leader>a", '<cmd>lua require("spectre").toggle()<CR>', {
+      desc = "Toggle Spectre",
     })
   end,
 }

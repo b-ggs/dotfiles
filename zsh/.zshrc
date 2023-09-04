@@ -104,10 +104,10 @@ if [[ -d "$HOME/.fly" ]]; then
   export PATH="$FLYCTL_INSTALL/bin:$PATH"
 fi
 
-# deta
+# deta space
 
-if [[ -d "$HOME/.deta" ]]; then
-  export PATH="$HOME/.deta/bin:$PATH"
+if [[ -d "$HOME/.detaspace" ]]; then
+  export PATH="$HOME/.detaspace/bin:$PATH"
 fi
 
 # private zshrc

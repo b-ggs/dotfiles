@@ -13,12 +13,6 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.cargo/bin$PATH"
 
-if [[ "$(uname)" == "Linux" ]] && [[ ! $(uname -o) == "Android" ]]; then
-  export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
-  export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"
-  export PATH="/home/linuxbrew/.linuxbrew/opt:$PATH"
-fi
-
 export LANG="en_US.UTF-8"
 export SHELL="$(which zsh)"
 
@@ -43,15 +37,12 @@ elif [[ "$(uname)" == "Linux" ]]; then
   alias lock='i3lock'
 fi
 
-alias be='bundle exec'
-alias bi='bundle install'
-alias d='docker'
-alias dc='docker-compose'
 alias poi='poetry install --sync'
 alias pos='poetry shell'
 alias popreferactive='poetry config virtualenvs.prefer-active-python true'
-alias vac='source venv/bin/activate'
 alias van='python3 -m venv venv'
+alias vac='source venv/bin/activate'
+alias vad='deactivate'
 
 alias home='cd $HOME'
 alias dev='cd $HOME/dev'

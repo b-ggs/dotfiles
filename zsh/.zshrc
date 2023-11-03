@@ -81,30 +81,14 @@ export FZF_DEFAULT_OPTS="--color 16"
 if [[ -d "$HOME/.fnm" ]] || [[ -f /opt/homebrew/bin/fnm ]]; then
   export PATH="$HOME/.fnm:$PATH"
   eval "$(fnm env --use-on-cd)"
-fi
-
-if [[ -d "$HOME/.local/share/fnm" ]]; then
-  export PATH="$HOME/.local/share/fnm:$PATH"
-  eval "$(fnm env --use-on-cd)"
-fi
-
-# fly
-
-if [[ -d "$HOME/.fly" ]]; then
-  export FLYCTL_INSTALL="/home/angela/.fly"
-  export PATH="$FLYCTL_INSTALL/bin:$PATH"
-fi
-
-# deta space
-
-if [[ -d "$HOME/.detaspace" ]]; then
-  export PATH="$HOME/.detaspace/bin:$PATH"
+  echo "Loaded fnm via $HOME/.fnm"
 fi
 
 # private zshrc
 
 if [ -f "$HOME/.private.zshrc" ]; then
   source "$HOME/.private.zshrc" 
+  echo "Loaded private zshrc"
 fi
 
 # keychain
@@ -112,6 +96,7 @@ fi
 if [[ -d "$HOME/.keychain" ]]; then
   keychain --nogui -q $HOME/.ssh/id_ed25519
   source $HOME/.keychain/$(hostname)-sh
+  echo "Loaded keychain"
 fi
 
 # TODO: move to an appropriate section I guess
@@ -129,13 +114,3 @@ source $ZSH/oh-my-zsh.sh
 # starship
 
 eval "$(starship init zsh)"
-
-# pnpm
-
-if [[ -d "$HOME/Library/pnpm" ]]; then
-  export PNPM_HOME="/Users/joshua/Library/pnpm"
-  case ":$PATH:" in
-    *":$PNPM_HOME:"*) ;;
-    *) export PATH="$PNPM_HOME:$PATH" ;;
-  esac
-fi

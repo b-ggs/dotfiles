@@ -6,12 +6,12 @@ bindkey -e
 bindkey "^P" history-beginning-search-backward
 bindkey "^N" history-beginning-search-forward
 
+
 # env
 
 export PATH="$HOME/.bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-export PATH="$HOME/.cargo/bin$PATH"
 
 export LANG="en_US.UTF-8"
 export SHELL="$(which zsh)"
@@ -26,6 +26,7 @@ fi
 
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
+
 # aliases
 
 if [[ "$(uname)" == "Darwin" ]]; then
@@ -33,6 +34,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
   alias hidedesktop='defaults write com.apple.finder CreateDesktop false && killall Finder'
   alias showdesktop='defaults write com.apple.finder CreateDesktop true && killall Finder'
   alias resetdock='defaults write com.apple.dock tilesize -int 32; killall Dock'
+  alias flushdnscache='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
 elif [[ "$(uname)" == "Linux" ]]; then
   alias lock='i3lock'
 fi
@@ -60,12 +62,8 @@ alias known-hosts='$EDITOR $HOME/.ssh/known_hosts'
 alias ssh-config='cd $HOME/.ssh-config'
 alias authorized-keys='cd $HOME/.authorized-keys'
 
-alias lipsum='echo "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." | pbcopy'
-
-alias sshkeys='ssh -o AddKeysToAgent=yes -o ForwardAgent=yes'
 alias sshforward='ssh -L 8000:localhost:8000 -L 8143:localhost:8143 -L 8823:localhost:8823 -L 5678:localhost:5678 -L 3000:localhost:3000 -L 8086:localhost:8086 -L 5432:localhost:5432 -L 8080:localhost:8080 -L 8082:localhost:8082 -L 8001:localhost:8001 -CNT '
 
-alias flushdnscachemacos='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
 
 # fzf
 
@@ -76,6 +74,7 @@ export FZF_DEFAULT_OPTS="--color 16"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+
 # fnm
 
 if [[ -d "$HOME/.fnm" ]] || [[ -f /opt/homebrew/bin/fnm ]]; then
@@ -84,12 +83,14 @@ if [[ -d "$HOME/.fnm" ]] || [[ -f /opt/homebrew/bin/fnm ]]; then
   echo "Loaded fnm via $HOME/.fnm"
 fi
 
+
 # private zshrc
 
 if [ -f "$HOME/.private.zshrc" ]; then
   source "$HOME/.private.zshrc" 
   echo "Loaded private zshrc"
 fi
+
 
 # keychain
 
@@ -99,8 +100,6 @@ if [[ -d "$HOME/.keychain" ]]; then
   echo "Loaded keychain"
 fi
 
-# TODO: move to an appropriate section I guess
-export PATH="$HOME/.local/bin:$PATH"
 
 # omz
 

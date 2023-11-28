@@ -22,3 +22,8 @@ if [[ -d "$HOME/.pyenv" ]]; then
   eval "$(pyenv init --path)"
   echo "Loaded pyenv via $PYENV_ROOT"
 fi
+
+if [[ -d "$HOME/.cargo" ]]; then
+  . "$HOME/.cargo/env" 
+  echo "Loaded cargo via $HOME/.cargo"
+fi

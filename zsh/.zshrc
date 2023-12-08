@@ -81,6 +81,8 @@ if [[ -d "$HOME/.fnm" ]] || [[ -f /opt/homebrew/bin/fnm ]]; then
   export PATH="$HOME/.fnm:$PATH"
   eval "$(fnm env --use-on-cd)"
   echo "Loaded fnm via $HOME/.fnm"
+else
+  echo "WARN: fnm loaded"
 fi
 
 
@@ -89,6 +91,8 @@ fi
 if [ -f "$HOME/.private.zshrc" ]; then
   source "$HOME/.private.zshrc" 
   echo "Loaded private zshrc"
+else
+  echo "WARN: private zshrc not loaded"
 fi
 
 
@@ -98,6 +102,8 @@ if [[ -d "$HOME/.keychain" ]]; then
   keychain --nogui -q $HOME/.ssh/id_ed25519
   source $HOME/.keychain/$(hostname)-sh
   echo "Loaded keychain"
+else
+  echo "WARN: keychain"
 fi
 
 

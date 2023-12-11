@@ -42,6 +42,11 @@ fi
 alias poi='poetry install --sync'
 alias pos='poetry shell'
 alias popreferactive='poetry config virtualenvs.prefer-active-python true'
+
+povenvpath() {
+  poetry env info | awk '/^Path:/{print $2; exit}'
+}
+
 alias van='python3 -m venv venv'
 alias vac='source venv/bin/activate'
 alias vad='deactivate'

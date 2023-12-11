@@ -24,7 +24,7 @@ return {
         "vim",
       },
       highlight = { enable = true },
-      rainbow = { enable = true, extended_mode = true },
+      rainbow = { enable = false, extended_mode = true },
     })
   end,
 }

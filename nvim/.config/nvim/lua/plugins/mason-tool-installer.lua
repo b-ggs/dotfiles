@@ -3,7 +3,6 @@ return {
   opts = {
     ensure_installed = {
       "astro-language-server",
-      "black",
       "css-lsp",
       "emmet-ls",
       "html-lsp",

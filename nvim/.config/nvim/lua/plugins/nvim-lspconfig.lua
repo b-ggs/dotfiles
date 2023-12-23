@@ -99,21 +99,6 @@ return {
       capabilities = capabilities,
     })
 
-    -- sourcery_token = os.getenv("SOURCERY_TOKEN")
-    --
-    -- if sourcery_token then
-    --   require("lspconfig")["sourcery"].setup({
-    --     on_attach = on_attach,
-    --     flags = lsp_flags,
-    --     capabilities = capabilities,
-    --     init_options = {
-    --       token = sourcery_token,
-    --       extension_version = "vim.lsp",
-    --       editor_version = "vim",
-    --     },
-    --   })
-    -- end
-
     require("lspconfig")["svelte"].setup({
       on_attach = on_attach,
       flags = lsp_flags,

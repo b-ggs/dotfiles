@@ -11,7 +11,6 @@ return {
       "pyright",
       "ruff_lsp",
       "rust_analyzer",
-      "sourcery",
       "svelte",
       "tsserver",
       "vimls",

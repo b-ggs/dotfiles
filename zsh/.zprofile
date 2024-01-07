@@ -64,6 +64,26 @@ else
 fi
 
 
+# cargo
+
+if [[ -d "$HOME/.cargo" ]]; then
+  . "$HOME/.cargo/env"
+  echo "$(__pill_text OK 2) cargo"
+else
+  echo "$(__pill_text WARN 3) cargo not found"
+fi
+
+
+# private zshrc
+
+if [ -f "$HOME/.private.zshrc" ]; then
+  source "$HOME/.private.zshrc"
+  echo "$(__pill_text OK 2) private zshrc"
+else
+  echo "$(__pill_text WARN 3) private zshrc not found"
+fi
+
+
 # keychain
 
 if [[ -d "$HOME/.keychain" ]]; then
@@ -86,24 +106,4 @@ if [[ -d "$HOME/.keychain" ]]; then
   fi
 else
   echo "$(__pill_text WARN 3) keychain not found"
-fi
-
-
-# cargo
-
-if [[ -d "$HOME/.cargo" ]]; then
-  . "$HOME/.cargo/env"
-  echo "$(__pill_text OK 2) cargo"
-else
-  echo "$(__pill_text WARN 3) cargo not found"
-fi
-
-
-# private zshrc
-
-if [ -f "$HOME/.private.zshrc" ]; then
-  source "$HOME/.private.zshrc"
-  echo "$(__pill_text OK 2) private zshrc"
-else
-  echo "$(__pill_text WARN 3) private zshrc not found"
 fi

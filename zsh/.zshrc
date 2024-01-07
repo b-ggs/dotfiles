@@ -69,6 +69,8 @@ alias authorized-keys='cd $HOME/.authorized-keys'
 
 alias sshforward='ssh -L 8000:localhost:8000 -L 8143:localhost:8143 -L 8823:localhost:8823 -L 5678:localhost:5678 -L 3000:localhost:3000 -L 8086:localhost:8086 -L 5432:localhost:5432 -L 8080:localhost:8080 -L 8082:localhost:8082 -L 8001:localhost:8001 -CNT '
 
+alias keychainloaddefault='keychain --nogui -q $HOME/.ssh/id_ed25519'
+
 
 # fzf
 
@@ -91,9 +93,23 @@ fi
 # keychain
 
 if [[ -d "$HOME/.keychain" ]]; then
-  keychain --nogui -q $HOME/.ssh/id_ed25519
-  source $HOME/.keychain/$(hostname)-sh
-  echo "$(__pill_text OK 2) keychain"
+  local default_keyfile=$HOME/.ssh/id_ed25519
+  local default_keychain_shellenv=$HOME/.keychain/$(hostname)-sh
+
+  if [[ ! -f "$default_keyfile" ]]; then
+    echo "$(__pill_text WARN 3) default keyfile not found"
+    return
+  fi
+
+  if [[ -f "$default_keychain_shellenv" ]]; then
+    source "$default_keychain_shellenv"
+  fi
+
+  if [[ $(keychain -l | grep $default_keyfile) ]] 2> /dev/null ; then
+    echo "$(__pill_text OK 2) default SSH key loaded in keychain"
+  else
+    echo "$(__pill_text WARN 3) default SSH key not loaded in keychain"
+  fi
 else
   echo "$(__pill_text WARN 3) keychain not found"
 fi

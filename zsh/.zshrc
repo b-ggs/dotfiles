@@ -82,22 +82,11 @@ export FZF_DEFAULT_OPTS="--color 16"
 
 # fnm
 
-if [[ -d "$HOME/.fnm" ]] || [[ -f /opt/homebrew/bin/fnm ]]; then
-  export PATH="$HOME/.fnm:$PATH"
+if [[ -f /opt/homebrew/bin/fnm ]]; then
   eval "$(fnm env --use-on-cd)"
-  echo "Loaded fnm via $HOME/.fnm"
+  echo "$(__pill_text OK 2) fnm"
 else
-  echo "WARN: fnm loaded"
-fi
-
-
-# private zshrc
-
-if [ -f "$HOME/.private.zshrc" ]; then
-  source "$HOME/.private.zshrc" 
-  echo "Loaded private zshrc"
-else
-  echo "WARN: private zshrc not loaded"
+  echo "$(__pill_text WARN 3) fnm not found"
 fi
 
 
@@ -106,9 +95,19 @@ fi
 if [[ -d "$HOME/.keychain" ]]; then
   keychain --nogui -q $HOME/.ssh/id_ed25519
   source $HOME/.keychain/$(hostname)-sh
-  echo "Loaded keychain"
+  echo "$(__pill_text OK 2) keychain"
 else
-  echo "WARN: keychain"
+  echo "$(__pill_text WARN 3) keychain not found"
+fi
+
+
+# private zshrc
+
+if [ -f "$HOME/.private.zshrc" ]; then
+  source "$HOME/.private.zshrc" 
+  echo "$(__pill_text OK 2) private zshrc"
+else
+  echo "$(__pill_text WARN 3) private zshrc not found"
 fi
 
 

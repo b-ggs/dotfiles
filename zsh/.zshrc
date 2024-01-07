@@ -77,8 +77,6 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden'
 # Use 16-color colorscheme
 export FZF_DEFAULT_OPTS="--color 16"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 
 # fnm
 

@@ -15,7 +15,8 @@ __pill_text() {
     echo -e "${pill_start}${background_color_start}${black_text_color}${text}${reset_color}${pill_end}"
 }
 
-# shell stuff
+
+# darwin
 
 if [[ "$(uname)" = "Darwin" ]]; then
   # Homebrew
@@ -30,6 +31,7 @@ if [[ "$(uname)" = "Darwin" ]]; then
     echo "$(__pill_text WARN 3) On Darwin but Homebrew not found"
   fi
 
+
   # OrbStack
   if [[ -d "$HOME/.orbstack" ]]; then
     source ~/.orbstack/shell/init.zsh 2>/dev/null || :
@@ -38,6 +40,9 @@ if [[ "$(uname)" = "Darwin" ]]; then
     echo "$(__pill_text WARN 3) On Darwin but OrbStack not found"
   fi
 fi
+
+
+# pyenv
 
 if [[ -d "$HOME/.pyenv" ]]; then
   export PYENV_ROOT="$HOME/.pyenv"
@@ -48,9 +53,57 @@ else
   echo "$(__pill_text WARN 3) pyenv not found"
 fi
 
+
+# fnm
+
+if [[ -f /opt/homebrew/bin/fnm ]]; then
+  eval "$(fnm env --use-on-cd)"
+  echo "$(__pill_text OK 2) fnm"
+else
+  echo "$(__pill_text WARN 3) fnm not found"
+fi
+
+
+# keychain
+
+if [[ -d "$HOME/.keychain" ]]; then
+  local default_keyfile=$HOME/.ssh/id_ed25519
+  local default_keychain_shellenv=$HOME/.keychain/$(hostname)-sh
+
+  if [[ ! -f "$default_keyfile" ]]; then
+    echo "$(__pill_text WARN 3) default keyfile not found"
+    return
+  fi
+
+  if [[ -f "$default_keychain_shellenv" ]]; then
+    source "$default_keychain_shellenv"
+  fi
+
+  if [[ $(keychain -l | grep $default_keyfile) ]] 2> /dev/null ; then
+    echo "$(__pill_text OK 2) default SSH key loaded in keychain"
+  else
+    echo "$(__pill_text WARN 3) default SSH key not loaded in keychain"
+  fi
+else
+  echo "$(__pill_text WARN 3) keychain not found"
+fi
+
+
+# cargo
+
 if [[ -d "$HOME/.cargo" ]]; then
-  . "$HOME/.cargo/env" 
+  . "$HOME/.cargo/env"
   echo "$(__pill_text OK 2) cargo"
 else
   echo "$(__pill_text WARN 3) cargo not found"
+fi
+
+
+# private zshrc
+
+if [ -f "$HOME/.private.zshrc" ]; then
+  source "$HOME/.private.zshrc"
+  echo "$(__pill_text OK 2) private zshrc"
+else
+  echo "$(__pill_text WARN 3) private zshrc not found"
 fi

@@ -1,10 +1,10 @@
-FROM ubuntu:23.10
+FROM ubuntu:22.04
 
 RUN apt-get update -y \
-  && apt-get install -y software-properties-common \
-  && add-apt-repository ppa:neovim-ppa/stable \
-  && apt-get update -y \
-  && apt-get install -y build-essential neovim zsh git ripgrep fzf tmux make curl sudo unzip universal-ctags stow \
+  && apt-get install -y build-essential zsh git ripgrep fzf tmux make curl sudo unzip universal-ctags stow \
+  && curl -Lo /tmp/nvim-linux64.tar.gz https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz \
+  && tar -C /tmp/ -xzvf /tmp/nvim-linux64.tar.gz \
+  && mv /tmp/nvim-linux64/bin/nvim /bin/nvim \
   && curl -fsSL https://fnm.vercel.app/install | bash \
   && $HOME/.local/share/fnm/fnm install 20 \
   && $HOME/.local/share/fnm/fnm exec --using=20 npm update --location=global npm

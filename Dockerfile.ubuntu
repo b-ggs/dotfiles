@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 RUN apt-get update -y \
   && apt-get install -y software-properties-common \
@@ -25,4 +25,4 @@ RUN make zsh-configure \
 # Just to inform the Starship prompt to show that we are in a Docker container
 ENV IN_DOCKER true
 
-CMD ["zsh"]
+CMD ["zsh", "-l"]

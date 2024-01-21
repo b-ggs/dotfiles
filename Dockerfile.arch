@@ -22,4 +22,4 @@ RUN make zsh-configure \
 # Just to inform the Starship prompt to show that we are in a Docker container
 ENV IN_DOCKER true
 
-CMD ["zsh"]
+CMD ["zsh", "-l"]

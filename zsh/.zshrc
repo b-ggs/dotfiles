@@ -35,6 +35,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
   alias showdesktop='defaults write com.apple.finder CreateDesktop true && killall Finder'
   alias resetdock='defaults write com.apple.dock tilesize -int 32; killall Dock'
   alias flushdnscache='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
+  alias chromeguest='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --guest &'
 elif [[ "$(uname)" == "Linux" ]]; then
   alias lock='i3lock'
 fi

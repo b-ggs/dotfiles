@@ -44,9 +44,6 @@ vim.opt.guicursor = ""
 -- Disable mouse
 vim.opt.mouse = ""
 
--- Use relative line numbers
-vim.opt.relativenumber = true
-
 -- Set leader key to Space
 vim.g.mapleader = " "
 

@@ -12,6 +12,7 @@ return {
       "ruff_lsp",
       "rust_analyzer",
       "svelte",
+      "tailwindcss",
       "tsserver",
       "vimls",
       "volar",

@@ -2,20 +2,17 @@ return {
   "WhoIsSethDaniel/mason-tool-installer.nvim",
   opts = {
     ensure_installed = {
-      "astro-language-server",
+      -- LSP servers
       "css-lsp",
-      "emmet-ls",
       "html-lsp",
       "lua-language-server",
-      "prettier",
       "pyright",
+      "ruff-lsp",
+      "typescript-language-server",
+      -- Linters & formatters
+      "prettier",
       "ruff",
       "stylua",
-      "svelte-language-server",
-      "terraform-ls",
-      "tflint",
-      "typescript-language-server",
-      "vim-language-server",
     },
     run_on_start = false,
   },

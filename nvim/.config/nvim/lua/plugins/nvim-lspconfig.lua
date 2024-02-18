@@ -28,29 +28,38 @@ return {
       capabilities = capabilities,
     })
 
-    vim.keymap.set("n", "ge", vim.diagnostic.open_float)
-    vim.keymap.set("n", "gp", vim.diagnostic.goto_prev)
-    vim.keymap.set("n", "gn", vim.diagnostic.goto_next)
-    vim.keymap.set("n", "gq", vim.diagnostic.setloclist)
+    vim.keymap.set("n", "ge", vim.diagnostic.open_float, { desc = "diagnostic open float" })
+    vim.keymap.set("n", "gp", vim.diagnostic.goto_prev, { desc = "diagnostic goto prev" })
+    vim.keymap.set("n", "gn", vim.diagnostic.goto_next, { desc = "diagnostic goto next" })
+    vim.keymap.set("n", "gq", vim.diagnostic.setloclist, { desc = "diagnostic set loclist" })
 
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
       callback = function(ev)
-        local opts = { buffer = ev.buf }
-        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-        vim.keymap.set("n", "gh", vim.lsp.buf.hover, opts)
-        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-        vim.keymap.set("n", "gH", vim.lsp.buf.signature_help, opts)
-        vim.keymap.set("n", "gwa", vim.lsp.buf.add_workspace_folder, opts)
-        vim.keymap.set("n", "gwr", vim.lsp.buf.remove_workspace_folder, opts)
+        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = ev.buf, desc = "lsp declaration" })
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = ev.buf, desc = "lsp definition" })
+        vim.keymap.set("n", "gh", vim.lsp.buf.hover, { buffer = ev.buf, desc = "lsp hover" })
+        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = ev.buf, desc = "lsp implementation" })
+        vim.keymap.set("n", "gH", vim.lsp.buf.signature_help, { buffer = ev.buf, desc = "lsp signature help" })
+        vim.keymap.set(
+          "n",
+          "gwa",
+          vim.lsp.buf.add_workspace_folder,
+          { buffer = ev.buf, desc = "lsp add workspace folder" }
+        )
+        vim.keymap.set(
+          "n",
+          "gwr",
+          vim.lsp.buf.remove_workspace_folder,
+          { buffer = ev.buf, desc = "lsp remove workspace folder" }
+        )
         vim.keymap.set("n", "gwl", function()
           print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-        end, opts)
-        vim.keymap.set("n", "gtd", vim.lsp.buf.type_definition, opts)
-        vim.keymap.set("n", "g2", vim.lsp.buf.rename, opts)
-        vim.keymap.set("n", "g3", vim.lsp.buf.code_action, opts)
-        vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+        end, { buffer = ev.buf, desc = "lsp list workspace folders" })
+        vim.keymap.set("n", "gtd", vim.lsp.buf.type_definition, { buffer = ev.buf, desc = "lsp type definition" })
+        vim.keymap.set("n", "g2", vim.lsp.buf.rename, { buffer = ev.buf, desc = "lsp rename" })
+        vim.keymap.set("n", "g3", vim.lsp.buf.code_action, { buffer = ev.buf, desc = "lsp code action" })
+        vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = ev.buf, desc = "lsp references" })
       end,
     })
 

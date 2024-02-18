@@ -1,5 +1,9 @@
 return {
   "neovim/nvim-lspconfig",
+  dependencies = {
+    "hrsh7th/nvim-cmp",
+    "folke/neodev.nvim",
+  },
   config = function()
     local lspconfig = require("lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -10,6 +14,13 @@ return {
 
     lspconfig.lua_ls.setup({
       capabilities = capabilities,
+      settings = {
+        Lua = {
+          completion = {
+            callSnippet = "Replace",
+          },
+        },
+      },
     })
 
     lspconfig.pyright.setup({
@@ -21,10 +32,6 @@ return {
     })
 
     lspconfig.tsserver.setup({
-      capabilities = capabilities,
-    })
-
-    lspconfig.vimls.setup({
       capabilities = capabilities,
     })
 

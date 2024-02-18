@@ -36,30 +36,30 @@ return {
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
       callback = function(ev)
-        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = ev.buf, desc = "lsp declaration" })
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = ev.buf, desc = "lsp definition" })
-        vim.keymap.set("n", "gh", vim.lsp.buf.hover, { buffer = ev.buf, desc = "lsp hover" })
-        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = ev.buf, desc = "lsp implementation" })
-        vim.keymap.set("n", "gH", vim.lsp.buf.signature_help, { buffer = ev.buf, desc = "lsp signature help" })
+        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = ev.buf, desc = "LSP declaration" })
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = ev.buf, desc = "LSP definition" })
+        vim.keymap.set("n", "gh", vim.lsp.buf.hover, { buffer = ev.buf, desc = "LSP hover" })
+        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = ev.buf, desc = "LSP implementation" })
+        vim.keymap.set("n", "gH", vim.lsp.buf.signature_help, { buffer = ev.buf, desc = "LSP signature help" })
         vim.keymap.set(
           "n",
           "gwa",
           vim.lsp.buf.add_workspace_folder,
-          { buffer = ev.buf, desc = "lsp add workspace folder" }
+          { buffer = ev.buf, desc = "LSP add workspace folder" }
         )
         vim.keymap.set(
           "n",
           "gwr",
           vim.lsp.buf.remove_workspace_folder,
-          { buffer = ev.buf, desc = "lsp remove workspace folder" }
+          { buffer = ev.buf, desc = "LSP remove workspace folder" }
         )
         vim.keymap.set("n", "gwl", function()
           print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-        end, { buffer = ev.buf, desc = "lsp list workspace folders" })
-        vim.keymap.set("n", "gtd", vim.lsp.buf.type_definition, { buffer = ev.buf, desc = "lsp type definition" })
-        vim.keymap.set("n", "g2", vim.lsp.buf.rename, { buffer = ev.buf, desc = "lsp rename" })
-        vim.keymap.set("n", "g3", vim.lsp.buf.code_action, { buffer = ev.buf, desc = "lsp code action" })
-        vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = ev.buf, desc = "lsp references" })
+        end, { buffer = ev.buf, desc = "LSP list workspace folders" })
+        vim.keymap.set("n", "gtd", vim.lsp.buf.type_definition, { buffer = ev.buf, desc = "LSP type definition" })
+        vim.keymap.set("n", "g2", vim.lsp.buf.rename, { buffer = ev.buf, desc = "LSP rename" })
+        vim.keymap.set("n", "g3", vim.lsp.buf.code_action, { buffer = ev.buf, desc = "LSP code action" })
+        vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = ev.buf, desc = "LSP references" })
       end,
     })
 

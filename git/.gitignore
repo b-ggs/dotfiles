@@ -21,8 +21,8 @@ node_modules
 # Kitty backup file
 kitty.conf.bak
 
-# Local nvim config
-local.nvimrc
-
 # IntelliJ
 .idea
+
+# nvim-config-local
+local.nvim.lua

@@ -1,8 +1,8 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    "hrsh7th/nvim-cmp",
     "folke/neodev.nvim",
+    "hrsh7th/nvim-cmp",
   },
   config = function()
     local lspconfig = require("lspconfig")
@@ -14,13 +14,6 @@ return {
 
     lspconfig.lua_ls.setup({
       capabilities = capabilities,
-      settings = {
-        Lua = {
-          completion = {
-            callSnippet = "Replace",
-          },
-        },
-      },
     })
 
     lspconfig.pyright.setup({

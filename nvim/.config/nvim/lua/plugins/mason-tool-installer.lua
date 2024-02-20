@@ -8,6 +8,7 @@ return {
       "lua-language-server",
       "pyright",
       "ruff-lsp",
+      "tailwindcss-language-server",
       "typescript-language-server",
       -- Linters & formatters
       "prettier",

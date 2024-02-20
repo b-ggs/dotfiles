@@ -8,6 +8,9 @@ return {
     local lspconfig = require("lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+    -- :help lspconfig-all
+
     lspconfig.cssls.setup({
       capabilities = capabilities,
     })
@@ -33,6 +36,10 @@ return {
     })
 
     lspconfig.tsserver.setup({
+      capabilities = capabilities,
+    })
+
+    lspconfig.typos_lsp.setup({
       capabilities = capabilities,
     })
 

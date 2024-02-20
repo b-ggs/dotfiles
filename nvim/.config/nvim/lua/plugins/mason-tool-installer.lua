@@ -10,10 +10,12 @@ return {
       "ruff-lsp",
       "tailwindcss-language-server",
       "typescript-language-server",
+      "typos-lsp",
       -- Linters & formatters
       "prettier",
       "ruff",
       "stylua",
+      "typos",
     },
     run_on_start = false,
   },

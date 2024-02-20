@@ -14,6 +14,9 @@ return {
     },
   },
   opts = {
+    -- https://github.com/stevearc/conform.nvim#formatters
+    -- :help conform-formatters
+
     formatters_by_ft = {
       css = { "prettier" },
       javascript = { "prettier" },
@@ -22,7 +25,7 @@ return {
       markdown = { "prettier" },
       python = { "ruff_fix", "ruff_format" },
       yaml = { "prettier" },
-      ["*"] = { "trim_whitespace" },
+      ["*"] = { "trim_whitespace", "typos" },
     },
   },
 }

@@ -21,6 +21,7 @@ return {
       lua = { "stylua" },
       markdown = { "prettier" },
       python = { "ruff_fix", "ruff_format" },
+      yaml = { "prettier" },
       ["*"] = { "trim_whitespace" },
     },
   },

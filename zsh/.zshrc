@@ -48,6 +48,16 @@ povenvpath() {
   poetry env info | awk '/^Path:/{print $2; exit}'
 }
 
+podestroyvenv() {
+  deactivate 2> /dev/null
+  local venvpath=$(povenvpath)
+  if [[ -n "$venvpath" ]]; then
+    rm -rf "$venvpath"
+  else
+    echo "No venv found"
+  fi
+}
+
 alias van='python3 -m venv venv'
 alias vac='source venv/bin/activate'
 alias vad='deactivate'

@@ -20,6 +20,7 @@ return {
     formatters_by_ft = {
       css = { "prettier" },
       javascript = { "prettier" },
+      json = { "prettier" },
       html = { "prettier" },
       lua = { "stylua" },
       markdown = { "prettier" },

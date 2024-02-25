@@ -54,8 +54,3 @@ cask "utm"
 cask "visual-studio-code"
 cask "vlc"
 cask "vnc-viewer"
-
-tap "homebrew/cask-versions"
-
-cask "firefox-nightly"
-cask "firefox-developer-edition"

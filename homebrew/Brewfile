@@ -57,4 +57,5 @@ cask "vnc-viewer"
 
 tap "homebrew/cask-versions"
 
+cask "firefox-nightly"
 cask "firefox-developer-edition"

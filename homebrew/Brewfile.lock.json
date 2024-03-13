@@ -1288,6 +1288,12 @@
         "options": {
           "full_name": "xbar"
         }
+      },
+      "swiftbar": {
+        "version": "2.0.0",
+        "options": {
+          "full_name": "swiftbar"
+        }
       }
     },
     "tap": {

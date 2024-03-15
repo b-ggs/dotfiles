@@ -1,9 +1,11 @@
 return {
   "vim-test/vim-test",
+  cmd = { "TestNearest", "TestFile" },
+  keys = {
+    { "tn", ":TestNearest<CR>" },
+    { "tf", ":TestFile<CR>" },
+  },
   init = function()
-    vim.keymap.set("n", "tn", ":TestNearest<CR>")
-    vim.keymap.set("n", "tf", ":TestFile<CR>")
-
     vim.cmd([[
       let test#strategy = "neovim"
       let test#neovim#term_position = "vert"
@@ -11,4 +13,5 @@ return {
       let test#python#djangotest#executable="docker exec web python manage.py test"
     ]])
   end,
+  lazy = true,
 }

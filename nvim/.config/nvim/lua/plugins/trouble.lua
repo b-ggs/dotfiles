@@ -1,5 +1,6 @@
 return {
   "folke/trouble.nvim",
+  cmd = "Trouble",
   opts = {
     fold_open = "▼",
     fold_closed = "▶",
@@ -12,4 +13,5 @@ return {
       other = "O",
     },
   },
+  lazy = true,
 }

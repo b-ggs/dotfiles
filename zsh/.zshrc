@@ -143,37 +143,46 @@ if [[ "$(uname)" = "Darwin" ]]; then
   fi
 fi
 
+# mise
+
+if [[ -f "$(which mise)" ]]; then
+  eval "$(mise activate zsh)"
+  echo "$(__pill_text OK 2) mise"
+else
+  echo "$(__pill_text WARN 3) mise not found"
+fi
+
 
 # pyenv
 
-if [[ -d "$HOME/.pyenv" ]]; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init --path)"
-  echo "$(__pill_text OK 2) pyenv"
-else
-  echo "$(__pill_text WARN 3) pyenv not found"
-fi
+# if [[ -d "$HOME/.pyenv" ]]; then
+#   export PYENV_ROOT="$HOME/.pyenv"
+#   export PATH="$PYENV_ROOT/bin:$PATH"
+#   eval "$(pyenv init --path)"
+#   echo "$(__pill_text OK 2) pyenv"
+# else
+#   echo "$(__pill_text WARN 3) pyenv not found"
+# fi
 
 
 # fnm
 
-if [[ -f /opt/homebrew/bin/fnm ]]; then
-  eval "$(fnm env --use-on-cd)"
-  echo "$(__pill_text OK 2) fnm"
-else
-  echo "$(__pill_text WARN 3) fnm not found"
-fi
+# if [[ -f /opt/homebrew/bin/fnm ]]; then
+#   eval "$(fnm env --use-on-cd)"
+#   echo "$(__pill_text OK 2) fnm"
+# else
+#   echo "$(__pill_text WARN 3) fnm not found"
+# fi
 
 
 # cargo
 
-if [[ -d "$HOME/.cargo" ]]; then
-  . "$HOME/.cargo/env"
-  echo "$(__pill_text OK 2) cargo"
-else
-  echo "$(__pill_text WARN 3) cargo not found"
-fi
+# if [[ -d "$HOME/.cargo" ]]; then
+#   . "$HOME/.cargo/env"
+#   echo "$(__pill_text OK 2) cargo"
+# else
+#   echo "$(__pill_text WARN 3) cargo not found"
+# fi
 
 
 # private zshrc

@@ -1,0 +1,5 @@
+[tools]
+python = "3.12"
+node = "20"
+go = "1.21"
+bun = "latest"

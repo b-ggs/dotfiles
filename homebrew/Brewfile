@@ -3,12 +3,10 @@
 brew "aria2"
 brew "cmake"
 brew "curl"
-brew "fnm"
 brew "git"
 brew "mise"
 brew "neovim"
 brew "parallel"
-brew "pyenv"
 brew "ripgrep"
 brew "starship"
 brew "stow"
@@ -18,15 +16,6 @@ brew "tree"
 brew "universal-ctags"
 brew "watch"
 brew "wget"
-
-# pyenv build deps
-# https://github.com/pyenv/pyenv/wiki#suggested-build-environment
-brew "openssl"
-brew "readline"
-brew "sqlite3"
-brew "xz"
-brew "zlib"
-brew "tcl-tk"
 
 cask "1password"
 cask "1password-cli"

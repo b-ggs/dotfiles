@@ -46,3 +46,6 @@ cask "utm"
 cask "visual-studio-code"
 cask "vlc"
 cask "vnc-viewer"
+
+tap "hashicorp/tap"
+brew "hashicorp/tap/nomad"

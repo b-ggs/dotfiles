@@ -118,6 +118,14 @@ __pill_text() {
 }
 
 
+listwatch() {
+  while true; do
+    "${@:2}";
+    sleep $1;
+  done
+}
+
+
 # darwin
 
 if [[ "$(uname)" = "Darwin" ]]; then

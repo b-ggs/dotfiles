@@ -820,7 +820,7 @@
         }
       },
       "notion": {
-        "version": "3.5.0",
+        "version": "3.6.0",
         "options": {
           "full_name": "notion"
         }
@@ -856,7 +856,7 @@
         }
       },
       "spotify": {
-        "version": "1.2.35.663,b699649e,5769",
+        "version": "1.2.36.959,04bf500c,859",
         "options": {
           "full_name": "spotify"
         }
@@ -892,7 +892,7 @@
         }
       },
       "visual-studio-code": {
-        "version": "1.88.1",
+        "version": "1.89.0",
         "options": {
           "full_name": "visual-studio-code"
         }
@@ -910,7 +910,7 @@
         }
       },
       "viber": {
-        "version": "22.5.0,2251",
+        "version": "22.6.0,2260",
         "options": {
           "full_name": "viber"
         }

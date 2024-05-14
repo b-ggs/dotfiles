@@ -11,6 +11,10 @@ return {
     -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
     -- :help lspconfig-all
 
+    lspconfig.bashls.setup({
+      capabilities = capabilities,
+    })
+
     lspconfig.cssls.setup({
       capabilities = capabilities,
     })

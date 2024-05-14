@@ -3,7 +3,7 @@ return {
   opts = {
     ensure_installed = {
       -- LSP servers
-      "css-lsp",
+      "bash-language-server",
       "html-lsp",
       "lua-language-server",
       "pyright",
@@ -14,6 +14,8 @@ return {
       -- Linters & formatters
       "prettier",
       "ruff",
+      "shellcheck",
+      "shfmt",
       "stylua",
       "typos",
     },

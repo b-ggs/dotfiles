@@ -25,6 +25,7 @@ return {
       lua = { "stylua" },
       markdown = { "prettier" },
       python = { "ruff_fix", "ruff_format" },
+      sh = { "shfmt", "shellcheck" },
       yaml = { "prettier" },
       ["*"] = { "trim_whitespace", "typos" },
     },

@@ -31,7 +31,7 @@ return {
       capabilities = capabilities,
     })
 
-    lspconfig.ruff_lsp.setup({
+    lspconfig.ruff.setup({
       capabilities = capabilities,
     })
 

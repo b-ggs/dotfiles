@@ -7,13 +7,12 @@ return {
       "html-lsp",
       "lua-language-server",
       "pyright",
-      "ruff-lsp",
       "tailwindcss-language-server",
       "typescript-language-server",
       "typos-lsp",
       -- Linters & formatters
       "prettier",
-      "ruff",
+      "ruff",  -- also an LSP server
       "shellcheck",
       "shfmt",
       "stylua",

@@ -12,7 +12,7 @@ return {
       "typos-lsp",
       -- Linters & formatters
       "prettier",
-      "ruff",  -- also an LSP server
+      "ruff", -- also an LSP server
       "shellcheck",
       "shfmt",
       "stylua",

@@ -1,0 +1,16 @@
+{
+  "bash-language-server": "5.3.3",
+  "css-lsp": "4.10.0",
+  "html-lsp": "4.10.0",
+  "lua-language-server": "3.9.1",
+  "prettier": "3.2.5",
+  "pyright": "1.1.365",
+  "ruff": "0.4.6",
+  "shellcheck": "v0.10.0",
+  "shfmt": "v3.8.0",
+  "stylua": "v0.20.0",
+  "tailwindcss-language-server": "0.0.16",
+  "typescript-language-server": "4.3.3",
+  "typos": "v1.21.0",
+  "typos-lsp": "v0.1.18"
+}

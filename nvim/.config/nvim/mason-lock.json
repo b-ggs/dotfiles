@@ -12,5 +12,6 @@
   "tailwindcss-language-server": "0.0.16",
   "typescript-language-server": "4.3.3",
   "typos": "v1.21.0",
-  "typos-lsp": "v0.1.18"
+  "typos-lsp": "v0.1.18",
+  "vue-language-server": "2.0.19"
 }

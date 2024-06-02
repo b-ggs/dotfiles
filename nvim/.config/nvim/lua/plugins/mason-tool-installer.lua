@@ -10,6 +10,7 @@ return {
       "tailwindcss-language-server",
       "typescript-language-server",
       "typos-lsp",
+      "vue-language-server",
       -- Linters & formatters
       "prettier",
       "ruff", -- also an LSP server

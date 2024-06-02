@@ -7,6 +7,7 @@ return {
   config = function()
     local lspconfig = require("lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    local mason_registry = require("mason-registry")
 
     -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
     -- :help lspconfig-all
@@ -39,11 +40,28 @@ return {
       capabilities = capabilities,
     })
 
+    local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
+      .. "/node_modules/@vue/language-server"
+
     lspconfig.tsserver.setup({
       capabilities = capabilities,
+      init_options = {
+        plugins = {
+          {
+            name = "@vue/typescript-plugin",
+            location = vue_language_server_path,
+            languages = { "vue" },
+          },
+        },
+      },
+      filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
     })
 
     lspconfig.typos_lsp.setup({
+      capabilities = capabilities,
+    })
+
+    lspconfig.volar.setup({
       capabilities = capabilities,
     })
 

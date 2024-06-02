@@ -12,6 +12,7 @@ return {
     configs.setup({
       ensure_installed = {
         "astro",
+        "css",
         "dockerfile",
         "hcl",
         "html",
@@ -22,9 +23,11 @@ return {
         "python",
         "query",
         "rust",
+        "scss",
         "svelte",
         "typescript",
         "vim",
+        "vue",
       },
       highlight = { enable = true },
       rainbow = { enable = false, extended_mode = true },

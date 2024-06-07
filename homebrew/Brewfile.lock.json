@@ -46,45 +46,45 @@
         }
       },
       "cmake": {
-        "version": "3.29.4",
+        "version": "3.29.5",
         "bottle": {
           "rebuild": 0,
           "root_url": "https://ghcr.io/v2/homebrew/core",
           "files": {
             "arm64_sonoma": {
               "cellar": ":any_skip_relocation",
-              "url": "https://ghcr.io/v2/homebrew/core/cmake/blobs/sha256:fb50c637032d9d68717d6b28cbf1c31004d417e817ec559d5637ccd4ace3d325",
-              "sha256": "fb50c637032d9d68717d6b28cbf1c31004d417e817ec559d5637ccd4ace3d325"
+              "url": "https://ghcr.io/v2/homebrew/core/cmake/blobs/sha256:9acc2164efcf035d3365d32b0e55294a2af317861d49a574e0f84050daa06f49",
+              "sha256": "9acc2164efcf035d3365d32b0e55294a2af317861d49a574e0f84050daa06f49"
             },
             "arm64_ventura": {
               "cellar": ":any_skip_relocation",
-              "url": "https://ghcr.io/v2/homebrew/core/cmake/blobs/sha256:5c7b3698f98d5bcfbf264d77e4179d1d933ad37fa9db7fdbac6c8edaa19bc21a",
-              "sha256": "5c7b3698f98d5bcfbf264d77e4179d1d933ad37fa9db7fdbac6c8edaa19bc21a"
+              "url": "https://ghcr.io/v2/homebrew/core/cmake/blobs/sha256:480ba5e95b1a2375b1e831a98aa32bf299043d0c5ba3afbc896001a178b16500",
+              "sha256": "480ba5e95b1a2375b1e831a98aa32bf299043d0c5ba3afbc896001a178b16500"
             },
             "arm64_monterey": {
               "cellar": ":any_skip_relocation",
-              "url": "https://ghcr.io/v2/homebrew/core/cmake/blobs/sha256:b1a0878dec2edfdd941baacb499fd020e3ccd10339f48d08123e20718fdbd83e",
-              "sha256": "b1a0878dec2edfdd941baacb499fd020e3ccd10339f48d08123e20718fdbd83e"
+              "url": "https://ghcr.io/v2/homebrew/core/cmake/blobs/sha256:50462e22264870e1ba95a13a004b4aa31562303512f02e26c9ad59cfbe207611",
+              "sha256": "50462e22264870e1ba95a13a004b4aa31562303512f02e26c9ad59cfbe207611"
             },
             "sonoma": {
               "cellar": ":any_skip_relocation",
-              "url": "https://ghcr.io/v2/homebrew/core/cmake/blobs/sha256:c63612a9f49827050bbaa26fd51d528c3587c0e78796993edd7a2ad44879212c",
-              "sha256": "c63612a9f49827050bbaa26fd51d528c3587c0e78796993edd7a2ad44879212c"
+              "url": "https://ghcr.io/v2/homebrew/core/cmake/blobs/sha256:6e0276f278c7bdc56968593451c9b3997005896cbba42add1b77201ac75a06ce",
+              "sha256": "6e0276f278c7bdc56968593451c9b3997005896cbba42add1b77201ac75a06ce"
             },
             "ventura": {
               "cellar": ":any_skip_relocation",
-              "url": "https://ghcr.io/v2/homebrew/core/cmake/blobs/sha256:7f43e59fbe8779a38741b0f55d41f7a9de5e16dced8e788f00a7462971fc7811",
-              "sha256": "7f43e59fbe8779a38741b0f55d41f7a9de5e16dced8e788f00a7462971fc7811"
+              "url": "https://ghcr.io/v2/homebrew/core/cmake/blobs/sha256:1dafbeec98b1261d83a98089722c77f1e167b546dde4114ff8371f7b741db823",
+              "sha256": "1dafbeec98b1261d83a98089722c77f1e167b546dde4114ff8371f7b741db823"
             },
             "monterey": {
               "cellar": ":any_skip_relocation",
-              "url": "https://ghcr.io/v2/homebrew/core/cmake/blobs/sha256:ab350fcef6caf265962cc87022da1c23c0e82d96dc84ca86e0133b071c5f68d0",
-              "sha256": "ab350fcef6caf265962cc87022da1c23c0e82d96dc84ca86e0133b071c5f68d0"
+              "url": "https://ghcr.io/v2/homebrew/core/cmake/blobs/sha256:de362cde42b2ca7ede9ecf94ae100159a1ebbe0e5b5943212ce7046550f5317e",
+              "sha256": "de362cde42b2ca7ede9ecf94ae100159a1ebbe0e5b5943212ce7046550f5317e"
             },
             "x86_64_linux": {
               "cellar": ":any_skip_relocation",
-              "url": "https://ghcr.io/v2/homebrew/core/cmake/blobs/sha256:7649cc7253806b664d5708fdb064c59b98f63b78f9f82c7b85068535676c4605",
-              "sha256": "7649cc7253806b664d5708fdb064c59b98f63b78f9f82c7b85068535676c4605"
+              "url": "https://ghcr.io/v2/homebrew/core/cmake/blobs/sha256:84c7f0ff900841703c09912e9366524d12d6b64249839166c667602546198883",
+              "sha256": "84c7f0ff900841703c09912e9366524d12d6b64249839166c667602546198883"
             }
           }
         }
@@ -908,7 +908,7 @@
         }
       },
       "telegram": {
-        "version": "10.13,264000",
+        "version": "10.13.1,264236",
         "options": {
           "full_name": "telegram"
         }
@@ -944,7 +944,7 @@
         }
       },
       "viber": {
-        "version": "22.8.0,2280",
+        "version": "22.8.1,2280",
         "options": {
           "full_name": "viber"
         }

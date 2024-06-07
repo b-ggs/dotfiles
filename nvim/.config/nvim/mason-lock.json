@@ -10,6 +10,7 @@
   "shfmt": "v3.8.0",
   "stylua": "v0.20.0",
   "tailwindcss-language-server": "0.0.16",
+  "taplo": "0.8.1",
   "typescript-language-server": "4.3.3",
   "typos": "v1.22.1",
   "typos-lsp": "v0.1.18",

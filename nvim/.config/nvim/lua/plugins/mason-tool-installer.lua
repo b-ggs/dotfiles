@@ -17,6 +17,7 @@ return {
       "shellcheck",
       "shfmt",
       "stylua",
+      "taplo",
       "typos",
     },
     run_on_start = false,

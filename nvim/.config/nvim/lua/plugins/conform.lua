@@ -26,6 +26,7 @@ return {
       markdown = { "prettier" },
       python = { "ruff_fix", "ruff_format" },
       sh = { "shfmt", "shellcheck" },
+      toml = {"taplo"},
       yaml = { "prettier" },
       ["*"] = { "trim_whitespace", "typos" },
     },

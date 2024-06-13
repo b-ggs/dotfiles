@@ -22,6 +22,9 @@ vim.opt.breakindent = true
 vim.opt.number = true
 vim.opt.numberwidth = 3
 
+-- Use relative line numbers
+vim.opt.relativenumber = true
+
 -- Case insensitive search for lowercase query
 vim.opt.ignorecase = true
 

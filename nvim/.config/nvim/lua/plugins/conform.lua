@@ -28,7 +28,7 @@ return {
       sh = { "shfmt", "shellcheck" },
       toml = { "taplo" },
       yaml = { "prettier" },
-      ["*"] = { "trim_whitespace", "typos" },
+      ["*"] = { "trim_whitespace" },
     },
   },
 }

@@ -38,6 +38,9 @@ return {
 
     lspconfig.tailwindcss.setup({
       capabilities = capabilities,
+      userLanguages = {
+        htmldjango = "htmldjango",
+      },
     })
 
     local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()

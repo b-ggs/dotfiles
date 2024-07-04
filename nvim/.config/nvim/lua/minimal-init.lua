@@ -61,6 +61,8 @@ vim.opt.termguicolors = true
 -- https://stackoverflow.com/a/21000307
 vim.keymap.set("n", "j", "v:count ? 'j' : 'gj'", { expr = true })
 vim.keymap.set("n", "k", "v:count ? 'k' : 'gk'", { expr = true })
+vim.keymap.set("v", "j", "v:count ? 'j' : 'gj'", { expr = true })
+vim.keymap.set("v", "k", "v:count ? 'k' : 'gk'", { expr = true })
 
 -- Remaps to correct mistypes
 vim.keymap.set({ "n", "i", "v" }, "<F1>", "<Esc>")

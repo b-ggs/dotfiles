@@ -60,6 +60,8 @@ cask "viber"
 cask "visual-studio-code"
 cask "vlc"
 cask "vnc-viewer"
+cask "yaak"
+cask "zed"
 
 tap "teamookla/speedtest"
 brew "teamookla/speedtest/speedtest"

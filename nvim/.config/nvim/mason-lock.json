@@ -4,7 +4,7 @@
   "html-lsp": "4.10.0",
   "lua-language-server": "3.9.3",
   "prettier": "3.3.2",
-  "pyright": "1.1.370",
+  "pyright": "1.1.371",
   "ruff": "0.5.1",
   "shellcheck": "v0.10.0",
   "shfmt": "v3.8.0",

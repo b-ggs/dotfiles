@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM debian:bookworm
 
 RUN apt-get update -y \
   && apt-get install -y build-essential zsh git ripgrep fzf tmux make curl sudo unzip universal-ctags stow \

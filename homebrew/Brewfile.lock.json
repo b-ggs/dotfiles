@@ -1294,7 +1294,7 @@
         }
       },
       "notion": {
-        "version": "3.9.6",
+        "version": "3.10.0",
         "options": {
           "full_name": "notion"
         }
@@ -1306,7 +1306,7 @@
         }
       },
       "orbstack": {
-        "version": "1.6.4_17187",
+        "version": "1.6.4_17192",
         "options": {
           "full_name": "orbstack"
         }
@@ -1384,7 +1384,7 @@
         }
       },
       "viber": {
-        "version": "23.0.0,2300",
+        "version": "23.1.0,2310",
         "options": {
           "full_name": "viber"
         }
@@ -1402,7 +1402,7 @@
         }
       },
       "zed": {
-        "version": "0.142.6",
+        "version": "0.143.6",
         "options": {
           "full_name": "zed"
         }

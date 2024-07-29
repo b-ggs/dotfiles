@@ -1,13 +1,22 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  -- Last known good tag before this issue:
-  -- https://github.com/nvim-treesitter/nvim-treesitter/issues/6530
-  tag = "v0.9.2",
   build = ":TSUpdate",
   dependencies = {
     "p00f/nvim-ts-rainbow",
   },
   config = function()
+    local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
+
+    -- Last known good revision before this issue:
+    -- https://github.com/nvim-treesitter/nvim-treesitter/issues/6530
+    parser_configs["dockerfile"] = {
+      install_info = {
+        url = "https://github.com/camdencheek/tree-sitter-dockerfile",
+        revision = "33e22c33bcdbfc33d42806ee84cfd0b1248cc392",
+        files = { "src/parser.c" },
+      },
+    }
+
     local configs = require("nvim-treesitter.configs")
     configs.setup({
       ensure_installed = {

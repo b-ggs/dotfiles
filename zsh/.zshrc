@@ -82,7 +82,7 @@ alias sshforward='ssh -L 8000:localhost:8000 -L 8143:localhost:8143 -L 8823:loca
 
 alias keychainloaddefault='keychain --nogui -q $HOME/.ssh/id_ed25519'
 
-alias ipify='curl -s https://api.ipify.org'
+alias ipify='curl -s https://api.ipify.org | tee /dev/tty | pbcopy'
 alias tmpdir='cd $(mktemp -d)'
 
 # fzf

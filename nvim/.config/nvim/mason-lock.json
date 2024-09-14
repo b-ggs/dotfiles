@@ -5,7 +5,7 @@
   "lua-language-server": "3.10.6",
   "prettier": "3.3.3",
   "pyright": "1.1.380",
-  "ruff": "0.6.4",
+  "ruff": "0.6.5",
   "shellcheck": "v0.10.0",
   "shfmt": "v3.9.0",
   "stylua": "v0.20.0",

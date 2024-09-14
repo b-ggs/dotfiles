@@ -30,18 +30,20 @@ return {
 
     local new_maker = function(filepath, bufnr, opts)
       opts = opts or {}
-      if opts.use_ft_detect == nil then opts.use_ft_detect = true end
+      if opts.use_ft_detect == nil then
+        opts.use_ft_detect = true
+      end
       opts.use_ft_detect = opts.use_ft_detect == false and false or bad_files(filepath)
       previewers.buffer_previewer_maker(filepath, bufnr, opts)
     end
 
-    require("telescope").setup {
+    require("telescope").setup({
       defaults = {
         buffer_previewer_maker = new_maker,
         preview = {
           filesize_limit = 0.05, -- in MB
         },
-      }
-    }
+      },
+    })
   end,
 }

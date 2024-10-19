@@ -1,10 +1,11 @@
 {
   "bash-language-server": "5.4.2",
+  "css-lsp": "4.10.0",
   "html-lsp": "4.10.0",
   "lua-language-server": "3.11.1",
   "prettier": "3.3.3",
-  "pyright": "1.1.384",
-  "ruff": "0.6.9",
+  "pyright": "1.1.385",
+  "ruff": "0.7.0",
   "shellcheck": "v0.10.0",
   "shfmt": "v3.9.0",
   "stylua": "v0.20.0",

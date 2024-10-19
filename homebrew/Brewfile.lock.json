@@ -808,6 +808,12 @@
               "sha256": "c18753a7c40aa69cb0889cb4b258efcdaff25134157dad6dc5fbccf022b2f64d"
             }
           }
+        },
+        "options": {
+          "args": [
+            "HEAD",
+            "fetch-HEAD"
+          ]
         }
       },
       "openssl": {

@@ -4,6 +4,7 @@ return {
     ensure_installed = {
       -- LSP servers
       "bash-language-server",
+      "css-lsp",
       "html-lsp",
       "lua-language-server",
       "pyright",

@@ -2,16 +2,16 @@
   "bash-language-server": "5.4.2",
   "css-lsp": "4.10.0",
   "html-lsp": "4.10.0",
-  "lua-language-server": "3.11.1",
+  "lua-language-server": "3.12.0",
   "prettier": "3.3.3",
-  "pyright": "1.1.386",
-  "ruff": "0.7.0",
+  "pyright": "1.1.387",
+  "ruff": "0.7.1",
   "shellcheck": "v0.10.0",
   "shfmt": "v3.10.0",
   "stylua": "v0.20.0",
-  "tailwindcss-language-server": "0.0.25",
+  "tailwindcss-language-server": "0.0.26",
   "taplo": "0.9.3",
   "typescript-language-server": "4.3.3",
   "typos-lsp": "v0.1.27",
-  "vue-language-server": "2.1.6"
+  "vue-language-server": "2.1.8"
 }

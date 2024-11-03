@@ -5,17 +5,18 @@ return {
     "p00f/nvim-ts-rainbow",
   },
   config = function()
-    -- local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
-    --
-    -- -- Last known good revision before this issue:
-    -- -- https://github.com/nvim-treesitter/nvim-treesitter/issues/6530
-    -- parser_configs["dockerfile"] = {
-    --   install_info = {
-    --     url = "https://github.com/camdencheek/tree-sitter-dockerfile",
-    --     revision = "33e22c33bcdbfc33d42806ee84cfd0b1248cc392",
-    --     files = { "src/parser.c" },
-    --   },
-    -- }
+    local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
+
+    -- Use fork that addresses this issue:
+    -- https://github.com/nvim-treesitter/nvim-treesitter/issues/6530
+    -- PR: https://github.com/camdencheek/tree-sitter-dockerfile/pull/52
+    parser_configs["dockerfile"] = {
+      install_info = {
+        url = "https://github.com/faergeek/tree-sitter-dockerfile",
+        branch = "make-language-injections-easier",
+        files = { "src/parser.c", "src/scanner.c" },
+      },
+    }
 
     local configs = require("nvim-treesitter.configs")
     configs.setup({

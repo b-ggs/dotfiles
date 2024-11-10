@@ -27,3 +27,12 @@ check-termux: check-linux
 
 check-linux:
 	test "$$(uname)" = "Linux"
+
+bump-homebrew:
+	cd homebrew && brew bundle
+
+bump-nvim-lazy:
+	nvim --headless "+Lazy! update" +qa
+
+bump-nvim-mason:
+	nvim "+MasonToolsUpdate" "+MasonLock"

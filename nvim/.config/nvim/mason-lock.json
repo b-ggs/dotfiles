@@ -4,7 +4,7 @@
   "html-lsp": "4.10.0",
   "lua-language-server": "3.12.0",
   "prettier": "3.3.3",
-  "pyright": "1.1.387",
+  "pyright": "1.1.388",
   "ruff": "0.7.2",
   "shellcheck": "v0.10.0",
   "shfmt": "v3.10.0",
@@ -12,6 +12,6 @@
   "tailwindcss-language-server": "0.0.26",
   "taplo": "0.9.3",
   "typescript-language-server": "4.3.3",
-  "typos-lsp": "v0.1.29",
+  "typos-lsp": "v0.1.30",
   "vue-language-server": "2.1.10"
 }

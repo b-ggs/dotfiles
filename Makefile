@@ -1,7 +1,6 @@
 # zsh
 
 zsh-configure:
-	sh -c "$$(curl -fsSL https://starship.rs/install.sh)" -- --yes
 	sh -c "$$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	rm -f $$HOME/.zshrc
 	rm -f $$HOME/.zprofile

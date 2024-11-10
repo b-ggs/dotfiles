@@ -7,7 +7,7 @@ RUN apt-get update -y \
   && mv /tmp/nvim-linux64/bin/nvim /bin/nvim \
   && curl -fsSL https://fnm.vercel.app/install | bash \
   && $HOME/.local/share/fnm/fnm install 20 \
-  && $HOME/.local/share/fnm/fnm exec --using=20 npm update --location=global npm
+  && $HOME/.local/share/fnm/fnm exec --using=22 npm update --location=global npm
 
 # copy dotfiles
 COPY . /root/.files/

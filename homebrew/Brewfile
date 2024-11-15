@@ -69,3 +69,6 @@ cask "zed"
 
 tap "teamookla/speedtest"
 brew "teamookla/speedtest/speedtest"
+
+tap "heroku/brew"
+brew "heroku/brew/heroku"

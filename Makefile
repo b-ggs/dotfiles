@@ -28,7 +28,7 @@ check-termux: check-linux
 check-linux:
 	test "$$(uname)" = "Linux"
 
-bump-homebrew:
+brew-bundle:
 	cd homebrew && brew bundle
 
 bump-nvim-lazy:

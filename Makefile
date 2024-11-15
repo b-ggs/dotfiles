@@ -30,9 +30,3 @@ check-linux:
 
 brew-bundle:
 	cd homebrew && brew bundle
-
-bump-nvim-lazy:
-	nvim --headless "+Lazy! update" +qa
-
-bump-nvim-mason:
-	nvim "+MasonToolsUpdate" "+MasonLock"

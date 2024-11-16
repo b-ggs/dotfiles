@@ -9,6 +9,7 @@ brew "git"
 brew "keychain"
 brew "neovim"
 brew "parallel"
+brew "pngcrush"
 brew "poetry"
 brew "progress"
 brew "pyenv", args: ["HEAD", "fetch-HEAD"]
@@ -67,8 +68,8 @@ cask "vnc-viewer"
 cask "yaak"
 cask "zed"
 
-tap "teamookla/speedtest"
-brew "teamookla/speedtest/speedtest"
-
 tap "heroku/brew"
 brew "heroku/brew/heroku"
+
+tap "teamookla/speedtest"
+brew "teamookla/speedtest/speedtest"

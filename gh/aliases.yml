@@ -1,0 +1,3 @@
+co: pr checkout
+prc: pr create
+prv: pr view --web

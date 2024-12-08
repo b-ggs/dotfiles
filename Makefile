@@ -10,6 +10,10 @@ zsh-configure:
 git-configure:
 	git/configure
 
+# gh
+gh-configure:
+	gh alias import --clobber ./gh/aliases.yml
+
 # util
 
 check-unix:

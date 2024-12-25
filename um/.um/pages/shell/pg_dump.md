@@ -5,5 +5,5 @@
 
 ## EXAMPLES
 
-`pg_dump -U user -h localhost -Fc database_name > file.sql`
-: Dump database `database_name` in `localhost` to `file.sql`.
+`pg_dump -h localhost -U user -d database_name -Fc -f filename.dump`
+: Dump database `database_name` in `localhost` to `filename.dump` (compressed)

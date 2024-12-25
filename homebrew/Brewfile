@@ -37,6 +37,7 @@ brew "tcl-tk"
 # Browsers
 cask "brave-browser"
 cask "firefox"
+cask "firefox@nightly"
 cask "eloston-chromium"
 cask "google-chrome"
 cask "google-chrome@beta"

@@ -22,3 +22,5 @@ selection-foreground = cdd6f4
 font-family = Iosevka Term
 font-size = 16
 macos-titlebar-proxy-icon = hidden
+cursor-style = block
+shell-integration-features = no-cursor

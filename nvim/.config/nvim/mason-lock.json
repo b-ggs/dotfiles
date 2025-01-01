@@ -13,6 +13,6 @@
   "tailwindcss-language-server": "0.0.27",
   "taplo": "0.9.3",
   "typescript-language-server": "4.3.3",
-  "typos-lsp": "v0.1.32",
+  "typos-lsp": "v0.1.33",
   "vue-language-server": "2.2.0"
 }

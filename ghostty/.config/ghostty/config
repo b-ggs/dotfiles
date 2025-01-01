@@ -24,3 +24,6 @@ font-size = 16
 macos-titlebar-proxy-icon = hidden
 cursor-style = block
 shell-integration-features = no-cursor
+adjust-cell-height = -10%
+font-thicken = true
+window-new-tab-position = "end"

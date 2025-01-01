@@ -18,7 +18,6 @@ return {
             color = {
               bg = palette.pink,
               fg = palette.base,
-              gui = "bold",
             },
             padding = 0,
             shorting_target = 10,

@@ -13,6 +13,7 @@ return {
       "typos-lsp",
       "vue-language-server",
       -- Linters & formatters
+      "djlint",
       "prettier",
       "ruff", -- also an LSP server
       "shellcheck",

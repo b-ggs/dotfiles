@@ -1,6 +1,7 @@
 {
   "bash-language-server": "5.4.2",
   "css-lsp": "4.10.0",
+  "djlint": "1.36.4",
   "html-lsp": "4.10.0",
   "lua-language-server": "3.13.5",
   "prettier": "3.4.2",

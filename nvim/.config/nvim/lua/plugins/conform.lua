@@ -22,6 +22,7 @@ return {
       javascript = { "prettier" },
       json = { "prettier" },
       html = { "prettier" },
+      htmldjango = { "djlint" },
       lua = { "stylua" },
       markdown = { "prettier" },
       python = { "ruff_fix", "ruff_format" },

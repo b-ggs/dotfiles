@@ -18,9 +18,6 @@ node_modules
 # WSL stuff
 *Zone.Identifier
 
-# Kitty backup file
-kitty.conf.bak
-
 # IntelliJ
 .idea
 

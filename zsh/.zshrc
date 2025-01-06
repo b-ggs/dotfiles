@@ -40,8 +40,8 @@ elif [[ "$(uname)" == "Linux" ]]; then
   alias lock='i3lock'
 fi
 
-alias poi='poetry install --sync'
-alias pos='poetry shell'
+alias posync='poetry sync'
+alias poenv='eval $(poetry env activate)'
 alias popreferactive='poetry config virtualenvs.prefer-active-python true'
 
 povenvpath() {

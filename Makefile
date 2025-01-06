@@ -12,6 +12,7 @@ git-configure:
 
 # gh
 gh-configure:
+	gh alias delete --all
 	gh alias import --clobber ./gh/aliases.yml
 
 # util

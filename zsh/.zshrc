@@ -84,8 +84,8 @@ alias keychainloaddefault='keychain --nogui -q $HOME/.ssh/id_ed25519'
 
 alias ipify='curl -s https://api.ipify.org | tee /dev/tty | pbcopy'
 alias tmpdir='cd $(mktemp -d)'
-alias utcnow='date -u +"%Y-%m-%dT%H:%M:%SZ" | tee /dev/tty | pbcopy'
-alias utcnowsafe='date -u +"%Y-%m-%dT%H%M%SZ" | tee /dev/tty | pbcopy'
+alias utcnow='date -u +"%Y-%m-%dT%H:%M:%SZ" | xargs echo -n | tee /dev/tty | pbcopy'
+alias utcnowsafe='date -u +"%Y-%m-%dT%H%M%SZ" | xargs echo -n | tee /dev/tty | pbcopy'
 
 # fzf
 

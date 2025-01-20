@@ -23,3 +23,8 @@ node_modules
 
 # nvim-config-local
 local.nvim.lua
+
+# python stuff
+__pycache__
+.pytest_cache
+*.pyc

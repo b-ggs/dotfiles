@@ -1,0 +1,10 @@
+# Sync poetry dependencies
+poi:
+  poetry sync
+
+
+activation_string := shell('poetry env activate')
+
+# Activate poetry environment
+pos:
+  poetry env activate

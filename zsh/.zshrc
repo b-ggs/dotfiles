@@ -26,6 +26,38 @@ fi
 
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
+# functions
+
+__pill_text() {
+    local text="$1"
+    local color="$2"
+
+    local foreground_color_start="\033[38;5;${color}m"
+    local background_color_start="\033[48;5;${color}m"
+    local reset_color="\033[0m"
+    local black_text_color="\033[30m"
+
+    local pill_start="${foreground_color_start}${reset_color}"
+    local pill_end="${foreground_color_start}${reset_color}"
+
+    echo -e "${pill_start}${background_color_start}${black_text_color}${text}${reset_color}${pill_end}"
+}
+
+__print_and_execute() {
+  echo "$@" >&2
+  "$@"
+}
+
+
+listwatch() {
+  while true; do
+    "${@:2}";
+    sleep $1;
+  done
+}
+
+
+
 
 # aliases
 
@@ -35,14 +67,13 @@ if [[ "$(uname)" == "Darwin" ]]; then
   alias showdesktop='defaults write com.apple.finder CreateDesktop true && killall Finder'
   alias resetdock='defaults write com.apple.dock tilesize -int 32; killall Dock'
   alias flushdnscache='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
-  alias chromeguest='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --guest &'
 elif [[ "$(uname)" == "Linux" ]]; then
   alias lock='i3lock'
 fi
 
-alias poi='echo "poetry sync" && poetry sync'
-alias pos='echo "eval \$(poetry env activate)" && eval $(poetry env activate)'
-alias popreferactive='echo "poetry config virtualenvs.prefer-active-python true" && poetry config virtualenvs.prefer-active-python true'
+alias poi='__print_and_execute poetry sync'
+alias pos='__print_and_execute eval $(poetry env activate)'
+alias popreferactive='__print_and_execute poetry config virtualenvs.prefer-active-python true'
 
 povenvpath() {
   poetry env info | awk '/^Path:/{print $2; exit}'
@@ -54,12 +85,12 @@ podestroyvenv() {
   if [[ -n "$venvpath" ]]; then
     rm -rf "$venvpath"
   else
-    echo "No venv found"
+    echo "No venv found" >&2
   fi
 }
 
-alias van='python3 -m venv venv'
-alias vac='source venv/bin/activate'
+alias van='python3 -m venv .venv'
+alias vac='source .venv/bin/activate'
 alias vad='deactivate'
 
 alias home='cd $HOME'
@@ -80,12 +111,12 @@ alias authorized-keys='cd $HOME/.authorized-keys'
 
 alias sshforward='ssh -L 8000:localhost:8000 -L 8143:localhost:8143 -L 8823:localhost:8823 -L 5678:localhost:5678 -L 3000:localhost:3000 -L 8086:localhost:8086 -L 5432:localhost:5432 -L 8080:localhost:8080 -L 8082:localhost:8082 -L 8001:localhost:8001 -CNT '
 
-alias keychainloaddefault='keychain --nogui -q $HOME/.ssh/id_ed25519'
+alias keychainloaddefault='__print_and_execute keychain --nogui -q $HOME/.ssh/id_ed25519'
 
-alias ipify='curl -s https://api.ipify.org | tee /dev/tty | pbcopy'
+alias ipify='curl -s https://api.ipify.org'
 alias tmpdir='cd $(mktemp -d)'
-alias utcnow='date -u +"%Y-%m-%dT%H:%M:%SZ" | xargs echo -n | tee /dev/tty | pbcopy'
-alias utcnowsafe='date -u +"%Y-%m-%dT%H%M%SZ" | xargs echo -n | tee /dev/tty | pbcopy'
+alias utcnow='__print_and_execute date -u +"%Y-%m-%dT%H:%M:%SZ" | __print_and_execute xargs echo -n'
+alias utcnowsafe='date -u +"%Y-%m-%dT%H%M%SZ" | xargs echo -n'
 
 # fzf
 
@@ -104,32 +135,6 @@ plugins=(git fzf)
 source $ZSH/oh-my-zsh.sh
 
 
-# functions
-
-__pill_text() {
-    local text="$1"
-    local color="$2"
-
-    local foreground_color_start="\033[38;5;${color}m"
-    local background_color_start="\033[48;5;${color}m"
-    local reset_color="\033[0m"
-    local black_text_color="\033[30m"
-
-    local pill_start="${foreground_color_start}${reset_color}"
-    local pill_end="${foreground_color_start}${reset_color}"
-
-    echo -e "${pill_start}${background_color_start}${black_text_color}${text}${reset_color}${pill_end}"
-}
-
-
-listwatch() {
-  while true; do
-    "${@:2}";
-    sleep $1;
-  done
-}
-
-
 # darwin
 
 if [[ "$(uname)" = "Darwin" ]]; then
@@ -137,12 +142,8 @@ if [[ "$(uname)" = "Darwin" ]]; then
   if [ "$(arch)" = "arm64" ] && [[ -d "/opt/homebrew" ]]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
     echo "$(__pill_text OK 2) arm64 Homebrew"
-  # elif [[ -f "/usr/local/bin/brew" ]]; then
-  #   export PATH=/usr/local/bin:${PATH}
-  #   eval "$(/usr/local/bin/brew shellenv)"
-  #   echo "$(__pill_text OK 2) amd64 Homebrew"
-  # else
-  #   echo "$(__pill_text WARN 3) On Darwin but Homebrew not found"
+  else
+    echo "$(__pill_text WARN 3) On Darwin but Homebrew not found"
   fi
 
 

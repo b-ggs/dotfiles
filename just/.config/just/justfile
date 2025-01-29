@@ -1,10 +1,20 @@
-# Sync poetry dependencies
-poi:
-  poetry sync
+drive_share_to_download_link share_link:
+  #!/usr/bin/env python3
+
+  import sys
 
 
-activation_string := shell('poetry env activate')
+  share_link = "{{share_link}}"
 
-# Activate poetry environment
-pos:
-  poetry env activate
+  sys.stderr.write(share_link + "\n")
+
+  if not share_link.startswith("https://drive.google.com/file/d/"):
+      sys.stderr.write("Invalid share link.\n")
+      sys.exit(1)
+  file_id = share_link.split("/")[5]
+  download_link = f"https://drive.google.com/uc?id={file_id}&export=download"
+
+  sys.stderr.write("\n")
+  sys.stderr.write("⬇️")
+
+  print(download_link, end="")

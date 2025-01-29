@@ -62,13 +62,13 @@ listwatch() {
 # aliases
 
 if [[ "$(uname)" == "Darwin" ]]; then
-  alias lock='open -a ScreenSaverEngine'
-  alias hidedesktop='defaults write com.apple.finder CreateDesktop false && killall Finder'
-  alias showdesktop='defaults write com.apple.finder CreateDesktop true && killall Finder'
-  alias resetdock='defaults write com.apple.dock tilesize -int 32; killall Dock'
-  alias flushdnscache='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
+  alias lock='__print_and_execute open -a ScreenSaverEngine'
+  alias hidedesktop='__print_and_execute defaults write com.apple.finder CreateDesktop false && killall Finder'
+  alias showdesktop='__print_and_execute defaults write com.apple.finder CreateDesktop true && killall Finder'
+  alias resetdock='__print_and_execute defaults write com.apple.dock tilesize -int 32; killall Dock'
+  alias flushdnscache='__print_and_execute sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
 elif [[ "$(uname)" == "Linux" ]]; then
-  alias lock='i3lock'
+  alias lock='__print_and_execute i3lock'
 fi
 
 alias poi='__print_and_execute poetry sync'
@@ -89,32 +89,30 @@ podestroyvenv() {
   fi
 }
 
-alias van='python3 -m venv .venv'
-alias vac='source .venv/bin/activate'
-alias vad='deactivate'
+alias van='__print_and_execute python3 -m venv .venv'
+alias vac='__print_and_execute source .venv/bin/activate'
+alias vad='__print_and_execute deactivate'
 
-alias home='cd $HOME'
-alias dev='cd $HOME/dev'
-alias b-ggs='cd $HOME/dev/b-ggs'
-alias dotfiles='cd $HOME/.files'
-alias dotfilesprivate='cd $HOME/.files-private'
-alias dump='mkdir -p $HOME/.dump && cd $HOME/.dump'
-alias dotbin='cd $HOME/.bin'
-alias Downloads='cd $HOME/Downloads'
-alias Desktop='cd $HOME/Desktop'
-alias dockerfiles='cd $HOME/dev/b-ggs/dockerfiles'
-alias wslhome='cd $(wslpath $(wslvar USERPROFILE))'
+alias home='__print_and_execute cd $HOME'
+alias dev='__print_and_execute cd $HOME/dev'
+alias b-ggs='__print_and_execute cd $HOME/dev/b-ggs'
+alias dotfiles='__print_and_execute cd $HOME/.files'
+alias dotfilesprivate='__print_and_execute cd $HOME/.files-private'
+alias dump='__print_and_execute mkdir -p $HOME/.dump && cd $HOME/.dump'
+alias dotbin='__print_and_execute cd $HOME/.bin'
+alias Downloads='__print_and_execute cd $HOME/Downloads'
+alias Desktop='__print_and_execute cd $HOME/Desktop'
 
-alias known-hosts='$EDITOR $HOME/.ssh/known_hosts'
-alias ssh-config='cd $HOME/.ssh-config'
-alias authorized-keys='cd $HOME/.authorized-keys'
+alias known-hosts='__print_and_execute $EDITOR $HOME/.ssh/known_hosts'
+alias ssh-config='__print_and_execute cd $HOME/.ssh-config'
+alias authorized-keys='__print_and_execute cd $HOME/.authorized-keys'
 
-alias sshforward='ssh -L 8000:localhost:8000 -L 8143:localhost:8143 -L 8823:localhost:8823 -L 5678:localhost:5678 -L 3000:localhost:3000 -L 8086:localhost:8086 -L 5432:localhost:5432 -L 8080:localhost:8080 -L 8082:localhost:8082 -L 8001:localhost:8001 -CNT '
+alias sshforward='__print_and_execute ssh -L 8000:localhost:8000 -L 8143:localhost:8143 -L 8823:localhost:8823 -L 5678:localhost:5678 -L 3000:localhost:3000 -L 8086:localhost:8086 -L 5432:localhost:5432 -L 8080:localhost:8080 -L 8082:localhost:8082 -L 8001:localhost:8001 -CNT '
 
 alias keychainloaddefault='__print_and_execute keychain --nogui -q $HOME/.ssh/id_ed25519'
 
-alias ipify='curl -s https://api.ipify.org'
-alias tmpdir='cd $(mktemp -d)'
+alias ipify='__print_and_execute curl -s https://api.ipify.org'
+alias tmpdir='__print_and_execute cd $(mktemp -d)'
 alias utcnow='__print_and_execute date -u +"%Y-%m-%dT%H:%M:%SZ" | __print_and_execute xargs echo -n'
 alias utcnowsafe='date -u +"%Y-%m-%dT%H%M%SZ" | xargs echo -n'
 
@@ -176,6 +174,15 @@ if [[ -f /opt/homebrew/bin/fnm ]]; then
   echo "$(__pill_text OK 2) fnm"
 else
   echo "$(__pill_text WARN 3) fnm not found"
+fi
+
+
+# just
+if [[ -f /opt/homebrew/bin/just ]]; then
+  eval "$(just --completions zsh)"
+  echo "$(__pill_text OK 2) just"
+else
+  echo "$(__pill_text WARN 3) just not found"
 fi
 
 

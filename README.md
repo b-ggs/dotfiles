@@ -14,4 +14,5 @@ stow tmux
 stow ripgrep
 make git-configure
 stow git
+stow bin
 ```

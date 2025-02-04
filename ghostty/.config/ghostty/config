@@ -30,3 +30,6 @@ window-new-tab-position = end
 macos-icon = custom-style
 macos-icon-screen-color = 352939
 macos-icon-ghost-color = f4cde9
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig

@@ -67,6 +67,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
   alias showdesktop='__print_and_execute defaults write com.apple.finder CreateDesktop true && killall Finder'
   alias resetdock='__print_and_execute defaults write com.apple.dock tilesize -int 32; killall Dock'
   alias flushdnscache='__print_and_execute sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
+  alias powermetricsthermal='__print_and_execute sudo powermetrics -s thermal'
 elif [[ "$(uname)" == "Linux" ]]; then
   alias lock='__print_and_execute i3lock'
 fi

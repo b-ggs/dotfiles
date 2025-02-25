@@ -5,6 +5,7 @@ $git_status\
 $python\
 $nodejs\
 $rust\
+$terraform\
 $time\
 $cmd_duration\
 ${custom.ssh}\
@@ -39,6 +40,9 @@ version_format = "$raw"
 # format = 'on [⛵ ($user on )($cluster in )$context \($namespace\)](dimmed green) '
 format = "(($user on )($cluster in )$context \\($namespace\\)) "
 disabled = false
+
+[terraform]
+format = "(• tf-$version) "
 
 [time]
 format = "• $time "

@@ -68,6 +68,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
   alias resetdock='__print_and_execute defaults write com.apple.dock tilesize -int 32; killall Dock'
   alias flushdnscache='__print_and_execute sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
   alias powermetricsthermal='__print_and_execute sudo powermetrics -s thermal'
+  alias chargerwatts='__print_and_execute ioreg -r -c AppleSmartBattery | grep -i "AppleRawAdapterDetails" | sed "s/.*\"Watts\"=\([0-9]*\).*/\1/" | xargs echo -n'
 elif [[ "$(uname)" == "Linux" ]]; then
   alias lock='__print_and_execute i3lock'
 fi

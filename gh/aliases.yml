@@ -2,3 +2,8 @@ pco: pr checkout
 pcr: pr create
 pvw: pr view --web
 cda: cache delete --all
+
+pr co: pr checkout
+pr c: pr create
+pr vw: pr view --web
+c da: cache delete --all

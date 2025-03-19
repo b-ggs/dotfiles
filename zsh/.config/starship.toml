@@ -13,7 +13,7 @@ ${custom.docker}(\n$kubernetes)
 $character"""
 
 [directory]
-format = "[](fg:purple)[$path](bg:purple fg:black)[](fg:purple) "
+format = "[](fg:purple)[$path](bg:purple fg:black bold)[](fg:purple) "
 
 [git_branch]
 format = "(• $branch)"

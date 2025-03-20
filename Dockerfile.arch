@@ -6,7 +6,6 @@ RUN pacman -Syu --noconfirm \
   && $HOME/.local/share/fnm/fnm install 22 \
   && $HOME/.local/share/fnm/fnm exec --using=22 npm update --location=global npm
 
-# copy dotfiles
 COPY . /root/.files/
 
 WORKDIR /root/.files/
@@ -20,6 +19,6 @@ RUN make zsh-configure \
   && stow git
 
 # Just to inform the Starship prompt to show that we are in a Docker container
-ENV IN_DOCKER true
+ENV IN_DOCKER=true
 
 CMD ["zsh", "-l"]

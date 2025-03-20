@@ -1,4 +1,4 @@
-FROM archlinux:base-devel
+FROM --platform=linux/amd64 archlinux:base-devel
 
 RUN pacman -Syu --noconfirm \
   && pacman -S --noconfirm neovim zsh git ripgrep fzf tmux unzip ctags stow \

@@ -18,3 +18,31 @@ drive_share_to_download_link share_link:
   sys.stderr.write("⬇️")
 
   print(download_link, end="")
+
+test_darwin:
+  test "$(uname)" == "Darwin"
+
+reset_dock: test_darwin
+  defaults write com.apple.dock tilesize -int 32
+  killall Dock
+
+show_desktop: test_darwin
+  defaults write com.apple.finder CreateDesktop true
+  killall Finder
+
+hide_desktop: test_darwin
+  defaults write com.apple.finder CreateDesktop false
+  killall Finder
+
+charger_watts: test_darwin
+  ioreg -r -c AppleSmartBattery | grep -i "AppleRawAdapterDetails" | sed "s/.*\"Watts\"=\([0-9]*\).*/\1/" | xargs echo -n
+
+flush_dns_cache: test_darwin
+  sudo dscacheutil -flushcache
+  sudo killall -HUP mDNSResponder
+
+lock: test_darwin
+  open -a ScreenSaverEngine
+
+thermals: test_darwin
+  sudo powermetrics -s thermal

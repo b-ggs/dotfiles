@@ -181,8 +181,17 @@ fi
 
 # just
 if [[ -f /opt/homebrew/bin/just ]]; then
-  eval "$(just --completions zsh)"
-  echo "$(__pill_text OK 2) just"
+  if [[ -f $HOME/.config/just/completions.zsh ]]; then
+    source $HOME/.config/just/completions.zsh
+  else
+    echo "$(__pill_text WARN 3) custom just completions not found"
+    eval "$(just --completions zsh)"
+  fi
+  if [[ -f $HOME/.config/just/justfile ]]; then
+    echo "$(__pill_text OK 2) just"
+  else
+    echo "$(__pill_text WARN 3) global justfile not found"
+  fi
 else
   echo "$(__pill_text WARN 3) just not found"
 fi

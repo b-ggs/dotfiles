@@ -18,13 +18,13 @@ RUN tar -xzvf /tmp/nvim.tar.gz -C /tmp/ --strip-components=1
 
 FROM debian:bookworm
 
-COPY --from=nvim-extracted /tmp/bin/nvim /bin/nvim
-
 RUN apt-get update -y \
   && apt-get install -y build-essential zsh git ripgrep fzf tmux make curl sudo unzip universal-ctags stow \
   && curl -fsSL https://fnm.vercel.app/install | bash \
   && $HOME/.local/share/fnm/fnm install 22 \
   && $HOME/.local/share/fnm/fnm exec --using=22 npm update --location=global npm
+
+COPY --from=nvim-extracted /tmp/bin/nvim /bin/nvim
 
 COPY . /root/.files/
 

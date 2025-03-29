@@ -6,21 +6,38 @@ drive_share_to_download_link share_link:
 
   import sys
 
-
   share_link = "{{share_link}}"
 
-  sys.stderr.write(share_link + "\n")
+  print("Share link:", share_link, file=sys.stderr)
 
   if not share_link.startswith("https://drive.google.com/file/d/"):
-      sys.stderr.write("Invalid share link.\n")
+      print("Invalid share link.", file=sys.stderr)
       sys.exit(1)
   file_id = share_link.split("/")[5]
   download_link = f"https://drive.google.com/uc?id={file_id}&export=download"
 
-  sys.stderr.write("\n")
-  sys.stderr.write("⬇️")
-
   print(download_link, end="")
+
+get_deepl_link lang *args:
+  #!/usr/bin/env python3
+
+  import sys
+  import urllib.parse
+
+  language = "{{lang}}"
+  text = "{{args}}"
+
+  print(f"Language: {language}", file=sys.stderr)
+  print(f"Text: {text}", file=sys.stderr)
+
+  url = "https://www.deepl.com/en/translator#"
+  url += f"{language}/en/"
+  url += urllib.parse.quote(text)
+
+  if not sys.stdout.isatty():
+      print(f"Piping URL to stdout: {url}", file=sys.stderr)
+
+  print(url, end="")
 
 test_darwin:
   test "$(uname)" == "Darwin"

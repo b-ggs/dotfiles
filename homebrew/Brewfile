@@ -1,9 +1,11 @@
 # vim: set ft=ruby:
 
 brew "aria2"
+brew "bat"
 brew "btop"
 brew "cmake"
 brew "curl"
+brew "eza"
 brew "fnm"
 brew "fzf"
 brew "git"

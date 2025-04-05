@@ -197,6 +197,26 @@ else
 fi
 
 
+# bat
+
+if [[ -f /opt/homebrew/bin/bat ]]; then
+  alias cat='bat'
+  echo "$(__pill_text OK 2) bat"
+else
+  echo "$(__pill_text WARN 3) bat not found, falling back to cat"
+fi
+
+
+# eza
+
+if [[ -f /opt/homebrew/bin/eza ]]; then
+  alias ls='eza'
+  echo "$(__pill_text OK 2) eza"
+else
+  echo "$(__pill_text WARN 3) eza not found, falling back to ls"
+fi
+
+
 # private zshrc
 
 if [ -f "$HOME/.private.zshrc" ]; then

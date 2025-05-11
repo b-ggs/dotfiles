@@ -47,16 +47,13 @@ return {
       },
     })
 
-    local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
-      .. "/node_modules/@vue/language-server"
-
     lspconfig.ts_ls.setup({
       capabilities = capabilities,
       init_options = {
         plugins = {
           {
             name = "@vue/typescript-plugin",
-            location = vue_language_server_path,
+            location = vim.fn.expand("$MASON/share/vue-language-server/node_modules/@vue/language-server"),
             languages = { "vue" },
           },
         },

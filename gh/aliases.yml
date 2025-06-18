@@ -1,9 +1,5 @@
-pco: pr checkout
-pcr: pr create
-pvw: pr view --web
+prco: pr checkout
+prc: pr create
+prvw: pr view --web
 cda: cache delete --all
-
-pr co: pr checkout
-pr c: pr create
-pr vw: pr view --web
-c da: cache delete --all
+rvw: repo view --web

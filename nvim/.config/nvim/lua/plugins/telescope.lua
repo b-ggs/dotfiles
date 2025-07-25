@@ -45,5 +45,7 @@ return {
         },
       },
     })
+
+    require("telescope").load_extension("fidget")
   end,
 }

@@ -6,7 +6,7 @@
   "lua-language-server": "3.15.0",
   "prettier": "3.6.2",
   "pyright": "1.1.403",
-  "ruff": "0.12.3",
+  "ruff": "0.12.5",
   "shellcheck": "v0.10.0",
   "shfmt": "v3.12.0",
   "stylua": "v2.1.0",
@@ -14,5 +14,5 @@
   "taplo": "0.10.0",
   "typescript-language-server": "4.3.4",
   "typos-lsp": "v0.1.40",
-  "vue-language-server": "3.0.1"
+  "vue-language-server": "3.0.4"
 }

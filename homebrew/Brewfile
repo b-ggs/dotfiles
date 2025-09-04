@@ -1,5 +1,6 @@
 # vim: set ft=ruby:
 
+brew "ast-grep"
 brew "aria2"
 brew "bat"
 brew "btop"

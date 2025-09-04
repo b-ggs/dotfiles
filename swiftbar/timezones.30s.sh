@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo -n "MNL " ; TZ="Asia/Manila" date +'%a %-l:%M %p'
+echo -n "VNO " ; TZ="Europe/Vilnius" date +'%a %-l:%M %p'
 
 echo "---"
 

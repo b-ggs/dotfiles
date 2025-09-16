@@ -3,8 +3,8 @@ FROM --platform=linux/amd64 archlinux:base-devel
 RUN pacman -Syu --noconfirm \
   && pacman -S --noconfirm neovim zsh git ripgrep fzf tmux unzip ctags stow \
   && curl -fsSL https://fnm.vercel.app/install | bash \
-  && $HOME/.local/share/fnm/fnm install 22 \
-  && $HOME/.local/share/fnm/fnm exec --using=22 npm update --location=global npm
+  && $HOME/.local/share/fnm/fnm install 24 \
+  && $HOME/.local/share/fnm/fnm exec --using=24 npm update --location=global npm
 
 COPY . /root/.files/
 

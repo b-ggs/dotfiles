@@ -21,8 +21,8 @@ FROM debian:bookworm
 RUN apt-get update -y \
   && apt-get install -y build-essential zsh git ripgrep fzf tmux make curl sudo unzip universal-ctags stow \
   && curl -fsSL https://fnm.vercel.app/install | bash \
-  && $HOME/.local/share/fnm/fnm install 22 \
-  && $HOME/.local/share/fnm/fnm exec --using=22 npm update --location=global npm
+  && $HOME/.local/share/fnm/fnm install 24 \
+  && $HOME/.local/share/fnm/fnm exec --using=24 npm update --location=global npm
 
 COPY --from=nvim-extracted /tmp/bin/nvim /bin/nvim
 

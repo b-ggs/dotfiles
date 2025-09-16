@@ -16,7 +16,7 @@ jobs:
           - Dockerfile.debian
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
       - name: Build
         run: |
           docker build -t dotfiles -f "${{ matrix.dockerfile }}" .
@@ -31,6 +31,6 @@ jobs:
               && tmux -V \
               && rg --version \
               && git --version \
-              && \$HOME/.local/share/fnm/fnm exec --using=22 node --version \
-              && \$HOME/.local/share/fnm/fnm exec --using=22 npm list --location=global \
+              && \$HOME/.local/share/fnm/fnm exec --using=24 node --version \
+              && \$HOME/.local/share/fnm/fnm exec --using=24 npm list --location=global \
             "

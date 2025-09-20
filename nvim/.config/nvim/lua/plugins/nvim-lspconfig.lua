@@ -5,38 +5,43 @@ return {
     "hrsh7th/nvim-cmp",
   },
   config = function()
-    local lspconfig = require("lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
     local mason_registry = require("mason-registry")
 
-    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
     -- :help lspconfig-all
 
-    lspconfig.bashls.setup({
+    vim.lsp.config("bashls", {
       capabilities = capabilities,
     })
+    vim.lsp.enable("bashls")
 
-    lspconfig.cssls.setup({
+    vim.lsp.config("cssls", {
       capabilities = capabilities,
     })
+    vim.lsp.enable("cssls")
 
-    lspconfig.html.setup({
+    vim.lsp.config("html", {
       capabilities = capabilities,
     })
+    vim.lsp.enable("html")
 
-    lspconfig.lua_ls.setup({
+    vim.lsp.config("lua_ls", {
       capabilities = capabilities,
     })
+    vim.lsp.enable("lua_ls")
 
-    lspconfig.pyright.setup({
+    vim.lsp.config("pyright", {
       capabilities = capabilities,
     })
+    vim.lsp.enable("pyright")
 
-    lspconfig.ruff.setup({
+    vim.lsp.config("ruff", {
       capabilities = capabilities,
     })
+    vim.lsp.enable("ruff")
 
-    lspconfig.tailwindcss.setup({
+    vim.lsp.config("tailwindcss", {
       capabilities = capabilities,
       settings = {
         tailwindcss = {
@@ -46,8 +51,10 @@ return {
         },
       },
     })
+    vim.lsp.enable("tailwindcss")
 
-    lspconfig.ts_ls.setup({
+
+    vim.lsp.config("ts_ls", {
       capabilities = capabilities,
       init_options = {
         plugins = {
@@ -60,14 +67,17 @@ return {
       },
       filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
     })
+    vim.lsp.enable("ts_ls")
 
-    lspconfig.typos_lsp.setup({
+    vim.lsp.config("typos_lsp", {
       capabilities = capabilities,
     })
+    vim.lsp.enable("typos_lsp")
 
-    lspconfig.volar.setup({
+    vim.lsp.config("vue_ls", {
       capabilities = capabilities,
     })
+    vim.lsp.enable("vue_ls")
 
     vim.keymap.set("n", "ge", vim.diagnostic.open_float, { desc = "diagnostic open float" })
     vim.keymap.set("n", "gp", vim.diagnostic.goto_prev, { desc = "diagnostic goto prev" })

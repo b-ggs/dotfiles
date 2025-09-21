@@ -57,25 +57,10 @@ listwatch() {
 }
 
 
-
-
 # aliases
-
-if [[ "$(uname)" == "Darwin" ]]; then
-  alias lock='__print_and_execute open -a ScreenSaverEngine'
-  alias hidedesktop='__print_and_execute defaults write com.apple.finder CreateDesktop false && killall Finder'
-  alias showdesktop='__print_and_execute defaults write com.apple.finder CreateDesktop true && killall Finder'
-  alias resetdock='__print_and_execute defaults write com.apple.dock tilesize -int 32; killall Dock'
-  alias flushdnscache='__print_and_execute sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
-  alias powermetricsthermal='__print_and_execute sudo powermetrics -s thermal'
-  alias chargerwatts='__print_and_execute ioreg -r -c AppleSmartBattery | grep -i "AppleRawAdapterDetails" | sed "s/.*\"Watts\"=\([0-9]*\).*/\1/" | xargs echo -n'
-elif [[ "$(uname)" == "Linux" ]]; then
-  alias lock='__print_and_execute i3lock'
-fi
 
 alias poi='__print_and_execute poetry sync'
 alias pos='__print_and_execute eval $(poetry env activate)'
-alias popreferactive='__print_and_execute poetry config virtualenvs.prefer-active-python true'
 
 povenvpath() {
   poetry env info | awk '/^Path:/{print $2; exit}'
@@ -111,12 +96,7 @@ alias authorized-keys='__print_and_execute cd $HOME/.authorized-keys'
 
 alias sshforward='__print_and_execute ssh -L 8000:localhost:8000 -L 8143:localhost:8143 -L 8823:localhost:8823 -L 5678:localhost:5678 -L 3000:localhost:3000 -L 8086:localhost:8086 -L 5432:localhost:5432 -L 8080:localhost:8080 -L 8082:localhost:8082 -L 8001:localhost:8001 -CNT '
 
-alias keychainloaddefault='__print_and_execute keychain --nogui -q $HOME/.ssh/id_ed25519'
-
-alias ipify='__print_and_execute curl -s https://api.ipify.org'
 alias tmpdir='__print_and_execute cd $(mktemp -d)'
-alias utcnow='__print_and_execute date -u +"%Y-%m-%dT%H:%M:%SZ" | __print_and_execute xargs echo -n'
-alias utcnowsafe='date -u +"%Y-%m-%dT%H%M%SZ" | xargs echo -n'
 
 # fzf
 

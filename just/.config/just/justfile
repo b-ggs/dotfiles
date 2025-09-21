@@ -69,3 +69,12 @@ thermals: test_darwin
 
 keychain:
   keychain --nogui -q $HOME/.ssh/id_ed25519
+
+ipify:
+  curl -s https://api.ipify.org
+
+utcnow:
+  date -u +"%Y-%m-%dT%H:%M:%SZ" | xargs echo -n
+
+utcnowsafe:
+  date -u +"%Y-%m-%dT%H%M%SZ" | xargs echo -n

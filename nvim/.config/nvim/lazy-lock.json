@@ -38,6 +38,6 @@
   "vim-fugitive": { "branch": "master", "commit": "61b51c09b7c9ce04e821f6cf76ea4f6f903e3cf4" },
   "vim-gutentags": { "branch": "master", "commit": "aa47c5e29c37c52176c44e61c780032dfacef3dd" },
   "vim-test": { "branch": "master", "commit": "ad4b7213568d59a5e37606ad65859e3a8e45dbd2" },
-  "vim-vsnip": { "branch": "master", "commit": "a8039976c7ca4393f30076b9fe5a4ade4c20514b" },
+  "vim-vsnip": { "branch": "master", "commit": "9bcfabea653abdcdac584283b5097c3f8760abaa" },
   "which-key.nvim": { "branch": "main", "commit": "904308e6885bbb7b60714c80ab3daf0c071c1492" }
 }

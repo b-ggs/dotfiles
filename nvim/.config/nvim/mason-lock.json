@@ -14,5 +14,5 @@
   "taplo": "0.10.0",
   "typescript-language-server": "5.0.0",
   "typos-lsp": "v0.1.45",
-  "vue-language-server": "3.1.0"
+  "vue-language-server": "3.1.1"
 }

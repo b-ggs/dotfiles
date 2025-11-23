@@ -31,3 +31,6 @@ local.nvim.lua
 __pycache__
 .pytest_cache
 *.pyc
+
+# claude
+.claude/settings.local.json

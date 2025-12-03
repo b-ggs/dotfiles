@@ -28,3 +28,6 @@ check-linux:
 
 brew-bundle:
 	cd homebrew && brew bundle
+
+format:
+	find . -name "*.lua" | xargs npx @johnnymorganz/stylua-bin

@@ -53,7 +53,6 @@ return {
     })
     vim.lsp.enable("tailwindcss")
 
-
     vim.lsp.config("ts_ls", {
       capabilities = capabilities,
       init_options = {

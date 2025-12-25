@@ -83,3 +83,6 @@ brew "heroku/brew/heroku"
 
 tap "teamookla/speedtest"
 brew "teamookla/speedtest/speedtest"
+
+tap "tw93/tap"
+brew "tw93/tap/mole"

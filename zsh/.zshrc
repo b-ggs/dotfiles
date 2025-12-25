@@ -197,6 +197,16 @@ else
 fi
 
 
+# agy
+
+if [[ -d "$HOME/.antigravity/antigravity" ]]; then
+  echo "$(__pill_text OK 2) agy"
+  export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
+else
+  echo "$(__pill_text WARN 3) antigravity not found"
+fi
+
+
 # private zshrc
 
 if [ -f "$HOME/.private.zshrc" ]; then

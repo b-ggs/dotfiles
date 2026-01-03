@@ -1,5 +1,6 @@
 return {
   "hrsh7th/nvim-cmp",
+  tag = "v0.0.2",
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",

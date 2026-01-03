@@ -1,5 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
+  tag = "v2.5.0",
   dependencies = {
     "folke/lazydev.nvim",
     "hrsh7th/nvim-cmp",

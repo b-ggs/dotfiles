@@ -26,6 +26,8 @@ fi
 
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
+export BUILDKIT_PROGRESS=plain
+
 # functions
 
 __pill_text() {

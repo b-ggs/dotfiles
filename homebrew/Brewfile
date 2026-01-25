@@ -53,6 +53,7 @@ cask "google-chrome"
 
 cask "1password"
 cask "1password-cli"
+cask "aldente"
 cask "alt-tab"
 cask "android-platform-tools"
 cask "dbeaver-community"

@@ -3,3 +3,4 @@ prc: pr create
 prvw: pr view --web
 cda: cache delete --all
 rvw: repo view --web
+act: '!open "https://github.com/$(gh repo view --json nameWithOwner -q .nameWithOwner)/actions"'

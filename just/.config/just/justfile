@@ -78,3 +78,6 @@ utcnow:
 
 utcnowsafe:
   date -u +"%Y-%m-%dT%H%M%SZ" | xargs echo -n
+
+remove_dot_underscore_files_recursively:
+  find . -name "._*" -type f -delete

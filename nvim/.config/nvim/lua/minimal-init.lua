@@ -72,6 +72,7 @@ vim.keymap.set({ "n" }, "Q", "<Nop>")
 -- Commands to correct mistypes
 vim.api.nvim_create_user_command("W", "w", {})
 vim.api.nvim_create_user_command("Wq", "wq", {})
+vim.api.nvim_create_user_command("Wqall", "wqall", {})
 
 -- Remap pane navigation to Ctrl+{h,j,k,l}
 vim.keymap.set("n", "<C-h>", "<C-w>h")

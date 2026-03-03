@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
-echo -n "VNO " ; TZ="Europe/Vilnius" date +'%a %-l:%M %p'
+current_tz="$(date +"%Z")"
+if [ "$current_tz" != "PST" ]; then
+  echo -n "MNL " ; TZ="Asia/Manila" date +'%a %-l:%M %p'
+else
+  echo -n "VNO " ; TZ="Europe/Vilnius" date +'%a %-l:%M %p'
+fi
 
 echo "---"
 

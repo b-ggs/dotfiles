@@ -1,5 +1,6 @@
 # binds
 
+
 # use emacs mode i think???
 # https://unix.stackexchange.com/a/197841
 bindkey -e
@@ -241,6 +242,19 @@ if [[ -d "$HOME/.keychain" ]]; then
   fi
 else
   echo "$(__pill_text WARN 3) keychain not found"
+fi
+
+
+# rs-fortune
+
+if [[ -f /opt/homebrew/bin/rs-fortune ]]; then
+  # Show a fortune every 30 minutes
+  local fortune_stamp="/tmp/.rs-fortune-stamp"
+  if [[ ! -f "$fortune_stamp" ]] || [[ -n $(find "$fortune_stamp" -mmin +30) ]]; then
+    touch "$fortune_stamp"
+    echo
+    FORTUNE_FILE="$HOME/.files/rs-fortune/fortunes.txt" rs-fortune | boxes -d ansi-rounded
+  fi
 fi
 
 

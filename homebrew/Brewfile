@@ -3,6 +3,7 @@
 brew "ast-grep"
 brew "aria2"
 brew "bat"
+brew "boxes"
 brew "btop"
 brew "cmake"
 brew "curl"
@@ -90,6 +91,9 @@ brew "teamookla/speedtest/speedtest"
 
 tap "tw93/tap"
 brew "tw93/tap/mole"
+
+tap "zuisong/tap"
+brew "zuisong/tap/rs-fortune"
 
 tap "steipete/tap"
 cask "steipete/tap/codexbar"

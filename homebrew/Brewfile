@@ -94,6 +94,3 @@ brew "tw93/tap/mole"
 
 tap "zuisong/tap"
 brew "zuisong/tap/rs-fortune"
-
-tap "steipete/tap"
-cask "steipete/tap/codexbar"

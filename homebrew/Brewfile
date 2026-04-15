@@ -52,6 +52,7 @@ cask "brave-browser"
 cask "ungoogled-chromium"
 cask "firefox"
 cask "google-chrome"
+cask "helium-browser"
 
 cask "1password"
 cask "1password-cli"

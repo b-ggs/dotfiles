@@ -81,3 +81,19 @@ utcnowsafe:
 
 remove_dot_underscore_files_recursively:
   find . -name "._*" -type f -delete
+
+set_helium_user_color2: test_darwin
+  #!/usr/bin/env python3
+
+  import json
+  import glob
+  import os
+
+  pattern = os.path.expanduser("~/Library/Application Support/net.imput.helium/*/Preferences")
+  for path in glob.glob(pattern):
+      with open(path) as f:
+          prefs = json.load(f)
+      prefs.setdefault("browser", {}).setdefault("theme", {})["user_color2"] = -733719
+      with open(path, "w") as f:
+          json.dump(prefs, f, separators=(",", ":"))
+      print(f"Updated: {path}")

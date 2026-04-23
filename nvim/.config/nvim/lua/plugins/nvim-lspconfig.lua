@@ -1,6 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
-  tag = "v2.5.0",
+  tag = "v2.8.0",
   dependencies = {
     "folke/lazydev.nvim",
     "hrsh7th/nvim-cmp",
@@ -113,15 +113,5 @@ return {
         vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = ev.buf, desc = "LSP references" })
       end,
     })
-
-    -- Globally add borders to all nvim-lspconfig floating windows
-    -- https://github.com/neovim/nvim-lspconfig/wiki/UI-customization#borders
-    local border = "single"
-    local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-    function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-      opts = opts or {}
-      opts.border = opts.border or border
-      return orig_util_open_floating_preview(contents, syntax, opts, ...)
-    end
   end,
 }

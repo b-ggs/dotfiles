@@ -1,6 +1,6 @@
 return {
   "hrsh7th/nvim-cmp",
-  tag = "v0.0.2",
+  commit = "a1d504892f2bc56c2e79b65c6faded2fd21f3eca",  -- 2026-03-25
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",

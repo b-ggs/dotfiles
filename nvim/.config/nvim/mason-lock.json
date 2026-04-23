@@ -4,15 +4,15 @@
   "djlint": "1.36.4",
   "html-lsp": "4.10.0",
   "lua-language-server": "3.18.2",
-  "prettier": "3.8.2",
-  "pyright": "1.1.408",
-  "ruff": "0.15.10",
+  "prettier": "3.8.3",
+  "pyright": "1.1.409",
+  "ruff": "0.15.11",
   "shellcheck": "v0.11.0",
   "shfmt": "v3.13.1",
   "stylua": "v2.4.1",
   "tailwindcss-language-server": "0.14.29",
   "taplo": "0.10.0",
   "typescript-language-server": "5.1.3",
-  "typos-lsp": "v0.1.51",
-  "vue-language-server": "3.2.6"
+  "typos-lsp": "v0.1.52",
+  "vue-language-server": "3.2.7"
 }

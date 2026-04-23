@@ -1,1 +1,1 @@
-return { "norcalli/nvim-colorizer.lua", config = true }
+return { "catgoose/nvim-colorizer.lua", event = "BufReadPre", opts = {} }

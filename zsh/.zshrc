@@ -164,12 +164,7 @@ fi
 
 # just
 if [[ -f /opt/homebrew/bin/just ]]; then
-  if [[ -f $HOME/.config/just/completions.zsh ]]; then
-    source $HOME/.config/just/completions.zsh
-  else
-    echo "$(__pill_text WARN 3) custom just completions not found"
-    eval "$(just --completions zsh)"
-  fi
+  eval "$(just --completions zsh)"
   if [[ -f $HOME/.config/just/justfile ]]; then
     echo "$(__pill_text OK 2) just"
   else

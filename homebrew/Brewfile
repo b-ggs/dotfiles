@@ -1,6 +1,5 @@
 # vim: set ft=ruby:
 
-brew "ast-grep"
 brew "aria2"
 brew "bat"
 brew "boxes"
@@ -87,12 +86,6 @@ cask "vnc-viewer"
 
 tap "heroku/brew"
 brew "heroku/brew/heroku"
-
-tap "teamookla/speedtest"
-brew "teamookla/speedtest/speedtest"
-
-tap "tw93/tap"
-brew "tw93/tap/mole"
 
 tap "zuisong/tap"
 brew "zuisong/tap/rs-fortune"

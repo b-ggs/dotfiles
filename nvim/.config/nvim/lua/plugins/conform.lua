@@ -21,6 +21,7 @@ return {
       css = { "prettier" },
       javascript = { "prettier" },
       json = { "prettier" },
+      go = { "gofmt" },
       html = { "prettier" },
       htmldjango = { "djlint" },
       lua = { "stylua" },

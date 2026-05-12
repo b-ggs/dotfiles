@@ -5,6 +5,7 @@ return {
       -- LSP servers
       "bash-language-server",
       "css-lsp",
+      "gopls",
       "html-lsp",
       "lua-language-server",
       "pyright",

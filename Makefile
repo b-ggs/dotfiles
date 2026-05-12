@@ -27,7 +27,7 @@ check-linux:
 	test "$$(uname)" = "Linux"
 
 brew-bundle:
-	cd homebrew && brew bundle
+	cd homebrew && brew bundle --verbose
 
 format:
 	find . -name "*.lua" | xargs npx @johnnymorganz/stylua-bin

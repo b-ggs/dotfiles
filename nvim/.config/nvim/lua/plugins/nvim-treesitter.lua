@@ -6,18 +6,13 @@ return {
     -- Use fork that addresses this issue:
     -- https://github.com/nvim-treesitter/nvim-treesitter/issues/6530
     -- PR: https://github.com/camdencheek/tree-sitter-dockerfile/pull/52
-    vim.api.nvim_create_autocmd("User", {
-      pattern = "TSUpdate",
-      callback = function()
-        require("nvim-treesitter.parsers").dockerfile = {
-          install_info = {
-            url = "https://github.com/faergeek/tree-sitter-dockerfile",
-            branch = "make-language-injections-easier",
-            files = { "src/parser.c", "src/scanner.c" },
-          },
-        }
-      end,
-    })
+    require("nvim-treesitter.parsers").dockerfile = {
+      install_info = {
+        url = "https://github.com/faergeek/tree-sitter-dockerfile",
+        branch = "make-language-injections-easier",
+        files = { "src/parser.c", "src/scanner.c" },
+      },
+    }
 
     require("nvim-treesitter").install({
       "astro",
@@ -46,7 +41,7 @@ return {
         "just", "lua", "markdown", "python", "query", "rust", "scss",
         "svelte", "typescript", "vim", "vue",
       },
-      callback = function() vim.treesitter.start() end,
+      callback = function() pcall(vim.treesitter.start) end,
     })
   end,
 }

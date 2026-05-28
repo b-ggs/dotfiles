@@ -238,7 +238,7 @@ if [[ -f /opt/homebrew/bin/rs-fortune ]]; then
   if [[ ! -f "$fortune_stamp" ]] || [[ -n $(find "$fortune_stamp" -mmin +30) ]]; then
     touch "$fortune_stamp"
     echo
-    FORTUNE_FILE="$HOME/.files/rs-fortune/fortunes.txt" rs-fortune | boxes -d ansi-rounded
+    FORTUNE_FILE="$HOME/.files/rs-fortune/fortunes.txt" rs-fortune | fmt -w $((COLUMNS - 4)) | boxes -d ansi-rounded
   fi
 fi
 

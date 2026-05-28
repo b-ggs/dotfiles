@@ -61,6 +61,11 @@ flush_dns_cache: test_darwin
   sudo dscacheutil -flushcache
   sudo killall -HUP mDNSResponder
 
+set_hostname hostname: test_darwin
+  sudo scutil --set ComputerName "{{hostname}}"
+  sudo scutil --set LocalHostName "{{hostname}}"
+  sudo scutil --set HostName "{{hostname}}"
+
 lock: test_darwin
   open -a ScreenSaverEngine
 

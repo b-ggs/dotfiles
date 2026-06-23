@@ -92,6 +92,7 @@ alias dump='__print_and_execute mkdir -p $HOME/.dump && cd $HOME/.dump'
 alias dotbin='__print_and_execute cd $HOME/.bin'
 alias Downloads='__print_and_execute cd $HOME/Downloads'
 alias Desktop='__print_and_execute cd $HOME/Desktop'
+alias Documents='__print_and_execute cd $HOME/Documents'
 
 alias known-hosts='__print_and_execute $EDITOR $HOME/.ssh/known_hosts'
 alias ssh-config='__print_and_execute cd $HOME/.ssh-config'

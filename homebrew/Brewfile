@@ -58,7 +58,6 @@ cask "helium-browser"
 
 cask "1password"
 cask "1password-cli"
-cask "alt-tab"
 cask "android-platform-tools"
 cask "claude-code@latest"
 cask "codex"
@@ -85,11 +84,17 @@ cask "visual-studio-code"
 cask "vlc"
 cask "vnc-viewer"
 
-tap "heroku/brew"
-brew "heroku/brew/heroku"
+tap "anomalyco/tap", trust: true
+brew "anomalyco/tap/opencode", trust: true
 
-tap "zuisong/tap"
-brew "zuisong/tap/rs-fortune"
+tap "heroku/brew", trust: true
+brew "heroku/brew/heroku", trust: true
 
-tap "psviderski/tap"
-cask "psviderski/tap/docker-pussh"
+tap "zuisong/tap", trust: true
+brew "zuisong/tap/rs-fortune", trust: true
+
+tap "psviderski/tap", trust: true
+cask "psviderski/tap/docker-pussh", trust: true
+
+tap "Sanyam-G/switch", trust: true
+cask "Sanyam-G/switch/switch", trust: true

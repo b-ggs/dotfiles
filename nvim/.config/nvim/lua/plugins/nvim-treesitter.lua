@@ -37,11 +37,28 @@ return {
 
     vim.api.nvim_create_autocmd("FileType", {
       pattern = {
-        "astro", "css", "dockerfile", "hcl", "html", "javascript", "json",
-        "just", "lua", "markdown", "python", "query", "rust", "scss",
-        "svelte", "typescript", "vim", "vue",
+        "astro",
+        "css",
+        "dockerfile",
+        "hcl",
+        "html",
+        "javascript",
+        "json",
+        "just",
+        "lua",
+        "markdown",
+        "python",
+        "query",
+        "rust",
+        "scss",
+        "svelte",
+        "typescript",
+        "vim",
+        "vue",
       },
-      callback = function() pcall(vim.treesitter.start) end,
+      callback = function()
+        pcall(vim.treesitter.start)
+      end,
     })
   end,
 }

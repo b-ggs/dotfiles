@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-current_tz="$(date +"%Z")"
-if [ "$current_tz" != "PST" ]; then
+current_offset="$(date +"%z")"
+manila_offset="$(TZ="Asia/Manila" date +"%z")"
+if [ "$current_offset" != "$manila_offset" ]; then
   echo -n "MNL " ; TZ="Asia/Manila" date +'%a %-l:%M %p'
 else
   echo -n "VNO " ; TZ="Europe/Vilnius" date +'%a %-l:%M %p'

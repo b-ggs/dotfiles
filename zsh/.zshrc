@@ -141,15 +141,13 @@ if [[ "$(uname)" = "Darwin" ]]; then
 fi
 
 
-# pyenv
+# uv
 
-if [[ -d "$HOME/.pyenv" ]]; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init --path)"
-  echo "$(__pill_text OK 2) pyenv"
+if [[ -n "$(command -v uv 2> /dev/null)" ]]; then
+  eval "$(uv generate-shell-completion zsh)"
+  echo "$(__pill_text OK 2) uv"
 else
-  echo "$(__pill_text WARN 3) pyenv not found"
+  echo "$(__pill_text WARN 3) uv not found"
 fi
 
 

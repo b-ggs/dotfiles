@@ -22,7 +22,6 @@ brew "parallel"
 brew "pngcrush"
 brew "poetry"
 brew "progress"
-brew "pyenv", args: ["HEAD", "fetch-HEAD"]
 brew "ripgrep"
 brew "starship"
 brew "stow"
@@ -36,18 +35,6 @@ brew "uv"
 brew "universal-ctags"
 brew "watch"
 brew "wget"
-
-# pyenv build deps
-# https://github.com/pyenv/pyenv/wiki#suggested-build-environment
-brew "openssl"
-brew "readline"
-brew "sqlite3"
-brew "xz"
-brew "tcl-tk"
-brew "libb2"
-brew "zstd"
-brew "zlib"
-brew "pkgconfig"
 
 # Browsers
 cask "brave-browser"

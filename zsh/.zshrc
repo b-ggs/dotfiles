@@ -153,7 +153,7 @@ fi
 
 # fnm
 
-if [[ -f /opt/homebrew/bin/fnm ]]; then
+if command -v fnm > /dev/null 2>&1; then
   eval "$(fnm env --use-on-cd)"
   echo "$(__pill_text OK 2) fnm"
 else
@@ -162,7 +162,8 @@ fi
 
 
 # just
-if [[ -f /opt/homebrew/bin/just ]]; then
+
+if command -v just > /dev/null 2>&1; then
   eval "$(just --completions zsh)"
   if [[ -f $HOME/.config/just/justfile ]]; then
     echo "$(__pill_text OK 2) just"
@@ -176,8 +177,12 @@ fi
 
 # bat
 
-if [[ -f /opt/homebrew/bin/bat ]]; then
+if command -v bat > /dev/null 2>&1; then
   alias cat='bat'
+  echo "$(__pill_text OK 2) bat"
+elif command -v batcat > /dev/null 2>&1; then
+  # Debian/Ubuntu package installs the binary as `batcat`
+  alias cat='batcat'
   echo "$(__pill_text OK 2) bat"
 else
   echo "$(__pill_text WARN 3) bat not found, falling back to cat"
@@ -186,7 +191,7 @@ fi
 
 # eza
 
-if [[ -f /opt/homebrew/bin/eza ]]; then
+if command -v eza > /dev/null 2>&1; then
   alias ls='eza'
   echo "$(__pill_text OK 2) eza"
 else
@@ -231,7 +236,7 @@ fi
 
 # rs-fortune
 
-if [[ -f /opt/homebrew/bin/rs-fortune ]]; then
+if command -v rs-fortune > /dev/null 2>&1; then
   # Show a fortune every 30 minutes
   local fortune_stamp="/tmp/.rs-fortune-stamp"
   if [[ ! -f "$fortune_stamp" ]] || [[ -n $(find "$fortune_stamp" -mmin +30) ]]; then

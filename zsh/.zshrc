@@ -12,6 +12,7 @@ bindkey "^N" history-beginning-search-forward
 
 export PATH="$HOME/.bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.npm-global/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
 export LANG="en_US.UTF-8"

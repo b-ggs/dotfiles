@@ -1,0 +1,11 @@
+onboarding = false
+
+[keys]
+prefix = "ctrl+s"
+split_vertical = "prefix+\\"
+split_horizontal = "prefix+minus"
+
+[ui]
+agent_panel_sort = "spaces"
+prompt_new_tab_name = false
+tab_bar_position = "bottom"

@@ -153,6 +153,11 @@ fi
 
 # fnm
 
+FNM_PATH="$HOME/.local/share/fnm"
+if [[ -d "$FNM_PATH" ]]; then
+  export PATH="$FNM_PATH:$PATH"
+fi
+
 if command -v fnm > /dev/null 2>&1; then
   eval "$(fnm env --use-on-cd)"
   echo "$(__pill_text OK 2) fnm"

@@ -8,4 +8,35 @@ split_horizontal = "prefix+minus"
 [ui]
 agent_panel_sort = "spaces"
 prompt_new_tab_name = false
-tab_bar_position = "bottom"
+
+# https://github.com/iurysza/herdr-pane-layouts
+
+[[keys.command]]
+key = "prefix+space"
+type = "plugin_action"
+command = "layouts.cycle"
+description = "cycle pane layouts"
+
+[[keys.command]]
+key = "prefix+left"
+type = "plugin_action"
+command = "layouts.resize-left"
+description = "resize pane left"
+
+[[keys.command]]
+key = "prefix+right"
+type = "plugin_action"
+command = "layouts.resize-right"
+description = "resize pane right"
+
+[[keys.command]]
+key = "prefix+down"
+type = "plugin_action"
+command = "layouts.resize-down"
+description = "resize pane down"
+
+[[keys.command]]
+key = "prefix+up"
+type = "plugin_action"
+command = "layouts.resize-up"
+description = "resize pane up"

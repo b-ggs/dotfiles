@@ -4,6 +4,9 @@ onboarding = false
 prefix = "ctrl+s"
 split_vertical = "prefix+\\"
 split_horizontal = "prefix+minus"
+new_workspace = "prefix+shift+c"
+previous_workspace = "prefix+shift+p"
+next_workspace = "prefix+shift+n"
 
 [ui]
 agent_panel_sort = "spaces"

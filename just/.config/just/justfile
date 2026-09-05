@@ -102,3 +102,24 @@ set_helium_user_color2: test_darwin
       with open(path, "w") as f:
           json.dump(prefs, f, separators=(",", ":"))
       print(f"Updated: {path}")
+
+wifi_password ssid="": test_darwin
+  #!/usr/bin/env bash
+  set -euo pipefail
+
+  name="{{ssid}}"
+  if [ -z "$name" ]; then
+    name="$(networksetup -getairportnetwork en0 2>/dev/null | awk -F': ' '{print $2}')"
+  fi
+
+  if [ -z "$name" ]; then
+    echo "No SSID provided and could not determine the current network." >&2
+    exit 1
+  fi
+
+  security find-generic-password -s "AirPort" -a "$name" -w
+
+[no-cd]
+[positional-arguments]
+strip_exif +files:
+  uv run --with piexif python -c 'import sys; import piexif; files = sys.argv[1:]; [piexif.remove(path) for path in files]; remaining = [path for path in files if any(piexif.load(path).values())]; sys.exit(f"EXIF remains in: {remaining}" if remaining else 0)' "$@"

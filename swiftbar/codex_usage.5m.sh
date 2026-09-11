@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 #<xbar.title>Codex Usage</xbar.title>
-#<xbar.version>1.0</xbar.version>
+#<xbar.version>1.1</xbar.version>
 #<xbar.author>Rodrigo Nemmen da Silva</xbar.author>
 #<xbar.abouturl>https://github.com/rsnemmen/codex-usage-swiftbar/</xbar.abouturl>
-#<xbar.desc>Display Codex/OpenAI rate limit utilization</xbar.desc>
+#<xbar.desc>Display remaining Codex/OpenAI rate limit capacity</xbar.desc>
 #<xbar.dependencies>curl,python3,codex(optional)</xbar.dependencies>
 
 #<xbar.var>boolean(VAR_SHOW_7D="false"): Also show weekly window in title.</xbar.var>
@@ -22,7 +22,7 @@ SOURCE_MODE="${VAR_SOURCE:-auto}"
 
 OPENAI_ICON="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"
 
-USAGE_CACHE="/tmp/.codex_swiftbar_cache_v2"
+USAGE_CACHE="/tmp/.codex_swiftbar_cache_v3"
 TOKEN_CACHE="/tmp/.codex_swiftbar_token"
 CACHE_TTL=300
 TOKEN_TTL=900
@@ -229,10 +229,10 @@ def mk(w):
     if not isinstance(w, dict):
         return None
     try:
-        used = int(w.get("used_percent"))
+        remaining = 100 - int(w.get("used_percent"))
         reset = int(w.get("reset_at"))
         mins = int(w.get("limit_window_seconds")) // 60
-        return {"used": used, "reset": reset, "mins": mins}
+        return {"remaining": max(0, min(100, remaining)), "reset": reset, "mins": mins}
     except Exception:
         return None
 
@@ -273,7 +273,7 @@ def out(w):
     if not w:
         return ("NA", "")
     iso = datetime.datetime.fromtimestamp(w["reset"], tz=datetime.timezone.utc).isoformat().replace("+00:00", "Z")
-    return (str(w["used"]), iso)
+    return (str(w["remaining"]), iso)
 
 u5, r5 = out(session)
 u7, r7 = out(weekly)
@@ -295,15 +295,15 @@ lines = [ln.strip() for ln in t.splitlines() if ln.strip()]
 five = next((ln for ln in lines if re.search(r'5h limit', ln, re.I)), "")
 week = next((ln for ln in lines if re.search(r'weekly limit', ln, re.I)), "")
 
-def used(line):
+def remaining(line):
     if not line:
         return "NA"
     m = re.search(r'(\d+)\s*%\s*left', line, re.I)
     if m:
-        return str(max(0, min(100, 100 - int(m.group(1)))))
+        return m.group(1)
     m = re.search(r'(\d+)\s*%', line)
     if m:
-        return m.group(1)
+        return str(max(0, min(100, 100 - int(m.group(1)))))
     return "NA"
 
 def reset(line):
@@ -312,8 +312,8 @@ def reset(line):
     m = re.search(r'\(([^()]*)\)', line)
     return m.group(1).strip() if m else ""
 
-print(used(five))
-print(used(week))
+print(remaining(five))
+print(remaining(week))
 print("")
 print("")
 print(reset(five))
@@ -367,7 +367,7 @@ try:
     window = timedelta(days=days)
     start = reset - window
     now = datetime.now(timezone.utc)
-    pct = max(0.0, min(100.0, (now - start).total_seconds() / window.total_seconds() * 100))
+    pct = max(0.0, min(100.0, (reset - now).total_seconds() / window.total_seconds() * 100))
     print(round(pct))
 except Exception:
     print(0)
@@ -377,8 +377,8 @@ PY
 color_for_pct() {
   local pct=$1
   if [ "$COLORS" = "true" ]; then
-    [ "$pct" -ge 90 ] 2>/dev/null && echo "#FF0000" && return
-    [ "$pct" -ge 70 ] 2>/dev/null && echo "#FFD700" && return
+    [ "$pct" -le 10 ] 2>/dev/null && echo "#FF0000" && return
+    [ "$pct" -le 30 ] 2>/dev/null && echo "#FFD700" && return
   fi
   echo ""
 }
@@ -526,7 +526,7 @@ fi
 echo "---"
 if [ "$HAS_5H" = "true" ]; then
   BAR_5H="$(make_bar "$PCT_5H")"
-  echo "5h window | color=#888888"
+  echo "5h remaining | color=#888888"
   [ -n "$COLOR_5H" ] && echo "5h: ${PCT_5H}% ${BAR_5H} | color=${COLOR_5H}" || echo "5h: ${PCT_5H}% ${BAR_5H}"
   if [ "$SHOW_RESET" = "true" ]; then
     if [ -n "$RESET_5H" ]; then
@@ -542,11 +542,11 @@ fi
 echo "---"
 if [ "$HAS_7D" = "true" ]; then
   BAR_7D="$(make_bar "$PCT_7D")"
-  echo "Weekly window | color=#888888"
+  echo "Weekly remaining | color=#888888"
   [ -n "$COLOR_7D" ] && echo "7d: ${PCT_7D}% ${BAR_7D} | color=${COLOR_7D}" || echo "7d: ${PCT_7D}% ${BAR_7D}"
   if [ "$SHOW_PACE" = "true" ] && [ -n "$RESET_7D" ]; then
     PACE_7D="$(pace_pct "$RESET_7D" 7)"
-    echo "Pace: ${PACE_7D}% $(make_bar "$PACE_7D") | color=#888888"
+    echo "Expected remaining: ${PACE_7D}% $(make_bar "$PACE_7D") | color=#888888"
   fi
   if [ "$SHOW_RESET" = "true" ]; then
     if [ -n "$RESET_7D" ]; then

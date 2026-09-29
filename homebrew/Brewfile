@@ -73,7 +73,7 @@ cask "vlc"
 cask "vnc-viewer"
 
 tap "anomalyco/tap", trust: true
-brew "anomalyco/tap/opencode", trust: true
+brew "anomalyco/tap/opencode-v2", trust: true
 
 tap "heroku/brew", trust: true
 brew "heroku/brew/heroku", trust: true

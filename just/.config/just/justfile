@@ -43,7 +43,7 @@ test_darwin:
   test "$(uname)" == "Darwin"
 
 reset_dock: test_darwin
-  defaults write com.apple.dock tilesize -int 32
+  defaults write com.apple.dock tilesize -int 36
   killall Dock
 
 show_desktop: test_darwin

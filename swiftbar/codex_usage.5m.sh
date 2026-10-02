@@ -6,6 +6,11 @@
 #<xbar.desc>Display remaining Codex/OpenAI rate limit capacity</xbar.desc>
 #<xbar.dependencies>curl,python3,codex(optional)</xbar.dependencies>
 
+# Local changes from upstream:
+# - Show remaining capacity instead of used utilization.
+# - Invert progress bars, pace, and warning thresholds to match.
+# - Use a compact 18x18 dual-bar icon without the provider logo.
+
 #<xbar.var>boolean(VAR_SHOW_7D="false"): Also show weekly window in title.</xbar.var>
 #<xbar.var>boolean(VAR_COLORS="true"): Color-code title at warning/critical levels.</xbar.var>
 #<xbar.var>boolean(VAR_SHOW_RESET="true"): Show time-until-reset in dropdown.</xbar.var>

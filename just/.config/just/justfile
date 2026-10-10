@@ -61,6 +61,22 @@ flush_dns_cache: test_darwin
   sudo dscacheutil -flushcache
   sudo killall -HUP mDNSResponder
 
+fix_stremio_web_ui: test_darwin
+  #!/usr/bin/env bash
+  set -euo pipefail
+
+  osascript -e 'tell application id "com.westbridge.stremio5-mac" to quit' 2>/dev/null || true
+  sleep 3
+
+  stamp="$(date +%Y%m%d-%H%M%S)"
+  webkit="$HOME/Library/WebKit/com.westbridge.stremio5-mac"
+  cache="$HOME/Library/Caches/com.westbridge.stremio5-mac"
+
+  if [ -e "$webkit" ]; then mv "$webkit" "$webkit.backup-$stamp"; fi
+  if [ -e "$cache" ]; then mv "$cache" "$cache.backup-$stamp"; fi
+
+  open -a Stremio
+
 set_hostname hostname: test_darwin
   sudo scutil --set ComputerName "{{hostname}}"
   sudo scutil --set LocalHostName "{{hostname}}"

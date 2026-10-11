@@ -3,6 +3,7 @@ $directory\
 $git_branch\
 $git_status\
 $python\
+${custom.uv_python}\
 $nodejs\
 $rust\
 $terraform\
@@ -25,6 +26,13 @@ format = "($conflicted$untracked$modified$staged$renamed$deleted) "
 format = "(• python-$version( • $virtualenv)) "
 symbol = ""
 version_format = "$raw"
+
+[custom.uv_python]
+command = "uv python find --show-version 2>/dev/null"
+detect_extensions = ["py"]
+detect_files = ["pyproject.toml", "uv.lock", ".python-version"]
+detect_folders = [".venv"]
+format = "(• uv-python-$output) "
 
 [nodejs]
 format = "(• node-$version) "

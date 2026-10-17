@@ -13,6 +13,9 @@ bindkey "^N" history-beginning-search-forward
 export PATH="$HOME/.bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.npm-global/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.opencode/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
 export LANG="en_US.UTF-8"
@@ -117,7 +120,11 @@ export ZSH="$HOME/.oh-my-zsh"
 
 plugins=(git fzf)
 
-source $ZSH/oh-my-zsh.sh
+if [[ -f "$ZSH/oh-my-zsh.sh" ]]; then
+  source "$ZSH/oh-my-zsh.sh"
+else
+  echo "$(__pill_text WARN 3) Oh My Zsh not found"
+fi
 
 
 # darwin
@@ -160,7 +167,7 @@ if [[ -d "$FNM_PATH" ]]; then
 fi
 
 if command -v fnm > /dev/null 2>&1; then
-  eval "$(fnm env --use-on-cd)"
+  eval "$(fnm env --use-on-cd --shell zsh)"
   echo "$(__pill_text OK 2) fnm"
 else
   echo "$(__pill_text WARN 3) fnm not found"
@@ -217,7 +224,7 @@ fi
 
 # keychain
 
-if [[ -d "$HOME/.keychain" ]]; then
+if command -v keychain > /dev/null 2>&1 && [[ -d "$HOME/.keychain" ]]; then
   local default_keyfile=$HOME/.ssh/id_ed25519
   local default_keychain_shellenv=$HOME/.keychain/$(hostname)-sh
 
@@ -242,17 +249,27 @@ fi
 
 # rs-fortune
 
-if command -v rs-fortune > /dev/null 2>&1; then
+if command -v rs-fortune > /dev/null 2>&1 && command -v boxes > /dev/null 2>&1; then
   # Show a fortune every 30 minutes
   local fortune_stamp="/tmp/.rs-fortune-stamp"
   if [[ ! -f "$fortune_stamp" ]] || [[ -n $(find "$fortune_stamp" -mmin +30) ]]; then
+    # Debian and Ubuntu may ship boxes older than 2.3.0, which lacks ansi-rounded.
+    local boxes_design="stone"
+    if boxes -l 2> /dev/null | grep -q '^ansi-rounded$'; then
+      boxes_design="ansi-rounded"
+    fi
+
     touch "$fortune_stamp"
     echo
-    FORTUNE_FILE="$HOME/.files/rs-fortune/fortunes.txt" rs-fortune | fmt -w $((COLUMNS - 4)) | boxes -d ansi-rounded
+    FORTUNE_FILE="$HOME/.files/rs-fortune/fortunes.txt" rs-fortune | fmt -w $((COLUMNS - 4)) | boxes -d "$boxes_design"
   fi
 fi
 
 
 # starship
 
-eval "$(starship init zsh)"
+if command -v starship > /dev/null 2>&1; then
+  eval "$(starship init zsh)"
+else
+  echo "$(__pill_text WARN 3) starship not found"
+fi

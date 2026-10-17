@@ -1,3 +1,5 @@
+ARG BASE_IMAGE=debian:trixie
+
 FROM --platform=linux/amd64 busybox AS nvim-amd64-download
 
 ADD https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz /tmp/nvim.tar.gz
@@ -16,27 +18,28 @@ RUN tar -xzvf /tmp/nvim.tar.gz -C /tmp/ --strip-components=1
 
 # ---
 
-FROM debian:bookworm
+FROM ${BASE_IMAGE}
+
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update -y \
-  && apt-get install -y build-essential zsh git ripgrep fzf tmux make curl sudo unzip universal-ctags stow \
-  && curl -fsSL https://fnm.vercel.app/install | bash \
-  && $HOME/.local/share/fnm/fnm install 24 \
-  && $HOME/.local/share/fnm/fnm exec --using=24 npm update --location=global npm
+  && apt-get install -y --no-install-recommends ca-certificates curl make stow \
+  && rm -rf /var/lib/apt/lists/*
 
-COPY --from=nvim-extracted /tmp/bin/nvim /bin/nvim
+COPY --from=nvim-extracted /tmp/ /opt/nvim/
+
+ENV PATH="/root/.local/bin:/root/.local/share/fnm:/root/.opencode/bin:/root/go/bin:/opt/nvim/bin:${PATH}"
+
+COPY install/debian.sh /tmp/install-debian.sh
+
+RUN /tmp/install-debian.sh \
+  && rm /tmp/install-debian.sh
 
 COPY . /root/.files/
 
 WORKDIR /root/.files/
 
-RUN make zsh-configure \
-  && stow zsh \
-  && stow nvim \
-  && stow tmux \
-  && stow ripgrep \
-  && make git-configure \
-  && stow git
+RUN make linux-configure
 
 # Just to inform the Starship prompt to show that we are in a Docker container
 ENV IN_DOCKER=true

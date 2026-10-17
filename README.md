@@ -4,15 +4,20 @@ Personal configurations for nvim, zsh, tmux, etc.
 
 ## TL;DR
 
+### macOS
+
 ```
 git clone git@github.com:b-ggs/dotfiles.git $HOME/.files
 cd $HOME/.files
-stow nvim
-make zsh-configure
-stow zsh
-stow tmux
-stow ripgrep
-make git-configure
-stow git
-stow bin
+make brew-bundle
+make macos-configure
+```
+
+### Debian and Ubuntu
+
+```sh
+git clone https://github.com/b-ggs/dotfiles.git "$HOME/.files"
+cd "$HOME/.files"
+make linux-install
+make linux-configure
 ```

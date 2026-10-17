@@ -1,10 +1,20 @@
 zsh-configure:
-	sh -c "$$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-	rm -f $$HOME/.zshrc
-	rm -f $$HOME/.zprofile
+	test -d $$HOME/.oh-my-zsh || git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git $$HOME/.oh-my-zsh
+
+linux-install:
+	./install/debian.sh
+
+linux-configure: zsh-configure git-configure gh-configure
+	stow --restow bin ctags git herdr just nvim ripgrep tealdeer tmux zsh
+
+macos-configure: zsh-configure git-configure gh-configure swiftbar-configure
+	stow --restow bin ctags git hammerspoon herdr just kitty nvim ripgrep tealdeer tmux zsh
 
 git-configure:
 	git/configure
+
+swiftbar-configure:
+	defaults write com.ameba.SwiftBar PluginDirectory $$HOME/.files/swiftbar
 
 gh-configure:
 	gh alias delete --all

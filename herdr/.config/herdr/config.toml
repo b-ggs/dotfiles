@@ -12,6 +12,12 @@ next_workspace = "prefix+shift+n"
 agent_panel_sort = "spaces"
 prompt_new_tab_name = false
 
+[[keys.command]]
+key = "prefix+]"
+type = "shell"
+command = "if command -v pbpaste >/dev/null 2>&1; then pbpaste; elif command -v wl-paste >/dev/null 2>&1 && [ -n \"$WAYLAND_DISPLAY\" ]; then wl-paste --no-newline; else xclip -out -selection clipboard; fi | xargs -0 \"$HERDR_BIN_PATH\" pane send-text \"$HERDR_ACTIVE_PANE_ID\""
+description = "paste clipboard into focused pane"
+
 # https://github.com/iurysza/herdr-pane-layouts
 
 [[keys.command]]

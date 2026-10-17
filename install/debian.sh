@@ -150,7 +150,10 @@ if ! command -v herdr >/dev/null 2>&1; then
   curl -fsSL https://herdr.dev/install.sh | sh
 fi
 
-if [[ ! -x "$HOME/.opencode/bin/opencode" ]]; then
+# Also replaces an existing OpenCode 1 install, which lives at the same path
+opencode_version="$("$HOME/.opencode/bin/opencode" --version 2>/dev/null || true)"
+opencode_version="${opencode_version##* }"
+if [[ "${opencode_version#v}" != 2.* ]]; then
   curl -fsSL https://opencode.ai/v2/install | bash -s -- --no-modify-path
 fi
 

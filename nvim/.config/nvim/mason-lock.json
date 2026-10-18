@@ -1,19 +1,19 @@
 {
   "bash-language-server": "5.8.1",
   "css-lsp": "4.10.0",
-  "djlint": "1.46.4",
+  "djlint": "1.46.6",
   "gopls": "v0.23.0",
   "html-lsp": "4.10.0",
-  "lua-language-server": "3.19.1",
-  "prettier": "3.9.9",
+  "lua-language-server": "3.19.2",
+  "prettier": "3.9.10",
   "pyright": "1.1.414",
-  "ruff": "0.16.10",
+  "ruff": "0.17.1",
   "shellcheck": "v0.11.0",
   "shfmt": "v3.14.1",
-  "stylua": "v2.5.2",
+  "stylua": "v2.6.0",
   "tailwindcss-language-server": "0.16.0",
   "taplo": "0.10.0",
-  "typescript-language-server": "6.0.1",
-  "typos-lsp": "v0.1.56",
-  "vue-language-server": "3.3.12"
+  "typescript-language-server": "6.0.2",
+  "typos-lsp": "v0.1.57",
+  "vue-language-server": "3.3.13"
 }

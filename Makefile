@@ -5,10 +5,10 @@ linux-install:
 	./install/debian.sh
 
 linux-configure: zsh-configure git-configure gh-configure
-	stow --restow bin ctags git herdr just nvim ripgrep tealdeer tmux zsh
+	stow --restow bin ctags git herdr just nvim opencode ripgrep tealdeer tmux zsh
 
 macos-configure: zsh-configure git-configure gh-configure swiftbar-configure
-	stow --restow bin ctags git hammerspoon herdr just kitty nvim ripgrep tealdeer tmux zsh
+	stow --restow bin ctags git hammerspoon herdr just kitty nvim opencode ripgrep tealdeer tmux zsh
 
 git-configure:
 	git/configure

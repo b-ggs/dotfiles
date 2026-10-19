@@ -28,7 +28,7 @@ RUN apt-get update -y \
 
 COPY --from=nvim-extracted /tmp/ /opt/nvim/
 
-ENV PATH="/root/.local/bin:/root/.local/share/fnm:/root/.opencode/bin:/root/go/bin:/opt/nvim/bin:${PATH}"
+ENV PATH="/root/.local/opt/go/bin:/root/.local/bin:/root/.local/share/fnm:/root/.opencode/bin:/root/go/bin:/opt/nvim/bin:${PATH}"
 
 COPY install/debian.sh /tmp/install-debian.sh
 

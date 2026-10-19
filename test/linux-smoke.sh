@@ -33,6 +33,7 @@ for command_name in "${required_commands[@]}"; do
 done
 
 fnm exec --using=lts-latest node --version
+go version
 tree-sitter --version
 
 zsh -n "$HOME/.zshrc"

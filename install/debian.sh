@@ -38,7 +38,6 @@ packages=(
   curl
   file
   git
-  golang-go
   htop
   keychain
   locales
@@ -73,6 +72,7 @@ machine="$(uname -m)"
 case "$machine" in
   x86_64|amd64)
     nvim_arch="x86_64"
+    go_arch="amd64"
     eza_target="x86_64-unknown-linux-gnu"
     fzf_arch="amd64"
     gh_arch="amd64"
@@ -82,6 +82,7 @@ case "$machine" in
     ;;
   aarch64|arm64)
     nvim_arch="arm64"
+    go_arch="arm64"
     eza_target="aarch64-unknown-linux-gnu"
     fzf_arch="arm64"
     gh_arch="arm64"
@@ -110,6 +111,29 @@ install_nvim() {
 if ! command -v nvim >/dev/null 2>&1; then
   install_nvim
 fi
+
+install_go() {
+  local destination="$HOME/.local/opt/go"
+  local latest_version
+  local installed_version
+  local archive
+
+  latest_version="$(curl -fsSL 'https://go.dev/VERSION?m=text' | sed -n '1p')"
+  installed_version="$("$destination/bin/go" version 2>/dev/null | awk '{print $3}' || true)"
+
+  if [[ "$installed_version" == "$latest_version" ]]; then
+    return
+  fi
+
+  archive="$(mktemp)"
+  curl -fsSL "https://go.dev/dl/${latest_version}.linux-${go_arch}.tar.gz" -o "$archive"
+  rm -rf "$destination"
+  mkdir -p "$destination"
+  tar -xzf "$archive" -C "$destination" --strip-components=1
+  rm -f "$archive"
+}
+
+install_go
 
 if ! command -v eza >/dev/null 2>&1; then
   curl -fsSL "https://github.com/eza-community/eza/releases/latest/download/eza_${eza_target}.tar.gz" \

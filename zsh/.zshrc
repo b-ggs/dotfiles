@@ -16,6 +16,7 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.opencode/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/.local/opt/go/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
 export LANG="en_US.UTF-8"

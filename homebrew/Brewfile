@@ -66,10 +66,10 @@ cask "spotify"
 cask "swiftbar"
 cask "tailscale-app"
 cask "telegram"
+cask "tigervnc"
 cask "transmission"
 cask "visual-studio-code"
 cask "vlc"
-cask "vnc-viewer"
 
 tap "anomalyco/tap", trust: true
 brew "anomalyco/tap/opencode-v2", trust: true

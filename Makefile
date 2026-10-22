@@ -39,5 +39,11 @@ check-linux:
 brew-bundle:
 	cd homebrew && brew bundle --verbose
 
+nvim-lazy-update:
+	nvim --headless "+Lazy! update $(PLUGINS)" +qa
+
+nvim-mason-update:
+	nvim --headless +MasonToolsUpdateSync +MasonLock +qa
+
 format:
 	find . -name "*.lua" | xargs npx @johnnymorganz/stylua-bin

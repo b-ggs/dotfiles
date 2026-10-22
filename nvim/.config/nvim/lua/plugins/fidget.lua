@@ -1,1 +1,1 @@
-return { "j-hui/fidget.nvim", tag = "v1.6.1", config = true }
+return { "j-hui/fidget.nvim", tag = "v2.0.0", config = true }

@@ -1,6 +1,7 @@
 # vim: set ft=ruby:
 
 brew "aria2"
+brew "b2-tools"
 brew "bat"
 brew "boxes"
 brew "btop"

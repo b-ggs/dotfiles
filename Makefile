@@ -39,6 +39,8 @@ check-linux:
 brew-bundle:
 	cd homebrew && brew bundle --verbose
 
+nvim-update: nvim-lazy-update nvim-mason-update
+
 nvim-lazy-update:
 	nvim --headless "+Lazy! update $(PLUGINS)" +qa
 

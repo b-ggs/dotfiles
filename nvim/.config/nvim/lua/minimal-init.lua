@@ -19,11 +19,7 @@ vim.opt.clipboard = "unnamed,unnamedplus"
 -- host's clipboard through the terminal with OSC 52. Neovim only does this
 -- automatically when $SSH_TTY is set. Pasting via OSC 52 is often blocked by
 -- terminals/multiplexers, so paste from Neovim's own registers instead.
-if
-  vim.fn.has("linux") == 1
-  and os.getenv("DISPLAY") == nil
-  and os.getenv("WAYLAND_DISPLAY") == nil
-then
+if vim.fn.has("linux") == 1 and os.getenv("DISPLAY") == nil and os.getenv("WAYLAND_DISPLAY") == nil then
   local osc52 = require("vim.ui.clipboard.osc52")
   local function paste()
     return { vim.fn.split(vim.fn.getreg(""), "\n"), vim.fn.getregtype("") }

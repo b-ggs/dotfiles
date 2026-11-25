@@ -15,6 +15,26 @@ vim.opt.errorbells = false
 -- TODO: Clipboard configuration for WSL?
 vim.opt.clipboard = "unnamed,unnamedplus"
 
+-- On headless Linux (e.g. remote machine without X/Wayland), copy to the
+-- host's clipboard through the terminal with OSC 52. Neovim only does this
+-- automatically when $SSH_TTY is set. Pasting via OSC 52 is often blocked by
+-- terminals/multiplexers, so paste from Neovim's own registers instead.
+if
+  vim.fn.has("linux") == 1
+  and os.getenv("DISPLAY") == nil
+  and os.getenv("WAYLAND_DISPLAY") == nil
+then
+  local osc52 = require("vim.ui.clipboard.osc52")
+  local function paste()
+    return { vim.fn.split(vim.fn.getreg(""), "\n"), vim.fn.getregtype("") }
+  end
+  vim.g.clipboard = {
+    name = "OSC 52",
+    copy = { ["+"] = osc52.copy("+"), ["*"] = osc52.copy("*") },
+    paste = { ["+"] = paste, ["*"] = paste },
+  }
+end
+
 -- Wrap line to previous line's indentation
 vim.opt.breakindent = true
 

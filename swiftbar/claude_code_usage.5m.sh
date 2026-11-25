@@ -10,6 +10,7 @@
 # - Show remaining capacity instead of used utilization.
 # - Invert progress bars, pace, and warning thresholds to match.
 # - Use a compact 18x18 dual-bar icon without the provider logo.
+# - Indicate peak/off-peak hours (weekdays 5-11 AM PT session limits drain faster).
 
 # User variables
 # ================
@@ -18,6 +19,7 @@
 #<xbar.var>boolean(VAR_SHOW_RESET="true"): Show time-until-reset for each window in the dropdown.</xbar.var>
 #<xbar.var>boolean(VAR_SHOW_BARS="true"): Show compact dual progress bars (5h top, 7d bottom).</xbar.var>
 #<xbar.var>boolean(VAR_SHOW_PACE="false"): Show expected remaining capacity under the 7d window.</xbar.var>
+#<xbar.var>boolean(VAR_SHOW_OFFPEAK="true"): Show a moon in the menu bar during off-peak hours.</xbar.var>
 
 umask 077
 
@@ -26,6 +28,7 @@ COLORS="${VAR_COLORS:-true}"
 SHOW_RESET="${VAR_SHOW_RESET:-true}"
 SHOW_BARS="${VAR_SHOW_BARS:-true}"
 SHOW_PACE="${VAR_SHOW_PACE:-false}"
+SHOW_OFFPEAK="${VAR_SHOW_OFFPEAK:-true}"
 
 CLAUDE_ICON="iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAHhlWElmTU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAIdpAAQAAAABAAAATgAAAAAAAABIAAAAAQAAAEgAAAABAAOgAQADAAAAAQABAACgAgAEAAAAAQAAABKgAwAEAAAAAQAAABIAAAAAqSaGYgAAAAlwSFlzAAALEwAACxMBAJqcGAAAAdJJREFUOBGV0z1IVWEYB3Cv2ZAVlQUpWDnYJqZBREPU1tISBo1OBkEfWBGNQhTR1iwu2hIENdYUVBRBBjXVUEZRYBLah2CD3X5/O/cQ14vRA7/zPO/Hec857zmnqakuqtVqM11U6ob+r2mBQ3zjYu1MdR/3aKv1/TObvI9ffKqdKA+zwOYsIPewv+FiBrbSWky8oU6cKtrX1C+Kuludi3xkaX65oI4WJnlOLx185TUZmyi0yk9JXGf5Puo8zjzfGeACiSPcJu0xErno+vJO6guDu3hAYpwZnvCY3G1ijp76cxu2TTxP7qwWi0WRlzBCP0OMcou2isMWq43wky/MME0vZ9lELaqKjK0m8/ICHjLW4jDPSzrYQDt9JBb/pPKYua+4zyTvmapUKgvy8nCXnWSPpsjj1GJKcZm7TJN4R3vuqAwd6zSGyfdzh2fkEbrIFkQ3A+Tx+lnLbPkdWGSvjnFWcYJOhhjlMD84wCO2c9QjfZaXorlWyLlCFtrNLJcYZAdznCPfzgcmyLe1U24cBrfxhmOZIednvVrUg+rEHvJzH0x/wzB4hisZlNeQ/+p00c7ncpOTDU/+u9Ok8gWoN/KW7FEZ2n9vSdm/YuGkdrJ/K8ZvZcjUYTq3RuAAAAAASUVORK5CYII="
 
@@ -247,6 +250,50 @@ except Exception:
 " 2>/dev/null || echo "0"
 }
 
+# === Helper: peak/off-peak status ===
+# Peak hours are weekdays 5:00-11:00 AM America/Los_Angeles; 5h session limits
+# drain faster then. Weekly limits are unaffected.
+# Prints "<peak|off>\t<countdown to next transition>".
+
+peak_status() {
+  python3 -c "
+from datetime import datetime, timedelta, time
+from zoneinfo import ZoneInfo
+tz = ZoneInfo('America/Los_Angeles')
+now = datetime.now(tz)
+START, END = time(5), time(11)
+def at(d, t):
+    return datetime.combine(d, t, tzinfo=tz)
+is_peak = now.weekday() < 5 and START <= now.time() < END
+if is_peak:
+    nxt = at(now.date(), END)
+else:
+    d = now.date()
+    if now.time() >= START:
+        d += timedelta(days=1)
+    while d.weekday() >= 5:
+        d += timedelta(days=1)
+    nxt = at(d, START)
+secs = (nxt - now).total_seconds()
+days, hours, mins = int(secs // 86400), int(secs % 86400 // 3600), int(secs % 3600 // 60)
+if days > 0:
+    left = f'{days}d {hours}h'
+elif hours > 0:
+    left = f'{hours}h {mins}m'
+else:
+    left = f'{mins}m'
+print(('peak' if is_peak else 'off') + '\t' + left)
+" 2>/dev/null
+}
+
+PEAK_LINE="$(peak_status)"
+PEAK_STATE="${PEAK_LINE%%$'\t'*}"
+PEAK_LEFT="${PEAK_LINE#*$'\t'}"
+OFFPEAK_MARK=""
+if [ "$SHOW_OFFPEAK" = "true" ] && [ "$PEAK_STATE" = "off" ]; then
+  OFFPEAK_MARK="☾"
+fi
+
 # === Helper: color for a given percentage ===
 
 color_for_pct() {
@@ -348,6 +395,7 @@ else
   TITLE_COLOR="$COLOR_5H"
   TITLE="${PCT_5H}%"
 fi
+[ -n "$OFFPEAK_MARK" ] && TITLE="${TITLE} ${OFFPEAK_MARK}"
 
 render_text_title() {
   if [ -n "$TITLE_COLOR" ]; then
@@ -361,7 +409,7 @@ render_text_title() {
 if [ "$SHOW_BARS" = "true" ]; then
   BAR_ICON="$(make_icon "$PCT_5H" "$PCT_7D")"
   if [ -n "$BAR_ICON" ]; then
-    echo " | templateImage=${BAR_ICON}"
+    echo "${OFFPEAK_MARK:- } | templateImage=${BAR_ICON}"
   else
     render_text_title
   fi
@@ -386,6 +434,14 @@ fi
 if [ "$SHOW_RESET" = "true" ] && [ -n "$RESET_5H" ]; then
   UNTIL_5H="$(time_until "$RESET_5H")"
   echo "Resets in: ${UNTIL_5H} | color=#888888"
+fi
+
+if [ "$PEAK_STATE" = "peak" ]; then
+  echo "Peak hours: session limit drains faster | color=#CC8800"
+  echo "Off-peak in: ${PEAK_LEFT} (11 AM PT) | color=#888888"
+elif [ "$PEAK_STATE" = "off" ]; then
+  echo "☾ Off-peak: session limit lasts longer"
+  echo "Peak in: ${PEAK_LEFT} (weekdays 5-11 AM PT) | color=#888888"
 fi
 
 echo "---"
